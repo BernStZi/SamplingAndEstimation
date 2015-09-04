@@ -1,0 +1,18 @@
+\frametitle{Solution of the Allocation Problem}
+\begin{table}[ht]
+\centering
+\caption{Allocation Table}
+\begin{tabular}{l|rr|r}
+  & P1 & P2 & SUM \\
+  \hline
+R1 & 47 & 345 & 392 \\
+  R2 & 91 & 317 & 408 \\
+  R3 & 112 & 388 & 500 \\
+  R4.1 & 17 & 489 & 506 \\
+  R4.2 & 35 & 478 & 513 \\
+  R4.3 & 80 & 132 & 212 \\
+   \hline
+SUM & 382 & 2149 & 2531 \\
+  \end{tabular}
+\end{table}
+
