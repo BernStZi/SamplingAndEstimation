@@ -1,0 +1,210 @@
+\frametitle{Resampling with the \texttt {survey} Package}
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{strat.sample} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{sind}\hlstd{,}\hlkwc{n.h}\hlstd{)\{}
+  \hlstd{N.h}   \hlkwb{<-} \hlkwd{table}\hlstd{(sind)[}\hlkwd{names}\hlstd{(n.h)]}
+  \hlstd{N}     \hlkwb{<-} \hlkwd{length}\hlstd{(sind)}
+  \hlstd{sam}   \hlkwb{<-} \hlkwd{mapply}\hlstd{(}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,}\hlkwc{y}\hlstd{)}\hlkwd{sample}\hlstd{(x,y)}
+                   \hlstd{,}\hlkwc{x}\hlstd{=N.h,}\hlkwc{y}\hlstd{=n.h}
+                   \hlstd{,}\hlkwc{SIMPLIFY} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+  \hlstd{sam}   \hlkwb{<-} \hlkwd{mapply}\hlstd{(}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,}\hlkwc{y}\hlstd{)x[y]}
+                   \hlstd{,}\hlkwc{x}\hlstd{=}\hlkwd{split}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{N,sind)[}\hlkwd{names}\hlstd{(n.h)],}\hlkwc{y}\hlstd{=sam}
+                   \hlstd{,}\hlkwc{SIMPLIFY} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+  \hlkwd{as.numeric}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{N}\hlopt{%in%}\hlkwd{unlist}\hlstd{(sam))}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<1>{ A function to select a simple stratified random sample
+\usebox{\mysavebox} }
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(survey)}
+\hlcom{# 1. stage: districts are selected by a simple StrRS; 2. stage: schools are}
+\hlcom{# selected from sampled PSUs by a SRS}
+
+\hlkwd{data}\hlstd{(api)}
+\hlcom{## Make a stratification variable for the districts by grouping them by their}
+\hlcom{## mean value of 'api99'}
+\hlstd{apipop_d} \hlkwb{<-} \hlstd{apipop[}\hlopt{!}\hlkwd{duplicated}\hlstd{(apipop}\hlopt{$}\hlstd{dnum), ]}
+\hlstd{api99.d} \hlkwb{<-} \hlkwd{tapply}\hlstd{(apipop}\hlopt{$}\hlstd{api99, apipop}\hlopt{$}\hlstd{dnum, mean)}
+\hlstd{apipop_d}\hlopt{$}\hlstd{sind} \hlkwb{<-} \hlkwd{cut}\hlstd{(api99.d,} \hlkwd{quantile}\hlstd{(api99.d),} \hlkwc{include.lowest} \hlstd{= T)}
+
+\hlcom{## make a new data set with design relevant information}
+\hlstd{apipop.} \hlkwb{<-} \hlkwd{merge}\hlstd{(apipop, apipop_d[,} \hlkwd{c}\hlstd{(}\hlstr{"sind"}\hlstd{,} \hlstr{"dnum"}\hlstd{)],} \hlkwc{by} \hlstd{=} \hlstr{"dnum"}\hlstd{)}
+
+\hlcom{# the finite population sizes of the PSU's and SSU's}
+\hlstd{apipop.}\hlopt{$}\hlstd{fpc1} \hlkwb{<-} \hlkwd{table}\hlstd{(apipop_d}\hlopt{$}\hlstd{sind)[}\hlkwd{as.character}\hlstd{(apipop.}\hlopt{$}\hlstd{sind)]}
+\hlstd{apipop.}\hlopt{$}\hlstd{fpc2} \hlkwb{<-} \hlkwd{table}\hlstd{(apipop.}\hlopt{$}\hlstd{dnum)[}\hlkwd{as.character}\hlstd{(apipop.}\hlopt{$}\hlstd{dnum)]}
+
+\hlcom{# model for the a later calibration}
+\hlstd{pop.lm} \hlkwb{<-} \hlkwd{lm}\hlstd{(api00} \hlopt{~} \hlstd{sind}\hlopt{:}\hlstd{(stype} \hlopt{+} \hlstd{api99)} \hlopt{-} \hlnum{1} \hlopt{+} \hlstd{sind,} \hlkwc{data} \hlstd{= apipop.)}
+\hlstd{pop.totals} \hlkwb{<-} \hlkwd{colSums}\hlstd{(}\hlkwd{model.matrix}\hlstd{(pop.lm))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<2>{ First we prepare the data set to select a two-stage sample
+\usebox{\mysavebox} }
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{n_I}  \hlkwb{<-} \hlnum{40} \hlcom{#select 40 PSU's}
+\hlcom{#proportional allocation of the 1. stage sample size}
+\hlstd{n_hI} \hlkwb{<-} \hlkwd{round}\hlstd{(}\hlkwd{table}\hlstd{(apipop_d}\hlopt{$}\hlstd{sind)}\hlopt{/}\hlkwd{length}\hlstd{(apipop_d}\hlopt{$}\hlstd{sind)}\hlopt{*}\hlstd{n_I)}
+\hlcom{##1. stage sample}
+\hlstd{s_I}  \hlkwb{<-} \hlkwd{strat.sample}\hlstd{(}\hlkwc{sind}\hlstd{=apipop_d}\hlopt{$}\hlstd{sind,}\hlkwc{n.h}\hlstd{=n_hI)}\hlopt{==}\hlnum{1}
+\hlcom{#the sample of PSU's}
+\hlstd{apiclus1.str}  \hlkwb{<-} \hlstd{apipop.[apipop.}\hlopt{$}\hlstd{dnum}\hlopt{%in%}\hlstd{apipop_d[s_I,}\hlstr{"dnum"}\hlstd{],]}
+
+\hlcom{#number of sampled SSU's in PSU's}
+\hlstd{N_i} \hlkwb{<-} \hlstd{n_i} \hlkwb{<-} \hlkwd{table}\hlstd{(apiclus1.str}\hlopt{$}\hlstd{dnum)}
+\hlstd{n_i[N_i}\hlopt{<}\hlnum{3}\hlstd{]}   \hlkwb{<-} \hlstd{N_i[N_i}\hlopt{<}\hlnum{3}\hlstd{]} \hlcom{#if less than 3 schools take all}
+\hlstd{n_i[N_i}\hlopt{>=}\hlnum{3}\hlstd{]}  \hlkwb{<-} \hlnum{2}          \hlcom{#and if their are more sample 2}
+
+\hlcom{##2. stage sample}
+\hlstd{s_i} \hlkwb{<-} \hlkwd{strat.sample}\hlstd{(apiclus1.str}\hlopt{$}\hlstd{dnum,}\hlkwc{n.h}\hlstd{=n_i)}\hlopt{==}\hlnum{1}
+\hlcom{#the final sample of schools}
+\hlstd{apiclus2.str} \hlkwb{<-} \hlstd{apipop.[apipop.}\hlopt{$}\hlstd{snum}\hlopt{%in%}\hlstd{apiclus1.str[s_i,}\hlstr{"snum"}\hlstd{],]}
+
+\hlcom{#define the 'svydesign' object and calibrate the weights}
+\hlstd{dclus2.str}   \hlkwb{<-}  \hlkwd{svydesign}\hlstd{(}\hlkwc{id} \hlstd{=} \hlopt{~}\hlstd{dnum} \hlopt{+} \hlstd{snum,} \hlkwc{strata}\hlstd{=}\hlopt{~}\hlstd{sind}
+                           \hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc1} \hlopt{+} \hlstd{fpc2,} \hlkwc{data} \hlstd{= apiclus2.str)}
+\hlstd{cal.dclus2.str} \hlkwb{<-} \hlkwd{calibrate}\hlstd{(dclus2.str,}\hlkwc{stage}\hlstd{=}\hlnum{0}\hlstd{,}\hlkwc{population} \hlstd{= pop.totals}
+                            \hlstd{,}\hlkwc{formula} \hlstd{=} \hlopt{~} \hlstd{sind}\hlopt{:}\hlstd{(stype}\hlopt{+}\hlstd{api99)}\hlopt{+}\hlstd{sind}\hlopt{-}\hlnum{1}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<3>{ Now we select the sample
+\usebox{\mysavebox} }
+
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#BRR  weights}
+\hlstd{dclus2.Brr}    \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"BRR"}\hlstd{)}
+\hlcom{# BRR with Fay's weights}
+\hlstd{dclus2.FayBrr} \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"Fay"}\hlstd{,}\hlkwc{fay.rho}\hlstd{=}\hlnum{0.3}\hlstd{)}
+\hlcom{# Jackknife for stratified designs}
+\hlstd{dclus2.Jkn}    \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"JKn"}\hlstd{)}
+
+\hlcom{#standard MC boostrap}
+\hlstd{dclus2.Boot} \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"bootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+
+\hlcom{#MC sub-boostrap}
+\hlstd{dclus2.Subboot} \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"subbootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+
+\hlcom{#all off the above resampling methods will produce warnings, because of the}
+\hlcom{#multistage design}
+
+\hlcom{##MC multistage boostrap after Preston (2009).}
+\hlstd{dclus2.Mrbboot}\hlkwb{<-}\hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"mrbbootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+
+\hlcom{#a matirx of the replicate weights}
+\hlstd{dclus2.Mrbboot}\hlopt{$}\hlstd{repweights}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<4>{ Resampling weights based on the our design weights
+\usebox{\mysavebox} }
+\onslide*<5>{ The variance estimates obtained from the resampling methods and the direct method.
+% latex table generated in R 3.2.0 by xtable 1.7-4 package
+% Tue Sep 08 11:11:20 2015
+\begin{table}[ht]
+\centering
+\caption{Estimated Variances for Different Resampling Methods}
+\begin{tabular}{r|l}
+  Estimator & api00 \\
+  \hline
+$\Vest{\overline{y}_{\pi}}_1$ & 579.81 \\
+  $\Vest{\overline{y}_{\pi}}_\text{BRR}$ & 552.58 \\
+  $\Vest{\overline{y}_{\pi}}_\text{GBRR}$ & 465.08 \\
+  $\Vest{\overline{y}_{\pi}}_\text{d1JK,StrRS}$ & 634.30 \\
+  $\Vest{\overline{y}_{\pi}}_\text{MCboot}$ & 452.41 \\
+  $\Vest{\overline{y}_{\pi}}_\text{subMCboot}$ & 682.16 \\
+  $\Vest{\overline{y}_{\pi}}_\text{mrbMCboot}$ & 747.59 \\
+  \end{tabular}
+\end{table}
+
+}
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api99,cal.dclus2.str)}
+\end{alltt}
+\begin{verbatim}
+##         mean SE
+## api99 631.91  0
+\end{verbatim}
+\begin{alltt}
+\hlstd{mrbclus2}\hlkwb{<-}\hlkwd{as.svrepdesign}\hlstd{(cal.dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"mrb"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+\hlcom{#does not re-calibrate after each resample!}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api99,mrbclus2)}
+\end{alltt}
+\begin{verbatim}
+##         mean     SE
+## api99 631.91 26.211
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<6>{If you want to use calibrate weights with resampling, then every set of replicate weights (based on the design weights!) has to be calibrated. \usebox{\mysavebox} }
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\tiny
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#Be carefull with the numer of runs 'R', this takes a while!}
+\hlstd{Ests} \hlkwb{<-}
+\hlkwd{c}\hlstd{(} \hlstr{"Pest_d"} \hlstd{,}\hlstr{"Vest_d"} \hlstd{,}\hlstr{"Vest_BRR"} \hlstd{,}\hlstr{"Vest_GBRR"} \hlstd{,}\hlstr{"Vest_d1JK.StrRS"}\hlstd{,}\hlstr{"Vest_MCboot"}
+   \hlstd{,}\hlstr{"Vest_subMCboot"} \hlstd{,}\hlstr{"Vest_mrbMCboot"}\hlstd{)}
+\hlstd{R}\hlkwb{<-}\hlnum{1000}
+\hlstd{simOUT} \hlkwb{<-} \hlkwd{vapply}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{R,}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)\{}
+  \hlcom{#1. stage}
+  \hlstd{s_I}           \hlkwb{<-} \hlkwd{strat.sample}\hlstd{(}\hlkwc{sind}\hlstd{=apipop_d}\hlopt{$}\hlstd{sind,}\hlkwc{n.h}\hlstd{=n_hI)}\hlopt{==}\hlnum{1}
+  \hlstd{apiclus1.str}  \hlkwb{<-} \hlstd{apipop.[apipop.}\hlopt{$}\hlstd{dnum}\hlopt{%in%}\hlstd{apipop_d[s_I,}\hlstr{"dnum"}\hlstd{],]}
+
+  \hlstd{N_i} \hlkwb{<-} \hlstd{n_i}   \hlkwb{<-} \hlkwd{table}\hlstd{(apiclus1.str}\hlopt{$}\hlstd{dnum)}
+  \hlstd{n_i[N_i}\hlopt{<}\hlnum{3}\hlstd{]}   \hlkwb{<-} \hlstd{N_i[N_i}\hlopt{<}\hlnum{3}\hlstd{]}
+  \hlstd{n_i[N_i}\hlopt{>=}\hlnum{3}\hlstd{]}  \hlkwb{<-} \hlnum{2}
+
+  \hlcom{#2. stage}
+  \hlstd{s_i} \hlkwb{<-} \hlkwd{strat.sample}\hlstd{(apiclus1.str}\hlopt{$}\hlstd{dnum,}\hlkwc{n.h}\hlstd{=n_i)}\hlopt{==}\hlnum{1}
+  \hlstd{apiclus2.str} \hlkwb{<-} \hlstd{apipop.[apipop.}\hlopt{$}\hlstd{snum}\hlopt{%in%}\hlstd{apiclus1.str[s_i,}\hlstr{"snum"}\hlstd{],]}
+
+  \hlcom{#define the 'svydesign' object}
+  \hlstd{dclus2.str}     \hlkwb{<-} \hlkwd{svydesign}\hlstd{(} \hlkwc{id} \hlstd{=} \hlopt{~}\hlstd{dnum} \hlopt{+} \hlstd{snum,} \hlkwc{strata}\hlstd{=}\hlopt{~}\hlstd{sind,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc1} \hlopt{+} \hlstd{fpc2,} \hlkwc{data} \hlstd{= apiclus2.str)}
+  \hlstd{dclus2.Brr}     \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"BRR"}\hlstd{)}
+  \hlstd{dclus2.FayBrr}  \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"Fay"}\hlstd{,}\hlkwc{fay.rho}\hlstd{=}\hlnum{0.3}\hlstd{)}
+  \hlstd{dclus2.Jkn}     \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"JKn"}\hlstd{)}
+  \hlstd{dclus2.Boot}    \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"bootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+  \hlstd{dclus2.Subboot} \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"subbootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+  \hlstd{dclus2.Mrbboot} \hlkwb{<-} \hlkwd{as.svrepdesign}\hlstd{(dclus2.str,} \hlkwc{type}\hlstd{=}\hlstr{"mrbbootstrap"}\hlstd{,}\hlkwc{replicates}\hlstd{=}\hlnum{99}\hlstd{)}
+
+  \hlkwd{c}\hlstd{(}\hlstr{"Pest_"}\hlstd{=}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.str),}\hlstr{"Vest_d"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.str))}\hlopt{^}\hlnum{2}
+  \hlstd{,}\hlstr{"Vest_BRR"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.Brr))}\hlopt{^}\hlnum{2}\hlstd{,}\hlstr{"Vest_GBRR"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.FayBrr))}\hlopt{^}\hlnum{2}
+  \hlstd{,}\hlstr{"Vest_d1JK.StrRS"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.Jkn))}\hlopt{^}\hlnum{2}\hlstd{,}\hlstr{"Vest_MCboot"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.Boot))}\hlopt{^}\hlnum{2}
+  \hlstd{,}\hlstr{"Vest_subMCboot"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.Subboot))}\hlopt{^}\hlnum{2}\hlstd{,}\hlstr{"Vest_mrbMCboot"}\hlstd{=}\hlkwd{SE}\hlstd{(}\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,dclus2.Mrbboot))}\hlopt{^}\hlnum{2}\hlstd{)}
+ \hlstd{\}}
+ \hlstd{,}\hlkwc{FUN.VALUE} \hlstd{=} \hlkwd{array}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwd{length}\hlstd{(Ests)))}
+\hlstd{)}
+\hlkwd{dimnames}\hlstd{(simOUT)} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{stat}\hlstd{=}\hlstr{"mean.api00"}\hlstd{,}\hlkwc{est}\hlstd{=Ests ,}\hlkwc{sim}\hlstd{=}\hlnum{1}\hlopt{:}\hlstd{R)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<7>{Run a simulation to see which method is best to estimate the variance.
+\usebox{\mysavebox} }

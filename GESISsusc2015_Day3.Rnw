@@ -146,12 +146,11 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 @
 
 
-\title[Estimation]{4. GESIS Summer School in Survey Methodology
-Cologne. Course 16: Sampling, Weighting and Estimation}   
+\title[Estimation]{Sampling and Estimation}   
 \subtitle{Day 3: Estimation in Complex Survey Designs}
 
 \author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
-\date{Wednesday, August 25, 2015} 
+\date{\today} 
 
 \makebeamertitle
 

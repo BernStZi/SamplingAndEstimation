@@ -1,0 +1,55 @@
+\frametitle{Taylor-linearization with Calibration Weights}
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{428274453}\hlstd{)}
+\hlstd{sam} \hlkwb{<-} \hlkwd{UPsampford}\hlstd{(IP)}       \hlcom{# now we use Sampford sampling}
+\hlstd{sam.dat}    \hlkwb{<-} \hlstd{smho.[sam}\hlopt{==}\hlnum{1}\hlstd{, ]}
+\hlstd{sam.dat}\hlopt{$}\hlstd{IP} \hlkwb{<-} \hlstd{IP[sam}\hlopt{==}\hlnum{1}\hlstd{]}
+\hlcom{#1. build a 'design' object}
+\hlstd{sam.dsgn} \hlkwb{<-}
+  \hlkwd{svydesign}\hlstd{(}\hlkwc{ids} \hlstd{=} \hlopt{~}\hlnum{1}\hlstd{,}       \hlcom{# no clusters}
+            \hlkwc{data} \hlstd{= sam.dat,} \hlcom{# the sample data }
+            \hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{IP,}      \hlcom{# inclusion probabilities}
+            \hlkwc{pps} \hlstd{=} \hlstr{"brewer"}\hlstd{)} \hlcom{# handeling of 2. order inc.prob.}
+\hlstd{lmod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(EXPTOTAL} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,} \hlkwc{data}\hlstd{=smho.)}
+\hlstd{pop.tots} \hlkwb{<-} \hlkwd{colSums}\hlstd{(}\hlkwd{model.matrix}\hlstd{(lmod2))}
+\hlcom{#2. use 'calibrate' to compute GREG weights}
+\hlstd{sam.cal} \hlkwb{<-}
+  \hlkwd{calibrate}\hlstd{(}\hlkwc{design} \hlstd{= sam.dsgn,}
+            \hlkwc{formula} \hlstd{=} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,}
+            \hlkwc{population} \hlstd{= pop.tots,}
+            \hlkwc{calfun}\hlstd{=}\hlstr{'linear'} \hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<1>{Recall the calibration example to estimate total expenditures of hospitals. We know want to estimate the mean using $\overline{y}_w$
+\usebox{\mysavebox}}
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Estimation with design weights}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL,} \hlkwc{design} \hlstd{= sam.dsgn)}
+\end{alltt}
+\begin{verbatim}
+##              mean      SE
+## EXPTOTAL 14427717 1618361
+\end{verbatim}
+\begin{alltt}
+\hlcom{# and with calibrated weights}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL,} \hlkwc{design} \hlstd{= sam.cal)}
+\end{alltt}
+\begin{verbatim}
+##              mean     SE
+## EXPTOTAL 13480447 920393
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<2>{
+\usebox{\mysavebox}
+For \texttt{sam.cal} the reported standard errors are estimates of the linearized variance using Brewer's approximation.}

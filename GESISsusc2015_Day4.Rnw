@@ -151,12 +151,11 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 @
 
 
-\title[Variance Estimation]{4. GESIS Summer School in Survey Methodology
-Cologne. Course 16: Sampling, Weighting and Estimation} 
+\title[Variance Estimation]{Sampling and Estimation} 
 \subtitle{Day 4: Linearization Methods for Variance Estimation}
 
 \author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
-\date{Thursday, August 27, 2015} 
+\date{\today} 
 
 \makebeamertitle
 
