@@ -840,7 +840,7 @@ Now we check if the calibration constrains are satisfied:
 
 \begin{frame}[fragile]{Generalized Regression Estimator}
 It is possible to add some additional constraints to the calibration problem to ensure that the resulting weights do not deviate to much from the input weights (e.g. the design weights), thus reducing the risk of having negative weights. 
-<<GREG.wBD, message=FALSE, cache=TRUE, dependson='GREG.calib'>>=
+<<GREG.wBD, message=FALSE, cache=TRUE, dependson='GREG.calib',warning=FALSE>>=
 #GREG with bounds
 sam.calBD  <- 
   calibrate(design = sam.dsgn,

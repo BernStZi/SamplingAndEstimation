@@ -387,8 +387,8 @@ x_{kq}=
 \begin{frame}[fragile]{Post-stratification}
 
 \onslide<1->{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:38 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for Hair and Eye Colour} 
@@ -404,8 +404,8 @@ Black & 68 & 20 & 15 & 5 \\
 
 }
 \onslide*<2>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:38 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Sample counts $\sum_{k \in \mathfrc{s}} x_{kq}$ in a SRS with $n=150$} 
@@ -421,8 +421,8 @@ Black & 14 & 7 & 2 & 2 \\
 
 }
 \onslide*<3>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:38 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Estimated totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ } 
@@ -438,8 +438,8 @@ Black & 55.2533 & 27.6267 & 7.8933 & 7.8933 \\
 
 }
 \onslide<4>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:38 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Post-stratification $g_k = \dfrac{\tau_{x_q}}{\hat{\tau}_{x_q}}$ } 
@@ -485,8 +485,8 @@ The design weights of a SRSC cluster sample of school districts are raked to
 variables school type (\texttt{stype}) and the accomplishment of the growth target (\texttt{sch.wide}).
 \begin{center}
 \usebox{\mysavebox}
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:38 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for School Type (\texttt{stype}) and School Target (\texttt{sch.wide}) } 
@@ -588,8 +588,8 @@ SUM & 1072 & 5122 & 6194 \\
 \begin{frame}[fragile]{Raking}
 
 \only<1>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:39 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Estimated Totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ from a SRCS of Districts (\texttt{dname})  with $n_{\RN{1}}=10$} 
@@ -903,10 +903,6 @@ It is possible to add some additional constraints to the calibration problem to 
             \hlkwc{population} \hlstd{= pop.tots,}
             \hlkwc{bounds} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0.5}\hlstd{,}\hlnum{2}\hlstd{),}
             \hlkwc{calfun}\hlstd{=}\hlstr{'linear'} \hlstd{)}
-\end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: package 'MASS' was built under R version 3.2.2}}\begin{alltt}
 \hlcom{#ratio without bounds and with them}
 \hlkwd{rbind}\hlstd{(}\hlkwc{noBD}\hlstd{=}\hlkwd{summary}\hlstd{(}\hlkwd{weights}\hlstd{(sam.cal)}\hlopt{/}\hlkwd{weights}\hlstd{(sam.dsgn)),}
       \hlkwc{BD}\hlstd{=}\hlkwd{summary}\hlstd{(}\hlkwd{weights}\hlstd{(sam.calBD)}\hlopt{/}\hlkwd{weights}\hlstd{(sam.dsgn)))}
@@ -986,8 +982,8 @@ The variable \texttt{resp} is the respondent indicator (0 = non-respondent; 1 = 
 \usebox{\mysavebox}
 }
 \onslide*<3>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:39 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:16 2015
 \begin{table}[ht]
 \centering
 \caption{Model Summary} 
@@ -1070,8 +1066,8 @@ the \texttt{svyglm} function from the \texttt{survey} package.
 \usebox{\mysavebox}
 }
 \onslide*<6>{
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Tue Sep 08 11:10:39 2015
+% latex table generated in R 3.2.2 by xtable 1.7-4 package
+% Wed Sep 23 13:24:17 2015
 \begin{table}[ht]
 \centering
 \caption{Weighted and Unweighted Parameter Estimates from Logistic Models} 

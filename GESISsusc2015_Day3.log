@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.7)  8 SEP 2015 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.7)  23 SEP 2015 13:24
 entering extended mode
 **GESISsusc2015_Day3.tex
 (GESISsusc2015_Day3.tex
@@ -2228,13 +2228,9 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 923.
+ine 919.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
-
-Overfull \vbox (19.48236pt too high) detected at line 923
- []
-
-[53
+ [53
 
 ] (GESISsusc2015_Day3.vrb
 Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
@@ -2279,14 +2275,14 @@ Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
  []
 
 )
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 32--1097
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 32--1093
 [] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [54
 
@@ -2333,14 +2329,14 @@ Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
  []
 
 )
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 55--1097
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 55--1093
 [] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [55
 
@@ -2390,7 +2386,7 @@ Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [56
 
@@ -2437,17 +2433,17 @@ Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
  []
 
 )
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 113--1097
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 113--1093
 [] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
-Overfull \vbox (3.82245pt too high) detected at line 1097
+Overfull \vbox (3.82245pt too high) detected at line 1093
  []
 
 [57
@@ -2495,14 +2491,14 @@ Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
  []
 
 )
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 139--1097
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 139--1093
 [] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [58
 
@@ -2557,7 +2553,7 @@ Overfull \hbox (15.07231pt too wide) in paragraph at lines 164--164
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1097.
+ine 1093.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [59
 
@@ -2566,7 +2562,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1118.
+ine 1114.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 Package atenddvi Info: Last page = 60.
  [60
@@ -2576,15 +2572,15 @@ Package atenddvi Info: Last page = 60.
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1137.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 1137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1133.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 1133.
  (GESISsusc2015_Day3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1137.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1133.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1133.
 
 Package rerunfilecheck Info: File `GESISsusc2015_Day3.out' has not changed.
 (rerunfilecheck)             Checksum: 3E5EB4A127DFB2B0C12AB4FCA94865D0;133.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1133.
  )
 (\end occurred when \ifx on line 99 was incomplete) 
 Here is how much of TeX's memory you used:
@@ -2625,7 +2621,7 @@ fonts/type1/public/cm-super/sftt0800.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/cm-super/sftt1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/he
 lvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on GESISsusc2015_Day3.pdf (60 pages, 1537639 bytes).
+Output written on GESISsusc2015_Day3.pdf (60 pages, 1537465 bytes).
 PDF statistics:
  1913 PDF objects out of 2073 (max. 8388607)
  125 named destinations out of 1000 (max. 500000)
