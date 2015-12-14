@@ -1,0 +1,208 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/outer/beamerouterthemesidebarGesis.sty,v 1.8 2004/12/09 22:31:19 tantau Exp $
+
+
+\newdimen\beamer@sidebarwidth
+\newdimen\beamer@headheight
+
+\newif\ifbeamer@displaysidebar
+\beamer@displaysidebarfalse
+\DeclareOptionBeamer{sidebar}[false]{\csname beamer@displaysidebar#1\endcsname}
+
+\newif\ifbeamer@displaysubtitles
+\beamer@displaysubtitlesfalse
+\DeclareOptionBeamer{subtitles}[false]{\csname beamer@displaysubtitles#1\endcsname}
+
+
+\newif\ifbeamer@displaywgl
+\beamer@displaywglfalse
+\DeclareOptionBeamer{leibniz}[false]{\csname beamer@displaywgl#1\endcsname}
+
+\newif\ifbeamer@logoenglish
+\beamer@logoenglishfalse
+\DeclareOptionBeamer{english}[false]{\csname beamer@logoenglish#1\endcsname}
+
+
+
+\usebeamerfont{frametitle}
+\beamer@headheight=1.577cm
+\reset@font
+
+\def\beamer@lefttext{left}
+
+\DeclareOptionBeamer{hideothersubsections}[]{\beamer@nav@subsectionstyle{show/show/hide}}
+\DeclareOptionBeamer{hideallsubsections}[]{\beamer@nav@subsectionstyle{hide}}
+
+\DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
+\DeclareOptionBeamer{height}{\beamer@headheight=#1}
+\DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
+\DeclareOptionBeamer{right}{\def\beamer@sidebarside{right}}
+\ExecuteOptionsBeamer{left}
+\ProcessOptionsBeamer
+
+\ifbeamer@displaysidebar
+   \beamer@sidebarwidth=2.887cm
+   \newcommand{\abstand}{\hspace{0cm}}
+\else
+   \beamer@sidebarwidth=0pt
+   \newcommand{\abstand}{\hspace{2.887cm}}  % unbedingt die breite
+                                % auch hier anpassen (wg. ueberschrift)
+\fi
+
+\ifbeamer@displaywgl
+   \newcommand{\leibnizsym}{\includegraphics{leibnizbg.pdf}}
+\else
+   \newcommand{\leibnizsym}{\hspace{0em}}
+\fi
+
+
+
+\mode<presentation>
+
+\ifdim\beamer@headheight>0pt
+% if head height is 0pt, use default frame title
+
+  \setbeamercolor*{frametitle}{parent=sidebar}
+
+  %\defbeamertemplate*{frametitle}{sidebar theme}
+  %{%
+    %\nointerlineskip%
+    %\vskip-0.900\beamer@headheight%
+    %\vbox to \beamer@headheight{%
+      %\vfil
+      %\leftskip=-\beamer@leftmargin%
+      %\advance\leftskip by0.5cm%
+      %\rightskip=-\beamer@rightmargin%
+      %\advance\rightskip by0.2cm plus1fil%
+      %{\usebeamercolor[dunkelgrau2]{frametitle}\usebeamerfont{frametitle}\abstand\insertframetitle\par}%
+%\ifbeamer@displaysubtitles
+      %{\usebeamercolor[white]{framesubtitle}\usebeamerfont{framesubtitle}\abstand\insertframesubtitle\par}%
+%\fi
+      %\vbox{}%
+      %\vskip.1em%
+      %\vfil
+    %}%
+  %}
+%
+  %\defbeamertemplate*{headline}{sidebar theme}
+  %{%
+    %\begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      %\ifx\beamer@sidebarside\beamer@lefttext%
+      %\else%
+        %\hfill%
+      %\fi%
+%\ifbeamer@logoenglish
+ %\includegraphics[width=128mm]{gesis_slide_en.png}
+%\else
+ %\includegraphics[width=128mm]{gesis_slide_en.png}
+%\fi
+      %\end{beamercolorbox}
+  %}
+%\fi
+
+
+\def\beamer@sidebarformat#1#2#3{%
+  \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode]{#2}
+    \vbox{}%
+    #3\par%
+    \vbox{}%
+    \vskip-1.5ex%
+  \end{beamercolorbox}
+}
+
+\defbeamertemplate*{section in sidebar}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{section in sidebar shaded}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar shaded}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{subsection in sidebar}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar}{\insertsubsectionhead}%
+}
+
+\defbeamertemplate*{subsection in sidebar shaded}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar shaded}{\insertsubsectionhead}%
+}
+
+\defbeamertemplate*{subsubsection in sidebar}{sidebar theme}
+{%
+  \beamer@sidebarformat{7pt}{subsubsection in sidebar}{\insertsubsubsectionhead}%
+}
+
+\defbeamertemplate*{subsubsection in sidebar shaded}{sidebar theme}
+{%
+  \beamer@sidebarformat{7pt}{subsubsection in sidebar shaded}{\insertsubsubsectionhead}%
+}
+
+
+\ifdim\beamer@sidebarwidth>0pt
+
+                                % Sidebar
+  \setbeamersize{sidebar width \beamer@sidebarside=\beamer@sidebarwidth}
+  \defbeamertemplate*{sidebar \beamer@sidebarside}{sidebar theme}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    {\usebeamerfont{title in sidebar}%
+      \vskip1.5em%
+      \hskip3pt%
+      \usebeamercolor[fg]{title in sidebar}%
+      \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    {%
+      \hskip3pt%
+      \usebeamercolor[fg]{author in sidebar}%
+      \usebeamerfont{author in sidebar}%
+      \insertshortauthor[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+ 
+  \ifx\beamer@sidebarside\beamer@lefttext%
+    \defbeamertemplate*{sidebar right}{sidebar theme}
+    {%
+      \vfill%
+      \llap{\leibnizsym\hskip6.5cm\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt}
+  \fi
+
+
+                                % Margins
+  \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\fi
+
+\mode
+<all>
+
+%%% Local Variables: 
+%%% TeX-master: "~/texmf/tex/latex/beamer/test/test.tex"
+%%% End: 
