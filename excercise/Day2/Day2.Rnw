@@ -77,7 +77,7 @@
 \makeatother
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
-\includegraphics[height=1cm,width=2cm]{H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+\includegraphics[height=1cm,width=2cm]{../../graphs/logos/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
 
@@ -172,7 +172,7 @@ sub2[,1:7]
 \footnotesize{
 The \R{subset()} function can also be employed to generate subsets of a data frame\\
 \vspace{.5cm}
-\includegraphics[width=.75\textwidth, height=6cm]{H:/Sand_Summerschool/SamplingAndEsimation/excercise/figure/FunctionSubset.PNG}\\
+\includegraphics[width=.75\textwidth, height=6cm]{../figure/FunctionSubset.PNG}\\
 }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,7 +296,7 @@ for (i in 1:sim) {
   boxplot(data.frame(ss2), las = 3)
 @
 }
-\includegraphics[width=\textwidth, height=6cm]{H:/Sand_Summerschool/SamplingAndEsimation/excercise/figure/Verteilungen.png}
+\includegraphics[width=\textwidth, height=6cm]{../figure/Verteilungen.png}
 
 \end{frame}
 
@@ -326,7 +326,7 @@ apply(Applydat,2,mean)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{The tapply function}
 %\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The tapply function}\end{center}}
-\includegraphics[width=\textwidth, height=6cm]{H:/Sand_Summerschool/SamplingAndEsimation/excercise/figure/FunctionTapply.PNG}
+\includegraphics[width=\textwidth, height=6cm]{../figure/FunctionTapply.PNG}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{The apply function}

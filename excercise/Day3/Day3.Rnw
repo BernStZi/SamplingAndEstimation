@@ -76,7 +76,7 @@
 \makeatother
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
-\includegraphics[height=1cm,width=2cm]{H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+\includegraphics[height=1cm,width=2cm]{../../graphs/logos/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 \title[Day 1]{Tutorial: Sampling, Weighting and Estimation\\ \Large{Day 3} }
 %\subtitle{Umgang am Beispiel von Telefonstichproben}
@@ -926,19 +926,6 @@ MSW <- SS$`Mean Sq`[2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}[fragile]{Exercise 6}
-% %\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Exercise 4}\end{center}}
-% \footnotesize{
-% \begin{exampleblock}{Multi-stage sampling}
-% \begin{enumerate}\footnotesize{
-% \item Draw 3 out of the 9 provinces using the maximum entropy algorithm. Use the variable \alert{Tot03} to calculate the probanility of inclusion of the PSUs
-% \item Draw 5 arrondissments within each of the sampled PSUs proportional to their population of 2003.
-% \item Estimate mean and variance using the survey package (use the "Brewer" approximation for the second order inclusion probabilities)
-% }
-% \end{enumerate}
-% \end{exampleblock}
-% }
-% \end{frame}
 
 
 

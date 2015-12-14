@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9) (preloaded format=pdflatex 2015.6.11)  11 DEC 2015 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9) (preloaded format=pdflatex 2015.6.11)  14 DEC 2015 14:54
 entering extended mode
 **Day4.tex
 (Day4.tex
@@ -1665,15 +1665,12 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 LaTeX Font Info:    Font shape `TS1/aer/m/sc' in size <10> not available
 (Font)              Font shape `TS1/cmr/m/n' tried instead on input line 30.
 )
-<H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_en.j
-pg, id=24, 542.025pt x 236.885pt>
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+<../../graphs/logos/GESIS_Logo_kompakt_en.jpg, id=24, 542.025pt x 236.885pt>
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 149.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 149.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 Overfull \vbox (12.5427pt too high) detected at line 149
@@ -1681,11 +1678,11 @@ Overfull \vbox (12.5427pt too high) detected at line 149
 
 [2
 
- <H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_en.
-jpg>] (Day4.vrb
+ <../../graphs/logos/GESIS_Logo_kompakt_en.jpg>] (Day4.vrb
 LaTeX Font Info:    Try loading font information for TS1+aett on input line 27.
 
- (C:/PROGRA~1/R/R-31~1.3/share/texmf/tex/latex\ts1aett.fd
+
+(C:/PROGRA~1/R/R-31~1.3/share/texmf/tex/latex\ts1aett.fd
 File: ts1aett.fd 
 )
 LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 27.
@@ -1697,13 +1694,11 @@ File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `TS1/aett/m/n' in size <8> not available
 (Font)              Font shape `TS1/cmtt/m/n' tried instead on input line 27.
 )
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 187.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 187.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 Overfull \vbox (4.43384pt too high) detected at line 187
@@ -1712,129 +1707,105 @@ Overfull \vbox (4.43384pt too high) detected at line 187
 [3
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
-
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 209.
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
+ <use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 209.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [4
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
-
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 247.
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
+ <use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 247.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [5
 
-] (Day4.vrb <Day4-009.pdf, id=51, 433.62pt x 289.08pt>
+] (Day4.vrb
+<Day4-009.pdf, id=51, 433.62pt x 289.08pt>
 File: Day4-009.pdf Graphic file (type pdf)
-
-<use Day4-009.pdf>
+ <use Day4-009.pdf>
 Package pdftex.def Info: Day4-009.pdf used on input line 8.
 (pdftex.def)             Requested size: 245.83282pt x 163.89069pt.
 )
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 260.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 260.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [6
 
- <./Day4-009.pdf>] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
-
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 288.
+ <./Day4-009.pdf>]
+(Day4.vrb)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
+ <use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 288.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [7
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 305.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 305.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [8
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 305.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 305.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [9
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 305.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 305.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [10
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 341.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 341.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [11
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 372.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 372.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [12
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 404.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 404.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [13
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 428.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 428.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [14
 
@@ -1842,68 +1813,56 @@ Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
 LaTeX Font Info:    Font shape `T1/aess/m/it' in size <8> not available
 (Font)              Font shape `T1/aess/m/sl' tried instead on input line 31.
 )
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 464.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 464.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [15
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 464.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 464.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [16
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 464.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 464.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [17
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 476.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 476.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [18
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 476.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 476.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [19
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 514.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 514.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 Overfull \vbox (34.40392pt too high) detected at line 514
@@ -1912,79 +1871,64 @@ Overfull \vbox (34.40392pt too high) detected at line 514
 [20
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
-
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 548.
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
+ <use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 548.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [21
 
-] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
-
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 586.
+]
+(Day4.vrb)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
+ <use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 586.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [22
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 603.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 603.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [23
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 603.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 603.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [24
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 603.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 603.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [25
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 603.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 603.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [26
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 603.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 603.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [27
 
@@ -1992,24 +1936,20 @@ Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
 LaTeX Font Info:    Font shape `TS1/aett/m/n' in size <6> not available
 (Font)              Font shape `TS1/cmtt/m/n' tried instead on input line 30.
 )
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 645.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 645.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [28
 
 ] (Day4.vrb)
-File: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt
-_en.jpg Graphic file (type jpg)
+File: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
-<use H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos/GESIS_Logo_kompakt_
-en.jpg>
-Package pdftex.def Info: H:/Sand_Summerschool/SamplingAndEsimation/graphs/logos
-/GESIS_Logo_kompakt_en.jpg used on input line 687.
+<use ../../graphs/logos/GESIS_Logo_kompakt_en.jpg>
+Package pdftex.def Info: ../../graphs/logos/GESIS_Logo_kompakt_en.jpg used on i
+nput line 687.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [29
 
@@ -2033,8 +1973,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 776.
 (\end occurred when \ifx on line 38 was incomplete) 
 Here is how much of TeX's memory you used:
  24231 strings out of 493671
- 459508 string characters out of 3141417
- 532064 words of memory out of 3000000
+ 459328 string characters out of 3141417
+ 532028 words of memory out of 3000000
  26769 multiletter control sequences out of 15000+200000
  57663 words of font info for 119 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
