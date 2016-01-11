@@ -1,0 +1,178 @@
+---
+title: "Preparation"
+author: "Matthias Sand, Jan-Philipp Kolb and Stefan Zins"
+date: "11. Januar 2016"
+output: html_document
+---
+
+
+```{r, echo=FALSE}
+library(knitr)
+CA<-T
+Ex<-T
+```
+
+
+
+## Why R?
+
+
+- Open Source 
+
+- You can work with several datasets at the same time
+
+- You can create your own objects, functions and packages
+
+- Over 5,000 packages contributed by users available on CRAN
+
+
+
+- Rapid implementation of new (scientific) developments
+
+- Quick development of new tools that fit the user's demand
+
+
+## Get R
+
+R can be downloaded here:
+
+www.r-project.org
+
+
+
+## R Basic
+
+![Ralt](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/Ralt.png)
+
+Most R-users prefer the graphical user interface ([GUI](http://www.statmethods.net/interface/guis.html))
+
+
+## Rstudio
+
+In this course we will use the rstudio gui which can be downloaded here:
+
+www.rstudio.com
+
+## First operations
+
+[Creating new variables](http://www.statmethods.net/management/variables.html):
+
+```{r}
+x<-rnorm(10,0,1)
+```
+
+- creates a vector with ten standardnormal-distributed values
+- more information can be found [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Vectors-and-assignment)
+
+```{r}
+mean(x)
+```
+
+calculates the mean of variable x
+
+## Getting help
+
+- [Introduction to R](http://mirrors.softliste.de/cran/)
+- [stackoverflow](http://stackoverflow.com/questions/tagged/r)
+
+## Installing and Loading Packages
+
+```{r,eval=F}
+install.packages("sampling")
+require("sampling")
+```
+
+## Basic Graphics
+
+```{r}
+x <- rnorm(1000,0,1)
+plot(x)
+```
+
+## Histogram
+
+```{r}
+hist(x)
+```
+
+## The sample function
+
+[sample](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html)
+
+![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleWhat.PNG)
+
+![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleHow.PNG)
+
+![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleReplacement.PNG)
+
+
+
+```{r}
+id <- 1:10000
+set.seed(42)
+education <- sample(c("none","low","average","high"),10000, 
+                    replace = T,prob = c(.072,.356,.289,.283))
+
+gender <- sample(c("male","female"),10000,
+                 replace = T,prob = c(.488,.512))
+
+iq <- rnorm(10000,100,20)
+my.pop <- data.frame(id,gender,education,iq)
+head(my.pop)
+```
+
+## Simple Example on Sampling
+
+Summary of the dataset
+
+```{r}
+summary(my.pop)
+prop.table(table(my.pop$gender,my.pop$education))
+var(my.pop$iq)*(nrow(my.pop)-1)/nrow(my.pop)
+```
+
+```{r}
+set.seed(42)
+s.SRS <- sample(1:nrow(my.pop),500,replace=T)
+s.SRSWOR <- sample(1:nrow(my.pop),500,replace=F)
+my.samp.SRS <- my.pop[s.SRS,]
+my.samp.SRSWOR <- my.pop[s.SRSWOR,]
+summary(my.samp.SRS)
+nrow(unique(my.samp.SRS))
+```
+
+```{r}
+plot(density(my.pop$iq),main = "My first density plot"
+     , xlab = "IQ")
+abline(v=mean(my.pop$iq), col = "black")
+lines(density(my.samp.SRS$iq),col = "red",lwd=2)
+lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
+```
+
+```{r}
+library(sampling)
+set.seed(42)
+s.SRS1 <- srswr(500,nrow(my.pop))
+s.SRSWOR1 <- srswor(500,nrow(my.pop)) 
+my.samp.SRS1 <- rbind(my.pop[s.SRS1!=0,]
+                      ,my.pop[s.SRS1>1,])
+my.samp.SRSWOR1 <- my.pop[s.SRSWOR1==1,]
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(density(my.pop$iq),main = "My first density plot"
+     , xlab = "IQ")
+abline(v=mean(my.pop$iq), col = "black")
+lines(density(my.samp.SRS$iq),col = "red",lwd=2)
+lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
+```
+
+```{r}
+plot(density(my.pop$iq),main = "My second density plot"
+     , xlab = "IQ")
+abline(v=mean(my.pop$iq), col = "black")
+lines(density(my.samp.SRS1$iq),col = "red",lwd=2)
+lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
+```
+
