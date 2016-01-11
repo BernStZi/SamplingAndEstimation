@@ -3,7 +3,7 @@ Sampling and Estimation
 
 This repo encloses exercise-material on the workshop.
 
-- [Day 1](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day1.pdf)
+- Day 1 ( [pdf](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day1.pdf) | [browser](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day1/Day1.Rmd) )
 
 - [Day 2](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day2/Day2.pdf)
 
