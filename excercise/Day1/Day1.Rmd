@@ -1,0 +1,33 @@
+---
+title: "Day 1"
+author: "Matthias Sand, Jan-Philipp Kolb and Stefan Zins"
+date: "11. Januar 2016"
+output: ioslides_presentation
+---
+
+
+```{r, echo=FALSE}
+library(knitr)
+CA<-T
+Ex<-T
+```
+
+
+
+## Why R?
+
+
+- Open Source 
+
+- You can work with several datasets at the same time
+
+- You can create your own objects, functions and packages
+
+- Over 5,000 packages contributed by users available on CRAN
+
+
+
+- Rapid implementation of new (scientific) developments
+
+- Quick development of new tools that fit the user's demand
+
