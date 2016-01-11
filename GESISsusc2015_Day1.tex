@@ -1,55 +1,6 @@
 %% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[10pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[10pt]{beamer}
 \usepackage{etex}
 
 \usepackage[T1]{fontenc}
@@ -161,14 +112,24 @@
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
 \includegraphics[height=1cm,width=2cm]{graphs/logos/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+\usepackage{Sweave}
 \begin{document}
+\input{GESISsusc2015_Day1-concordance}
+
+\begin{Schunk}
+\begin{Sinput}
+> library(knitr)
+> library(xtable)
+> library(alabama)
+> library(PracTools)
+> opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
+\end{Sinput}
+\end{Schunk}
 
 
-
-
-\title[Sampling Designs]{4. GESIS Summer School in Survey Methodology
-Cologne. Course 16: Sampling, Weighting and Estimation}   
+\title[Sampling Designs]{Sampling and Estimation}   
 \subtitle{Day 1: Sampling Designs}
 
 \author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
@@ -447,19 +408,8 @@ All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random var
 
 \begin{frame}{Stratification}
 A Population of 100 elements is stratified into $H=6$ strata.
-
 %fig.keep='all',fig.show='asis'
 \onslide*<1>{
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.85\linewidth]{graphs/beamer-StratPlot1-1} 
-
-}
-
-
-
-\end{knitrout}
 }
 \onslide<2>{
 14 elements are selected population and their allocation is given by
@@ -468,16 +418,6 @@ $n_1$ = 2  & $n_2$ = 3  & $n_3$ = 2  & $n_4$ = 3 &
  $n_5$ = 3&  $n_6$ = 2\\
 \end{tabular}
 
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.85\linewidth]{graphs/beamer-StratPlot2-1} 
-
-}
-
-
-
-\end{knitrout}
 }
 \end{frame}
 
@@ -636,209 +576,3 @@ $$ \lim_{\mu \to 0} \text{CV}^2(\overline{y})_\text{SRS} = \infty\;, $$
 thus for rare observation to meet a CV target the sample size can become very large.
 }
 \onslide*<2>{
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=.85\linewidth]{graphs/beamer-SamSizeSRSprobs-1} 
-
-}
-
-\caption[Sample Sizes to Achieve CV's of 0]{Sample Sizes to Achieve CV's of 0.05 and 0.01 for N=50000}\label{fig:SamSizeSRSprobs}
-\end{figure}
-
-
-\end{knitrout}
-}
-\onslide*<3>{Target values for $\V{\overline{y}}_{\text{SRS}}$  can  instead be set to achieve a CI's with a maximal length of $2\epsilon$ and we select the sample size the following way
-\begin{align*}
-\epsilon \geq & z_{1-\alpha/2} \sqrt{ \dfrac{\mu(1-\mu) }{n} \dfrac{N-n}{N-1} } \\
-n \geq & \dfrac{ z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }{\epsilon^2  + \frac{1}{N}  z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }
-\end{align*}
-}
-\onslide<4>{
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=.85\linewidth]{graphs/beamer-SamSizeSRSprobs2-1} 
-
-}
-
-\caption[Sample Sizes to Achieve Absolute Errors of 0]{Sample Sizes to Achieve Absolute Errors of 0.05 and 0.01 for N=50000}\label{fig:SamSizeSRSprobs2}
-\end{figure}
-
-
-\end{knitrout}
-}
-\end{frame}
-
-%How to select a precion citerium, difficult length of the confidence interval half the point estimate value
-%Selectiong optimla sampling plan -> power of thest to reject H_0 if its wrong. 
-
-
-%reprensentativity for unplaned domains
-%Sample size for stratified random samples
-\begin{frame}{Power of a Test}
-\onslide*<1>{
-Our one-sided t-test: $H_0: \mu \geq \mu_0$ against $H_1: \mu < \mu_0$.
-We reject the Null if $t < t_{1-\alpha}(df)$.  
-If the true mean is $\mu = \mu_0 + \delta$ then the probability of \emph{not} rejecting $H_0$ is
- \begin{align*}
- P(t \geq t_{1-\alpha}(df) | \mu = \mu_0 + \delta  ) & \approx 1-\Phi\left(z_{1-\alpha} - \delta \left[\V{\hat\theta}\right]^{-\frac{1}{2}}  \right)
- \end{align*}
-where $\Phi$ is the distribution function of the standard normal distribution.
-}
-\onslide*<2-4>{Suppose $\mathcal{Y}$ is binary and our strategy to estimate $\mu$ us $\overline{y}$ in combination with SRS, thus $\V{\hat\theta}=(\frac{1}{n}-\frac{1}{N}) \frac{N}{N-1}\mu(1-\mu)$. \newline
-}\onslide*<3-4>{We want our test to have a power of $1-\beta$, i.e. our planned probability of an error of type II is $\beta$.}\onslide*<4>{To select the appropriate sample size we set $z_{1-\alpha} - \delta \left[ (\frac{1}{n}-\frac{1}{N}) \frac{N}{N-1}\mu(1-\mu)\right]^{-\frac{1}{2}}  = z_\beta$. Solving this for $n$ give us
-$$
-n = \dfrac{\frac{N}{N-1} \mu(1-\mu) }{ N \left( \frac{\delta}{z_{1-\alpha} - z_\beta} \right)^2 + \frac{\mu(1-\mu)}{N-1}}
-\;{.}$$
-($z_{1-\alpha}$ and $z_{\beta}$ are the $1-\alpha$ and $\beta$ quantiles of the standard normal, respectively.)
-}\onslide*<5>{
-~\\[-1.5cm]
-
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=\linewidth]{graphs/beamer-SamSizeSRSpower-1} 
-
-}
-
-\caption[Sample Sizes for Type II Errors 0]{Sample Sizes for Type II Errors 0.1, 0.2, and 0.3 for N=50000}\label{fig:SamSizeSRSpower}
-\end{figure}
-
-
-\end{knitrout}
-}
-\end{frame}
-
-
-
-
-
-\begin{frame}{Sample Sizes for Stratified Sample}
-\onslide*<1>{A multidimensional problem sample size problem:
-\begin{center}
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Fri Sep 04 16:02:26 2015
-\begin{table}[ht]
-\centering
-\caption{Stratfication Table} 
-\begin{tabular}{l|rr|r}
-  & P1 & P2 & SUM \\ 
-  \hline
-R1 & 100 & 1000 & 1100 \\ 
-  R2 & 200 & 1000 & 1200 \\ 
-  R3 & 300 & 2000 & 2300 \\ 
-  R4.1 & 50 & 3000 & 3050 \\ 
-  R4.2 & 100 & 3000 & 3100 \\ 
-  R4.3 & 250 & 5000 & 5250 \\ 
-   \hline
-SUM & 1000 & 15000 & 16000 \\ 
-  \end{tabular}
-\end{table}
-
-\end{center}
-}
-\onslide<2>{
-The domains of interest are rows R1, R2, R3, R4.1, R4.2, R4 and columns  P1 and P2.
-The variable of interest is binary with $\mu = 0.5$.
-
-Minimize $n=\sum_{h = 1}^H n_h$, subject to the following constraints
-\begin{itemize}
-\item $0.01 N_h \leq  n_h \leq N_h$ (size constraint)
-\item $0.04 \geq 1.96 \sum_{h \in \mathcal{D}_i} \dfrac{N_h - n_h}{N_h}  \gamma_h^2  \dfrac{V_{h}^2}{n_h}$
-(precision requirement)
-\end{itemize}
-where $\mathcal{D}_i$ is the set of strata that constitute the $i$-th domain of interest
-[Gabler and Quatember, 2013].}
-\end{frame}
-
-
-\begin{frame}[fragile]{Solution of the Allocation Problem}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{fct}  \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)\{}\hlkwd{sum}\hlstd{(}\hlnum{1}\hlopt{/}\hlstd{x)\}}
-\hlcom{#constraints}
-\hlstd{hin0} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)\{}\hlkwd{c}\hlstd{(   x} \hlopt{-} \hlnum{1}\hlopt{/}\hlstd{(Nh}\hlopt{+}\hlnum{0.01}\hlstd{)}       \hlcom{#upper size}
-                       \hlstd{,} \hlnum{1}\hlopt{/}\hlstd{(}\hlnum{0.01}\hlopt{*}\hlstd{Nh}\hlopt{+}\hlnum{0.01}\hlstd{)} \hlopt{-} \hlstd{x}  \hlcom{#lower size}
-                       \hlstd{, c}\hlopt{-}\hlstd{A}\hlopt{%*%}\hlstd{x)\}}             \hlcom{#precision}
-
-\hlstd{ans} \hlkwb{<-} \hlkwd{constrOptim.nl}\hlstd{(}
-  \hlkwc{par} \hlstd{=} \hlnum{1}\hlopt{/}\hlstd{(}\hlnum{0.42}\hlopt{*}\hlstd{Nh),}      \hlcom{# starting value}
-  \hlkwc{fn} \hlstd{= fct,}               \hlcom{# objective function}
-  \hlkwc{hin} \hlstd{= hin0,}
-  \hlkwc{control.outer} \hlstd{=} \hlkwd{list}\hlstd{(}\hlkwc{eps}    \hlstd{=} \hlnum{1.e-09}\hlstd{,}
-                       \hlkwc{mu0}    \hlstd{=} \hlnum{1e-01}\hlstd{,}
-                       \hlkwc{method} \hlstd{=} \hlstr{"BFGS"}\hlstd{,}
-                       \hlkwc{trace}  \hlstd{=} \hlnum{FALSE}
-
- \hlstd{))}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-\end{frame}
-
-\begin{frame}[fragile]{Solution of the Allocation Problem}
-% latex table generated in R 3.2.0 by xtable 1.7-4 package
-% Fri Sep 04 16:02:26 2015
-\begin{table}[ht]
-\centering
-\caption{Allocation Table} 
-\begin{tabular}{l|rr|r}
-  & P1 & P2 & SUM \\ 
-  \hline
-R1 & 47 & 345 & 392 \\ 
-  R2 & 91 & 317 & 408 \\ 
-  R3 & 112 & 388 & 500 \\ 
-  R4.1 & 17 & 489 & 506 \\ 
-  R4.2 & 35 & 478 & 513 \\ 
-  R4.3 & 80 & 132 & 212 \\ 
-   \hline
-SUM & 382 & 2149 & 2531 \\ 
-  \end{tabular}
-\end{table}
-
-\end{frame}
-
-\begin{frame}[allowframebreaks]\frametitle{Literature}    
-%\scriptsize
-  \begin{thebibliography}{10}    
-  \setbeamertemplate{bibliography item}[article]
-\bibitem{Cox1987}
-    L.~Cox.
-    \newblock  A Constructive Procedure for Unbiased Controlled Rounding.
-    \newblock {\em Journal of the American Statistical Association}, 1987.
-  \setbeamertemplate{bibliography item}[article]
-\bibitem{GablerQuatember2013}
-    L.~Gabler, A.~Quatember.
-    \newblock  Repr\"{a}sentativit\"{a}t von Subgruppen bei geschichteten Zufalssstichproben.
-    \newblock {\em Wirtschafts- und Sozialstatistisches Archiv}, 2013.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{Lohr1999}
-    S.~Lohr.
-    \newblock  Sampling: Design and Analysis.
-    \newblock {\em Duxbury Press}, 1999.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{Lumley2010}
-    T.~Lumley.
-    \newblock Complex Surveys: A Guide to Analysis Using R.
-    \newblock {\em Wiley}, 2010.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{Saerndal1992}
-    C.-E.~S\"{a}rndal, B.~Swensson, \& J.~Wretman.
-    \newblock Model Assisted Survey Sampling
-    \newblock {\em Springer}, 1992.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{VillianEtAL2013}
-   R.~Valliant, J.A.~Dever, \& F.~Kreuter.
-  \newblock  Practical Tools for Designing and Weighting Survey Samples.
-    \newblock {\em Statistics for Social and Behavioral Sciences: Springer}, 2013.
-  \end{thebibliography}
-\end{frame} 
-
-
-
-
-
-\end{document}

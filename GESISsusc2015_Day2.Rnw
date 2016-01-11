@@ -131,6 +131,7 @@
 \makeatother
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 <<setup, include=FALSE>>=
 library(knitr)
 opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
