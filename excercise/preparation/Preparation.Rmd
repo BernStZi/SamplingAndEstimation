@@ -179,3 +179,21 @@ lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 ## Working Directory and Workspace
 
 Declaring a working directory
+
+```{r,eval=F}
+path<-"H:/Sand/Summerschool/Data Day1/"
+```
+
+
+- It is always useful to define and set your working directory at the beginning of each script
+- getwd() displays you your current working directory
+- dir() shows you all objects in a specific directory
+- ls() lists all objects in your workspace
+- rm() removes a object from your workspace
+
+
+```{r,eval=F}
+rm(list = ls())
+```
+
+## Reading and Writing Data

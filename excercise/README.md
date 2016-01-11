@@ -1,6 +1,7 @@
 Sampling and Estimation
 =======
 
+
 This repo encloses exercise-material on the workshop. The course builds on the workshop at the Gesis Summerschool 2015.
 
 - Day 1 ( [pdf](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day1.pdf) | [browser](https://github.com/BernStZi/SamplingAndEsimation/blob/master/excercise/Day1/Day1.Rmd) | [rcode](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/rcode/SampEst_Ex1.R))
