@@ -105,19 +105,14 @@ hist(x)
 
 ![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleReplacement.PNG)
 
-## Generating an example dataset
+## A first example dataset
+
+The first example dataset is a synthetic example. For more information on the generation of this dataset see the r-code [here](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/rcode/SampEst_GenerateExdata.R).
 
 ```{r}
-id <- 1:10000
-set.seed(42)
-education <- sample(c("none","low","average","high"),10000, 
-                    replace = T,prob = c(.072,.356,.289,.283))
+link <- "https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/data/my.pop.csv"
 
-gender <- sample(c("male","female"),10000,
-                 replace = T,prob = c(.488,.512))
-
-iq <- rnorm(10000,100,20)
-my.pop <- data.frame(id,gender,education,iq)
+my.pop <- read.csv(link)
 head(my.pop)
 ```
 
