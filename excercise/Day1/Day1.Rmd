@@ -31,3 +31,12 @@ Ex<-T
 
 - Quick development of new tools that fit the user's demand
 
+
+## www.r-project.org
+
+![picR](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/graphs/RprojectNew.PNG)
+
+
+## R Basic
+
+![Ralt](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/Ralt.png)
