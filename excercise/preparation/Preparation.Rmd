@@ -105,7 +105,7 @@ hist(x)
 
 ![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleReplacement.PNG)
 
-
+## Generating an example dataset
 
 ```{r}
 id <- 1:10000
@@ -149,7 +149,7 @@ lines(density(my.samp.SRS$iq),col = "red",lwd=2)
 lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 ```
 
-```{r}
+```{r,warning=F}
 library(sampling)
 set.seed(42)
 s.SRS1 <- srswr(500,nrow(my.pop))
@@ -169,6 +169,7 @@ lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 ```
 
 ```{r}
+par(mfrow=c(1,2))
 plot(density(my.pop$iq),main = "My second density plot"
      , xlab = "IQ")
 abline(v=mean(my.pop$iq), col = "black")
@@ -176,3 +177,10 @@ lines(density(my.samp.SRS1$iq),col = "red",lwd=2)
 lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 ```
 
+- should yield same results
+- routine may differ because of "starting point"
+
+
+## Working Directory and Workspace
+
+Declaring a working directory
