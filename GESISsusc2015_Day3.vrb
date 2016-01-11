@@ -55,7 +55,7 @@ The variable \texttt{resp} is the respondent indicator (0 = non-respondent; 1 = 
 }
 \onslide*<3>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Sep 23 13:24:16 2015
+% Mon Jan 11 15:28:35 2016
 \begin{table}[ht]
 \centering
 \caption{Model Summary}
@@ -139,7 +139,7 @@ the \texttt{svyglm} function from the \texttt{survey} package.
 }
 \onslide*<6>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Sep 23 13:24:17 2015
+% Mon Jan 11 15:28:35 2016
 \begin{table}[ht]
 \centering
 \caption{Weighted and Unweighted Parameter Estimates from Logistic Models}

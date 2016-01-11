@@ -207,12 +207,12 @@ with $\overline{\tau}=\sum_{i \in \mathfrc{s}_{\RN{1}} } \frac{\tau_i}{ n_{\RN{1
 library(xtable)
 clu <- matrix(1:25 ,ncol=5, byrow=T)
 
-clu.  <- cbind(clu,  rowSums(clu))
-clu.  <- rbind(clu., colSums(clu.))
+clu.  <- cbind(clu,  rowMeans(clu))
+clu.  <- rbind(clu., colMeans(clu.))
 clu.  <- rbind(clu., c(apply(clu,2,var),NA))
 clu.  <- cbind(clu., c(apply(clu,1,var),NA,var(as.vector(clu) )))
-dimnames(clu.) <- list(  c(as.character(c(1:5)),"$\\tau_{.j}$","$V^2_{.j}$")
-                       , c(as.character(c(1:5)),"$\\tau_{i.}$","$V^2_{i.}$"))
+dimnames(clu.) <- list(  c(as.character(c(1:5)),"$\\mu_{.j}$","$V^2_{.j}$")
+                       , c(as.character(c(1:5)),"$\\mu_{i.}$","$V^2_{i.}$"))
 
 
 clu.tab <- xtable(clu., digits = 1, caption = "Two Variations of a Population Composed of 5
@@ -530,7 +530,7 @@ Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs ar
    $$
    \onslide<4>{
    In case $N_i$ is constant for all cluster COV = 0 and we have
-   $$ \deff(SRCS, \hat{\tau}_{\pi}) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta \approx 1 + \left(\dfrac{N}{N_\RN{1}}  - 1 \right)\delta
+   $$ \deff(SRCS, \hat{\tau}_{\pi}/N) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta \approx 1 + \left(\dfrac{N}{N_\RN{1}}  - 1 \right)\delta
    $$
    Note that $\delta$ is the adjusted measure of fit for fitting the linear regression of  $\mathcal{Y}$  on $N_{\RN{1}}-1$ dummy variables, indicating cluster membership.
    }

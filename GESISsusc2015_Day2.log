@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.7)  8 SEP 2015 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  11 JAN 2016 15:27
 entering extended mode
 **GESISsusc2015_Day2.tex
 (GESISsusc2015_Day2.tex
-LaTeX2e <2015/01/01>
-Babel <3.9l> and hyphenation patterns for 69 languages loaded.
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\base\beamer.cls"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\base\beamerbasercs.sty"
 Package: beamerbasercs 2015/03/08 (rcs-revision 368aa9ba9d38)
@@ -151,10 +151,10 @@ x")) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
-Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
-Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
 \pgfkeys@pathtoks=\toks17
@@ -187,7 +187,7 @@ File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 Driver file for pgf: pgfsys-pdftex.def
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
-File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
 "
@@ -220,7 +220,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
-Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
@@ -279,13 +279,13 @@ File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
 tex"
-File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen156
 \pgf@shorten@start@additional=\dimen157
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
 "
-File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box36
 \pgf@hbox=\box37
 \pgf@layerbox@main=\box38
@@ -293,12 +293,12 @@ File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
 de.tex"
-File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen158
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
 .code.tex"
-File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 \pgf@pt@x=\dimen159
 \pgf@pt@y=\dimen160
 \pgf@pt@temp=\dimen161
@@ -316,7 +316,7 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
 "
-File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 \pgfarrowsep=\dimen162
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
@@ -329,7 +329,7 @@ File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
 ex"
-File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box39
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
@@ -588,7 +588,7 @@ Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
 y"
 Package: beamerbaselocalstructure 2014/09/10  (rcs-revision 393f6dcff371)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
-Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks31
 )
 \c@figure=\count138
@@ -711,7 +711,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
-Package: etex 2015/03/02 v2.1 eTeX basic definition package (PEB,DPC)
+Package: etex 2015/09/02 v2.4 eTeX basic definition package (PEB,DPC)
 \et@xins=\count153
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
@@ -1056,25 +1056,26 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen199
-\lightrulewidth=\dimen200
-\cmidrulewidth=\dimen201
-\belowrulesep=\dimen202
-\belowbottomsep=\dimen203
-\aboverulesep=\dimen204
-\abovetopsep=\dimen205
-\cmidrulesep=\dimen206
-\cmidrulekern=\dimen207
-\defaultaddspace=\dimen208
+Normal \dimen register pool exhausted, switching to extended pool.
+\lightrulewidth=\dimen256
+\cmidrulewidth=\dimen257
+\belowrulesep=\dimen258
+\belowbottomsep=\dimen259
+\aboverulesep=\dimen260
+\abovetopsep=\dimen261
+\cmidrulesep=\dimen262
+\cmidrulekern=\dimen263
+\defaultaddspace=\dimen264
 \@cmidla=\count158
 \@cmidlb=\count159
-\@aboverulesep=\dimen209
-\@belowrulesep=\dimen210
+\@aboverulesep=\dimen265
+\@belowrulesep=\dimen266
 \@thisruleclass=\count160
 \@lastruleclass=\count161
-\@thisrulewidth=\dimen211
+\@thisrulewidth=\dimen267
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel\babel.sty"
-Package: babel 2014/09/25 3.9l The Babel package
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2015/08/03 3.9m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
@@ -1085,10 +1086,10 @@ File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 ("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
 Language: english 2012/08/20 v3.3p English support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel\babel.def"
-File: babel.def 2014/09/25 3.9l Babel common definitions
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2015/08/03 3.9m Babel common definitions
 \babel@savecnt=\count162
-\U@D=\dimen212
+\U@D=\dimen268
 LaTeX Info: Redefining \textlatin on input line 1431.
 )
 \l@canadian = a dialect from \language\l@american 
@@ -1107,15 +1108,15 @@ File: latin1.def 2015/03/17 v1.2c Input encoding file
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
-\bigstrutjot=\dimen213
+\bigstrutjot=\dimen269
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\dcolumn.sty"
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen214
-\extrarowheight=\dimen215
+\col@sep=\dimen270
+\extrarowheight=\dimen271
 \NC@list=\toks46
 \extratabsurround=\skip61
 \backup@length=\skip62
@@ -1149,7 +1150,7 @@ Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip78
-\enit@outerparindent=\dimen216
+\enit@outerparindent=\dimen272
 \enit@toks=\toks48
 \enit@inbox=\box54
 \enitdp@description=\count163
@@ -1186,8 +1187,8 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 88.
 Package: beamerthemeGesis 2007/06/11  (rcs-revision 0.10)
  (beamerouterthemesidebarGesis.sty
 Package: beamerouterthemesidebarGesis 2004/12/09  (rcs-revision 1.8)
-\beamer@sidebarwidth=\dimen217
-\beamer@headheight=\dimen218
+\beamer@sidebarwidth=\dimen273
+\beamer@headheight=\dimen274
 LaTeX Font Info:    Try loading font information for T1+phv on input line 37.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
@@ -1352,13 +1353,13 @@ LaTeX Font Info:    ... okay on input line 182.
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count164
-\scratchdimen=\dimen219
+\scratchdimen=\dimen275
 \scratchbox=\box55
 \nofMPsegments=\count165
 \nofMParguments=\count166
 \everyMPshowfont=\toks49
 \MPscratchCnt=\count167
-\MPscratchDim=\dimen220
+\MPscratchDim=\dimen276
 \MPnumerator=\count168
 \makeMPintoPDFobject=\count169
 \everyMPtoPDFconversion=\toks50
@@ -1482,7 +1483,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 192.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/zinssn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 <graphs/logos/GESIS_Logo_kompakt_en.jpg, id=51, 542.025pt x 236.885pt>
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
@@ -2068,13 +2069,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 763.
  )
 (\end occurred when \ifx on line 94 was incomplete) 
 Here is how much of TeX's memory you used:
- 22443 strings out of 493671
- 398990 string characters out of 3143860
- 458174 words of memory out of 3000000
- 25102 multiletter control sequences out of 15000+200000
+ 22510 strings out of 493636
+ 400775 string characters out of 3143752
+ 459832 words of memory out of 3000000
+ 25207 multiletter control sequences out of 15000+200000
  85147 words of font info for 115 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 56i,17n,55p,470b,559s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,55p,470b,561s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\zinssn\AppData\Lo
 cal\MiKTeX\2.9\fonts\pk\ljfour\public\frcursive\dpi500\frcr6.pk>{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Program Files/MiKTeX
@@ -2102,7 +2103,7 @@ uper/sfrm1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfsl
 les/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on GESISsusc2015_Day2.pdf (54 pages, 641033 bytes).
+Output written on GESISsusc2015_Day2.pdf (54 pages, 641034 bytes).
 PDF statistics:
  1556 PDF objects out of 1728 (max. 8388607)
  114 named destinations out of 1000 (max. 500000)
