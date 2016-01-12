@@ -1,8 +1,8 @@
 ---
 title: "Preparation"
 author: "Matthias Sand, Jan-Philipp Kolb and Stefan Zins"
-date: "11. Januar 2016"
-output: html_document
+date: "11 Januar 2016"
+output: pdf_document
 ---
 
 
@@ -24,7 +24,10 @@ Ex<-T
 
 - [Open Source](https://en.wikipedia.org/wiki/Open-source_software) - You can create your own objects, functions and packages
 
-- You can work with several datasets at the same time
+- [Reproducibility](http://www.r-bloggers.com/rs-role-in-science-breakthrough-reproducibility-of-psychology-studies/)
+
+More arguments for the usage of R can be found [here](http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html?_r=2&) or [here](http://www.revolutionanalytics.com/what-r).
+
 
 ## Get R
 
@@ -80,13 +83,13 @@ var(x)
 median(x)
 ```
 
-
-
-
 ## Getting help
 
 - [Introduction to R](http://mirrors.softliste.de/cran/)
 - [stackoverflow](http://stackoverflow.com/questions/tagged/r)
+- [Thomas Girke - Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r)
+
+If you have problems to find the commands use a [reference card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 
 Get the help page for a command:
 
@@ -101,7 +104,7 @@ help(mean)
 
 Often you can get examples like the following one for linear regression.
   
-```{r}
+```{r,eval=F}
 example(lm)
 ```
 
@@ -116,7 +119,7 @@ x2 <- rnorm(1000)
   # Exponential distribution
 x3 <- rexp(1000)
 
-rnorm(100,mean=0,sd=1)
+rnorm(20,mean=0,sd=1)
 ```
 
 
@@ -142,7 +145,7 @@ install.packages("lattice")
 install.packages("survey")
 ```
 
-
+A list on the most popular R-packages can be found [here](http://blog.revolutionanalytics.com/2013/06/a-list-of-r-packages-by-popularity.html).
 
 ## Indexing
 
@@ -252,15 +255,21 @@ sample(x=1:10,1,replace=T)
 Declaring a working directory
 
 ```{r,eval=F}
-path<-"H:/Sand/Summerschool/Data Day1/"
+path<-"C:/"
+
+setwd(path)
+
+getwd()
+
+dir()
 ```
 
 
 - It is always useful to define and set your working directory at the beginning of each script
-- getwd() displays you your current working directory
-- dir() shows you all objects in a specific directory
-- ls() lists all objects in your workspace
-- rm() removes a object from your workspace
+- `getwd()` displays you your current working directory
+- `dir()` shows you all objects in a specific directory
+- `ls()` lists all objects in your workspace
+- `rm()` removes a object from your workspace
 
 
 ```{r,eval=F}
@@ -269,7 +278,62 @@ rm(list = ls())
 
 ## [Data Import and Export in R](http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/index.cfm)
 
-[Quick R on exporting data](http://www.statmethods.net/input/exportingdata.html)
+Some datasets are implemented in R-packages:
+
+```{r,message=F,warning=F}
+library("sampling")
+data(belgianmunicipalities)
+```
+
+```{r}
+head(belgianmunicipalities)
+```
+
+Also foreign datasets can be imported:
+
+```{r}
+link <- "https://raw.githubusercontent.com/BernStZi/
+SamplingAndEsimation/master/excercise/data/my.pop.csv"
+
+my.pop <- read.csv(link)
+head(my.pop)
+```
+
+In the following the European Social Survey (ESS) data will be used. The data can be downloaded [here](http://www.europeansocialsurvey.org/data/round-index.html).
+
+
+```{r,echo=F}
+data.path <- "D:/Daten/Daten/DatenSonst/"
+setwd(data.path)
+```
+
+We can import spss data using the command `read.spss` from R-package `foreign`.
+
+```{r,eval=F}
+library(foreign)
+ESS7 <- read.spss("ESS7e01.sav",to.data.frame=T)
+```
+
+As default the data is imported to a list but it is more convenient to work with data.frames. Therefore we have to specify in a further argument, that we want to work with a data.frame.
+
+With the package `foreign`it is also possible to import stata-data:
+
+```{r,eval=F}
+ESS7s <- read.dta("ESS7e01.dta")
+```
+
+Some Links on import and export of data in R:
+
+- [Quick R on importing data](http://www.statmethods.net/input/importingdata.html)
+
+- [Quick R on exporting data](http://www.statmethods.net/input/exportingdata.html)
+
+
+## Subsetting
+
+## Merging
+
+
 
 ## A first example dataset
 
