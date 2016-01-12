@@ -322,6 +322,15 @@ With the package `foreign`it is also possible to import stata-data:
 ESS7s <- read.dta("ESS7e01.dta")
 ```
 
+
+In the first example a country file and sample data for Sweden is needed.
+
+```{r}
+ESS5_SE <- read.spss("ESS5_SE_SDDF.por",to.data.frame=T)
+```
+
+
+
 Some Links on import and export of data in R:
 
 - [Quick R on importing data](http://www.statmethods.net/input/importingdata.html)
