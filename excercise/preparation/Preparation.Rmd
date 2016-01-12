@@ -14,23 +14,17 @@ Ex<-T
 
 
 
-## Why R?
-
-
-- Open Source 
-
-- You can work with several datasets at the same time
-
-- You can create your own objects, functions and packages
-
-- Over 5,000 packages contributed by users available on CRAN
-
-
+## Why use R?
 
 - Rapid implementation of new (scientific) developments
 
 - Quick development of new tools that fit the user's demand
 
+- Over 5,000 packages contributed by users available on CRAN
+
+- [Open Source](https://en.wikipedia.org/wiki/Open-source_software) - You can create your own objects, functions and packages
+
+- You can work with several datasets at the same time
 
 ## Get R
 
@@ -38,7 +32,7 @@ R can be downloaded here:
 
 www.r-project.org
 
-
+It can be installed on Windows and Linux plattforms as well as on Macs. 
 
 ## R Basic
 
@@ -55,13 +49,17 @@ www.rstudio.com
 
 ## First operations
 
-[Creating new variables](http://www.statmethods.net/management/variables.html):
+```{r}
+# Comments 
+```
+
+[Creating new variables](http://www.statmethods.net/management/variables.html) with the assignment operator `<-`:
 
 ```{r}
 x<-rnorm(10,0,1)
 ```
 
-- creates a vector with ten standardnormal-distributed values
+- creates a vector with ten standard-normal-distributed values
 - more information can be found [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Vectors-and-assignment)
 
 ```{r}
@@ -70,24 +68,162 @@ mean(x)
 
 calculates the mean of variable x
 
+
+More basic commands:
+
+```{r}
+length(x)
+max(x)
+min(x)
+sd(x)
+var(x)
+median(x)
+```
+
+
+
+
 ## Getting help
 
 - [Introduction to R](http://mirrors.softliste.de/cran/)
 - [stackoverflow](http://stackoverflow.com/questions/tagged/r)
 
+Get the help page for a command:
+
+```{r,eval=F}
+help.start()
+
+help(mean)
+
+  # if you know already the function name:
+?mean
+```
+
+Often you can get examples like the following one for linear regression.
+  
+```{r}
+example(lm)
+```
+
+
+## Draw random numbers:
+
+```{r}
+  # Uniform Distribution
+x1 <- runif(1000)
+  # Normal distribution
+x2 <- rnorm(1000)
+  # Exponential distribution
+x3 <- rexp(1000)
+
+rnorm(100,mean=0,sd=1)
+```
+
+
 ## Installing and Loading Packages
+
+Many functions are already implemented in basic R. For more specific tasks libraries have to be installed. This can be done using the command `install.packages`. After the installation the package must be loaded with the command `library`.
 
 ```{r,eval=F}
 install.packages("sampling")
-require("sampling")
+library("sampling")
 ```
 
+Here is a list of packages which are relevant for the workshop:
+
+- [foreign](https://cran.r-project.org/web/packages/foreign/index.html) - Read Data Stored by Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase, ...
+
+- [sampling](https://cran.r-project.org/web/packages/sampling/index.html) - Survey Sampling
+
+- [survey](https://cran.r-project.org/web/packages/survey/index.html) - analysis of complex survey samples
+
+```{r,eval=F}
+install.packages("lattice")
+install.packages("survey")
+```
+
+
+
+## Indexing
+
+```{r}
+
+# vector
+A1 <- c(1,2,3,4)
+A1
+A1[1]
+A1[4]
+A1[1:3]
+A1[-4]
+```
+
+```{r}
+# dataframe
+
+AA <- 4:1
+A2 <- cbind(A1,AA)
+A2[1,1]
+A2[2,]
+A2[,1]
+A2[,1:2]
+```
+
+```{r}
+# array
+
+A3 <- array(1:8,c(2,2,2))
+A3
+A3[,,2]
+```
+
+
+```{r}
+# list
+
+A4 <- list(A1,1)
+A4
+A4[[2]]
+```
+
+## Sequences
+
+```{r}
+# sequence from 1 to 10
+1:10
+
+seq(-2,8,by=1.5)
+
+a<-seq(3,12,length=12)
+
+b<- seq(to=5,length=12,by=0.2)
+
+d <-1:10
+d<- seq(1,10,1)
+d <- seq(length=10,from=1,by=1)
+
+# replicate 1 10 times
+rep(1,10)
+rep("A",10)
+```
+
+
+
 ## Basic Graphics
+
+The plot function is the easiest option to get a graphic:
 
 ```{r}
 x <- rnorm(1000,0,1)
 plot(x)
 ```
+
+Adding a header:
+
+```{r}
+plot(x,main="header")
+```
+
+
 
 ## Histogram
 
@@ -97,13 +233,43 @@ hist(x)
 
 ## The sample function
 
-[sample](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html)
+Usage of the command [sample](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html)
 
 ![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleWhat.PNG)
 
 ![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleHow.PNG)
 
 ![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/SampleReplacement.PNG)
+
+```{r}
+sample(x=1:10,1)
+sample(x=1:10,1,replace=T)
+```
+
+
+## Working Directory and Workspace
+
+Declaring a working directory
+
+```{r,eval=F}
+path<-"H:/Sand/Summerschool/Data Day1/"
+```
+
+
+- It is always useful to define and set your working directory at the beginning of each script
+- getwd() displays you your current working directory
+- dir() shows you all objects in a specific directory
+- ls() lists all objects in your workspace
+- rm() removes a object from your workspace
+
+
+```{r,eval=F}
+rm(list = ls())
+```
+
+## [Data Import and Export in R](http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/index.cfm)
+
+[Quick R on exporting data](http://www.statmethods.net/input/exportingdata.html)
 
 ## A first example dataset
 
@@ -116,6 +282,28 @@ my.pop <- read.csv(link)
 head(my.pop)
 ```
 
+
+The dollar sign can also be used to access the columns
+
+```{r}
+head(my.pop$gender)
+```
+
+With the command `table` we get a frequency table:
+
+```{r}
+table(my.pop$gender)
+```
+
+With `prop.table` we get the relative frequencies:
+
+```{r}
+tabA <- table(my.pop$gender)
+prop.table(tabA)
+```
+
+
+
 ## Simple Example on Sampling
 
 Summary of the dataset
@@ -126,15 +314,21 @@ prop.table(table(my.pop$gender,my.pop$education))
 var(my.pop$iq)*(nrow(my.pop)-1)/nrow(my.pop)
 ```
 
+In the following example two simply random samples are drawn, one with replacement and one without replacement:
+
 ```{r}
-set.seed(42)
 s.SRS <- sample(1:nrow(my.pop),500,replace=T)
 s.SRSWOR <- sample(1:nrow(my.pop),500,replace=F)
+```
+
+
+```{r}
 my.samp.SRS <- my.pop[s.SRS,]
 my.samp.SRSWOR <- my.pop[s.SRSWOR,]
 summary(my.samp.SRS)
-nrow(unique(my.samp.SRS))
 ```
+
+Making graphics to compare the samples:
 
 ```{r}
 plot(density(my.pop$iq),main = "My first density plot"
@@ -145,7 +339,7 @@ lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 ```
 
 ```{r,warning=F}
-library(sampling)
+library("sampling")
 set.seed(42)
 s.SRS1 <- srswr(500,nrow(my.pop))
 s.SRSWOR1 <- srswor(500,nrow(my.pop)) 
@@ -175,25 +369,3 @@ lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 - should yield same results
 - routine may differ because of "starting point"
 
-
-## Working Directory and Workspace
-
-Declaring a working directory
-
-```{r,eval=F}
-path<-"H:/Sand/Summerschool/Data Day1/"
-```
-
-
-- It is always useful to define and set your working directory at the beginning of each script
-- getwd() displays you your current working directory
-- dir() shows you all objects in a specific directory
-- ls() lists all objects in your workspace
-- rm() removes a object from your workspace
-
-
-```{r,eval=F}
-rm(list = ls())
-```
-
-## Reading and Writing Data
