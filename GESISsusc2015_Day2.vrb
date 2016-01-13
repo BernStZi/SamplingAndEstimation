@@ -1,6 +1,6 @@
 \frametitle{Design Effect for a Cluster Sample}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 11:55:59 2016
+% Wed Jan 13 13:31:08 2016
 \begin{table}[ht]
 \centering
 \caption{Intra-Cluster Homogeneity and Design Effects}
@@ -12,7 +12,7 @@ $\delta$ & -0.15385 & 0.95385 \\
   \end{tabular}
 \end{table}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 11:55:59 2016
+% Wed Jan 13 13:31:08 2016
 \begin{table}[ht]
 \centering
 \caption{Two Variations of a Population Composed of 5
