@@ -147,6 +147,95 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 
 %Picture for cluster sampling
 
+\begin{frame}{Clustering}
+<<StratSetUp,echo=FALSE>>=
+N  <- 100
+Xs <- rep(1:10,each=10)
+Ys <- rep(1:10,time=10)
+
+sind <- list(c(1:4,11:14,21:24)
+             ,c(5:10,15:20,25:30)
+             ,c(31:35,41:45,51:55)
+             ,c(61:65,71:75,81:85,91:95)
+             ,c(36:40,46:50,56:60,66:70)
+             ,c(76:80,86:90,96:100))
+#sind <- list((1:30),c(31:35,41:45,51:55),c(61:65,71:75,81:85,91:95))
+SIND <- 1:100
+SIND[sind[[1]]] <- 1
+SIND[sind[[2]]] <- 2
+SIND[sind[[3]]] <- 3
+SIND[sind[[4]]] <- 4
+SIND[sind[[5]]] <- 5
+SIND[sind[[6]]] <- 6
+
+strata.Xs <- split(Xs,SIND)
+strata.Ys <- split(rev(Ys),SIND)
+Nh <- sapply(sind,length)
+n_I  <- 2
+@
+A Population of 100 elements is clustered into $N_{\RN{1}}=6$ cluster
+%fig.keep='all',fig.show='asis'
+\onslide*<1>{
+<<StratPlot1,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth'>>=
+offset <- 0.65
+plot(  x=Xs
+      ,y=Ys
+      ,pch=20
+      ,xlab=""
+      ,ylab=""
+      ,axes=FALSE
+      ,mar=c(4,4,4,10)
+      )
+rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2)
+text(x=2.5, y=6, labels = "i=2")
+
+rect(xleft=offset   , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2)
+text(x=2.5, y=10, labels = "i=1")
+
+rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2)
+text(x=5.5, y=10, labels = "i=3")
+
+
+rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2)
+text(x=9.5, y=10, labels = "i=4")
+
+
+rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2)
+text(x=6.5, y=5, labels = "i=5")
+
+text(x=9.5, y=5, labels = "i=6")
+box(lwd=3)
+
+@
+}\onslide<2>{
+and $n_{\RN{1}}=\Sexpr{n_I}$ clusters are selected from the population.
+<<StratPlot2,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth'>>=
+<<StratPlot1>>
+set.seed(999)
+sam.str <- sample(length(Nh),n_I)
+par(xpd=TRUE)
+if(any(sam.str==2))
+ rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2, border=2) 
+if(any(sam.str==1))
+ rect(xleft=offset  , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==3))
+ rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==4))
+ rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==5))
+ rect(xleft=3.5, ybottom = offset, xright = 7.5, ytop = 5.5,lwd=2,border=2)
+if(any(sam.str==6))
+ rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2,border=2)
+par(xpd=FALSE)
+for(i in 1:n_I) {
+  points(x=strata.Xs[[sam.str[i]]],y=strata.Ys[[sam.str[i]]],pch=15,col=2,cex=2)
+}
+
+@
+}
+\end{frame}
+
+
 \begin{frame}{Cluster Sampling}
 \begin{itemize}
 \item[]<1-> Sampling elementary units is often not feasible (e.g. persons or businesses). Maybe there is no uniform sampling frame available to select them from, or it would be costly to do, because the selected elements would scatter to much over the a certain area and travel costs of interviewers would be to high. 
@@ -275,6 +364,59 @@ If the cluster where strata, which stratification would you use, columns or rows
 \onslide<4->{\newline What good is for stratified sampling, i.e. low SSW, is bad of cluster sampling and vice versa.}
 \end{frame}
 
+
+\begin{frame}{Tow Stage Sampling}
+A Population of 100 elements is clustered into $N_{\RN{1}}=6$ clusters
+and $n_{\RN{1}}=\Sexpr{n_I}$ clusters (PSU) are selected at the first sampling stage
+\onslide*<1>{
+<<StratPlot1.2,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth'>>=
+set.seed(671)
+n_i <- 4
+sam.str <- sample(length(Nh),n_I)
+par(xpd=TRUE)
+<<StratPlot1>>
+
+if(any(sam.str==2))
+rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2, border=2) 
+
+if(any(sam.str==1))
+rect(xleft=offset  , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==3))
+rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==4))
+rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==5))
+rect(xleft=3.5, ybottom = offset, xright = 7.5, ytop = 5.5,lwd=2,border=2)
+
+
+if(any(sam.str==6))
+rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2,border=2)
+par(xpd=FALSE)
+@
+}\onslide<2>{
+and $n_{i}=4$ elements are selected from each sampled cluster.
+<<StratPlot2.2,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth'>>=
+<<StratPlot1.2>>
+for(i in sam.str) {
+      s_i <- sample(length(strata.Xs[[i]]), n_i)
+      points(x=strata.Xs[[i]][s_i],y=strata.Ys[[i]][s_i],pch=15,col=2,cex=2)
+}
+@
+}
+  
+
+
+
+
+\end{frame}
+
+
 \begin{frame}{Two Stage Sampling}
  \begin{description}
  \item[First  stage] A sample $\mathfrc{s}_{\RN{1}}$ of PSU's is drawn from $\mathcal{U}_{\RN{1}}$ according to some sampling design $p_{\RN{1}}(.)$
@@ -374,7 +516,7 @@ Note: In the extreme case if $\pi_k = \alpha y_k$, with  $\alpha \in \mathbb{R}$
 
 
 \begin{frame}{Systematic Sampling with \\ Unequal Inclusion Probabilities}
-Again the elements of the population are brought into a specific ordered and $V^i = \sum_{k=1}^i \pi_k$.
+Again the elements of the population are brought into a specific ordered and $V^i = \sum_{k=1}^i \pi_k$. Then $\lambda_k$ is drawn from a uniform distribution between $0$ and $1$.
 ~\\[-4cm]
 <<UP.SYS,echo=FALSE,fig.height=8,out.width='.95\\linewidth',fig.pos='th',fig.show = 'asis'>>=
   set.seed(43)
@@ -562,266 +704,266 @@ print.xtable(clu.tab,hline.after = c(0,5,6),caption.placement="top", sanitize.te
 @
 \end{frame}
 
-\begin{frame}{Issues associated with Estimation of $\deff$}
-  $$ \deff(p(.),\hat{\theta}) = \dfrac{\V{\hat{\theta}}_p}{\V{\hat{\theta}}_{\text{SRS}}} $$
-	\begin{itemize}
-		\item<1->{ Find suitable estimators for both
-		\begin{itemize}
-			\item the denominator and
-			\item the numerator
-		\end{itemize}
-		}
-		\item<2-> Treat the data as if it had arisen from SRS for estimation of the enumerator (but using available weights).
-	\item<3> It is also common to use SRSWR as the reference design, which can simplify the design effect estimation.
-	\end{itemize}
-	
-\end{frame}
-
-
-\begin{frame}{Variance Estimation}
-	\begin{itemize}
-		\item Depending on the estimator under study, variance estimation can be cumbersome
-		\item The usual (approximate) variance estimation techniques can be applied:
-		\begin{itemize}
-			\item Linearization
-			\item Resampling
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Model-based Approach}
-	\begin{itemize}
-		\item Again we have $N_{\RN{1}}$ clusters in the population of size $N_i$, $i=1,\dots,N_{\RN{1}}$
-		\item Variable $\mathcal{Y}$ is assumed to follow the \emph{common parameter model},
-		\begin{eqnarray*}
-		  \E{y_{ki}}_{M} &=& \mu \\
-		  \notag\V{ y_{ki}}_{M}	&	=	&	\sigma^2 \\
-			\COV{y_{ki}}{y_{k'i'}}_{M}	&	=	&
-																\begin{cases}%
-																	\sigma^2 \rho & \text{for } k\neq k', i = i'
-																	\\
-																	0							& \text{otherwise.}
-																\end{cases}%
-		\end{eqnarray*}%
-	\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Estimation of $\deff$}{under Cluster Sampling}
-\onslide*<1>{
-	The considered estimator is $\overline{y}_{w} = \dfrac{\sum_{k \in \mathfrc{s}} w_k y_k}{\sum_{k \in \mathfrc{s}} w_k }$, where $w_k$ is the survey associated with $k$-th element, e.g. 
-	$$ w_k =
-	\begin{cases}
-	\pi_k^{-1} & \text{for}\; k \in \mathfrc{s} \\
-	0          & \text{else}
-	\end{cases}\,{.}
-	$$
-	\begin{itemize}
-		\item Under the model-based approach, $\deff$ can be displayed as the product of two factors:
-		\begin{description}
-			\item[$\deffc$] design effect due to clustering
-			\item[$\deffp$] design effect due to unequal survey weights
-		\end{description}
-		\item They indicate loss in precision due to cluster sampling and unequal weights, respectively.
-	\end{itemize}
-}\onslide*<2>{	Note that under the model-based approach $w_k$ is treated as independent of $y_k$ for all $k \in \mathcal{U}$. Potential gains in precision by using proportional to size design are not considered, quite the contrary, unequal weight will increase the variance of $\overline{y}_{w}$ in this setting.}
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Estimation of $\deffc$}
-	\begin{itemize}
-		\item Under cluster sampling and two-stage sampling we can use:\\
-					\[
-						\deffhatc = 1 + \left(\bar{b} - 1\right) \hat{\rho}
-					\]%
-					with
-					\begin{description}
-						\item[$\bar{b}$]  as the average cluster size $\frac{N}{N_{\RN{1}}}$ ($\frac{n}{n_{\RN{1}}}$ ) or an estimator for it and 
-						\item[$\hat{\rho}$] an appropriate estimator of $\rho$.
-					\end{description}
-		\item When $w_k$'s vary we have
-					\[
-					  \deffhatc = 1 + \left(b^{\ast} - 1\right) \hat{\rho}
-					\]
-					where $b^{\ast}= \frac{ \sum_{i \in \mathfrc{s}_{\RN{1}}} \left( \sum_{k \in \mathfrc{s}_i} w_{k} \right)^2 }{ \sum_{k \in \mathfrc{s} } w_k^2}$ is a kind of weighted average cluster size [Gabler et al., 1999].
-	\end{itemize}
-	%For two stage cluster 
-\end{frame}
-
-\begin{frame}
-	\frametitle{Calculation of $\deffp$}
-	\begin{itemize}
-		\item The design effect due to unequal weights is
-					\[
-					  \deffp = n \frac{\sum_{k \in \mathfrc{s}} w_k^2} { \left( \sum_{k \in \mathfrc{s}}  w_k \right)^2 }
-					\]
-		\item Obviously, if $w_k$'s are constant, $\deffp = 1$
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Behavior of $\deffc$}
-~\\[-1cm]
-<<deff-illustration-wire,echo=FALSE,out.width='.8\\linewidth', fig.pos='th', fig.show = 'asis',cache=TRUE>>=
-library(lattice)
-bbar <- seq(5, 25, by = .5)
-rho  <- seq(.02, .2, by=.005)
-deff <- function(bbar,rho) 1+ ((bbar-1)*rho)
-D <- sapply(bbar, function(x) sapply(rho, function(y) deff(x,y)))
-dimnames(D) <- list(rho, bbar)
-
-a.pts <- data.frame(x = c(15,15,15),
-                    y = c(.05,.10,.15),
-                    z = NA)
-a.pts$z <- 1 + ((a.pts$x-1)*a.pts$y)
-a <- sort(c(1:6,a.pts$z))
-
-b.pts <- data.frame(x = c(20,20,20),
-                    y = c(.05,.10,.15),
-                    z = NA)
-b.pts$z <- 1 + ((b.pts$x-1)*b.pts$y)
-b <- sort(c(1:6,b.pts$z))
-
-f <- unique(sort(c(a,b)))
-cols <-  rep("black",length(f))
-cols[f%in%a.pts$z] <- "red"
-cols[f%in%b.pts$z] <- "green"
-cols <- cols[-1]
-
-deffTildeBbarRho <- 
-wireframe(D ~ rep(bbar,each=length(rho)) + rep(rho,length(bbar)),
-          drape = TRUE,
-          at = seq(1,6,by=.5),
-          colorkey = TRUE,
-          col.regions = c("blue2","grey70"),
-          alpha.regions = .5,
-          xlab = expression(bar(b)),
-          ylab = expression(rho),
-          zlab = expression(Deff[c]),
-          default.scales = list(arrows = FALSE,
-                                x = list(at = c(seq(5,25,by=5),max(bbar))),
-                                y = list(at = c(seq(.05,max(rho),by=.05),max(rho))),
-                                z = list(at = f, col = cols)),
-          a.pts = a.pts,
-          b.pts = b.pts,
-          screen =list(x=-50,y=55,z=35),
-          panel.3d.wireframe = function(x,y,z,
-                                        xlim, ylim, zlim,
-                                        xlim.scaled, ylim.scaled, zlim.scaled,
-                                        a.pts, b.pts, ...){
-
-                                a.xx <- ((a.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
-                                a.yy <- ((a.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
-                                a.zz <- ((a.pts$z -min(D))/ (max(D)-min(D)))-.5
-
-                                b.xx <- ((b.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
-                                b.yy <- ((b.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
-                                b.zz <- ((b.pts$z -min(D))/ (max(D)-min(D)))-.5
-
-                                panel.3dscatter(x = a.xx, y = a.yy, z = a.zz,
-                                                xlim = xlim,
-                                                ylim = ylim,
-                                                zlim = zlim,
-                                                xlim.scaled = xlim.scaled,
-                                                ylim.scaled = ylim.scaled,
-                                                zlim.scaled = zlim.scaled,
-                                                type = "h", pch = 0, lwd = 5, col = "red",...)
-
-                                panel.3dscatter(x = b.xx, y = b.yy, z = b.zz,
-                                                xlim = xlim,
-                                                ylim = ylim,
-                                                zlim = zlim,
-                                                xlim.scaled = xlim.scaled,
-                                                ylim.scaled = ylim.scaled,
-                                                zlim.scaled = zlim.scaled,
-                                                type = "h", pch = 0, lwd = 5, col = "green",...)
-
-                                panel.3dwire(x,y,z,
-                                             xlim = xlim,
-                                             ylim = ylim,
-                                             zlim = zlim,
-                                             xlim.scaled = xlim.scaled,
-                                             ylim.scaled = ylim.scaled,
-                                             zlim.scaled = zlim.scaled,
-                                             lwd = 0.25,...)
-
-                                for(i in 1:nrow(a.pts)){
-                                  panel.3dscatter(x = c(a.xx[i],-.5,-.5),
-                                                  y = c(a.yy[i],a.yy[i],.5),
-                                                  z = c(a.zz[i],a.zz[i],a.zz[i]),
-                                  xlim = xlim,
-                                  ylim = ylim,
-                                  zlim = zlim,
-                                  xlim.scaled = xlim.scaled,
-                                  ylim.scaled = ylim.scaled,
-                                  zlim.scaled = zlim.scaled,
-                                  pch = 2, col = "red", lwd = 4, type="l",...)}
-
-                                for(i in 1:nrow(b.pts)){
-                                  panel.3dscatter(x = c(b.xx[i],-.5,-.5),
-                                                  y = c(b.yy[i],b.yy[i],.5),
-                                                  z = c(b.zz[i],b.zz[i],b.zz[i]),
-                                  xlim = xlim,
-                                  ylim = ylim,
-                                  zlim = zlim,
-                                  xlim.scaled = xlim.scaled,
-                                  ylim.scaled = ylim.scaled,
-                                  zlim.scaled = zlim.scaled,
-                                  pch = 2, col = "green", lwd = 4, type="l",...)}
-                               })
-
-print(deffTildeBbarRho)
-@
-\end{frame}
+%' \begin{frame}{Issues associated with Estimation of $\deff$}
+%'   $$ \deff(p(.),\hat{\theta}) = \dfrac{\V{\hat{\theta}}_p}{\V{\hat{\theta}}_{\text{SRS}}} $$
+%' 	\begin{itemize}
+%' 		\item<1->{ Find suitable estimators for both
+%' 		\begin{itemize}
+%' 			\item the denominator and
+%' 			\item the numerator
+%' 		\end{itemize}
+%' 		}
+%' 		\item<2-> Treat the data as if it had arisen from SRS for estimation of the enumerator (but using available weights).
+%' 	\item<3> It is also common to use SRSWR as the reference design, which can simplify the design effect estimation.
+%' 	\end{itemize}
+%' 	
+%' \end{frame}
 %' 
 %' 
-
-\begin{frame}{An Estimators of $\rho$}
-\onslide<1->{
-  There are many different ways to estimate $\rho$ [Ganninger, 2009].
-  The classical ANOVA estimator:
-	\begin{align*}
-		\hat{\rho} = \dfrac{ \widehat{SSB}(n_\RN{1}-1)^{-1} -  \widehat{SSW}(n-n_\RN{1})^{-1}}{ \widehat{SSB}+(K-1) \widehat{SSW}(n-n_\RN{1})^{-1} }\;{,}
-	\end{align*}%
-where $ \widehat{SSB} =  \sum_{i \in \mathfrc{s}_{\RN{1}}} n_i (\overline{y}_i - \overline{y})^2 $ and 
-
-with  $ \widehat{SSW}  = \sum_{i \in \mathfrc{s}_{\RN{1}}} (n_i - 1) s^2_i$ and 
-$$
- K = (N_\RN{1}-1)^{-1} \left( n - \sum_{ i \in \mathfrc{s}_\RN{1} }  \dfrac{n_\RN{1}^2}{n} \right) \;{.}
-$$
-}\onslide<2>{
-\begin{itemize}
-\item The model-based approach is widely used because it presents for data users often the only option to estimate a design effect.
-\item For multi-stage design the used model considers only the cluster effect of the PSU's and neglects any subsequent sampling stages.
-\end{itemize}
-}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Effective Sample Size Use of $\deff$}
-	\begin{description}
-		\item[a priori] Prediction of a minimum net sample size (e.g. in the ESS):
-					\[
-					  \tilde{n}_{net} = \neff \times \deff_{pre} = \neff \times \left[ 1 + \left(\bar{b}_{pre} - 1 \right) \rho_{pre}  \right]
-					\,{.}\]
-		\item[a posteriori] Estimation of $\deff$ based on a realized complex sample.
-	\end{description}	
-\end{frame}
-
-
-
-\begin{frame}{Average Design Effects in the ESS}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=.9\linewidth]{graphs/deff_cntryAll_roundALL} 
-
-}
-%\caption[Average Design Effects in the ESS]{Average Design Effects in the ESS}\label{fig:SamSizeSRSprobs2}
-\end{figure}
-\end{frame}
+%' \begin{frame}{Variance Estimation}
+%' 	\begin{itemize}
+%' 		\item Depending on the estimator under study, variance estimation can be cumbersome
+%' 		\item The usual (approximate) variance estimation techniques can be applied:
+%' 		\begin{itemize}
+%' 			\item Linearization
+%' 			\item Resampling
+%' 		\end{itemize}
+%' 	\end{itemize}
+%' \end{frame}
+%' 
+%' 
+%' \begin{frame}
+%' 	\frametitle{Model-based Approach}
+%' 	\begin{itemize}
+%' 		\item Again we have $N_{\RN{1}}$ clusters in the population of size $N_i$, $i=1,\dots,N_{\RN{1}}$
+%' 		\item Variable $\mathcal{Y}$ is assumed to follow the \emph{common parameter model},
+%' 		\begin{eqnarray*}
+%' 		  \E{y_{ki}}_{M} &=& \mu \\
+%' 		  \notag\V{ y_{ki}}_{M}	&	=	&	\sigma^2 \\
+%' 			\COV{y_{ki}}{y_{k'i'}}_{M}	&	=	&
+%' 																\begin{cases}%
+%' 																	\sigma^2 \rho & \text{for } k\neq k', i = i'
+%' 																	\\
+%' 																	0							& \text{otherwise.}
+%' 																\end{cases}%
+%' 		\end{eqnarray*}%
+%' 	\end{itemize}
+%' \end{frame}
+%' 
+%' 
+%' 
+%' \begin{frame}{Estimation of $\deff$}{under Cluster Sampling}
+%' \onslide*<1>{
+%' 	The considered estimator is $\overline{y}_{w} = \dfrac{\sum_{k \in \mathfrc{s}} w_k y_k}{\sum_{k \in \mathfrc{s}} w_k }$, where $w_k$ is the survey associated with $k$-th element, e.g. 
+%' 	$$ w_k =
+%' 	\begin{cases}
+%' 	\pi_k^{-1} & \text{for}\; k \in \mathfrc{s} \\
+%' 	0          & \text{else}
+%' 	\end{cases}\,{.}
+%' 	$$
+%' 	\begin{itemize}
+%' 		\item Under the model-based approach, $\deff$ can be displayed as the product of two factors:
+%' 		\begin{description}
+%' 			\item[$\deffc$] design effect due to clustering
+%' 			\item[$\deffp$] design effect due to unequal survey weights
+%' 		\end{description}
+%' 		\item They indicate loss in precision due to cluster sampling and unequal weights, respectively.
+%' 	\end{itemize}
+%' }\onslide*<2>{	Note that under the model-based approach $w_k$ is treated as independent of $y_k$ for all $k \in \mathcal{U}$. Potential gains in precision by using proportional to size design are not considered, quite the contrary, unequal weight will increase the variance of $\overline{y}_{w}$ in this setting.}
+%' \end{frame}
+%' 
+%' 
+%' \begin{frame}
+%' 	\frametitle{Estimation of $\deffc$}
+%' 	\begin{itemize}
+%' 		\item Under cluster sampling and two-stage sampling we can use:\\
+%' 					\[
+%' 						\deffhatc = 1 + \left(\bar{b} - 1\right) \hat{\rho}
+%' 					\]%
+%' 					with
+%' 					\begin{description}
+%' 						\item[$\bar{b}$]  as the average cluster size $\frac{N}{N_{\RN{1}}}$ ($\frac{n}{n_{\RN{1}}}$ ) or an estimator for it and 
+%' 						\item[$\hat{\rho}$] an appropriate estimator of $\rho$.
+%' 					\end{description}
+%' 		\item When $w_k$'s vary we have
+%' 					\[
+%' 					  \deffhatc = 1 + \left(b^{\ast} - 1\right) \hat{\rho}
+%' 					\]
+%' 					where $b^{\ast}= \frac{ \sum_{i \in \mathfrc{s}_{\RN{1}}} \left( \sum_{k \in \mathfrc{s}_i} w_{k} \right)^2 }{ \sum_{k \in \mathfrc{s} } w_k^2}$ is a kind of weighted average cluster size [Gabler et al., 1999].
+%' 	\end{itemize}
+%' 	%For two stage cluster 
+%' \end{frame}
+%' 
+%' \begin{frame}
+%' 	\frametitle{Calculation of $\deffp$}
+%' 	\begin{itemize}
+%' 		\item The design effect due to unequal weights is
+%' 					\[
+%' 					  \deffp = n \frac{\sum_{k \in \mathfrc{s}} w_k^2} { \left( \sum_{k \in \mathfrc{s}}  w_k \right)^2 }
+%' 					\]
+%' 		\item Obviously, if $w_k$'s are constant, $\deffp = 1$
+%' 	\end{itemize}
+%' \end{frame}
+%' 
+%' \begin{frame}{Behavior of $\deffc$}
+%' ~\\[-1cm]
+%' <<deff-illustration-wire,echo=FALSE,out.width='.8\\linewidth', fig.pos='th', fig.show = 'asis',cache=TRUE>>=
+%' library(lattice)
+%' bbar <- seq(5, 25, by = .5)
+%' rho  <- seq(.02, .2, by=.005)
+%' deff <- function(bbar,rho) 1+ ((bbar-1)*rho)
+%' D <- sapply(bbar, function(x) sapply(rho, function(y) deff(x,y)))
+%' dimnames(D) <- list(rho, bbar)
+%' 
+%' a.pts <- data.frame(x = c(15,15,15),
+%'                     y = c(.05,.10,.15),
+%'                     z = NA)
+%' a.pts$z <- 1 + ((a.pts$x-1)*a.pts$y)
+%' a <- sort(c(1:6,a.pts$z))
+%' 
+%' b.pts <- data.frame(x = c(20,20,20),
+%'                     y = c(.05,.10,.15),
+%'                     z = NA)
+%' b.pts$z <- 1 + ((b.pts$x-1)*b.pts$y)
+%' b <- sort(c(1:6,b.pts$z))
+%' 
+%' f <- unique(sort(c(a,b)))
+%' cols <-  rep("black",length(f))
+%' cols[f%in%a.pts$z] <- "red"
+%' cols[f%in%b.pts$z] <- "green"
+%' cols <- cols[-1]
+%' 
+%' deffTildeBbarRho <- 
+%' wireframe(D ~ rep(bbar,each=length(rho)) + rep(rho,length(bbar)),
+%'           drape = TRUE,
+%'           at = seq(1,6,by=.5),
+%'           colorkey = TRUE,
+%'           col.regions = c("blue2","grey70"),
+%'           alpha.regions = .5,
+%'           xlab = expression(bar(b)),
+%'           ylab = expression(rho),
+%'           zlab = expression(Deff[c]),
+%'           default.scales = list(arrows = FALSE,
+%'                                 x = list(at = c(seq(5,25,by=5),max(bbar))),
+%'                                 y = list(at = c(seq(.05,max(rho),by=.05),max(rho))),
+%'                                 z = list(at = f, col = cols)),
+%'           a.pts = a.pts,
+%'           b.pts = b.pts,
+%'           screen =list(x=-50,y=55,z=35),
+%'           panel.3d.wireframe = function(x,y,z,
+%'                                         xlim, ylim, zlim,
+%'                                         xlim.scaled, ylim.scaled, zlim.scaled,
+%'                                         a.pts, b.pts, ...){
+%' 
+%'                                 a.xx <- ((a.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
+%'                                 a.yy <- ((a.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
+%'                                 a.zz <- ((a.pts$z -min(D))/ (max(D)-min(D)))-.5
+%' 
+%'                                 b.xx <- ((b.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
+%'                                 b.yy <- ((b.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
+%'                                 b.zz <- ((b.pts$z -min(D))/ (max(D)-min(D)))-.5
+%' 
+%'                                 panel.3dscatter(x = a.xx, y = a.yy, z = a.zz,
+%'                                                 xlim = xlim,
+%'                                                 ylim = ylim,
+%'                                                 zlim = zlim,
+%'                                                 xlim.scaled = xlim.scaled,
+%'                                                 ylim.scaled = ylim.scaled,
+%'                                                 zlim.scaled = zlim.scaled,
+%'                                                 type = "h", pch = 0, lwd = 5, col = "red",...)
+%' 
+%'                                 panel.3dscatter(x = b.xx, y = b.yy, z = b.zz,
+%'                                                 xlim = xlim,
+%'                                                 ylim = ylim,
+%'                                                 zlim = zlim,
+%'                                                 xlim.scaled = xlim.scaled,
+%'                                                 ylim.scaled = ylim.scaled,
+%'                                                 zlim.scaled = zlim.scaled,
+%'                                                 type = "h", pch = 0, lwd = 5, col = "green",...)
+%' 
+%'                                 panel.3dwire(x,y,z,
+%'                                              xlim = xlim,
+%'                                              ylim = ylim,
+%'                                              zlim = zlim,
+%'                                              xlim.scaled = xlim.scaled,
+%'                                              ylim.scaled = ylim.scaled,
+%'                                              zlim.scaled = zlim.scaled,
+%'                                              lwd = 0.25,...)
+%' 
+%'                                 for(i in 1:nrow(a.pts)){
+%'                                   panel.3dscatter(x = c(a.xx[i],-.5,-.5),
+%'                                                   y = c(a.yy[i],a.yy[i],.5),
+%'                                                   z = c(a.zz[i],a.zz[i],a.zz[i]),
+%'                                   xlim = xlim,
+%'                                   ylim = ylim,
+%'                                   zlim = zlim,
+%'                                   xlim.scaled = xlim.scaled,
+%'                                   ylim.scaled = ylim.scaled,
+%'                                   zlim.scaled = zlim.scaled,
+%'                                   pch = 2, col = "red", lwd = 4, type="l",...)}
+%' 
+%'                                 for(i in 1:nrow(b.pts)){
+%'                                   panel.3dscatter(x = c(b.xx[i],-.5,-.5),
+%'                                                   y = c(b.yy[i],b.yy[i],.5),
+%'                                                   z = c(b.zz[i],b.zz[i],b.zz[i]),
+%'                                   xlim = xlim,
+%'                                   ylim = ylim,
+%'                                   zlim = zlim,
+%'                                   xlim.scaled = xlim.scaled,
+%'                                   ylim.scaled = ylim.scaled,
+%'                                   zlim.scaled = zlim.scaled,
+%'                                   pch = 2, col = "green", lwd = 4, type="l",...)}
+%'                                })
+%' 
+%' print(deffTildeBbarRho)
+%' @
+%' \end{frame}
+%' %' 
+%' %' 
+%' 
+%' \begin{frame}{An Estimators of $\rho$}
+%' \onslide<1->{
+%'   There are many different ways to estimate $\rho$ [Ganninger, 2009].
+%'   The classical ANOVA estimator:
+%' 	\begin{align*}
+%' 		\hat{\rho} = \dfrac{ \widehat{SSB}(n_\RN{1}-1)^{-1} -  \widehat{SSW}(n-n_\RN{1})^{-1}}{ \widehat{SSB}+(K-1) \widehat{SSW}(n-n_\RN{1})^{-1} }\;{,}
+%' 	\end{align*}%
+%' where $ \widehat{SSB} =  \sum_{i \in \mathfrc{s}_{\RN{1}}} n_i (\overline{y}_i - \overline{y})^2 $ and 
+%' 
+%' with  $ \widehat{SSW}  = \sum_{i \in \mathfrc{s}_{\RN{1}}} (n_i - 1) s^2_i$ and 
+%' $$
+%'  K = (N_\RN{1}-1)^{-1} \left( n - \sum_{ i \in \mathfrc{s}_\RN{1} }  \dfrac{n_\RN{1}^2}{n} \right) \;{.}
+%' $$
+%' }\onslide<2>{
+%' \begin{itemize}
+%' \item The model-based approach is widely used because it presents for data users often the only option to estimate a design effect.
+%' \item For multi-stage design the used model considers only the cluster effect of the PSU's and neglects any subsequent sampling stages.
+%' \end{itemize}
+%' }
+%' \end{frame}
+%' 
+%' \begin{frame}
+%' 	\frametitle{Effective Sample Size Use of $\deff$}
+%' 	\begin{description}
+%' 		\item[a priori] Prediction of a minimum net sample size (e.g. in the ESS):
+%' 					\[
+%' 					  \tilde{n}_{net} = \neff \times \deff_{pre} = \neff \times \left[ 1 + \left(\bar{b}_{pre} - 1 \right) \rho_{pre}  \right]
+%' 					\,{.}\]
+%' 		\item[a posteriori] Estimation of $\deff$ based on a realized complex sample.
+%' 	\end{description}	
+%' \end{frame}
+%' 
+%' 
+%' 
+%' \begin{frame}{Average Design Effects in the ESS}
+%' \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
+%' 
+%' {\centering \includegraphics[width=.9\linewidth]{graphs/deff_cntryAll_roundALL} 
+%' 
+%' }
+%' %\caption[Average Design Effects in the ESS]{Average Design Effects in the ESS}\label{fig:SamSizeSRSprobs2}
+%' \end{figure}
+%' \end{frame}
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}    
 %\scriptsize
