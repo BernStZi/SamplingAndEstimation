@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  11 JAN 2016 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  13 JAN 2016 14:54
 entering extended mode
 **GESISsusc2015_Day3.tex
 (GESISsusc2015_Day3.tex
@@ -1529,28 +1529,28 @@ Package: bibentry 2007/10/30 1.5 (PWD)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
-Package hyperref Info: Option `unicode' set `true' on input line 93.
+Package hyperref Info: Option `unicode' set `true' on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 )
 
 Package hyperref Warning: Option `pdfusetitle' has already been used,
-(hyperref)                setting the option has no effect on input line 93.
+(hyperref)                setting the option has no effect on input line 91.
 
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 93.
+(hyperref)                setting the option has no effect on input line 91.
 
-Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 93.
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 91.
 
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 93.
-Package hyperref Info: Option `breaklinks' set `false' on input line 93.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 91.
+Package hyperref Info: Option `breaklinks' set `false' on input line 91.
 
 Package hyperref Warning: Option `backref' has already been used,
-(hyperref)                setting the option has no effect on input line 93.
+(hyperref)                setting the option has no effect on input line 91.
 
-Package hyperref Info: Option `colorlinks' set `false' on input line 93.
+Package hyperref Info: Option `colorlinks' set `false' on input line 91.
 (beamerthemeGesis.sty
 Package: beamerthemeGesis 2007/06/11  (rcs-revision 0.10)
  (beamerouterthemesidebarGesis.sty
@@ -1662,29 +1662,29 @@ Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ))
 (GESISsusc2015_Day3.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 183.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 183.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 181.
+LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 181.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 181.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    ... okay on input line 181.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1722,7 +1722,7 @@ LaTeX Font Info:    ... okay on input line 183.
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box81
-Package hyperref Info: Link coloring OFF on input line 183.
+Package hyperref Info: Link coloring OFF on input line 181.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1732,54 +1732,54 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count358
 )
-LaTeX Info: Redefining \ref on input line 183.
-LaTeX Info: Redefining \pageref on input line 183.
-LaTeX Info: Redefining \nameref on input line 183.
+LaTeX Info: Redefining \ref on input line 181.
+LaTeX Info: Redefining \pageref on input line 181.
+LaTeX Info: Redefining \nameref on input line 181.
 
 (GESISsusc2015_Day3.out) (GESISsusc2015_Day3.out)
 \@outlinefile=\write5
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 183.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 181.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 183.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 181.
 \symnumbers=\mathgroup10
 \sympureletters=\mathgroup11
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 183.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 181.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 183.
+(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 183.
+(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 181.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 183.
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 183.
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 181.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 183.
+(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 183.
+(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 181.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 183.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 183.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 181.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 183.
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 181.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 183.
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 183.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/phv/bx/n --> T1/phv/bx/n on input line 183.
+(Font)                  T1/phv/bx/n --> T1/phv/bx/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 183.
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 183.
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 181.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 183.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 181.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator
 -basic-dictionary\translator-basic-dictionary-English.dict"
@@ -1805,40 +1805,40 @@ Dictionary: translator-numbers-dictionary, Language: English
 -theorem-dictionary\translator-theorem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 183.
+LaTeX Info: Redefining \includegraphics on input line 181.
 \c@lstlisting=\count359
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 183.
+LaTeX Info: Redefining \selectfont on input line 181.
  (GESISsusc2015_Day3.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
-(hyperref)                setting the option has no effect on input line 190.
+(hyperref)                setting the option has no effect on input line 188.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 193.
+LaTeX Font Info:    Try loading font information for U+msa on input line 191.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 193.
+LaTeX Font Info:    Try loading font information for U+msb on input line 191.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 193.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 191.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 193.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 191.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 193.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 191.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 193.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 191.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 193.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 191.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 193.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 191.
  [1
 
 {C:/Users/zinssn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (GESISsusc
@@ -1852,33 +1852,33 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 224.
+ine 222.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [2
 
  <./graphs/logos/GESIS_Logo_kompakt_en.jpg>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <5> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <7> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <7> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <5> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 241.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <5> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 241.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 243.
+ine 241.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [3
 
@@ -1887,7 +1887,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 243.
+ine 241.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [4
 
@@ -1896,7 +1896,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 243.
+ine 241.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [5
 
@@ -1905,7 +1905,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 243.
+ine 241.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [6
 
@@ -1914,7 +1914,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 243.
+ine 241.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [7
 
@@ -1923,7 +1923,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 277.
+ine 275.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [8
 
@@ -1932,7 +1932,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 277.
+ine 275.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [9
 
@@ -1941,7 +1941,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 277.
+ine 275.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [10
 
@@ -1950,12 +1950,12 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 277.
+ine 275.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [11
 
 ]
-LaTeX Font Info:    Try loading font information for T1+frc on input line 303.
+LaTeX Font Info:    Try loading font information for T1+frc on input line 301.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\frcursive\t1frc.fd"
 File: t1frc.fd 2004/06/12 French Cursive font definition
@@ -1964,7 +1964,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 303.
+ine 301.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [12
 
@@ -1973,7 +1973,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 303.
+ine 301.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [13
 
@@ -1982,7 +1982,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 303.
+ine 301.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [14
 
@@ -1991,7 +1991,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 330.
+ine 328.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [15
 
@@ -2000,7 +2000,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 330.
+ine 328.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [16
 
@@ -2009,7 +2009,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 330.
+ine 328.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [17
 
@@ -2018,7 +2018,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 347.
+ine 345.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [18
 
@@ -2027,7 +2027,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 347.
+ine 345.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [19
 
@@ -2036,7 +2036,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 364.
+ine 362.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [20
 
@@ -2045,7 +2045,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 384.
+ine 382.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [21
 
@@ -2059,7 +2059,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 458.
+ine 456.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [22
 
@@ -2068,10 +2068,10 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 458.
+ine 456.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
-Overfull \vbox (90.50676pt too high) detected at line 458
+Overfull \vbox (90.50676pt too high) detected at line 456
  []
 
 [23
@@ -2080,10 +2080,10 @@ Overfull \vbox (90.50676pt too high) detected at line 458
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 458.
+ine 456.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
-Overfull \vbox (90.77687pt too high) detected at line 458
+Overfull \vbox (90.77687pt too high) detected at line 456
  []
 
 [24
@@ -2092,7 +2092,7 @@ Overfull \vbox (90.77687pt too high) detected at line 458
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 458.
+ine 456.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [25
@@ -2118,7 +2118,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 577.
+ine 575.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [26
 
@@ -2131,31 +2131,31 @@ Overfull \hbox (2.22392pt too wide) in paragraph at lines 45--45
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 577.
+ine 575.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [27
 
 ] (GESISsusc2015_Day3.vrb)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 75--577
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 75--575
 [][] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 577.
+ine 575.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [28
 
 ] (GESISsusc2015_Day3.vrb)
-Overfull \hbox (1.38994pt too wide) in paragraph at lines 116--577
+Overfull \hbox (1.38994pt too wide) in paragraph at lines 116--575
 [][]  
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 577.
+ine 575.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [29
 
@@ -2164,7 +2164,7 @@ ine 577.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [30
@@ -2174,7 +2174,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [31
@@ -2184,7 +2184,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [32
@@ -2194,7 +2194,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [33
@@ -2204,7 +2204,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [34
@@ -2214,7 +2214,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [35
@@ -2224,7 +2224,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [36
@@ -2234,7 +2234,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [37
@@ -2244,7 +2244,7 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 609.
+ine 607.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [38
@@ -2253,10 +2253,10 @@ ine 609.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 647.
+ine 645.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
-Overfull \vbox (1.76398pt too high) detected at line 647
+Overfull \vbox (1.76398pt too high) detected at line 645
  []
 
 [39
@@ -2265,7 +2265,7 @@ Overfull \vbox (1.76398pt too high) detected at line 647
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 667.
+ine 665.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [40
 
@@ -2275,26 +2275,26 @@ e-5.pdf> <./graphs/beamer-AuxUsage-6.pdf> <./graphs/beamer-AuxUsage-7.pdf> <./g
 raphs/beamer-AuxUsage-8.pdf> <./graphs/beamer-AuxUsage-9.pdf> <./graphs/beamer-
 AuxUsage-10.pdf> <./graphs/beamer-AuxUsage-11.pdf>
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 698.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 696.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 698.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 696.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 698.
+ine 696.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [41
 
 ]
 (GESISsusc2015_Day3.vrb)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 30--779
+Overfull \hbox (2.22392pt too wide) in paragraph at lines 30--777
 [] 
  []
 
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 779.
+ine 777.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [42
 
@@ -2311,7 +2311,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 779.
+ine 777.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [43
 
@@ -2319,7 +2319,7 @@ ine 779.
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 779.
+ine 777.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
 
 [44
@@ -2331,7 +2331,7 @@ FALSE-4.pdf>)
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 779.
+ine 777.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [45
 
@@ -2345,7 +2345,7 @@ Overfull \hbox (2.22392pt too wide) in paragraph at lines 32--102
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 883.
+ine 881.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [46
 
@@ -2358,7 +2358,7 @@ Overfull \hbox (2.22392pt too wide) in paragraph at lines 62--102
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 883.
+ine 881.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [47
 
@@ -2371,7 +2371,7 @@ Overfull \hbox (2.22392pt too wide) in paragraph at lines 101--102
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
  <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 883.
+ine 881.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [48
 
@@ -2380,7 +2380,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 892.
+ine 890.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [49
 
@@ -2389,7 +2389,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 892.
+ine 890.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [50
 
@@ -2398,7 +2398,7 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 892.
+ine 890.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [51
 
@@ -2407,375 +2407,41 @@ File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 892.
+ine 890.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
  [52
-
-] (GESISsusc2015_Day3.vrb)
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
-
-<use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 919.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [53
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 32--1093
-[] 
- []
-
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
-<use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [54
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 55--1093
-[] 
- []
-
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
-<use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [55
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-)
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
- <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [56
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 113--1093
-[] 
- []
-
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
-<use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
-
-Overfull \vbox (3.82245pt too high) detected at line 1093
- []
-
-[57
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-)
-Overfull \hbox (2.22392pt too wide) in paragraph at lines 139--1093
-[] 
- []
-
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
-<use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [58
-
-] (GESISsusc2015_Day3.vrb
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ##   ID stratum psu svywt sex age age_r hisp marital parents p
-arents_r educ[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 1  1       1   1  1522   1  19     3    1       4       1  
-       1    1[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 2  2       1   1  2302   2  29     4    2       4       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 3  3       1   1  4180   1  49     5    2       3       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 4  4       1   1  4765   1  26     4    2       3       1  
-       1    5[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 5  5       1   1  2934   2  52     5    2       3       4  
-       2    3[] 
- []
-
-
-Overfull \hbox (11.38231pt too wide) in paragraph at lines 25--25
-[]\T1/cmtt/m/n/8 ## 6  6       1   1  3143   2  82     8    2       5       4  
-       2    5[] 
- []
-
-
-Overfull \hbox (15.07231pt too wide) in paragraph at lines 164--164
- [] 
- []
-
-)
-File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
- <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
-Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1093.
-(pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
- [59
 
 ]
 File: graphs/logos/GESIS_Logo_kompakt_en.jpg Graphic file (type jpg)
 
 <use graphs/logos/GESIS_Logo_kompakt_en.jpg>
 Package pdftex.def Info: graphs/logos/GESIS_Logo_kompakt_en.jpg used on input l
-ine 1114.
+ine 1046.
 (pdftex.def)             Requested size: 56.90189pt x 28.45027pt.
-Package atenddvi Info: Last page = 60.
- [60
+Package atenddvi Info: Last page = 53.
+ [53
 
  <C:/Program Files/MiKTeX 2.9/tex/latex/beamer/base/art/beamericonbook.pdf> <C:
 /Program Files/MiKTeX 2.9/tex/latex/beamer/base/art/beamericonarticle.pdf>]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1133.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 1133.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1065.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 1065.
  (GESISsusc2015_Day3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1133.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1133.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1065.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1065.
 
 Package rerunfilecheck Info: File `GESISsusc2015_Day3.out' has not changed.
 (rerunfilecheck)             Checksum: 3E5EB4A127DFB2B0C12AB4FCA94865D0;133.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1133.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1065.
  )
-(\end occurred when \ifx on line 99 was incomplete) 
+(\end occurred when \ifx on line 97 was incomplete) 
 Here is how much of TeX's memory you used:
- 35427 strings out of 493636
- 664167 string characters out of 3143752
+ 35395 strings out of 493636
+ 663694 string characters out of 3143752
  701293 words of memory out of 3000000
- 37844 multiletter control sequences out of 15000+200000
+ 37840 multiletter control sequences out of 15000+200000
  90667 words of font info for 129 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  60i,14n,69p,10382b,827s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2809,9 +2475,9 @@ fonts/type1/public/cm-super/sftt0800.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/cm-super/sftt1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/he
 lvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on GESISsusc2015_Day3.pdf (60 pages, 1537983 bytes).
+Output written on GESISsusc2015_Day3.pdf (53 pages, 1492089 bytes).
 PDF statistics:
- 1913 PDF objects out of 2073 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
+ 1735 PDF objects out of 2073 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
  382 words of extra memory for PDF output out of 10000 (max. 10000000)
 

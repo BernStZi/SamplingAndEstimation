@@ -1,164 +1,102 @@
-\frametitle{The Tow-Phase Approach to \\ Non-response Weighting}
+\frametitle{Generalized Regression Estimator}
 \begin{lrbox}{\mysavebox}
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{library}\hlstd{(PracTools)} \hlcom{#load the package}
-\hlkwd{data}\hlstd{(nhis)}         \hlcom{#load the data set}
-\hlkwd{head}\hlstd{(nhis)}
-\end{alltt}
-\begin{verbatim}
-##   ID stratum psu svywt sex age age_r hisp marital parents parents_r educ
-## 1  1       1   1  1522   1  19     3    1       4       1         1    1
-## 2  2       1   1  2302   2  29     4    2       4       4         2    3
-## 3  3       1   1  4180   1  49     5    2       3       4         2    5
-## 4  4       1   1  4765   1  26     4    2       3       1         1    5
-## 5  5       1   1  2934   2  52     5    2       3       4         2    3
-## 6  6       1   1  3143   2  82     8    2       5       4         2    5
-##   educ_r race resp
-## 1      1    1    1
-## 2      1    1    1
-## 3      2    1    1
-## 4      2    1    1
-## 5      1    1    1
-## 6      2    1    0
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\end{lrbox}
-\onslide*<1>{
-We use to 2003 NHIS data set from the \texttt{PracTool} package to fit a \emph{generalized linear models} (GLM) which we will use to predict the RP's.
-\usebox{\mysavebox}
-}
-\begin{lrbox}{\mysavebox}
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{#some editing}
-\hlstd{nhis.} \hlkwb{<-} \hlstd{nhis}
-\hlstd{nhis.}\hlopt{$}\hlstd{hisp}      \hlkwb{<-} \hlkwd{as.factor}\hlstd{(nhis.}\hlopt{$}\hlstd{hisp)}
-\hlstd{nhis.}\hlopt{$}\hlstd{parents_r} \hlkwb{<-} \hlkwd{as.factor}\hlstd{(nhis.}\hlopt{$}\hlstd{parents_r)}
-\hlstd{nhis.}\hlopt{$}\hlstd{educ_r}    \hlkwb{<-} \hlkwd{as.factor}\hlstd{(nhis.}\hlopt{$}\hlstd{educ_r)}
+\hlcom{#######################################}
+\hlcom{### Select a pps to sqrt(BEDS) sample}
+\hlcom{#######################################}
+\hlkwd{library}\hlstd{(sampling)}   \hlcom{#load the 'sample' package }
+                    \hlcom{#for the 'UPsystematic' function}
+\hlstd{smho.} \hlkwb{<-}   \hlcom{# before sampling order the data set by hospital type}
+  \hlstd{smho.[}\hlkwd{order}\hlstd{(smho.}\hlopt{$}\hlstd{hosp.type),]}
 
-\hlcom{#fitting a model of binomial data using the 'logit' link function}
-\hlstd{glm.logit} \hlkwb{<-} \hlkwd{glm}\hlstd{(resp} \hlopt{~} \hlstd{age} \hlopt{+} \hlstd{hisp} \hlopt{+}
-                 \hlstd{parents_r} \hlopt{+} \hlstd{educ_r,}
-                 \hlkwc{family}\hlstd{=}\hlkwd{binomial}\hlstd{(}\hlkwc{link} \hlstd{=} \hlstr{"logit"}\hlstd{),}
-                 \hlkwc{data} \hlstd{= nhis.)}
+\hlstd{x} \hlkwb{<-} \hlstd{smho.[,}\hlstr{"BEDS"}\hlstd{]}
+\hlstd{x[x} \hlopt{<=} \hlnum{5}\hlstd{]} \hlkwb{<-} \hlnum{5}      \hlcom{# recode small hospitals to have a minimum size}
+\hlstd{x} \hlkwb{<-} \hlkwd{sqrt}\hlstd{(x)}
+
+\hlstd{n} \hlkwb{<-} \hlnum{80}             \hlcom{#sample size}
+\hlstd{IP}  \hlkwb{<-} \hlstd{n}\hlopt{*}\hlstd{x}\hlopt{/}\hlkwd{sum}\hlstd{(x)}
+
+\hlkwd{set.seed}\hlstd{(}\hlnum{428274453}\hlstd{)}
+\hlstd{sam} \hlkwb{<-} \hlkwd{UPsystematic}\hlstd{(IP)}
+
+\hlstd{sam.dat} \hlkwb{<-} \hlstd{smho.[sam}\hlopt{==}\hlnum{1}\hlstd{, ]}
+\hlstd{sam.dat}\hlopt{$}\hlstd{d} \hlkwb{<-} \hlnum{1}\hlopt{/}\hlstd{IP[sam}\hlopt{==}\hlnum{1}\hlstd{]} \hlcom{#the design weight}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 \end{lrbox}
-\onslide*<2>{
-The variable \texttt{resp} is the respondent indicator (0 = non-respondent; 1 = respondent) the other variables in the data set are either socio-demographic variables or metadata on the sampling design, i.e. information that was available regardless of the responds behavior.
-\usebox{\mysavebox}
-}
-\onslide*<3>{
-% latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Mon Jan 11 15:28:35 2016
-\begin{table}[ht]
-\centering
-\caption{Model Summary}
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & z value & Pr($>$$|$z$|$) \\
-  \hline
-(Intercept) & 0.54 & 0.12 & 4.34 & 0.00 \\
-  age & -0.01 & 0.00 & -5.56 & 0.00 \\
-  hisp2 & 0.26 & 0.09 & 2.98 & 0.00 \\
-  parents\_r2 & 0.54 & 0.11 & 4.86 & 0.00 \\
-  educ\_r2 & 0.25 & 0.10 & 2.58 & 0.01 \\
-  educ\_r3 & 0.34 & 0.09 & 3.77 & 0.00 \\
-  educ\_r4 & 0.28 & 0.14 & 1.96 & 0.05 \\
-   \hline
-\end{tabular}
-\end{table}
-
+\onslide*<1>{~\\[-1cm] We select a sample of hospitals with probability  proportional to the square root of \texttt{BEDS} using a systematic sample.
+ \usebox{\mysavebox}
 }
 \begin{lrbox}{\mysavebox}
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{psi.logit} \hlkwb{<-}
- \hlkwd{predict}\hlstd{(glm.logit,} \hlkwc{type} \hlstd{=}\hlstr{'response'}\hlstd{)}
+\hlkwd{library}\hlstd{(survey)} \hlcom{#load the 'survey' package }
+\hlcom{#1. build a 'design' object}
+\hlstd{sam.dsgn} \hlkwb{<-}
+  \hlkwd{svydesign}\hlstd{(}\hlkwc{ids} \hlstd{=} \hlopt{~}\hlnum{1}\hlstd{,}               \hlcom{# no clusters}
+            \hlkwc{strata} \hlstd{=} \hlkwa{NULL}\hlstd{,}          \hlcom{# no strata}
+            \hlkwc{data} \hlstd{= sam.dat,}         \hlcom{# the sample data }
+            \hlkwc{weights} \hlstd{=} \hlopt{~}\hlstd{d)}           \hlcom{# the design weight}
+    \hlcom{#the model we use for the GREG}
+\hlstd{lmod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(EXPTOTAL} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,} \hlkwc{data}\hlstd{=smho.)}
+\hlcom{#2. compute pop totals of auxiliaries}
+\hlstd{pop.tots} \hlkwb{<-} \hlkwd{colSums}\hlstd{(}\hlkwd{model.matrix}\hlstd{(lmod2))} \hlcom{#Inefficient but convenient!}
 
-\hlstd{nhis.}\hlopt{$}\hlstd{new.svywt} \hlkwb{<-} \hlstd{(}\hlnum{1}\hlopt{/}\hlstd{psi.logit)}\hlopt{*}\hlstd{nhis.}\hlopt{$}\hlstd{svywt}
-
-\hlcom{#the mean response rate for the MAR and MCAR model are the same}
-\hlkwd{mean}\hlstd{(psi.logit);}\hlkwd{mean}\hlstd{(nhis.}\hlopt{$}\hlstd{resp)}
+\hlcom{#3. use 'calibrate' to compute the new weights}
+\hlstd{sam.cal} \hlkwb{<-}
+  \hlkwd{calibrate}\hlstd{(}\hlkwc{design} \hlstd{= sam.dsgn,}
+            \hlkwc{formula} \hlstd{=} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,}
+            \hlkwc{population} \hlstd{= pop.tots,}
+            \hlkwc{calfun}\hlstd{=}\hlstr{'linear'} \hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<2>{ Now we use the \texttt{survey} package to calibrate the weights.
+ \usebox{\mysavebox}
+Setting argument \texttt{calfun='linear'} in \texttt{'calibrate'} results in the GREG weights, other calibration function are possible, already built-in are \texttt{'raking'} and \texttt{'logit'}.
+}
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#BEDS by hospital type}
+\hlkwd{svyby}\hlstd{(}\hlopt{~}\hlstd{BEDS,} \hlkwc{by}\hlstd{=}\hlopt{~}\hlstd{hosp.type,} \hlkwc{design}\hlstd{=sam.cal,} \hlkwc{FUN}\hlstd{=svytotal)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.6901048
-## [1] 0.6901048
+##   hosp.type  BEDS           se
+## 1         1 37978 3.951866e-12
+## 2         2 13066 1.421532e-12
+## 3         3  9573 5.260079e-13
+## 5         5 10077 5.811345e-13
 \end{verbatim}
 \begin{alltt}
-\hlcom{#comparing MAR and MCAR by education }
-\hlkwd{rbind}\hlstd{(}\hlkwc{MAR}\hlstd{=}\hlkwd{by}\hlstd{(nhis.,  nhis.}\hlopt{$}\hlstd{educ_r,}
-             \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}  \hlkwd{sum}\hlstd{(x}\hlopt{$}\hlstd{new.svywt) ),}
-      \hlkwc{MCAR}\hlstd{=}\hlkwd{by}\hlstd{(nhis., nhis.}\hlopt{$}\hlstd{educ_r,}
-              \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}  \hlkwd{sum}\hlstd{( x}\hlopt{$}\hlstd{svywt}\hlopt{*} \hlnum{1}\hlopt{/}\hlkwd{mean}\hlstd{(nhis.}\hlopt{$}\hlstd{resp) ) )}
-\hlstd{)}
+\hlcom{#SEENCNT and EOYCNT}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{SEENCNT}\hlopt{+}\hlstd{EOYCNT, sam.cal)}
 \end{alltt}
 \begin{verbatim}
-##            1       2       3       4
-## MAR  9056507 3245206 4203128 1469767
-## MCAR 8510911 3392064 4501586 1544189
+##           total SE
+## SEENCNT 1349241  0
+## EOYCNT   505345  0
+\end{verbatim}
+\begin{alltt}
+\hlstd{pop.tots}
+\end{alltt}
+\begin{verbatim}
+##     (Intercept)         SEENCNT          EOYCNT hosp.type1:BEDS
+##             725         1349241          505345           37978
+## hosp.type2:BEDS hosp.type3:BEDS hosp.type5:BEDS
+##           13066            9573           10077
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 \end{lrbox}
-\onslide*<4>{
-Now we compute the tow-phase weights:
+\onslide*<3>{~\\[-0.9cm]
+Now we check if the calibration constrains are satisfied:
 \usebox{\mysavebox}
 }
-\begin{lrbox}{\mysavebox}
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{#create the survey design object}
-\hlstd{nhis.dsgn} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{ids} \hlstd{=} \hlopt{~}\hlstd{psu,}
-          \hlkwc{strata} \hlstd{=} \hlopt{~}\hlstd{stratum,}
-          \hlkwc{data} \hlstd{= nhis.,}
-          \hlkwc{nest} \hlstd{=} \hlnum{TRUE}\hlstd{,}
-          \hlkwc{weights} \hlstd{=} \hlopt{~}\hlstd{svywt)}
 
-\hlstd{wglm.logit} \hlkwb{<-}
-   \hlkwd{svyglm}\hlstd{(glm.logit}\hlopt{$}\hlstd{formula,}
-          \hlkwc{family}\hlstd{=}\hlkwd{binomial}\hlstd{(}\hlkwc{link} \hlstd{=} \hlstr{"logit"}\hlstd{),}
-          \hlkwc{design} \hlstd{= nhis.dsgn)}
-\end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: non-integer \#successes in a binomial glm!}}\end{kframe}
-\end{knitrout}
-\end{lrbox}
-\onslide*<5>{
-As an alternative the GLM model can also be fitted with design weights using
-the \texttt{svyglm} function from the \texttt{survey} package.
-\usebox{\mysavebox}
-}
-\onslide*<6>{
-% latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Mon Jan 11 15:28:35 2016
-\begin{table}[ht]
-\centering
-\caption{Weighted and Unweighted Parameter Estimates from Logistic Models}
-{\footnotesize
-\begin{tabular}{rrrrrrr}
-   \hline & \multicolumn{3}{c|}{Survey Weighted} & \multicolumn{3}{c}{Unweighted}\\ \hline
- & Estimate & Std. Error & Pr($>$$|$t$|$) & Estimate.1 & Std. Error.1 & Pr($>$$|$z$|$) \\
-  \hline
-(Intercept) & 0.61 & 0.16 & 0.00 & 0.54 & 0.12 & 0.00 \\
-  age & -0.01 & 0.00 & 0.00 & -0.01 & 0.00 & 0.00 \\
-  hisp2 & 0.18 & 0.12 & 0.15 & 0.26 & 0.09 & 0.00 \\
-  parents\_r2 & 0.56 & 0.11 & 0.00 & 0.54 & 0.11 & 0.00 \\
-  educ\_r2 & 0.35 & 0.11 & 0.00 & 0.25 & 0.10 & 0.01 \\
-  educ\_r3 & 0.38 & 0.09 & 0.00 & 0.34 & 0.09 & 0.00 \\
-  educ\_r4 & 0.31 & 0.14 & 0.03 & 0.28 & 0.14 & 0.05 \\
-   \hline
-\end{tabular}
-}
-\end{table}
-
-Beware, \texttt{glm} has also a weight argument, but its in general a bad idea to supply the survey weights directly to it!
-}

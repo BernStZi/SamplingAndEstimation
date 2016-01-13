@@ -1,5 +1,3 @@
-%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
 \documentclass[10pt]{beamer}
 \usepackage{etex}
 
@@ -365,7 +363,7 @@ If the cluster where strata, which stratification would you use, columns or rows
 \end{frame}
 
 
-\begin{frame}{Tow Stage Sampling}
+\begin{frame}{Two Stage Sampling}
 A Population of 100 elements is clustered into $N_{\RN{1}}=6$ clusters
 and $n_{\RN{1}}=\Sexpr{n_I}$ clusters (PSU) are selected at the first sampling stage
 \onslide*<1>{
@@ -430,9 +428,9 @@ the $k$-th SSU in the $i$-th PSU.
 \end{frame}
 
 
-\begin{frame}{Estimation Simple Random Tow Stage Sampling}
+\begin{frame}{Estimation Simple Random \\ Two Stage Sampling}
 Designs $p_{\RN{1}}(.)$ and $p_i(.|\mathfrc{s}_{\RN{1}})$ are both SRS.
-Since not all SSU's in the sampled PSU's are surveyed  $\tau_i$ has to be estimated by $\hat{\tau}_i = \frac{N_i}{n_i} \sum_{k \in \mathfrc{s}_i} y_{ki} $.
+Since not all SSU's in the sampled PSU's are surveyed  $\tau_i$ has to be estimated by $\hat{\tau}_i = \frac{N_i}{n_i} \sum_{k \in \mathfrc{s}_i} y_{ki}$.
 An unbiased estimator for the population mean is
 $$ \overline{y}_{\text{2SRS}} = \dfrac{N_{\RN{1}}}{N}  \sum_{i \in  \mathfrc{s}_{\RN{1}}}   \dfrac{\hat{\tau}_i}{n_{\RN{1}}} $$
 \onslide*<2>{with variance
