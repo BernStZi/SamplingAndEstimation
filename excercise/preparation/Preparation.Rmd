@@ -1,6 +1,6 @@
 ---
 title: "Preparation"
-author: "Matthias Sand, Jan-Philipp Kolb and Stefan Zins"
+author: "Jan-Philipp Kolb, Matthias Sand and Stefan Zins"
 date: "11 Januar 2016"
 output: pdf_document
 ---
@@ -448,6 +448,27 @@ With `prop.table` we get the relative frequencies:
 tabA <- table(my.pop$gender)
 prop.table(tabA)
 ```
+
+## Apply family
+
+Apply functions over array margins, ragged arrays or lists. To show that we first need an example data set:
+
+```{r}
+ApplyDat <- cbind(1:4,runif(4),rnorm(4))
+```
+
+To compute the mean for every row, we can use the `apply` command. 
+
+```{r}
+apply(ApplyDat,1,mean)
+```
+
+Mean for every column:
+
+```{r}
+apply(ApplyDat,2,mean)
+```
+
 
 ## Simple Example on Sampling
 
