@@ -2,7 +2,7 @@
 title: "Preparation"
 author: "Matthias Sand, Jan-Philipp Kolb and Stefan Zins"
 date: "11 Januar 2016"
-output: pdf_document
+output: html_document
 ---
 
 
@@ -12,58 +12,72 @@ CA<-T
 Ex<-T
 ```
 
+## Introduction
 
+This document can be used for the preparation for the GRADE- workshop Sampling and Estimation at the university of Frankfurt. Hints for further reading are included at the end of each section.
 
 ## Why use R?
+
+There are several arguments for the use of R as a tool for sampling and estimation:
 
 - Rapid implementation of new (scientific) developments
 
 - Quick development of new tools that fit the user's demand
 
-- Over 5,000 packages contributed by users available on CRAN
+- Over 5,000 [packages](http://www.r-statistics.com/2013/06/top-100-r-packages-for-2013-jan-may/) contributed by users available on [CRAN](http://mirrors.softliste.de/cran/)
 
 - [Open Source](https://en.wikipedia.org/wiki/Open-source_software) - You can create your own objects, functions and packages
 
 - [Reproducibility](http://www.r-bloggers.com/rs-role-in-science-breakthrough-reproducibility-of-psychology-studies/)
+
 
 More arguments for the usage of R can be found [here](http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html?_r=2&) or [here](http://www.revolutionanalytics.com/what-r).
 
 
 ## Get R
 
-R can be downloaded here:
+R can be installed on Windows and Linux plattforms as well as on Macs. If you have not done already please download R from [here](http://mirrors.softliste.de/cran/).
 
-www.r-project.org
-
-It can be installed on Windows and Linux plattforms as well as on Macs. 
-
-## R Basic
-
-![Ralt](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/Ralt.png)
-
-Most R-users prefer the graphical user interface ([GUI](http://www.statmethods.net/interface/guis.html))
-
+The installation process should be straightforward. If you have problems you can read an [introduction](http://a-little-book-of-r-for-time-series.readthedocs.org/en/latest/src/installr.html) or watch an intro on [youtube](https://www.youtube.com/watch?v=cX532N_XLIs).
 
 ## Rstudio
 
-In this course we will use the rstudio gui which can be downloaded here:
+The basic R looks like this:
 
-www.rstudio.com
+![Ralt](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/figure/Ralt.png)
+
+Most R-users prefer the graphical user interface ([GUI](https://en.wikipedia.org/wiki/Graphical_user_interface))
+
+Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. In this course we will use the rstudio [GUI](www.rstudio.com) which can be downloaded [here](https://www.rstudio.com/products/RStudio/#Desktop).
+
+- How to install Rstudio ( [youtube](https://www.youtube.com/watch?v=MFfRQuQKGYg) | [dummies](http://www.dummies.com/how-to/content/how-to-install-and-configure-rstudio.html))
 
 ## First operations
+
+If you work with R you should work with scripts and it is important to have everything clear. To reuse scripts it is necessary to comment the code with hashes: 
 
 ```{r}
 # Comments 
 ```
 
-[Creating new variables](http://www.statmethods.net/management/variables.html) with the assignment operator `<-`:
+Create [new variables](http://www.statmethods.net/management/variables.html) with the assignment operator `<-`:
 
 ```{r}
-x<-rnorm(10,0,1)
+x <- 1 # numeric
+y <- "a" # string
+z <- T # logical
 ```
 
-- creates a vector with ten standard-normal-distributed values
-- more information can be found [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Vectors-and-assignment)
+
+The following line creates a vector with ten standard-normal-distributed values.
+
+```{r}
+x <- rnorm(10,0,1)
+```
+
+`rnorm` is a function which takes several arguments. More information on assignments can be found [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Vectors-and-assignment).
+
+## Functions
 
 ```{r}
 mean(x)
@@ -85,13 +99,19 @@ median(x)
 
 ## Getting help
 
-- [Introduction to R](http://mirrors.softliste.de/cran/)
-- [stackoverflow](http://stackoverflow.com/questions/tagged/r)
+A uncountable number of introductions is available. The manuals on CRAN are comprehensive. 
+
+- [Introduction to R](http://mirrors.softliste.de/cran/doc/manuals/r-release/R-intro.html#Introduction-and-preliminaries)
+
 - [Thomas Girke - Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r)
+
+- A collection of tutorial videos can be found [here](http://jeromyanglim.blogspot.de/2010/05/videos-on-data-analysis-with-r.html) 
+
+For more specific questions and solutions for error messages it is useful to use a [search engine](https://duckduckgo.com/). Alternatively forums like [stackoverflow](http://stackoverflow.com/questions/tagged/r) can be used. 
 
 If you have problems to find the commands use a [reference card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 
-Get the help page for a command:
+A basic help is always embedded in R. Get the help page for a command:
 
 ```{r,eval=F}
 help.start()
@@ -111,6 +131,8 @@ example(lm)
 
 ## Draw random numbers:
 
+In the following three different functions are used to draw random numbers:
+
 ```{r}
   # Uniform Distribution
 x1 <- runif(1000)
@@ -125,7 +147,7 @@ rnorm(20,mean=0,sd=1)
 
 ## Installing and Loading Packages
 
-Many functions are already implemented in basic R. For more specific tasks libraries have to be installed. This can be done using the command `install.packages`. After the installation the package must be loaded with the command `library`.
+Many functions are already implemented in basic R. For more specific tasks libraries/packages have to be installed. This can be done using the command `install.packages`. After the installation the package must be loaded with the command `library`.
 
 ```{r,eval=F}
 install.packages("sampling")
@@ -141,13 +163,17 @@ Here is a list of packages which are relevant for the workshop:
 - [survey](https://cran.r-project.org/web/packages/survey/index.html) - analysis of complex survey samples
 
 ```{r,eval=F}
+install.packages("foreign")
 install.packages("lattice")
 install.packages("survey")
+install.packages("plyr")
 ```
 
 A list on the most popular R-packages can be found [here](http://blog.revolutionanalytics.com/2013/06/a-list-of-r-packages-by-popularity.html).
 
 ## Indexing
+
+Indexing is an important concept, e.g. to select subgroups. In the following the indexing for the different data types are presented.
 
 ```{r}
 
@@ -228,7 +254,7 @@ plot(x,main="header")
 
 
 
-## Histogram
+If we want an histogram, we can use the following command:
 
 ```{r}
 hist(x)
@@ -285,47 +311,51 @@ library("sampling")
 data(belgianmunicipalities)
 ```
 
-```{r}
+```{r,eval=F}
 head(belgianmunicipalities)
+```
+
+```{r,echo=F}
+kable(belgianmunicipalities[1:8,1:5])
 ```
 
 Also foreign datasets can be imported:
 
 ```{r}
 link <- "https://raw.githubusercontent.com/BernStZi/
-SamplingAndEsimation/master/excercise/data/my.pop.csv"
+SamplingAndEstimation/master/excercise/data/my.pop.csv"
 
 my.pop <- read.csv(link)
 head(my.pop)
 ```
 
 In the following the European Social Survey (ESS) data will be used. The data can be downloaded [here](http://www.europeansocialsurvey.org/data/round-index.html).
-
+We can import spss data using the command `read.spss` from R-package `foreign`.
 
 ```{r,echo=F}
 data.path <- "D:/Daten/Daten/DatenSonst/"
 setwd(data.path)
 ```
 
-We can import spss data using the command `read.spss` from R-package `foreign`.
-
 ```{r,eval=F}
 library(foreign)
 ESS7 <- read.spss("ESS7e01.sav",to.data.frame=T)
 ```
 
-As default the data is imported to a list but it is more convenient to work with data.frames. Therefore we have to specify in a further argument, that we want to work with a data.frame.
+As default the data is imported to a list but it is more convenient to work with `data.frames`. Therefore we have to specify in a further argument, that we want to work with a `data.frame`.
 
 With the package `foreign`it is also possible to import stata-data:
 
 ```{r,eval=F}
+library(foreign)
 ESS7s <- read.dta("ESS7e01.dta")
 ```
 
 
 In the first example a country file and sample data for Sweden is needed.
 
-```{r}
+```{r,eval=F}
+library(foreign)
 ESS5_SE <- read.spss("ESS5_SE_SDDF.por",to.data.frame=T)
 ```
 
@@ -340,8 +370,51 @@ Some Links on import and export of data in R:
 
 ## Subsetting
 
+Select the first 100 rows of a dataset and assign the information to a new object `bgm`:
+
+```{r}
+bgm <- belgianmunicipalities[1:100,]
+```
+
+Select only the entries for the first province:
+
+```{r}
+bgm1 <- belgianmunicipalities[
+  belgianmunicipalities$Province==1,]
+```
+
+
+Select only Communes with a total population bigger than 20000:
+
+```{r}
+bgm20 <- belgianmunicipalities[
+  belgianmunicipalities$Tot04>20000,]
+```
+
+
 ## Merging
 
+If you are not shure on the usage of a command, it is always useful to have a look at the help page of the command. E.g. we need to use the command `merge` to combine datasets. There is a section `Example` at the end of each helpfile. There you will find code which can be copy-pasted to the console:
+
+```{r}
+authors <- data.frame(
+    surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+    nationality = c("US", "Australia", "US", "UK", "Australia"),
+    deceased = c("yes", rep("no", 4)))
+books <- data.frame(
+    name = I(c("Tukey", "Venables", "Tierney",
+             "Ripley", "Ripley", "McNeil", "R Core")),
+    title = c("Exploratory Data Analysis",
+              "Modern Applied Statistics ...",
+              "LISP-STAT",
+              "Spatial Statistics", "Stochastic Simulation",
+              "Interactive Data Analysis",
+              "An Introduction to R"),
+    other.author = c(NA, "Ripley", NA, NA, NA, NA,
+                     "Venables & Smith"))
+
+(m1 <- merge(authors, books, by.x = "surname", by.y = "name"))
+```
 
 
 ## A first example dataset
@@ -349,7 +422,8 @@ Some Links on import and export of data in R:
 The first example dataset is a synthetic example. For more information on the generation of this dataset see the r-code [here](https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/rcode/SampEst_GenerateExdata.R).
 
 ```{r}
-link <- "https://raw.githubusercontent.com/BernStZi/SamplingAndEsimation/master/excercise/data/my.pop.csv"
+link <- "https://raw.githubusercontent.com/BernStZi/
+SamplingAndEsimation/master/excercise/data/my.pop.csv"
 
 my.pop <- read.csv(link)
 head(my.pop)
@@ -375,11 +449,9 @@ tabA <- table(my.pop$gender)
 prop.table(tabA)
 ```
 
-
-
 ## Simple Example on Sampling
 
-Summary of the dataset
+Summary of the dataset:
 
 ```{r}
 summary(my.pop)
@@ -411,9 +483,10 @@ lines(density(my.samp.SRS$iq),col = "red",lwd=2)
 lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 ```
 
+The package `sampling` is very useful to draw samples. An introduction to the package can be found [here](http://home.lu.lv/~pm90015/workshop2006/papers/presentations/W2006_Presentation_27_Tille.pdf).
+
 ```{r,warning=F}
 library("sampling")
-set.seed(42)
 s.SRS1 <- srswr(500,nrow(my.pop))
 s.SRSWOR1 <- srswor(500,nrow(my.pop)) 
 my.samp.SRS1 <- rbind(my.pop[s.SRS1!=0,]
@@ -441,4 +514,7 @@ lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 
 - should yield same results
 - routine may differ because of "starting point"
+
+
+- Kerns - [Introduction to Probability and Statistics Using R](https://cran.r-project.org/web/packages/IPSUR/vignettes/IPSUR.pdf)
 
