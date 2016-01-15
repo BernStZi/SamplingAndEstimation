@@ -2,7 +2,7 @@
 title: "Preparation"
 author: "Jan-Philipp Kolb, Matthias Sand and Stefan Zins"
 date: "11 Januar 2016"
-output: pdf_document
+output: html_document
 ---
 
 
@@ -14,7 +14,7 @@ Ex<-T
 
 ## Introduction
 
-This document can be used for the preparation for the GRADE- workshop Sampling and Estimation at the university of Frankfurt. Hints for further reading are included at the end of each section.
+This document can be used for the preparation to the GRADE- workshop "Sampling and Estimation" at the University of Frankfurt. Hints for further reading are embedded at the end of each section.
 
 ## Why use R?
 
@@ -34,9 +34,9 @@ There are several arguments for the use of R as a tool for sampling and estimati
 More arguments for the usage of R can be found [here](http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html?_r=2&) or [here](http://www.revolutionanalytics.com/what-r).
 
 
-## Get R
+## How to get R?
 
-R can be installed on Windows and Linux plattforms as well as on Macs. If you have not done already please download R from [here](http://mirrors.softliste.de/cran/).
+R can be installed on Windows and Linux plattforms as well as on Macs. If you have not done it already please download R from [here](http://mirrors.softliste.de/cran/).
 
 The installation process should be straightforward. If you have problems you can read an [introduction](http://a-little-book-of-r-for-time-series.readthedocs.org/en/latest/src/installr.html) or watch an intro on [youtube](https://www.youtube.com/watch?v=cX532N_XLIs).
 
@@ -48,13 +48,13 @@ The basic R looks like this:
 
 Most R-users prefer the graphical user interface ([GUI](https://en.wikipedia.org/wiki/Graphical_user_interface))
 
-Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. In this course we will use the rstudio [GUI](www.rstudio.com) which can be downloaded [here](https://www.rstudio.com/products/RStudio/#Desktop).
+Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. In this course we will use the Rstudio [GUI](www.rstudio.com) which can be downloaded [here](https://www.rstudio.com/products/RStudio/#Desktop).
 
 - How to install Rstudio ( [youtube](https://www.youtube.com/watch?v=MFfRQuQKGYg) | [dummies](http://www.dummies.com/how-to/content/how-to-install-and-configure-rstudio.html))
 
 ## First operations
 
-If you work with R you should work with scripts and it is important to have everything clear. To reuse scripts it is necessary to comment the code with hashes: 
+If you work with R you should work with scripts that should be well structured and lucid. To reuse scripts it is necessary to comment the code with hashes: 
 
 ```{r}
 # Comments 
@@ -99,7 +99,7 @@ median(x)
 
 ## Getting help
 
-A uncountable number of introductions is available. The manuals on CRAN are comprehensive. 
+Countless introductions to R are available. The manuals on CRAN are comprehensive. 
 
 - [Introduction to R](http://mirrors.softliste.de/cran/doc/manuals/r-release/R-intro.html#Introduction-and-preliminaries)
 
@@ -107,7 +107,7 @@ A uncountable number of introductions is available. The manuals on CRAN are comp
 
 - A collection of tutorial videos can be found [here](http://jeromyanglim.blogspot.de/2010/05/videos-on-data-analysis-with-r.html) 
 
-For more specific questions and solutions for error messages it is useful to use a [search engine](https://duckduckgo.com/). Alternatively forums like [stackoverflow](http://stackoverflow.com/questions/tagged/r) can be used. 
+For more specific questions and solutions e.g. in respect of error messages it is useful to use a [search engine](https://duckduckgo.com/). Alternatively forums like [stackoverflow](http://stackoverflow.com/questions/tagged/r) can be used. 
 
 If you have problems to find the commands use a [reference card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 
@@ -237,7 +237,7 @@ rep("A",10)
 
 
 
-## Basic Graphics
+## Basic Visualisations
 
 The plot function is the easiest option to get a graphic:
 
@@ -254,7 +254,7 @@ plot(x,main="header")
 
 
 
-If we want an histogram, we can use the following command:
+If we want a histogram, we can use the following command:
 
 ```{r}
 hist(x)
@@ -299,7 +299,7 @@ dir()
 
 
 ```{r,eval=F}
-rm(list = ls())
+rm(list = ls()) # deletes all objects in your current workspace
 ```
 
 ## [Data Import and Export in R](http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/index.cfm)
@@ -326,13 +326,23 @@ link <- "https://raw.githubusercontent.com/BernStZi/
 SamplingAndEstimation/master/excercise/data/my.pop.csv"
 
 my.pop <- read.csv(link)
+```
+
+```{r,eval=F}
 head(my.pop)
 ```
+
+
+```{r,echo=F}
+kable(head(my.pop))
+```
+
+
 
 In the following the European Social Survey (ESS) data will be used. The data can be downloaded [here](http://www.europeansocialsurvey.org/data/round-index.html).
 We can import spss data using the command `read.spss` from R-package `foreign`.
 
-```{r,echo=F}
+```{r,echo=F,eval=F}
 data.path <- "D:/Daten/Daten/DatenSonst/"
 setwd(data.path)
 ```
@@ -342,7 +352,7 @@ library(foreign)
 ESS7 <- read.spss("ESS7e01.sav",to.data.frame=T)
 ```
 
-As default the data is imported to a list but it is more convenient to work with `data.frames`. Therefore we have to specify in a further argument, that we want to work with a `data.frame`.
+As default the data is imported as a list but it is more convenient to work with `data.frames`. Therefore we have to specify in a further argument, that we want to work with a `data.frame`.
 
 With the package `foreign`it is also possible to import stata-data:
 
@@ -352,7 +362,7 @@ ESS7s <- read.dta("ESS7e01.dta")
 ```
 
 
-In the first example a country file and sample data for Sweden is needed.
+In the first example a country file and sample data for Sweden will be needed.
 
 ```{r,eval=F}
 library(foreign)
@@ -394,7 +404,7 @@ bgm20 <- belgianmunicipalities[
 
 ## Merging
 
-If you are not shure on the usage of a command, it is always useful to have a look at the help page of the command. E.g. we need to use the command `merge` to combine datasets. There is a section `Example` at the end of each helpfile. There you will find code which can be copy-pasted to the console:
+If you are not sure on the usage of a command, it is always useful to have a look at the help page of the command. E.g. we need to use the command `merge` to combine datasets. There is a section `Example` at the end of each helpfile. There you will find code which can be copy-pasted to the console:
 
 ```{r}
 authors <- data.frame(
@@ -413,7 +423,15 @@ books <- data.frame(
     other.author = c(NA, "Ripley", NA, NA, NA, NA,
                      "Venables & Smith"))
 
-(m1 <- merge(authors, books, by.x = "surname", by.y = "name"))
+m1 <- merge(authors, books, by.x = "surname", by.y = "name")
+```
+
+```{r,eval=F}
+head(m1)
+```
+
+```{r,echo=F}
+kable(head(m1))
 ```
 
 
@@ -426,9 +444,15 @@ link <- "https://raw.githubusercontent.com/BernStZi/
 SamplingAndEsimation/master/excercise/data/my.pop.csv"
 
 my.pop <- read.csv(link)
+```
+
+```{r,eval=F}
 head(my.pop)
 ```
 
+```{r,echo=F}
+kable(head(my.pop))
+```
 
 The dollar sign can also be used to access the columns
 
@@ -436,7 +460,7 @@ The dollar sign can also be used to access the columns
 head(my.pop$gender)
 ```
 
-With the command `table` we get a frequency table:
+With the command `table` we get a contingency table:
 
 ```{r}
 table(my.pop$gender)
@@ -480,7 +504,7 @@ prop.table(table(my.pop$gender,my.pop$education))
 var(my.pop$iq)*(nrow(my.pop)-1)/nrow(my.pop)
 ```
 
-In the following example two simply random samples are drawn, one with replacement and one without replacement:
+In the following example two simple random samples are drawn, one with replacement and one without replacement:
 
 ```{r}
 s.SRS <- sample(1:nrow(my.pop),500,replace=T)
