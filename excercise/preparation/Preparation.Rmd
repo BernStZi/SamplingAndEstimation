@@ -50,6 +50,9 @@ Most R-users prefer the graphical user interface ([GUI](https://en.wikipedia.org
 
 Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. In this course we will use the Rstudio [GUI](www.rstudio.com) which can be downloaded [here](https://www.rstudio.com/products/RStudio/#Desktop).
 
+![pic](https://raw.githubusercontent.com/BernStZi/SamplingAndEstimation/short/excercise/figure/rstudio2.PNG)
+
+
 - How to install Rstudio ( [youtube](https://www.youtube.com/watch?v=MFfRQuQKGYg) | [dummies](http://www.dummies.com/how-to/content/how-to-install-and-configure-rstudio.html))
 
 ## First operations
@@ -344,7 +347,9 @@ We can import spss data using the command `read.spss` from R-package `foreign`.
 
 ```{r,echo=F,eval=F}
 data.path <- "D:/Daten/Daten/DatenSonst/"
+data.path2 <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/data"
 setwd(data.path)
+# setwd(data.path2)
 ```
 
 ```{r,eval=F}
