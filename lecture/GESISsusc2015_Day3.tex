@@ -138,6 +138,7 @@
 
 \newcommand{\E}[1]{\text{E}\left(#1\right)}
 \newcommand{\V}[1]{\text{V}\left(#1\right)}
+\newcommand{\AV}[1]{\text{AV}\left(#1\right)}
 \newcommand{\Vest}[1]{\widehat{\text{V}}\left(#1\right)}
 \newcommand{\MSE}[1]{\text{MSE}\left(#1\right)}
 \newcommand{\COV}[2]{\text{COV}\left(#1,\,#2\right)}
@@ -386,7 +387,7 @@ x_{kq}=
 
 \onslide<1->{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:46 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for Hair and Eye Colour} 
@@ -403,7 +404,7 @@ Black & 68 & 20 & 15 & 5 \\
 }
 \onslide*<2>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:46 2016
 \begin{table}[ht]
 \centering
 \caption{Sample counts $\sum_{k \in \mathfrc{s}} x_{kq}$ in a SRS with $n=150$} 
@@ -420,7 +421,7 @@ Black & 14 & 7 & 2 & 2 \\
 }
 \onslide*<3>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:46 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ } 
@@ -437,7 +438,7 @@ Black & 55.2533 & 27.6267 & 7.8933 & 7.8933 \\
 }
 \onslide<4>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:46 2016
 \begin{table}[ht]
 \centering
 \caption{Post-stratification $g_k = \dfrac{\tau_{x_q}}{\hat{\tau}_{x_q}}$ } 
@@ -484,7 +485,7 @@ variables school type (\texttt{stype}) and the accomplishment of the growth targ
 \begin{center}
 \usebox{\mysavebox}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:46 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for School Type (\texttt{stype}) and School Target (\texttt{sch.wide}) } 
@@ -587,7 +588,7 @@ SUM & 1072 & 5122 & 6194 \\
 
 \only<1>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 13 14:54:22 2016
+% Mon Jan 18 13:49:47 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated Totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ from a SRCS of Districts (\texttt{dname})  with $n_{\RN{1}}=10$} 
@@ -671,7 +672,7 @@ g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s
 % \pgfdeclareimage[height=7cm]{G2}{graphs/G2}
 % \pgfdeclareimage[height=7cm]{G3}{graphs/G3}
 
-\begin{frame}{Graphical presentation of $\pi$ and GREG Estimator}
+\begin{frame}{Graphical presentation of $\pi$- and GREG Estimator}
  ~\\[-1.5cm]
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
@@ -737,7 +738,7 @@ We want to estimate total expenditures of hospitals. To improve a possible estim
 
 
 \end{knitrout}
-' }
+}
 \onslide*<3>{Fitting a linear model for \texttt{EXPTOTAL} with common slopes for \texttt{SEENCNT} and \texttt{EOYCNT} but a different slope for \texttt{BEDS} in each hospital type.
 % latex table generated in R 3.2.0 by xtable 1.7-4 package
 % Tue Sep 08 11:01:51 2015
@@ -889,158 +890,47 @@ Now we check if the calibration constrains are satisfied:
 \end{itemize}
 \end{frame}
 
-%' \begin{frame}[fragile]{Generalized Regression Estimator}
-%' It is possible to add some additional constraints to the calibration problem to ensure that the resulting weights do not deviate to much from the input weights (e.g. the design weights), thus reducing the risk of having negative weights. 
-%' <<GREG.wBD, message=FALSE, cache=TRUE, dependson='GREG.calib',warning=FALSE>>=
-%' #GREG with bounds
-%' sam.calBD  <- 
-%'   calibrate(design = sam.dsgn,
-%'             formula = ~ SEENCNT + EOYCNT + hosp.type:BEDS,
-%'             population = pop.tots,
-%'             bounds = c(0.5,2),   
-%'             calfun='linear' )
-%' #ratio without bounds and with them
-%' rbind(noBD=summary(weights(sam.cal)/weights(sam.dsgn)),
-%'       BD=summary(weights(sam.calBD)/weights(sam.dsgn)))
-%' @
-%' The bounds are relative, i.e the values of the bound argument are the upper and lower limit of $\frac{w_k}{d_k}$, for all $k \in \mathfrc{s}$. 
-%' Note that if the bounds are too tight the calibration might fail.
-%' \end{frame}
-%' 
-%' 
-%' % \begin{frame}
-%' % \frametitle{Two-phase Approach}
-%' % 
-%' % 
-%' % \end{frame}
-%' % 
-%' 
-%' \begin{frame}[fragile]{The Tow-Phase Approach to \\ Non-response Weighting}
-%' \begin{lrbox}{\mysavebox}
-%' <<2P.data,warning=FALSE,message=FALSE>>=
-%' library(PracTools) #load the package
-%' data(nhis)         #load the data set
-%' head(nhis)
-%' @
-%' \end{lrbox}
-%' \onslide*<1>{
-%' We use to 2003 NHIS data set from the \texttt{PracTool} package to fit a \emph{generalized linear models} (GLM) which we will use to predict the RP's.
-%' \usebox{\mysavebox}
-%' }
-%' \begin{lrbox}{\mysavebox}
-%' <<2P.modelFit,echo=1:10>>=
-%' #some editing
-%' nhis. <- nhis
-%' nhis.$hisp      <- as.factor(nhis.$hisp)
-%' nhis.$parents_r <- as.factor(nhis.$parents_r)
-%' nhis.$educ_r    <- as.factor(nhis.$educ_r)
-%' 
-%' #fitting a model of binomial data using the 'logit' link function
-%' glm.logit <- glm(resp ~ age + hisp +  
-%'                  parents_r + educ_r,
-%'                  family=binomial(link = "logit"), 
-%'                  data = nhis.)
-%' 
-%' 
-%' 
-%' glm.logit.sum <- summary(glm.logit)
-%' tab.glm.model <- xtable(glm.logit.sum ,digits = 2, caption = "Model Summary")
-%' @
-%' \end{lrbox}
-%' \onslide*<2>{
-%' The variable \texttt{resp} is the respondent indicator (0 = non-respondent; 1 = respondent) the other variables in the data set are either socio-demographic variables or metadata on the sampling design, i.e. information that was available regardless of the responds behavior. 
-%' \usebox{\mysavebox}
-%' }
-%' \onslide*<3>{
-%' <<2P.modelSum,echo=FALSE,results='asis'>>=
-%' print(tab.glm.model,caption.placement = "top")
-%' @
-%' }
-%' \begin{lrbox}{\mysavebox}
-%' <<2P.newWeightse>>=
-%' psi.logit <-
-%'  predict(glm.logit, type ='response')
-%' 
-%' nhis.$new.svywt <- (1/psi.logit)*nhis.$svywt
-%' 
-%' #the mean response rate for the MAR and MCAR model are the same
-%' mean(psi.logit);mean(nhis.$resp)
-%' 
-%' #comparing MAR and MCAR by education 
-%' rbind(MAR=by(nhis.,  nhis.$educ_r, 
-%'              function(x)  sum(x$new.svywt) ),
-%'       MCAR=by(nhis., nhis.$educ_r, 
-%'               function(x)  sum( x$svywt* 1/mean(nhis.$resp) ) )
-%' )
-%' 
-%' @
-%' \end{lrbox}
-%' \onslide*<4>{
-%' Now we compute the tow-phase weights:
-%' \usebox{\mysavebox}
-%' }
-%' \begin{lrbox}{\mysavebox}
-%' <<2P.WGLM,echo=1:4>>=
-%' #create the survey design object
-%' nhis.dsgn <- svydesign(ids = ~psu,
-%'           strata = ~stratum,
-%'           data = nhis.,
-%'           nest = TRUE,
-%'           weights = ~svywt)
-%' 
-%' wglm.logit <- 
-%'    svyglm(glm.logit$formula,
-%'           family=binomial(link = "logit"),
-%'           design = nhis.dsgn)
-%' 
-%' 
-%' wglm.logit.sum <- summary(wglm.logit)
-%' tab.wglm.model <- xtable(wglm.logit.sum ,digits = 2, caption = "Model Summary")
-%' @
-%' \end{lrbox}
-%' \onslide*<5>{
-%' As an alternative the GLM model can also be fitted with design weights using 
-%' the \texttt{svyglm} function from the \texttt{survey} package.
-%' \usebox{\mysavebox}
-%' }
-%' \onslide*<6>{
-%' <<2P.bothModelSum,echo=FALSE,results='asis'>>=
-%' both.glm <- cbind(tab.wglm.model,tab.glm.model)
-%' both.glm <- both.glm[,-grep(colnames(both.glm),pattern = "value")]
-%' tab.both.glm<- xtable( both.glm,digits=2
-%'                       ,caption="Weighted and Unweighted Parameter Estimates from Logistic Models")
-%' 
-%' 
-%' addtorow <- list()
-%' addtorow$pos <- list(-1)
-%' addtorow$command <- paste0(' \\hline & \\multicolumn{3}{c|}{Survey Weighted} & \\multicolumn{3}{c}{Unweighted}\\\\')
-%' 
-%' 
-%' print(tab.both.glm,caption.placement = "top",add.to.row = addtorow
-%'       ,size = 'footnotesize') 
-%' 
-%' @
-%' Beware, \texttt{glm} has also a weight argument, but its in general a bad idea to supply the survey weights directly to it!
-%' }
-%' \end{frame}
 
-\begin{frame}[allowframebreaks]\frametitle{Literature}    
+\begin{frame}{The Variance of the \\ Generalized Regression Estimator}
+Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
+Thus the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
+\onslide*<1>{
+ We can write its approximate variance as
+\begin{equation*}
+ \AV{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \left( \pi_{kl} - \pi_k \pi_l \right)  \dfrac{E_k}{\pi_k} \dfrac{E_l}{\pi_l} \;{,}
+ \end{equation*}
+where $E_k = y_k - y_k^0$, $y_k^0= \mathbf{x}_x^\top \boldsymbol\beta $ and 
+\begin{equation*}
+ \boldsymbol\beta=\left( \underset{k \in \mathcal{U} }{\sum } c_k \mathbf{x}_{k} (\mathbf{x}_{k})^\top \right)^{-1} \underset{k \in \mathcal{U}}{\sum} c_k \mathbf{x}_{k} y_{k}\;{.}
+\end{equation*}
+}
+\onslide*<2>{
+A variance estimator for $\hat{\tau}_\text{GREG}$ is given by
+ \begin{equation*}
+ \Vest{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathfrc{s}} \sum_{l \in \mathfrc{s}} \dfrac{\left( \pi_{kl} - \pi_k \pi_l \right)}{\pi_{kl}} g_k \dfrac{e_k}{\pi_k} g_l \dfrac{e_l}{\pi_l} \;{,}
+ \end{equation*}
+where $E_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\boldsymbol\beta}$. 
+}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]\frametitle{Literature}
 %\scriptsize
-  \begin{thebibliography}{10}    
+  \begin{thebibliography}{10}
    \setbeamertemplate{bibliography item}[book]
   \bibitem{LittleRubin2002}
   R.J.A.~Little, D.B.~Rubin.
-    \newblock  Statistical Analysis with Missing Data.
+    \newblock Statistical Analysis with Missing Data.
     \newblock {\em Wiley Interscience}, 1999.
   \setbeamertemplate{bibliography item}[article]
   \bibitem{Rubin1976}
     D.B.~Rubin.
-  \newblock  Inference and Missing Data
+  \newblock Inference and Missing Data
   \newblock {\em Biometrika}, 1976.
   \setbeamertemplate{bibliography item}[book]
   \bibitem{Rubin1987}
     D.B.~Rubin.
-  \newblock  Multiple Imputations for Nonresponse in Surveys
+  \newblock Multiple Imputations for Nonresponse in Surveys
   \newblock {\em Wiley}, 1987.  
   \end{thebibliography}
 \end{frame} 

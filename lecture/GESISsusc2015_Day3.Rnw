@@ -89,6 +89,7 @@
 
 \newcommand{\E}[1]{\text{E}\left(#1\right)}
 \newcommand{\V}[1]{\text{V}\left(#1\right)}
+\newcommand{\AV}[1]{\text{AV}\left(#1\right)}
 \newcommand{\Vest}[1]{\widehat{\text{V}}\left(#1\right)}
 \newcommand{\MSE}[1]{\text{MSE}\left(#1\right)}
 \newcommand{\COV}[2]{\text{COV}\left(#1,\,#2\right)}
@@ -641,7 +642,7 @@ g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s
 % \pgfdeclareimage[height=7cm]{G2}{graphs/G2}
 % \pgfdeclareimage[height=7cm]{G3}{graphs/G3}
 
-\begin{frame}{Graphical presentation of $\pi$ and GREG Estimator}
+\begin{frame}{Graphical presentation of $\pi$- and GREG Estimator}
  ~\\[-1.5cm]
 <<AuxUsage,echo=FALSE,cache=TRUE,out.height='8cm',out.width='\\linewidth', fig.pos='th', fig.show = 'animate',warning=FALSE, fig.keep='all',results='hide'>>=
 set.seed(122335)
@@ -838,26 +839,45 @@ Now we check if the calibration constrains are satisfied:
 
 
 \begin{frame}{The Variance of the \\ Generalized Regression Estimator}
+Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
+Thus the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
+\onslide*<1>{
+ We can write its approximate variance as
+\begin{equation*}
+ \AV{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \left( \pi_{kl} - \pi_k \pi_l \right)  \dfrac{E_k}{\pi_k} \dfrac{E_l}{\pi_l} \;{,}
+ \end{equation*}
+where $E_k = y_k - y_k^0$, $y_k^0= \mathbf{x}_x^\top \boldsymbol\beta $ and 
+\begin{equation*}
+ \boldsymbol\beta=\left( \underset{k \in \mathcal{U} }{\sum } c_k \mathbf{x}_{k} (\mathbf{x}_{k})^\top \right)^{-1} \underset{k \in \mathcal{U}}{\sum} c_k \mathbf{x}_{k} y_{k}\;{.}
+\end{equation*}
+}
+\onslide*<2>{
+A variance estimator for $\hat{\tau}_\text{GREG}$ is given by
+ \begin{equation*}
+ \Vest{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathfrc{s}} \sum_{l \in \mathfrc{s}} \dfrac{\left( \pi_{kl} - \pi_k \pi_l \right)}{\pi_{kl}} g_k \dfrac{e_k}{\pi_k} g_l \dfrac{e_l}{\pi_l} \;{,}
+ \end{equation*}
+where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\boldsymbol\beta}$. 
+}
 
 \end{frame}
 
-\begin{frame}[allowframebreaks]\frametitle{Literature}    
+\begin{frame}[allowframebreaks]\frametitle{Literature}
 %\scriptsize
-  \begin{thebibliography}{10}    
+  \begin{thebibliography}{10}
    \setbeamertemplate{bibliography item}[book]
   \bibitem{LittleRubin2002}
   R.J.A.~Little, D.B.~Rubin.
-    \newblock  Statistical Analysis with Missing Data.
+    \newblock Statistical Analysis with Missing Data.
     \newblock {\em Wiley Interscience}, 1999.
   \setbeamertemplate{bibliography item}[article]
   \bibitem{Rubin1976}
     D.B.~Rubin.
-  \newblock  Inference and Missing Data
+  \newblock Inference and Missing Data
   \newblock {\em Biometrika}, 1976.
   \setbeamertemplate{bibliography item}[book]
   \bibitem{Rubin1987}
     D.B.~Rubin.
-  \newblock  Multiple Imputations for Nonresponse in Surveys
+  \newblock Multiple Imputations for Nonresponse in Surveys
   \newblock {\em Wiley}, 1987.  
   \end{thebibliography}
 \end{frame} 
