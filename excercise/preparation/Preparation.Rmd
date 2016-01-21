@@ -1,8 +1,11 @@
 ---
 title: "Preparation"
 author: "Jan-Philipp Kolb, Matthias Sand and Stefan Zins"
-date: "11 Januar 2016"
-output: pdf_document
+date: "21 Januar 2016"
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
 ---
 
 
@@ -104,7 +107,7 @@ median(x)
 
 If an error occurs - you have to fix it:
 
-```{r,eval=F}
+```{r,eval=T,error=TRUE}
 1/"a"
 ```
 
@@ -115,7 +118,9 @@ a <- 5
 
 You should always read the warnings, but sometimes you can ignore them:
 ```{r}
-library(sampling)
+a <- c(1,2,3)
+b <- c(4,5)
+cbind(a,b)
 ```
 
 
