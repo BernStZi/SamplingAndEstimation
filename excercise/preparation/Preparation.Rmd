@@ -20,9 +20,9 @@ This document can be used for the preparation to the GRADE- workshop "Sampling a
 
 There are several arguments for the use of R as a tool for sampling and estimation:
 
-- Rapid implementation of new (scientific) developments
+- [Rapid implementation](https://opensource.com/business/14/12/r-open-source-language-data-science) of new (scientific) developments
 
-- Quick development of new tools that fit the user's demand
+- [Quick development](http://r4stats.com/articles/popularity/) of new tools that fit the user's demand
 
 - Over 5,000 [packages](http://www.r-statistics.com/2013/06/top-100-r-packages-for-2013-jan-may/) contributed by users available on [CRAN](http://mirrors.softliste.de/cran/)
 
@@ -57,8 +57,7 @@ Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. I
 
 ## First operations
 
-If you work with R you should work with scripts that should be well structured and lucid. To reuse scripts it is necessary to comment the code with hashes: 
-
+If you work with R you should work with scripts that should be [well structured](http://nicercode.github.io/blog/2013-04-05-projects/) and lucid. To re-use scripts it is necessary to comment the code with hashes: 
 ```{r}
 # Comments 
 ```
@@ -165,6 +164,10 @@ Here is a list of packages which are relevant for the workshop:
 
 - [survey](https://cran.r-project.org/web/packages/survey/index.html) - analysis of complex survey samples
 
+- [plyr](https://cran.r-project.org/web/packages/plyr/index.html) - Tools for Splitting, Applying and Combining Data
+
+- [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html) - Sparse and Dense Matrix Classes and Methods
+
 ```{r,eval=F}
 install.packages("foreign")
 install.packages("lattice")
@@ -177,7 +180,7 @@ A list on the most popular R-packages can be found [here](http://blog.revolution
 
 ## Indexing
 
-Indexing is an important concept, e.g. to select subgroups. In the following the indexing for the different data types are presented.
+[Indexing](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing) is an important concept, e.g. to select subgroups. In the following the indexing for the different [data types](http://www.statmethods.net/input/datatypes.html) are presented.
 
 First indexing for vectors:
 
@@ -240,7 +243,7 @@ rep("A",10)
 
 
 
-## Basic Visualisations
+## [Basic Visualisations](http://www.statmethods.net/graphs/)
 
 The plot function is the easiest option to get a graphic:
 
@@ -262,6 +265,9 @@ If we want a histogram, we can use the following command:
 ```{r}
 hist(x)
 ```
+
+
+
 
 ## The sample function
 
@@ -371,23 +377,26 @@ In the first example a country file and sample data for Sweden will be needed.
 
 ```{r,eval=F}
 library(foreign)
-ESS5_SE <- read.spss("ESS5_SE_SDDF.por",to.data.frame=T)
+ESS5_SE <- read.spss("ESS5_SE_SDDF.por",
+                     to.data.frame=T)
 ```
 
 
 
 Some Links on import and export of data in R:
 
-- [Quick R on importing data](http://www.statmethods.net/input/importingdata.html)
+- [Quick-R on importing data](http://www.statmethods.net/input/importingdata.html)
 
-- [Quick R on exporting data](http://www.statmethods.net/input/exportingdata.html)
+- [Quick-R on exporting data](http://www.statmethods.net/input/exportingdata.html)
 
 
-## Subsetting
+## [Subsetting Data](http://www.statmethods.net/management/subset.html)
 
 Select the first 100 rows of a dataset and assign the information to a new object `bgm`:
 
 ```{r}
+library("sampling")
+data(belgianmunicipalities)
 bgm <- belgianmunicipalities[1:100,]
 ```
 
@@ -409,13 +418,26 @@ bgm20 <- belgianmunicipalities[
 
 ## Merging
 
-If you are not sure on the usage of a command, it is always useful to have a look at the help page of the command. E.g. we need to use the command `merge` to combine datasets. There is a section `Example` at the end of each helpfile. There you will find code which can be copy-pasted to the console:
+If you are not sure on the usage of a command, it is always useful to have a look at the help page of the command. E.g. we need to use the command `merge` to combine datasets. There is a section `Example` at the end of each helpfile. You get the helpfile with:
+
+```{r,eval=F}
+?merge
+```
+
+There you will find code which can be copy-pasted to the console:
+
+Use the following lines of code to produce a `data.frame` authors:
 
 ```{r}
 authors <- data.frame(
     surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
     nationality = c("US", "Australia", "US", "UK", "Australia"),
     deceased = c("yes", rep("no", 4)))
+```
+
+Use the following lines of code to produce a `data.frame` books:
+
+```{r}
 books <- data.frame(
     name = I(c("Tukey", "Venables", "Tierney",
              "Ripley", "Ripley", "McNeil", "R Core")),
@@ -427,9 +449,14 @@ books <- data.frame(
               "An Introduction to R"),
     other.author = c(NA, "Ripley", NA, NA, NA, NA,
                      "Venables & Smith"))
+```
 
+Merge the do `data.frames` authors and books:
+
+```{r}
 m1 <- merge(authors, books, by.x = "surname", by.y = "name")
 ```
+
 
 ```{r,eval=F}
 head(m1)

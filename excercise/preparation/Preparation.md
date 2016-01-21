@@ -11,9 +11,12 @@ Why use R?
 There are several arguments for the use of R as a tool for sampling and
 estimation:
 
--   Rapid implementation of new (scientific) developments
+-   [Rapid
+    implementation](https://opensource.com/business/14/12/r-open-source-language-data-science)
+    of new (scientific) developments
 
--   Quick development of new tools that fit the user's demand
+-   [Quick development](http://r4stats.com/articles/popularity/) of new
+    tools that fit the user's demand
 
 -   Over 5,000
     [packages](http://www.r-statistics.com/2013/06/top-100-r-packages-for-2013-jan-may/)
@@ -66,9 +69,10 @@ which can be downloaded
 First operations
 ----------------
 
-If you work with R you should work with scripts that should be well
-structured and lucid. To reuse scripts it is necessary to comment the
-code with hashes:
+If you work with R you should work with scripts that should be [well
+structured](http://nicercode.github.io/blog/2013-04-05-projects/) and
+lucid. To re-use scripts it is necessary to comment the code with
+hashes:
 
     # Comments 
 
@@ -94,7 +98,7 @@ Functions
 
     mean(x)
 
-    ## [1] 0.06817469
+    ## [1] 0.3470974
 
 calculates the mean of variable x
 
@@ -106,23 +110,23 @@ More basic commands:
 
     max(x)
 
-    ## [1] 1.138139
+    ## [1] 3.105636
 
     min(x)
 
-    ## [1] -1.061899
+    ## [1] -1.812727
 
     sd(x)
 
-    ## [1] 0.6326353
+    ## [1] 1.307128
 
     var(x)
 
-    ## [1] 0.4002274
+    ## [1] 1.708584
 
     median(x)
 
-    ## [1] -0.01324138
+    ## [1] 0.4091497
 
 Getting help
 ------------
@@ -176,10 +180,10 @@ numbers:
 
     rnorm(20,mean=0,sd=1)
 
-    ##  [1]  0.45125312 -0.31161006  1.42176656 -1.49617596  0.35254436
-    ##  [6] -1.17478941 -0.52374120 -0.33074486 -0.76346439 -2.15258019
-    ## [11] -0.21995126  0.74648307 -1.15271244  0.64931113 -0.01041484
-    ## [16]  1.23065426 -1.17140419  0.42776371 -0.39402078 -0.58809819
+    ##  [1] -0.88859468  0.21688885  1.32516787  0.07704327 -1.06994342
+    ##  [6]  0.24817640 -0.12980153 -1.05533928 -1.72381349 -1.36246302
+    ## [11] -1.14904478 -0.75575367 -1.83441312 -1.95635278  0.48200881
+    ## [16]  2.57364353  0.07940362 -0.99162191 -0.48605989  0.69165781
 
 Installing and Loading Packages
 -------------------------------
@@ -204,6 +208,12 @@ Here is a list of packages which are relevant for the workshop:
 -   [survey](https://cran.r-project.org/web/packages/survey/index.html) -
     analysis of complex survey samples
 
+-   [plyr](https://cran.r-project.org/web/packages/plyr/index.html) -
+    Tools for Splitting, Applying and Combining Data
+
+-   [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html) -
+    Sparse and Dense Matrix Classes and Methods
+
 <!-- -->
 
     install.packages("foreign")
@@ -218,8 +228,10 @@ A list on the most popular R-packages can be found
 Indexing
 --------
 
-Indexing is an important concept, e.g. to select subgroups. In the
-following the indexing for the different data types are presented.
+[Indexing](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing)
+is an important concept, e.g. to select subgroups. In the following the
+indexing for the different [data
+types](http://www.statmethods.net/input/datatypes.html) are presented.
 
 First indexing for vectors:
 
@@ -337,8 +349,8 @@ Sequences
 
     ##  [1] "A" "A" "A" "A" "A" "A" "A" "A" "A" "A"
 
-Basic Visualisations
---------------------
+[Basic Visualisations](http://www.statmethods.net/graphs/)
+----------------------------------------------------------
 
 The plot function is the easiest option to get a graphic:
 
@@ -373,11 +385,11 @@ Usage of the command
 
     sample(x=1:10,1)
 
-    ## [1] 8
+    ## [1] 7
 
     sample(x=1:10,1,replace=T)
 
-    ## [1] 9
+    ## [1] 1
 
 Working Directory and Workspace
 -------------------------------
@@ -570,22 +582,25 @@ In the first example a country file and sample data for Sweden will be
 needed.
 
     library(foreign)
-    ESS5_SE <- read.spss("ESS5_SE_SDDF.por",to.data.frame=T)
+    ESS5_SE <- read.spss("ESS5_SE_SDDF.por",
+                         to.data.frame=T)
 
 Some Links on import and export of data in R:
 
--   [Quick R on importing
+-   [Quick-R on importing
     data](http://www.statmethods.net/input/importingdata.html)
 
--   [Quick R on exporting
+-   [Quick-R on exporting
     data](http://www.statmethods.net/input/exportingdata.html)
 
-Subsetting
-----------
+[Subsetting Data](http://www.statmethods.net/management/subset.html)
+--------------------------------------------------------------------
 
 Select the first 100 rows of a dataset and assign the information to a
 new object `bgm`:
 
+    library("sampling")
+    data(belgianmunicipalities)
     bgm <- belgianmunicipalities[1:100,]
 
 Select only the entries for the first province:
@@ -604,13 +619,21 @@ Merging
 If you are not sure on the usage of a command, it is always useful to
 have a look at the help page of the command. E.g. we need to use the
 command `merge` to combine datasets. There is a section `Example` at the
-end of each helpfile. There you will find code which can be copy-pasted
-to the console:
+end of each helpfile. You get the helpfile with:
+
+    ?merge
+
+There you will find code which can be copy-pasted to the console:
+
+Use the following lines of code to produce a `data.frame` authors:
 
     authors <- data.frame(
         surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
         nationality = c("US", "Australia", "US", "UK", "Australia"),
         deceased = c("yes", rep("no", 4)))
+
+Use the following lines of code to produce a `data.frame` books:
+
     books <- data.frame(
         name = I(c("Tukey", "Venables", "Tierney",
                  "Ripley", "Ripley", "McNeil", "R Core")),
@@ -622,6 +645,8 @@ to the console:
                   "An Introduction to R"),
         other.author = c(NA, "Ripley", NA, NA, NA, NA,
                          "Venables & Smith"))
+
+Merge the do `data.frames` authors and books:
 
     m1 <- merge(authors, books, by.x = "surname", by.y = "name")
 
@@ -789,13 +814,13 @@ To compute the mean for every row, we can use the `apply` command.
 
     apply(ApplyDat,1,mean)
 
-    ## [1] 0.312651 1.070349 1.380778 1.291449
+    ## [1] 0.5354665 1.4263255 0.4674350 1.3304305
 
 Mean for every column:
 
     apply(ApplyDat,2,mean)
 
-    ## [1] 2.50000000 0.44671483 0.09470539
+    ## [1]  2.5000000  0.5362442 -0.2165011
 
 Simple Example on Sampling
 --------------------------
@@ -841,12 +866,12 @@ replacement and one without replacement:
     summary(my.samp.SRS)
 
     ##        X              id          gender      education         iq        
-    ##  Min.   :   3   Min.   :   3   female:258   average:132   Min.   : 35.51  
-    ##  1st Qu.:2695   1st Qu.:2695   male  :242   high   :143   1st Qu.: 86.39  
-    ##  Median :5220   Median :5220                low    :178   Median :100.04  
-    ##  Mean   :5174   Mean   :5174                none   : 47   Mean   : 99.94  
-    ##  3rd Qu.:7799   3rd Qu.:7799                              3rd Qu.:113.34  
-    ##  Max.   :9999   Max.   :9999                              Max.   :157.67
+    ##  Min.   :  19   Min.   :  19   female:264   average:126   Min.   : 38.75  
+    ##  1st Qu.:2678   1st Qu.:2678   male  :236   high   :134   1st Qu.: 87.79  
+    ##  Median :5154   Median :5154                low    :206   Median :100.27  
+    ##  Mean   :5100   Mean   :5100                none   : 34   Mean   :100.15  
+    ##  3rd Qu.:7687   3rd Qu.:7687                              3rd Qu.:114.41  
+    ##  Max.   :9996   Max.   :9996                              Max.   :165.17
 
 Making graphics to compare the samples:
 
@@ -856,7 +881,7 @@ Making graphics to compare the samples:
     lines(density(my.samp.SRS$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-51-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-54-1.png)
 
 The package `sampling` is very useful to draw samples. An introduction
 to the package can be found
@@ -876,7 +901,7 @@ to the package can be found
     lines(density(my.samp.SRS$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-53-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-56-1.png)
 
     par(mfrow=c(1,2))
     plot(density(my.pop$iq),main = "My second density plot"
@@ -885,7 +910,7 @@ to the package can be found
     lines(density(my.samp.SRS1$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-54-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-57-1.png)
 
 -   should yield same results
 -   routine may differ because of "starting point"

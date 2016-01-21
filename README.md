@@ -1,7 +1,7 @@
 # Sampling and Estimation
 
 
-A lecture about sampling and estimation in the field of sample surveys. You can find a preparation [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/excercise/preparation/Preparation.Rmd).
+A lecture about sampling and estimation in the field of sample surveys. You can find a preparation [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/excercise/preparation/Preparation.md).
 
 
 Slides Day 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day1.pdf) | 
