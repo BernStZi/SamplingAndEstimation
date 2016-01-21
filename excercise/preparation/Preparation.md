@@ -98,7 +98,7 @@ Functions
 
     mean(x)
 
-    ## [1] 0.3470974
+    ## [1] -0.4031066
 
 calculates the mean of variable x
 
@@ -110,23 +110,41 @@ More basic commands:
 
     max(x)
 
-    ## [1] 3.105636
+    ## [1] 0.3438994
 
     min(x)
 
-    ## [1] -1.812727
+    ## [1] -1.826834
 
     sd(x)
 
-    ## [1] 1.307128
+    ## [1] 0.6710064
 
     var(x)
 
-    ## [1] 1.708584
+    ## [1] 0.4502496
 
     median(x)
 
-    ## [1] 0.4091497
+    ## [1] -0.2285484
+
+Errors and Warnings
+-------------------
+
+If an error occurs - you have to fix it:
+
+    1/"a"
+
+    a <- 5 
+    1/a
+
+    ## [1] 0.2
+
+You should always read the warnings, but sometimes you can ignore them:
+
+    library(sampling)
+
+    ## Warning: package 'sampling' was built under R version 3.2.3
 
 Getting help
 ------------
@@ -180,10 +198,10 @@ numbers:
 
     rnorm(20,mean=0,sd=1)
 
-    ##  [1] -0.88859468  0.21688885  1.32516787  0.07704327 -1.06994342
-    ##  [6]  0.24817640 -0.12980153 -1.05533928 -1.72381349 -1.36246302
-    ## [11] -1.14904478 -0.75575367 -1.83441312 -1.95635278  0.48200881
-    ## [16]  2.57364353  0.07940362 -0.99162191 -0.48605989  0.69165781
+    ##  [1] -1.26372076 -0.89201929  0.90249240 -0.88668831 -1.80630149
+    ##  [6] -0.47507619  0.46591390  0.06206380  1.28592920  0.04500359
+    ## [11]  0.52140223 -0.81328269  0.09124518  0.70895558 -0.34418909
+    ## [16]  0.24370814 -1.66741928 -0.25240510  0.63507374 -0.20440449
 
 Installing and Loading Packages
 -------------------------------
@@ -357,19 +375,19 @@ The plot function is the easiest option to get a graphic:
     x <- rnorm(1000,0,1)
     plot(x)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-17-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-20-1.png)
 
 Adding a header:
 
     plot(x,main="header")
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-18-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-21-1.png)
 
 If we want a histogram, we can use the following command:
 
     hist(x)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-19-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-22-1.png)
 
 The sample function
 -------------------
@@ -385,16 +403,17 @@ Usage of the command
 
     sample(x=1:10,1)
 
-    ## [1] 7
+    ## [1] 6
 
     sample(x=1:10,1,replace=T)
 
-    ## [1] 1
+    ## [1] 2
 
 Working Directory and Workspace
 -------------------------------
 
-Declaring a working directory
+Declaring a working directory (you need to tell R where your data is
+saved).
 
     path<-"C:/"
 
@@ -814,13 +833,13 @@ To compute the mean for every row, we can use the `apply` command.
 
     apply(ApplyDat,1,mean)
 
-    ## [1] 0.5354665 1.4263255 0.4674350 1.3304305
+    ## [1] 0.5151695 0.9408759 1.0916130 2.4885225
 
 Mean for every column:
 
     apply(ApplyDat,2,mean)
 
-    ## [1]  2.5000000  0.5362442 -0.2165011
+    ## [1] 2.5000000 0.5509516 0.7261841
 
 Simple Example on Sampling
 --------------------------
@@ -866,12 +885,12 @@ replacement and one without replacement:
     summary(my.samp.SRS)
 
     ##        X              id          gender      education         iq        
-    ##  Min.   :  19   Min.   :  19   female:264   average:126   Min.   : 38.75  
-    ##  1st Qu.:2678   1st Qu.:2678   male  :236   high   :134   1st Qu.: 87.79  
-    ##  Median :5154   Median :5154                low    :206   Median :100.27  
-    ##  Mean   :5100   Mean   :5100                none   : 34   Mean   :100.15  
-    ##  3rd Qu.:7687   3rd Qu.:7687                              3rd Qu.:114.41  
-    ##  Max.   :9996   Max.   :9996                              Max.   :165.17
+    ##  Min.   :   2   Min.   :   2   female:260   average:172   Min.   : 35.36  
+    ##  1st Qu.:2155   1st Qu.:2155   male  :240   high   :119   1st Qu.: 87.00  
+    ##  Median :4742   Median :4742                low    :174   Median : 98.57  
+    ##  Mean   :4964   Mean   :4964                none   : 35   Mean   : 99.55  
+    ##  3rd Qu.:7761   3rd Qu.:7761                              3rd Qu.:113.54  
+    ##  Max.   :9980   Max.   :9980                              Max.   :157.59
 
 Making graphics to compare the samples:
 
@@ -881,7 +900,7 @@ Making graphics to compare the samples:
     lines(density(my.samp.SRS$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-54-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-57-1.png)
 
 The package `sampling` is very useful to draw samples. An introduction
 to the package can be found
@@ -901,7 +920,7 @@ to the package can be found
     lines(density(my.samp.SRS$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-56-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-59-1.png)
 
     par(mfrow=c(1,2))
     plot(density(my.pop$iq),main = "My second density plot"
@@ -910,7 +929,7 @@ to the package can be found
     lines(density(my.samp.SRS1$iq),col = "red",lwd=2)
     lines(density(my.samp.SRSWOR1$iq),col = "blue",lwd=2)
 
-![](Preparation_files/figure-markdown_strict/unnamed-chunk-57-1.png)
+![](Preparation_files/figure-markdown_strict/unnamed-chunk-60-1.png)
 
 -   should yield same results
 -   routine may differ because of "starting point"

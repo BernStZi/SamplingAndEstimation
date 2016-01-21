@@ -58,6 +58,7 @@ Several [GUI's](http://www.statmethods.net/interface/guis.html) are available. I
 ## First operations
 
 If you work with R you should work with scripts that should be [well structured](http://nicercode.github.io/blog/2013-04-05-projects/) and lucid. To re-use scripts it is necessary to comment the code with hashes: 
+
 ```{r}
 # Comments 
 ```
@@ -98,6 +99,25 @@ sd(x)
 var(x)
 median(x)
 ```
+
+## Errors and Warnings
+
+If an error occurs - you have to fix it:
+
+```{r,eval=F}
+1/"a"
+```
+
+```{r}
+a <- 5 
+1/a
+```
+
+You should always read the warnings, but sometimes you can ignore them:
+```{r}
+library(sampling)
+```
+
 
 ## Getting help
 
@@ -287,7 +307,7 @@ sample(x=1:10,1,replace=T)
 
 ## Working Directory and Workspace
 
-Declaring a working directory
+Declaring a working directory (you need to tell R where your data is saved). 
 
 ```{r,eval=F}
 path<-"C:/"
