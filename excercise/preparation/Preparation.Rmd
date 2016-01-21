@@ -2,7 +2,7 @@
 title: "Preparation"
 author: "Jan-Philipp Kolb, Matthias Sand and Stefan Zins"
 date: "11 Januar 2016"
-output: md_document
+output: pdf_document
 ---
 
 

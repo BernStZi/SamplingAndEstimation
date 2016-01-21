@@ -98,7 +98,7 @@ Functions
 
     mean(x)
 
-    ## [1] -0.4031066
+    ## [1] 0.2301037
 
 calculates the mean of variable x
 
@@ -110,23 +110,23 @@ More basic commands:
 
     max(x)
 
-    ## [1] 0.3438994
+    ## [1] 2.691111
 
     min(x)
 
-    ## [1] -1.826834
+    ## [1] -1.906389
 
     sd(x)
 
-    ## [1] 0.6710064
+    ## [1] 1.454892
 
     var(x)
 
-    ## [1] 0.4502496
+    ## [1] 2.11671
 
     median(x)
 
-    ## [1] -0.2285484
+    ## [1] 0.4797695
 
 Errors and Warnings
 -------------------
@@ -198,10 +198,10 @@ numbers:
 
     rnorm(20,mean=0,sd=1)
 
-    ##  [1] -1.26372076 -0.89201929  0.90249240 -0.88668831 -1.80630149
-    ##  [6] -0.47507619  0.46591390  0.06206380  1.28592920  0.04500359
-    ## [11]  0.52140223 -0.81328269  0.09124518  0.70895558 -0.34418909
-    ## [16]  0.24370814 -1.66741928 -0.25240510  0.63507374 -0.20440449
+    ##  [1]  1.39073662 -0.90957666 -1.74043353 -0.12606036  0.13923551
+    ##  [6]  1.23343481 -0.46266631 -0.13668701  0.54858193  0.01075634
+    ## [11]  0.41504850  1.31572939  1.48201788 -0.10640651  0.18708196
+    ## [16] -1.46592059 -1.96876548  1.47593755 -1.45177093  1.08789903
 
 Installing and Loading Packages
 -------------------------------
@@ -403,11 +403,11 @@ Usage of the command
 
     sample(x=1:10,1)
 
-    ## [1] 6
+    ## [1] 2
 
     sample(x=1:10,1,replace=T)
 
-    ## [1] 2
+    ## [1] 8
 
 Working Directory and Workspace
 -------------------------------
@@ -833,13 +833,13 @@ To compute the mean for every row, we can use the `apply` command.
 
     apply(ApplyDat,1,mean)
 
-    ## [1] 0.5151695 0.9408759 1.0916130 2.4885225
+    ## [1] 0.3996026 1.0394160 1.3441235 1.3416313
 
 Mean for every column:
 
     apply(ApplyDat,2,mean)
 
-    ## [1] 2.5000000 0.5509516 0.7261841
+    ## [1] 2.50000000 0.50843090 0.08514919
 
 Simple Example on Sampling
 --------------------------
@@ -885,12 +885,12 @@ replacement and one without replacement:
     summary(my.samp.SRS)
 
     ##        X              id          gender      education         iq        
-    ##  Min.   :   2   Min.   :   2   female:260   average:172   Min.   : 35.36  
-    ##  1st Qu.:2155   1st Qu.:2155   male  :240   high   :119   1st Qu.: 87.00  
-    ##  Median :4742   Median :4742                low    :174   Median : 98.57  
-    ##  Mean   :4964   Mean   :4964                none   : 35   Mean   : 99.55  
-    ##  3rd Qu.:7761   3rd Qu.:7761                              3rd Qu.:113.54  
-    ##  Max.   :9980   Max.   :9980                              Max.   :157.59
+    ##  Min.   :  12   Min.   :  12   female:248   average:144   Min.   : 46.87  
+    ##  1st Qu.:2422   1st Qu.:2422   male  :252   high   :130   1st Qu.: 86.74  
+    ##  Median :5200   Median :5200                low    :194   Median :102.03  
+    ##  Mean   :5136   Mean   :5136                none   : 32   Mean   :100.93  
+    ##  3rd Qu.:7885   3rd Qu.:7885                              3rd Qu.:114.23  
+    ##  Max.   :9975   Max.   :9975                              Max.   :173.26
 
 Making graphics to compare the samples:
 
