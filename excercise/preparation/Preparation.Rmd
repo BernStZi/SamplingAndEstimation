@@ -170,6 +170,7 @@ install.packages("foreign")
 install.packages("lattice")
 install.packages("survey")
 install.packages("plyr")
+install.packages("Matrix")
 ```
 
 A list on the most popular R-packages can be found [here](http://blog.revolutionanalytics.com/2013/06/a-list-of-r-packages-by-popularity.html).
@@ -178,9 +179,9 @@ A list on the most popular R-packages can be found [here](http://blog.revolution
 
 Indexing is an important concept, e.g. to select subgroups. In the following the indexing for the different data types are presented.
 
-```{r}
+First indexing for vectors:
 
-# vector
+```{r}
 A1 <- c(1,2,3,4)
 A1
 A1[1]
@@ -189,9 +190,9 @@ A1[1:3]
 A1[-4]
 ```
 
-```{r}
-# dataframe
+Indexing for dataframes:
 
+```{r}
 AA <- 4:1
 A2 <- cbind(A1,AA)
 A2[1,1]
@@ -200,18 +201,17 @@ A2[,1]
 A2[,1:2]
 ```
 
-```{r}
-# array
+Indexing for arrays:
 
+```{r}
 A3 <- array(1:8,c(2,2,2))
 A3
 A3[,,2]
 ```
 
+Indexing for list's:
 
 ```{r}
-# list
-
 A4 <- list(A1,1)
 A4
 A4[[2]]
