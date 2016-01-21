@@ -510,9 +510,9 @@ for(i in 1:length(nh)) {
 \begin{itemize}
 \item<4-> A \emph{good} set of variables needs to be found for stratification.
 \item<4-> The number of strata has to be decided.
-\item<5-> (You might check out the \texttt{SamplingStrata} package, it 
-implements a method to determine of the best stratification of a sampling frame,
-of minimal cost under the condition to satisfy precision constraints in a multivariate and multi-domain case.)
+% \item<5-> (You might check out the \texttt{SamplingStrata} package, it 
+% implements a method to determine of the best stratification of a sampling frame,
+% of minimal cost under the condition to satisfy precision constraints in a multivariate and multi-domain case.)
 \end{itemize}
 \item<6-> How should the overall sample size be allocated to the strata?
 \begin{itemize}
