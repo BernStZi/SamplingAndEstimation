@@ -8,7 +8,7 @@ The lecture is split into three part.
 
 Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day1.pdf) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/GESISsusc2015_Day1.pdf))
-covers the concept of sampling from a finite population. The depiction of estimation and inference is driven  **sampling design** that was used in selecting the sample. **Simple Random Sampling** is explained as one of the most basic sampling designs. Then **stratfication** of the surveyed population is introduced as one of the most common elements of sampling designs.
+covers the concept of sampling from a finite population. The depiction of estimation and inference is driven  **sampling design** that was used in selecting the sample. **simple random sampling** is explained as one of the most basic sampling designs. Then **stratfication** of the surveyed population is introduced as one of the most common elements of sampling designs.
 
 Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day2.pdf) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/GESISsusc2015_Day2.pdf))
@@ -24,7 +24,7 @@ The implications of using survey on doing statistical inference are also shown.
 
 The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts:
 
-Part 1 sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **Simple Random Sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
+Part 1 sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
 Part 2 will provide a further insight in the application of the **survey package** and **Stratified Sampling**. The focus will be on estimation with samples that use **proportional allocation**, **equal allocation** and **optimal allocation**.
 
