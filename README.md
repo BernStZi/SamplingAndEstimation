@@ -22,6 +22,10 @@ Focuses of **survey weights** for the estimation of population statistics. Their
 The implications of using survey on doing statistical inference are also shown.
 
 
-The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. 
+The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts
+
+Part 1 
+Part 2
+Part 3
 
 If you are new to R there you will find a document [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/excercise/preparation/Preparation.md), which you might find helpful in guiding you through your first steps in R and gives you hints on where to find further information.
