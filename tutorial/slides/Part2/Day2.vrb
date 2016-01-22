@@ -1,0 +1,24 @@
+\frametitle{Mean and Variance}\framesubtitle {of different Sampling Designs}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Mean and Variance\\ of different sampling designs}\end{center}}
+\vspace{-.5cm}
+\footnotesize{
+Calculating $\hat{V}(\overline{y}_{SRCS})$
+\begin{Schunk}
+\begin{Sinput}
+ SRCS.evar <- function(Y,sind,S){
++   L <- length(unique(sind))
++   l <- length(unique(sind[S]))
++   N <- length(Y)
++   part1 <- L^2/N^2
++   part2 <- se.sq(Y,sind,S)/l
++   part3 <- (L-l)/L
++   return(part1*part2*part3)
++ }
+ Sc <- as.numeric(row.names(res.clus))
+ SRCS.evar(bm$averageincome,bm$Province,Sc)
+\end{Sinput}
+\begin{Soutput}
+[1] 28973878
+\end{Soutput}
+\end{Schunk}
+}
