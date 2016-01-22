@@ -1,0 +1,8 @@
+---
+title: "Exercise Day 2"
+author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
+date: "21. Januar 2016"
+output: ioslides_presentation
+---
+
+## R Markdown
