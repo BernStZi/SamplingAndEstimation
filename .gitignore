@@ -1,3 +1,9 @@
-.Rproj.user
 .Rhistory
 .RData
+.Rproj.user
+lecture/*.nav
+lecture/*.snm
+lecture/*.synctex.gz
+lecture/*.toc
+lecture/*.vrb
+
