@@ -26,7 +26,7 @@ The tutorial consists of exercises in which students will apply the methodology 
 
 Part 1 sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
-Part 2 will provide a further insight in the application of the **survey package** and **Stratified Sampling**. The focus will be on estimation with samples that use **proportional allocation**, **equal allocation** and **optimal allocation**.
+Part 2 will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with samples that use **proportional allocation**, **equal allocation** and **optimal allocation**.
 
 Part 3 focuses on **unequal probability samples**, **multistage samples** and **cluster samples** and the estimation of central parameters within those sampling stategies. Therfore, the exercise uses the ESS data of the 5th round for Germany and Netherlands and will provide insights on how to declare more complex **survey objects** and on how to use these survey objects to estimate central parameters.
 
