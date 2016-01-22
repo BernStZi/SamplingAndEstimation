@@ -1,9 +1,11 @@
 .Rhistory
 .RData
 .Rproj.user
+lecture/*.log
+lecture/*.bbl
 lecture/*.nav
 lecture/*.snm
 lecture/*.synctex.gz
 lecture/*.toc
 lecture/*.vrb
-
+lecture/cache
