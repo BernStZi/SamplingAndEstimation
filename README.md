@@ -24,7 +24,7 @@ The implications of using survey on doing statistical inference are also shown.
 
 The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts
 
-Part 1 
+Part 1 Simple Random Sampling
 Part 2
 Part 3
 
