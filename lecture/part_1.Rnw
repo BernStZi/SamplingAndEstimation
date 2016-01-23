@@ -113,6 +113,7 @@
 
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 <<setup, include=FALSE>>=
 library(knitr)

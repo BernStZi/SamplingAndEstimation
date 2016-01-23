@@ -1,0 +1,27 @@
+\frametitle{The survey package}
+\footnotesize{
+\begin{center}
+\textbf{Important commands}
+\end{center}
+\begin{tabular}{ll}
+\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
+\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
+\R{svyquantile} & Computes quantiles for data from complex surveys\\
+\R{svyvar} & Computes variances  for data from complex surveys\\
+\R{weights} & Returns the (design) weights of a survey object\\
+\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
+... & ...\\
+\end{tabular}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{api00,surv.obj)}
+\end{alltt}
+\begin{verbatim}
+##         total    SE
+## api00 4066888 57293
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
