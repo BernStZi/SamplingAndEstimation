@@ -7,18 +7,18 @@ output: html_document
 ### Lecture 
 The lecture is split into three part.
 
-Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day1.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/GESISsusc2015_Day1.pdf))
+Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_1.pdf))
 covers the concept of sampling from a finite population. The depiction of estimation and inference is driven  **sampling design** that was used in selecting the sample. **Simple random sampling** is explained as one of the most basic sampling designs. Then **stratfication** of the surveyed population is introduced as one of the most common elements of sampling designs.
 
-Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day2.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/GESISsusc2015_Day2.pdf))
+Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_2.pdf))
 introduces features of more **complex sampling designs** that however find often application in sampling surveys.
 These features include **cluster sampling**, **mutlistage sampling** and **sampling with unequal inclusion probabilities**.
 **Design effects** are also discussed as a measure of comparing the efficiency of sampling and estimation strategies.
 
-Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/master/GESISsusc2015_Day3.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/GESISsusc2015_Day3.pdf))
+Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_3.pdf))
 focuses of **survey weights** for the estimation of population statistics. Their usage is motivated to both reduce sampling and non-sampling error with the help of auxiliary information. Three methods to produce survey weights are presented, **post-stratification**, **raking** and the **generalized regression estimator**.
 The implications of using survey on doing statistical inference are also shown.
 

@@ -146,9 +146,9 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 
 
 \title[Estimation]{Sampling and Estimation}   
-\subtitle{Day 3: Estimation in Complex Survey Designs}
+\subtitle{Part 3: Estimation in Complex Survey Designs}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
 \date{\today} 
 
 \makebeamertitle
