@@ -102,7 +102,7 @@ library(survey)
 library(sampling)
 opts_chunk$set(
    concordance=TRUE
-  ,fig.path='../../figure/beamer-'
+  ,fig.path='graphs/beamer-'
   ,fig.align='center'
   ,fig.show='hold'
   ,size='footnotesize'
