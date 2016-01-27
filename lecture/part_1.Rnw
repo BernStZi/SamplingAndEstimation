@@ -369,7 +369,7 @@ s^2 = \dfrac{1}{n-1} \sum_{k \in \mathfrc{s}} (y_k - \overline{y})^2 = \dfrac{1}
 \end{frame}
 
 
-\begin{frame}{StrRS Notation I}
+\begin{frame}{Stratified Random Sampling Notation I}
   The universe $\mathcal{U}$ is decomposed into $H$ non-overlapping groups,
   $\mathcal{U}_1,\dots,\mathcal{U}_H$ ,called strata.
   \begin{itemize}
@@ -588,7 +588,7 @@ thus $\E{\sum_{h=1}^H n_h^{\ast}}=n$.
 			    \lceil  n_h \rceil  & \mbox{with prob. } (n_h \mod{1})
                 \end{cases} 
  \end{gather*}
- There are stochastic rounding procedures that are controlled and unbiased, i.e. $\sum_{h=1}^H n_h =n$ and  $\E{n^{\ast}_h} = \frac{N_h}{N} n$ and $|n^{\ast}_{h} - n_{h}| \leq 1$ [Cox, 1987].
+ There are stochastic rounding procedures that are controlled and unbiased, i.e. $\sum_{h=1}^H n_h =n$ and  $\E{n^{\ast}_h} = \frac{N_h}{N} n$ and $|n^{\ast}_{h} - n_{h}| \leq 1$ (see \cite{Cox1987}).
 \end{frame}
 
 
