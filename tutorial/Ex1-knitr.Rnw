@@ -74,7 +74,7 @@ frame=tb}
  \makeatother
 \addtobeamertemplate{frametitle}{}{%
  \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../../../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+ \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
  \end{textblock*}}
  \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 1} }
  %\subtitle{Umgang am Beispiel von Telefonstichproben}
@@ -99,6 +99,10 @@ frame=tb}
 library(knitr)
 opts_chunk$set(
 concordance=TRUE
+  ,fig.path='graphs/beamer-'
+  ,fig.align='center'
+  ,fig.show='hold'
+  ,size='footnotesize'
 )
 @
 

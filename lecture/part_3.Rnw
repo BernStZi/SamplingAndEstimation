@@ -104,7 +104,7 @@
 
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
-\includegraphics[height=1cm,width=2cm]{graphs/logos/GESIS_Logo_kompakt_en.jpg}
+\includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
 
