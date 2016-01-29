@@ -114,7 +114,7 @@ library(knitr)
 @
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{frame}[fragile]{Exercise 3}
 
 \begin{enumerate}
 
@@ -199,9 +199,21 @@ MSW <- SS$`Mean Sq`[2]
 }
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
+\begin{frame}[fragile]{Exercise 4}
+
+\begin{enumerate}
+\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX4.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
+\item Calculate the mean income
+\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
 
 
 
+\end{enumerate}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
