@@ -1,0 +1,24 @@
+\frametitle{Design Effects: Model Based Approach}
+\begin{center}
+\textbf{Obtaining \emph{MSB}, \emph{MSW} and \emph{$b^{*}$}:}
+\end{center}
+
+\footnotesize{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{## deffc}
+\hlstd{b} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlkwd{tapply}\hlstd{(Ger}\hlopt{$}\hlstd{dweight,Ger}\hlopt{$}\hlstd{PSU,}
+                \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}\hlkwd{sum}\hlstd{(x)}\hlopt{^}\hlnum{2}\hlstd{))}\hlopt{/}\hlkwd{sum}\hlstd{(Ger}\hlopt{$}\hlstd{dweight}\hlopt{^}\hlnum{2}\hlstd{)}
+\hlcom{# Calculate an anova for the regression model Age by PSU }
+\hlcom{# (Coule also be any other Variable)}
+\hlstd{SS} \hlkwb{<-} \hlkwd{anova}\hlstd{(}\hlkwd{lm}\hlstd{(}\hlkwd{as.numeric}\hlstd{(Ger}\hlopt{$}\hlstd{agea)}\hlopt{~}\hlstd{Ger}\hlopt{$}\hlstd{PSU))}
+\hlcom{#  MSB and MSW are the means of SSB and SSW}
+\hlstd{MSB} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{1}\hlstd{]}
+\hlstd{MSW} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{2}\hlstd{]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+}
+

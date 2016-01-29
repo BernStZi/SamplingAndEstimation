@@ -94,7 +94,7 @@ frame=tb}
 %  \end{minipage}}%
 
  \begin{document}
-\SweaveOpts{concordance=TRUE}
+
 
 <<include=FALSE>>=
 library(knitr)
