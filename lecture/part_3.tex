@@ -153,7 +153,7 @@
 
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
-\includegraphics[height=1cm,width=2cm]{graphs/logos/GESIS_Logo_kompakt_en.jpg}
+\includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
 
@@ -184,9 +184,9 @@
 
 
 \title[Estimation]{Sampling and Estimation}   
-\subtitle{Day 3: Estimation in Complex Survey Designs}
+\subtitle{Part 3: Calibration Weights}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
 \date{\today} 
 
 \makebeamertitle
@@ -232,7 +232,7 @@
  \item<2-|alert@5> {\bf Weighting procedures} that adjust design weights to compensate the bias that a MAR non-response might inflict on HT-type estimators.
  \item<3-> {\bf Single imputation} and correction of the variance estimates to
  account for imputation uncertainty.
- \item<4-> {\bf Multiple imputation} (MI) according to Rubin (1978, 1987).
+ \item<4-> {\bf Multiple imputation} (MI).
 %  \item {\bf Model-based corrections} of parameter estimates such as the
 %  expectation-maximization (EM) algorithm
  \end{itemize}
@@ -265,7 +265,7 @@ Missingness may be either
     \item cannot be modeled, because $\mathcal{Y}$ not known for non-respondents
   \end{itemize}
 \end{description}
-\uncover<4>{[Rubin and Little 2002]
+\uncover<4>{ (see \cite{LittleRubin2002}) 
 %\end{center}\vspace*{3mm}
 %\end{minipage}
 ~\\[3mm]
@@ -282,7 +282,7 @@ case deletion assuming MCAR!}
  \begin{frame}{Weighting Methods}
 
 \begin{description}
-\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$.
+\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$ (see  \cite{SaerndalLundstroem2005}).
 \begin{itemize}
   \item Sample estimates using the calibrated weights will exactly replicated those totals.
   \item If the used auxiliary variables help to explain the response process the calibrated weight can reduce the non-response error.
@@ -387,7 +387,7 @@ x_{kq}=
 
 \onslide<1->{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:21 2016
+% Wed Jan 27 18:07:28 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for Hair and Eye Colour} 
@@ -404,7 +404,7 @@ Black & 68 & 20 & 15 & 5 \\
 }
 \onslide*<2>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:21 2016
+% Wed Jan 27 18:07:28 2016
 \begin{table}[ht]
 \centering
 \caption{Sample counts $\sum_{k \in \mathfrc{s}} x_{kq}$ in a SRS with $n=150$} 
@@ -421,7 +421,7 @@ Black & 14 & 7 & 2 & 2 \\
 }
 \onslide*<3>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:21 2016
+% Wed Jan 27 18:07:28 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ } 
@@ -438,7 +438,7 @@ Black & 55.2533 & 27.6267 & 7.8933 & 7.8933 \\
 }
 \onslide<4>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:21 2016
+% Wed Jan 27 18:07:28 2016
 \begin{table}[ht]
 \centering
 \caption{Post-stratification $g_k = \dfrac{\tau_{x_q}}{\hat{\tau}_{x_q}}$ } 
@@ -485,7 +485,7 @@ variables school type (\texttt{stype}) and the accomplishment of the growth targ
 \begin{center}
 \usebox{\mysavebox}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:21 2016
+% Wed Jan 27 18:07:28 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for School Type (\texttt{stype}) and School Target (\texttt{sch.wide}) } 
@@ -507,7 +507,6 @@ SUM & 1072 & 5122 & 6194 \\
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{data}\hlstd{(api)}
 \hlkwd{set.seed}\hlstd{(}\hlopt{-}\hlnum{57844}\hlstd{)}
 \hlcom{#selection the SRCS}
 \hlstd{apiclus} \hlkwb{<-} \hlstd{apipop[apipop}\hlopt{$}\hlstd{dnum}\hlopt{%in%}\hlkwd{sample}\hlstd{(}\hlkwd{unique}\hlstd{(apipop}\hlopt{$}\hlstd{dnum),}\hlnum{10}\hlstd{),]}
@@ -588,7 +587,7 @@ SUM & 1072 & 5122 & 6194 \\
 
 \only<1>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:22 2016
+% Wed Jan 27 18:07:29 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated Totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ from a SRCS of Districts (\texttt{dname})  with $n_{\RN{1}}=10$} 
@@ -741,7 +740,7 @@ We want to estimate total expenditures of hospitals. To improve a possible estim
 }
 \onslide*<3>{Fitting a linear model for \texttt{EXPTOTAL} with common slopes for \texttt{SEENCNT} and \texttt{EOYCNT} but a different slope for \texttt{BEDS} in each hospital type.
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Fri Jan 22 14:59:01 2016
+% Fri Jan 22 15:04:16 2016
 \begin{table}[ht]
 \centering
 \caption{Model Summary} 
@@ -801,7 +800,8 @@ We want to estimate total expenditures of hospitals. To improve a possible estim
 \hlstd{sam} \hlkwb{<-} \hlkwd{UPsystematic}\hlstd{(IP)}
 
 \hlstd{sam.dat} \hlkwb{<-} \hlstd{smho.[sam}\hlopt{==}\hlnum{1}\hlstd{, ]}
-\hlstd{sam.dat}\hlopt{$}\hlstd{d} \hlkwb{<-} \hlnum{1}\hlopt{/}\hlstd{IP[sam}\hlopt{==}\hlnum{1}\hlstd{]} \hlcom{#the design weight}
+\hlstd{sam.dat}\hlopt{$}\hlstd{IP} \hlkwb{<-} \hlstd{IP[sam}\hlopt{==}\hlnum{1}\hlstd{]}   \hlcom{#the design weight}
+\hlstd{sam.dat}\hlopt{$}\hlstd{d} \hlkwb{<-} \hlnum{1}\hlopt{/}\hlstd{IP[sam}\hlopt{==}\hlnum{1}\hlstd{]}   \hlcom{#the design weight}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -816,10 +816,10 @@ We want to estimate total expenditures of hospitals. To improve a possible estim
 \hlkwd{library}\hlstd{(survey)} \hlcom{#load the 'survey' package }
 \hlcom{#1. build a 'design' object}
 \hlstd{sam.dsgn} \hlkwb{<-}
-  \hlkwd{svydesign}\hlstd{(}\hlkwc{ids} \hlstd{=} \hlopt{~}\hlnum{1}\hlstd{,}               \hlcom{# no clusters}
-            \hlkwc{strata} \hlstd{=} \hlkwa{NULL}\hlstd{,}          \hlcom{# no strata}
-            \hlkwc{data} \hlstd{= sam.dat,}         \hlcom{# the sample data }
-            \hlkwc{weights} \hlstd{=} \hlopt{~}\hlstd{d)}           \hlcom{# the design weight}
+  \hlkwd{svydesign}\hlstd{(} \hlkwc{ids} \hlstd{=} \hlopt{~}\hlnum{1}         \hlcom{# no clusters}
+            \hlstd{,}\hlkwc{data} \hlstd{= sam.dat}   \hlcom{# the sample data }
+            \hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{IP}        \hlcom{# incl. prob}
+            \hlstd{,}\hlkwc{pps}\hlstd{=} \hlstr{"brewer"}\hlstd{)}    \hlcom{# variance approx. method}
     \hlcom{#the model we use for the GREG}
 \hlstd{lmod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(EXPTOTAL} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,} \hlkwc{data}\hlstd{=smho.)}
 \hlcom{#2. compute pop totals of auxiliaries}
@@ -848,10 +848,10 @@ Setting argument \texttt{calfun='linear'} in \texttt{'calibrate'} results in the
 \end{alltt}
 \begin{verbatim}
 ##   hosp.type  BEDS           se
-## 1         1 37978 3.951866e-12
-## 2         2 13066 1.421532e-12
-## 3         3  9573 5.260079e-13
-## 5         5 10077 5.811345e-13
+## 1         1 37978 4.100694e-12
+## 2         2 13066 1.122603e-12
+## 3         3  9573 3.028628e-13
+## 5         5 10077 7.135892e-13
 \end{verbatim}
 \begin{alltt}
 \hlcom{#SEENCNT and EOYCNT}
@@ -891,7 +891,7 @@ Now we check if the calibration constrains are satisfied:
 \end{frame}
 
 
-\begin{frame}{The Variance of the \\ Generalized Regression Estimator}
+\begin{frame}[fragile]{The Variance of the \\ Generalized Regression Estimator}
 Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
 Thus the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
 \onslide*<1>{
@@ -912,6 +912,33 @@ A variance estimator for $\hat{\tau}_\text{GREG}$ is given by
 where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\boldsymbol\beta}$. 
 }
 
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL, sam.dsgn)}
+\end{alltt}
+\begin{verbatim}
+##             total       SE
+## EXPTOTAL 9.55e+09 7.72e+08
+\end{verbatim}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL, sam.cal)}
+\end{alltt}
+\begin{verbatim}
+##             total       SE
+## EXPTOTAL 9.03e+09 5.92e+08
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<3>{Compare the estimates for the total expenditure with calibrated and design weights.
+\usebox{\mysavebox}
+We find that $\hat{\tau}_\text{GREG} /  \hat{\tau}_\pi  = 1.0581$, but 
+$ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = 1.7006$.
+}
+
+
 \end{frame}
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}
@@ -922,17 +949,13 @@ where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\bolds
   R.J.A.~Little, D.B.~Rubin.
     \newblock Statistical Analysis with Missing Data.
     \newblock {\em Wiley Interscience}, 1999.
-  \setbeamertemplate{bibliography item}[article]
-  \bibitem{Rubin1976}
-    D.B.~Rubin.
-  \newblock Inference and Missing Data
-  \newblock {\em Biometrika}, 1976.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{Rubin1987}
-    D.B.~Rubin.
-  \newblock Multiple Imputations for Nonresponse in Surveys
-  \newblock {\em Wiley}, 1987.  
+   \setbeamertemplate{bibliography item}[book]
+  \bibitem{SaerndalLundstroem2005}
+  C.-E.~S\"{a}rndal, S.~Lundstr\"{o}m.
+    \newblock Estimation in Surveys with Nonresponse.
+    \newblock {\em Wiley}, 2005.
   \end{thebibliography}
+  
 \end{frame} 
 
 

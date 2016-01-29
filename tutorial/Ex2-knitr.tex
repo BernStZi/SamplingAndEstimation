@@ -123,9 +123,9 @@ frame=tb}
  \makeatother
 \addtobeamertemplate{frametitle}{}{%
  \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../../../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+ \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
  \end{textblock*}}
- \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 1} }
+ \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 2} }
  %\subtitle{Umgang am Beispiel von Telefonstichproben}
  
  \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
@@ -146,117 +146,49 @@ frame=tb}
 
 
 
-
 \maketitle
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{frame}[fragile]{Exercise 2: Stratification and Allocation}
 
 \begin{enumerate}
-
-\item Download the ESS dataset for Sweden (Sampling Data and Country File) of the 5th round
-\item[] \alert{\url{http://www.europeansocialsurvey.org/data/country.html?c=sweden}}
-\item Setup your workspace and load the R-packages \R{foreign} and \R{survey}
-\item Load the ESS dataset and the country file
-\item Merge both data frames by their ID-variable, using the \R{merge()}-command
+\item Load the \R{survey} package and the \R{api} datasets in it.
+\item The dataset \R{apistrat} is a sample of schools from \R{apipop} stratified by \R{stype}. Assuming the selection within the strata was done by SRS, define a \R{svydesign} object that enables your to make unbiased point and variance estimates. Estimate the mean of \R{api00}.
+\item Now you should try different allocations. Using \R{stype} again as a stratification variable calculate the allocation of a sample of 60 schools from \R{apipop}, using equal, proportional to the number of schools, and optimal with regard to \R{api99} allocation.
+\item Select a StrSRS from \R{apipop} for each of your allocations.
+\item Estimate again the mean of \R{api00} from your three different samples.
 
 \end{enumerate}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
-
-\begin{enumerate}
-
-\setcounter{enumi}{4}
-\item Determine the sampling strategy (Inspect the variables \alert{SAMPPOIN},\alert{STRATFY} and \alert{PROB})
-\item Add the variable \R{N}$=\R{dweight}*\R{pweight}*10000*n$ to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
-\item Convert your data frame to a survey object (\R{survey}-Package)
-\item Estimate the total and mean of the variable \R{tvtot}
-
-\end{enumerate}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The \R{survey}-Package}
-\footnotesize{
-\begin{itemize}
-\item The survey package provides a large range of applications for complex survey samples
-\item Typically, the first step is to define a survey object with the \R{svydesign()} command
-\end{itemize}
-\begin{center}
-\textbf{Simple survey object (Simple Random Sample)}
-\end{center}
 
 
-
-
-\begin{knitrout}
+\begin{frame}[fragile]{A Function for Stratified Sampling}
+\begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{data}\hlstd{(api)}
+\hlcom{############################# Input ###############################}
+\hlcom{#strind: the stratification varaible; a population length vector.}
+\hlcom{#nh:     allocation; a vector with elements named after the strata.}
+\hlcom{#replace: logical; sampling with or without replacement.}
+\hlcom{############################# Output ##############################}
+\hlcom{#A numeric vector containing the sampled }
+\hlcom{#rows of the population dataset.}
 
-\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc,} \hlkwc{data} \hlstd{= apisrs)}
+\hlstd{strSR.sample} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{strind}\hlstd{,} \hlkwc{nh}\hlstd{,} \hlkwc{replace}\hlstd{=}\hlnum{FALSE}\hlstd{)\{}
+   \hlstd{Nh}   \hlkwb{<-} \hlkwd{table}\hlstd{(strind)[}\hlkwd{names}\hlstd{(nh)]}
+   \hlstd{h.id} \hlkwb{<-} \hlkwd{split}\hlstd{(}\hlnum{1}\hlopt{:}\hlkwd{sum}\hlstd{(Nh), strind)[}\hlkwd{names}\hlstd{(nh)]}
+   \hlstd{sam} \hlkwb{<-} \hlkwd{mapply}\hlstd{(} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,}\hlkwc{y}\hlstd{)} \hlkwd{sample}\hlstd{(x, y,} \hlkwc{replace}\hlstd{=replace)}
+                 \hlstd{, Nh, nh,} \hlkwc{SIMPLIFY} \hlstd{= F)}
+   \hlkwd{unlist}\hlstd{(}\hlkwd{mapply}\hlstd{(}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,}\hlkwc{y}\hlstd{) x[y]}
+                 \hlstd{, h.id}
+                 \hlstd{, sam,} \hlkwc{SIMPLIFY} \hlstd{= F)}
+          \hlstd{,}\hlkwc{use.names} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+
+\hlstd{\}}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc,} \hlkwc{data} \hlstd{= apisrs)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-}
-\begin{itemize}
-\item \R{id} specifies the identifier of PSU and SSU;\R{id$=$ \textasciitilde0} or \R{id$=$\textasciitilde1} stipulates a single stage sampling
-\item For multi-stage samples the \R{id} argument should always specify a formula with the cluster-identifier at each stage
-\item \R{fpc} should be used for the finite population correction
-\item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
-\item \R{data} reflects the data set for which the design object should be defined
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
-\begin{center}
-\textbf{Important commands}
-\end{center}
-\begin{tabular}{ll}
-\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
-\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
-\R{svyquantile} & Computes quantiles for data from complex surveys\\
-\R{svyvar} & Computes variances  for data from complex surveys\\
-\R{weights} & Returns the (design) weights of a survey object\\
-\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
-... & ...\\
-\end{tabular}
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{api00,surv.obj)}
-\end{alltt}
-\begin{verbatim}
-##         total    SE
-## api00 4066888 57293
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-}
-\end{frame}
-
-
-
 
 \end{document}

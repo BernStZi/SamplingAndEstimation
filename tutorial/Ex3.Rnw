@@ -76,7 +76,7 @@ frame=tb}
  \begin{textblock*}{100mm}(.91\textwidth,-1cm)
  \includegraphics[height=1cm,width=2cm]{../../../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
  \end{textblock*}}
- \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 1} }
+ \title[Day 3]{Sampling, Weighting and Estimation\\ \Large{Exercise 3} }
  %\subtitle{Umgang am Beispiel von Telefonstichproben}
  
  \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
@@ -93,7 +93,7 @@ frame=tb}
 %  \end{center}%
 %  \end{minipage}}%
 
- \begin{document}
+\begin{document}
 
 
 <<include=FALSE>>=
@@ -118,93 +118,88 @@ library(knitr)
 
 \begin{enumerate}
 
-\item Download the ESS dataset for Sweden (Sampling Data and Country File) of the 5th round
-\item[] \alert{\url{http://www.europeansocialsurvey.org/data/country.html?c=sweden}}
-\item Setup your workspace and load the R-packages \R{foreign} and \R{survey}
-\item Load the ESS dataset and the country file
-\item Merge both data frames by their ID-variable, using the \R{merge()}-command
+\item Download the data set for Germany of the 5th ESS-Round (Country File and Sampling Data)
+\item[] \url{http://www.europeansocialsurvey.org/data/country.html?c=germany}
+\item Estimate the design effect using the variables \alert{dweight},\alert{PSU} and \alert{agea} (model based approach) 
+\item[] \alert{Advice:} The variable \alert{PSU} has to be a factor
+\item Calculate the effective sample size
+ 
 
 \end{enumerate}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
-
-\begin{enumerate}
-
-\setcounter{enumi}{4}
-\item Determine the sampling strategy (Inspect the variables \alert{SAMPPOIN},\alert{STRATFY} and \alert{PROB})
-\item Add the variable \R{N}$=\R{dweight}*\R{pweight}*10000*n$ to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
-\item Convert your data frame to a survey object (\R{survey}-Package)
-\item Estimate the total and mean of the variable \R{tvtot}
-
-\end{enumerate}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The \R{survey}-Package}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Effects: Model Based Approach}
 \footnotesize{
+\begin{block}{Model based approach}
+\begin{equation*}
+\hat{deff}=\hat{deff_p} * \hat{deff_c} = n\frac{\sum_{h=1}^ld_h^2 n_h}{(\sum_{h=1}^ld_h n_h)^2}*(1+(b^{*}-1)\rho)
+\end{equation*}
+\begin{equation*}
+\hat{\rho}^{AOV}=\frac{MSB-MSW}{MSB+(K-1)MSW}
+\end{equation*}
+\begin{equation*}
+MSB=\frac{SSB}{l-1}\text{;~~~~}MSW=\frac{SSW}{n-l}\text{;~~~~}K=\frac{1}{l-1}(n-\sum_{h=1}^l\frac{n_h^2}{n})\text{;}
+\end{equation*}
+\begin{equation*}
+b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}w_{li}^2}
+\end{equation*}
+\end{block}
+
 \begin{itemize}
-\item The survey package provides a large range of applications for complex survey samples
-\item Typically, the first step is to define a survey object with the \R{svydesign()} command
+\item[] \alert{$n_h$} is the number of units per cluster; \alert{$b^{*}$} is the average cluster size; \alert{$\rho$} reflects the Intraclass Correlation Coefficient (ICC)
+\item[$\Rightarrow$] $deff_p$ captures the design effect due to unequal inclusion probabilities
 \end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Effects: Model Based Approach}
 \begin{center}
-\textbf{Simple survey object (Simple Random Sample)}
+\textbf{Obtaining \emph{MSB}, \emph{MSW} and \emph{$b^{*}$}:}
 \end{center}
 
+\footnotesize{
+<<eval=FALSE>>=
+Ger.d <- read.spss("ESS5DE.spss/ESS5DE.sav",
+                   to.data.frame = TRUE,
+                   use.value.labels = TRUE)
+Ger.ctry <- read.spss("ESS5_DE_SDDF.spss/ESS5_DE_SDDF.por",
+                      to.data.frame = TRUE, 
+                      use.value.labels = TRUE)
 
-<<include=FALSE>>=
-library(Matrix)
-library(survey)
-@
-
-<<echo=TRUE>>=
-
-data(api)
-
-surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
+colnames(Ger.d)[5] <- "IDNO"
+Ger <- merge(Ger.d,Ger.ctry,by="IDNO", all.x = TRUE)
+Ger$PSU <- as.factor(Ger$PSU)
+n <- nrow(Ger)
+L <- length(unique(Ger$PSU))
 @
 }
+
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
-<<echo=T,eval=F>>=
-surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
-@
-}
-\begin{itemize}
-\item \R{id} specifies the identifier of PSU and SSU;\R{id$=$ \textasciitilde0} or \R{id$=$\textasciitilde1} stipulates a single stage sampling
-\item For multi-stage samples the \R{id} argument should always specify a formula with the cluster-identifier at each stage
-\item \R{fpc} should be used for the finite population correction
-\item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
-\item \R{data} reflects the data set for which the design object should be defined
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Effects: Model Based Approach}
 \begin{center}
-\textbf{Important commands}
+\textbf{Obtaining \emph{MSB}, \emph{MSW} and \emph{$b^{*}$}:}
 \end{center}
-\begin{tabular}{ll}
-\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
-\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
-\R{svyquantile} & Computes quantiles for data from complex surveys\\
-\R{svyvar} & Computes variances  for data from complex surveys\\
-\R{weights} & Returns the (design) weights of a survey object\\
-\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
-... & ...\\
-\end{tabular}
 
-<<>>=
-svytotal(~api00,surv.obj)
+\footnotesize{
+<<eval=FALSE>>=
+## deffc
+b <- sum(tapply(Ger$dweight,Ger$PSU,
+                function(x)sum(x)^2))/sum(Ger$dweight^2)
+# Calculate an anova for the regression model Age by PSU 
+# (Coule also be any other Variable)
+SS <- anova(lm(as.numeric(Ger$agea)~Ger$PSU)) 
+#  MSB and MSW are the means of SSB and SSW
+MSB <- SS$`Mean Sq`[1]
+MSW <- SS$`Mean Sq`[2]
 @
+
 }
+
 \end{frame}
+
 
 
 

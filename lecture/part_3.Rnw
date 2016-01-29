@@ -104,7 +104,7 @@
 
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.91\textwidth,-1cm)
-\includegraphics[height=1cm,width=2cm]{graphs/logos/GESIS_Logo_kompakt_en.jpg}
+\includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
 
@@ -146,9 +146,9 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 
 
 \title[Estimation]{Sampling and Estimation}   
-\subtitle{Day 3: Estimation in Complex Survey Designs}
+\subtitle{Part 3: Calibration Weights}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
 \date{\today} 
 
 \makebeamertitle
@@ -194,7 +194,7 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
  \item<2-|alert@5> {\bf Weighting procedures} that adjust design weights to compensate the bias that a MAR non-response might inflict on HT-type estimators.
  \item<3-> {\bf Single imputation} and correction of the variance estimates to
  account for imputation uncertainty.
- \item<4-> {\bf Multiple imputation} (MI) according to Rubin (1978, 1987).
+ \item<4-> {\bf Multiple imputation} (MI).
 %  \item {\bf Model-based corrections} of parameter estimates such as the
 %  expectation-maximization (EM) algorithm
  \end{itemize}
@@ -227,7 +227,7 @@ Missingness may be either
     \item cannot be modeled, because $\mathcal{Y}$ not known for non-respondents
   \end{itemize}
 \end{description}
-\uncover<4>{[Rubin and Little 2002]
+\uncover<4>{ (see \cite{LittleRubin2002}) 
 %\end{center}\vspace*{3mm}
 %\end{minipage}
 ~\\[3mm]
@@ -244,7 +244,7 @@ case deletion assuming MCAR!}
  \begin{frame}{Weighting Methods}
 
 \begin{description}
-\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$.
+\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$ (see  \cite{SaerndalLundstroem2005}).
 \begin{itemize}
   \item Sample estimates using the calibrated weights will exactly replicated those totals.
   \item If the used auxiliary variables help to explain the response process the calibrated weight can reduce the non-response error.
@@ -369,7 +369,7 @@ align(tau.tab) <- "r|rrrr"
 n <- 150
 N <- nrow(HairEyeColor.inf)
 HairEyeColor.inf$f1 <- N
-HairEyeColor.inf$d <- N/n
+HairEyeColor.inf$d  <- N/n
 
 # select  srswor of size n
 set.seed(1345567)
@@ -476,7 +476,6 @@ variables school type (\texttt{stype}) and the accomplishment of the growth targ
 
 \begin{lrbox}{\mysavebox}
 <<AlogRakingPre, echo=TRUE, message=FALSE>>=
-data(api)
 set.seed(-57844)
 #selection the SRCS
 apiclus <- apipop[apipop$dnum%in%sample(unique(apipop$dnum),10),]
@@ -751,7 +750,7 @@ print(tab.model,caption.placement = "top")
 @
 }\onslide*<4>{
 ~\\[-1.25cm]
-<<GREG.PlotModelDiag,warningFALSE, message=FALSE, echo=FALSE, cache=TRUE, dependson='GREG.data',results='asis',fig.keep='all',out.width='\\linewidth',out.height='8cm',fig.pos='ht',fig.show = 'animate'>>=
+<<GREG.PlotModelDiag,warningFALSE, message=FALSE, echo=FALSE, cache=TRUE, dependson='GREG.data',results='asis',fig.keep='all',out.width='\\linewidth',out.height='8cm', fig.pos='ht', fig.show = 'animate'>>=
 par(mfrow=c(1,1))
 plot(lmod1,ask=FALSE)
 @
@@ -780,7 +779,8 @@ set.seed(428274453)
 sam <- UPsystematic(IP)
 
 sam.dat <- smho.[sam==1, ]
-sam.dat$d <- 1/IP[sam==1] #the design weight
+sam.dat$IP <- IP[sam==1]   #the design weight
+sam.dat$d <- 1/IP[sam==1]   #the design weight
 @
 \end{lrbox}
 \onslide*<1>{~\\[-1cm] We select a sample of hospitals with probability  proportional to the square root of \texttt{BEDS} using a systematic sample. 
@@ -791,10 +791,10 @@ sam.dat$d <- 1/IP[sam==1] #the design weight
 library(survey) #load the 'survey' package 
 #1. build a 'design' object
 sam.dsgn <- 
-  svydesign(ids = ~1,               # no clusters
-            strata = NULL,          # no strata
-            data = sam.dat,         # the sample data 
-            weights = ~d)           # the design weight
+  svydesign( ids = ~1         # no clusters
+            ,data = sam.dat   # the sample data 
+            ,fpc = ~IP        # incl. prob
+            ,pps= "brewer")    # variance approx. method
     #the model we use for the GREG
 lmod2 <- lm(EXPTOTAL ~ SEENCNT + EOYCNT + hosp.type:BEDS, data=smho.)
 #2. compute pop totals of auxiliaries
@@ -838,7 +838,7 @@ Now we check if the calibration constrains are satisfied:
 \end{frame}
 
 
-\begin{frame}{The Variance of the \\ Generalized Regression Estimator}
+\begin{frame}[fragile]{The Variance of the \\ Generalized Regression Estimator}
 Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
 Thus the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
 \onslide*<1>{
@@ -859,6 +859,29 @@ A variance estimator for $\hat{\tau}_\text{GREG}$ is given by
 where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\boldsymbol\beta}$. 
 }
 
+\begin{lrbox}{\mysavebox}
+<<GREG.Vest, message=FALSE, cache=TRUE, echo=3:4, dependson='GREG.calib'>>=
+ori.opt <- options()
+options( scipen = -2, digits = 5)
+svytotal(~EXPTOTAL, sam.dsgn)
+svytotal(~EXPTOTAL, sam.cal)
+
+
+pest.ratio <- svytotal(~EXPTOTAL, sam.dsgn)/svytotal(~EXPTOTAL, sam.cal)
+vest.ratio   <- vcov(svytotal(~EXPTOTAL, sam.dsgn))/vcov(svytotal(~EXPTOTAL, sam.cal))
+
+options(ori.opt)
+# svyby(~EXPTOTAL, by=~hosp.type, design=sam.cal,  FUN=svytotal)
+# svyby(~EXPTOTAL, by=~hosp.type, design=sam.dsgn, FUN=svytotal)
+@
+\end{lrbox}
+\onslide*<3>{Compare the estimates for the total expenditure with calibrated and design weights.
+\usebox{\mysavebox}
+We find that $\hat{\tau}_\text{GREG} /  \hat{\tau}_\pi  = \Sexpr{round(pest.ratio,4)}$, but 
+$ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = \Sexpr{round(vest.ratio,4)}$.
+}
+
+
 \end{frame}
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}
@@ -869,17 +892,13 @@ where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\bolds
   R.J.A.~Little, D.B.~Rubin.
     \newblock Statistical Analysis with Missing Data.
     \newblock {\em Wiley Interscience}, 1999.
-  \setbeamertemplate{bibliography item}[article]
-  \bibitem{Rubin1976}
-    D.B.~Rubin.
-  \newblock Inference and Missing Data
-  \newblock {\em Biometrika}, 1976.
-  \setbeamertemplate{bibliography item}[book]
-  \bibitem{Rubin1987}
-    D.B.~Rubin.
-  \newblock Multiple Imputations for Nonresponse in Surveys
-  \newblock {\em Wiley}, 1987.  
+   \setbeamertemplate{bibliography item}[book]
+  \bibitem{SaerndalLundstroem2005}
+  C.-E.~S\"{a}rndal, S.~Lundstr\"{o}m.
+    \newblock Estimation in Surveys with Nonresponse.
+    \newblock {\em Wiley}, 2005.
   \end{thebibliography}
+  
 \end{frame} 
 
 

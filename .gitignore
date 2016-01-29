@@ -9,3 +9,11 @@ lecture/*.synctex.gz
 lecture/*.toc
 lecture/*.vrb
 lecture/cache
+tutorial/*.log
+tutorial/*.bbl
+tutorial/*.nav
+tutorial/*.snm
+tutorial/*.synctex.gz
+tutorial/*.toc
+tutorial/*.vrb
+tutorial/cache
