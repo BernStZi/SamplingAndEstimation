@@ -13,15 +13,13 @@
 ... & ...\\
 \end{tabular}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{api00,surv.obj)}
-\end{alltt}
-\begin{verbatim}
-##         total    SE
-## api00 4066888 57293
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+ svytotal(~api00,surv.obj)
+\end{Sinput}
+\begin{Soutput}
+        total    SE
+api00 4066888 57293
+\end{Soutput}
+\end{Schunk}
 }

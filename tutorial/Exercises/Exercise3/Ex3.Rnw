@@ -1,0 +1,118 @@
+\documentclass[11pt,german,hideothersubsections]{beamer}
+
+\usepackage{hyperref}
+\usepackage{amsmath,nicefrac,booktabs,mathabx}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{textpos}
+\usepackage{listings}
+\definecolor{Rblau}{rgb}{.3,.6,.9}
+
+\lstset{language=R,
+basicstyle=\ttfamily\footnotesize,
+keywordstyle=\color{blue}\bfseries,
+identifierstyle=\color{Rblau},
+commentstyle=\color{gray},
+stringstyle=\color{green}\ttfamily,
+showstringspaces=false,
+frame=tb}
+
+
+
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow,dcolumn}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{booktabs}
+\colorlet{tablesubheadcolor}{gray!25}
+\colorlet{tableheadcolor}{gray!40}
+\colorlet{tablerowcolor}{gray!15.0}
+\usetheme[english]{Gesis}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]%{\hspace*{.2cm}\insertframenumber}
+\setbeamerfont{caption}{size=\footnotesize}
+\usefonttheme[onlylarge]{structuresmallcapsserif} % alte Schrift
+
+\newcommand{\R}[1]{{\tt \color{blue}  #1}}
+  \newtheorem{thm}{Theorem}
+  \newtheorem{rem}{Bemerkung}
+  \newtheorem{lem}{Lemma}
+  
+  \definecolor{hellgrau}{rgb}   {0.109375,  0.40625,   0.51953125}
+  \definecolor{dunkelgrau}{rgb} {0.009375,  0.30625,   0.41953125}
+  \definecolor{dunkelgrau2}{rgb}{0.009375,  0.20625,   0.31953125}
+  \definecolor{hellbraun}{rgb}  {0.9140625, 0.8984375, 0.8046875}
+  \definecolor{hellbraun2}{rgb} {.95,       0.9,       0.8}
+  \definecolor{alertred}{rgb}   {0.8515625, 0.3828125, 0.08984375}
+  \definecolor{orange}{rgb}{1,0.5,0}
+  
+  
+  \setbeamercolor{firstsecslide}{fg=white,bg=dunkelgrau}
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  
+  \newcolumntype{d}[0]{D{,}{.}{6}}
+  
+  \newenvironment{itemizeol}{\begin{itemize}[<+->]}{\end{itemize}}
+  \newenvironment{descriptionol}{\begin{description}[<+->]}{\end{description}}
+  
+  \newcolumntype{V}[1]{ {\RaggedRight\hspace{0pt}}p{#1}}
+
+\newcommand{\emphred}[1]{\textcolor{alertred}{#1}}
+\newcommand{\emphcol}[1]{\textcolor{dunkelgrau}{\slshape #1}}
+ 
+ \setcounter{tocdepth}{1}
+ \setbeamercolor*{section in toc}{fg=hellgrau}
+\setbeamertemplate{bibliography item}[default]
+ \makeatother
+\addtobeamertemplate{frametitle}{}{%
+ \begin{textblock*}{100mm}(.91\textwidth,-1cm)
+ \includegraphics[height=1cm,width=2cm]{../../../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+ \end{textblock*}}
+ \title[Day 3]{Sampling, Weighting and Estimation\\ \Large{Exercise 3} }
+ %\subtitle{Umgang am Beispiel von Telefonstichproben}
+ 
+ \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
+ %\institute{\includegraphics[width=4.5cm]{GESIS_Logo_informell}}
+%  \date[]{\color{dunkelgrau}\footnotesize%
+% \begin{minipage}{8cm}%
+% \begin{center}%
+%  \scriptsize{
+% \textbf{GESIS Summer School}\\ \tiny{Cologne, Germany}%
+%  }\\
+% \vspace{0.25cm}
+%  \textbf{August 24th, 2015}%
+%  
+%  \end{center}%
+%  \end{minipage}}%
+
+ \begin{document}
+\SweaveOpts{concordance=TRUE}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
+\maketitle
+
+<<t,echo=F,eval=T>>=
+options(prompt = " ")
+library(knitr)
+ CA<-T
+ Ex<-T
+ 
+@
+
+
+
+\end{document}
