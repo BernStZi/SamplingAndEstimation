@@ -1,0 +1,216 @@
+\documentclass[11pt,german,hideothersubsections]{beamer}
+
+\usepackage{hyperref}
+\usepackage{amsmath,nicefrac,booktabs,mathabx}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{textpos}
+\usepackage{listings}
+\definecolor{Rblau}{rgb}{.3,.6,.9}
+
+\lstset{language=R,
+basicstyle=\ttfamily\footnotesize,
+keywordstyle=\color{blue}\bfseries,
+identifierstyle=\color{Rblau},
+commentstyle=\color{gray},
+stringstyle=\color{green}\ttfamily,
+showstringspaces=false,
+frame=tb}
+
+
+
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow,dcolumn}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{booktabs}
+\colorlet{tablesubheadcolor}{gray!25}
+\colorlet{tableheadcolor}{gray!40}
+\colorlet{tablerowcolor}{gray!15.0}
+\usetheme[english]{Gesis}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]%{\hspace*{.2cm}\insertframenumber}
+\setbeamerfont{caption}{size=\footnotesize}
+\usefonttheme[onlylarge]{structuresmallcapsserif} % alte Schrift
+
+\newcommand{\R}[1]{{\tt \color{blue}  #1}}
+  \newtheorem{thm}{Theorem}
+  \newtheorem{rem}{Bemerkung}
+  \newtheorem{lem}{Lemma}
+  
+  \definecolor{hellgrau}{rgb}   {0.109375,  0.40625,   0.51953125}
+  \definecolor{dunkelgrau}{rgb} {0.009375,  0.30625,   0.41953125}
+  \definecolor{dunkelgrau2}{rgb}{0.009375,  0.20625,   0.31953125}
+  \definecolor{hellbraun}{rgb}  {0.9140625, 0.8984375, 0.8046875}
+  \definecolor{hellbraun2}{rgb} {.95,       0.9,       0.8}
+  \definecolor{alertred}{rgb}   {0.8515625, 0.3828125, 0.08984375}
+  \definecolor{orange}{rgb}{1,0.5,0}
+  
+  
+  \setbeamercolor{firstsecslide}{fg=white,bg=dunkelgrau}
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  
+  \newcolumntype{d}[0]{D{,}{.}{6}}
+  
+  \newenvironment{itemizeol}{\begin{itemize}[<+->]}{\end{itemize}}
+  \newenvironment{descriptionol}{\begin{description}[<+->]}{\end{description}}
+  
+  \newcolumntype{V}[1]{ {\RaggedRight\hspace{0pt}}p{#1}}
+
+\newcommand{\emphred}[1]{\textcolor{alertred}{#1}}
+\newcommand{\emphcol}[1]{\textcolor{dunkelgrau}{\slshape #1}}
+ 
+ \setcounter{tocdepth}{1}
+ \setbeamercolor*{section in toc}{fg=hellgrau}
+\setbeamertemplate{bibliography item}[default]
+ \makeatother
+\addtobeamertemplate{frametitle}{}{%
+ \begin{textblock*}{100mm}(.91\textwidth,-1cm)
+ \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
+ \end{textblock*}}
+ \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 1} }
+ %\subtitle{Umgang am Beispiel von Telefonstichproben}
+ 
+ \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
+ %\institute{\includegraphics[width=4.5cm]{GESIS_Logo_informell}}
+%  \date[]{\color{dunkelgrau}\footnotesize%
+% \begin{minipage}{8cm}%
+% \begin{center}%
+%  \scriptsize{
+% \textbf{GESIS Summer School}\\ \tiny{Cologne, Germany}%
+%  }\\
+% \vspace{0.25cm}
+%  \textbf{August 24th, 2015}%
+%  
+%  \end{center}%
+%  \end{minipage}}%
+
+ \begin{document}
+
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+  ,fig.path='graphs/beamer-'
+  ,fig.align='center'
+  ,fig.show='hold'
+  ,size='footnotesize'
+)
+@
+
+\maketitle
+
+<<t,echo=F,eval=T>>=
+options(prompt = " ")
+library(knitr)
+ CA<-T
+ Ex<-T
+ 
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Exercise 1}
+
+\begin{enumerate}
+
+\item Download the ESS dataset for Sweden (Sampling Data and Country File) of the 5th round
+\item[] \alert{\url{http://www.europeansocialsurvey.org/data/country.html?c=sweden}}
+\item Setup your workspace and load the R-packages \R{foreign} and \R{survey}
+\item Load the ESS dataset and the country file
+\item Merge both data frames by their ID-variable, using the \R{merge()}-command
+
+\end{enumerate}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Exercise 1}
+
+\begin{enumerate}
+
+\setcounter{enumi}{4}
+\item Determine the sampling strategy (Inspect the variables \alert{SAMPPOIN},\alert{STRATFY} and \alert{PROB})
+\item Add the variable \R{N}$=\R{dweight}*\R{pweight}*10000*n$ to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
+\item Convert your data frame to a survey object (\R{survey}-Package)
+\item Estimate the total and mean of the variable \R{tvtot}
+
+\end{enumerate}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The \R{survey}-Package}
+\footnotesize{
+\begin{itemize}
+\item The survey package provides a large range of applications for complex survey samples
+\item Typically, the first step is to define a survey object with the \R{svydesign()} command
+\end{itemize}
+\begin{center}
+\textbf{Simple survey object (Simple Random Sample)}
+\end{center}
+
+
+<<include=FALSE>>=
+library(Matrix)
+library(survey)
+@
+
+<<echo=TRUE>>=
+
+data(api)
+
+surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
+@
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+<<echo=T,eval=F>>=
+surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
+@
+}
+\begin{itemize}
+\item \R{id} specifies the identifier of PSU and SSU;\R{id$=$ \textasciitilde0} or \R{id$=$\textasciitilde1} stipulates a single stage sampling
+\item For multi-stage samples the \R{id} argument should always specify a formula with the cluster-identifier at each stage
+\item \R{fpc} should be used for the finite population correction
+\item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
+\item \R{data} reflects the data set for which the design object should be defined
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Important commands}
+\end{center}
+\begin{tabular}{ll}
+\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
+\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
+\R{svyquantile} & Computes quantiles for data from complex surveys\\
+\R{svyvar} & Computes variances  for data from complex surveys\\
+\R{weights} & Returns the (design) weights of a survey object\\
+\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
+... & ...\\
+\end{tabular}
+
+<<>>=
+svytotal(~api00,surv.obj)
+@
+}
+\end{frame}
+
+
+
+
+\end{document}

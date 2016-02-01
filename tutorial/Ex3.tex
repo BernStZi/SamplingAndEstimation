@@ -123,7 +123,7 @@ frame=tb}
  \makeatother
 \addtobeamertemplate{frametitle}{}{%
  \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+ \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
  \end{textblock*}}
  \title[Day 3]{Sampling, Weighting and Estimation\\ \Large{Exercise 3} }
  %\subtitle{Umgang am Beispiel von Telefonstichproben}
@@ -152,7 +152,7 @@ frame=tb}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{frame}[fragile]{Exercise 3a}
 
 \begin{enumerate}
 
@@ -234,7 +234,8 @@ b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{
                 \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}\hlkwd{sum}\hlstd{(x)}\hlopt{^}\hlnum{2}\hlstd{))}\hlopt{/}\hlkwd{sum}\hlstd{(Ger}\hlopt{$}\hlstd{dweight}\hlopt{^}\hlnum{2}\hlstd{)}
 \hlcom{# Calculate an anova for the regression model Age by PSU }
 \hlcom{# (Coule also be any other Variable)}
-\hlstd{SS} \hlkwb{<-} \hlkwd{anova}\hlstd{(}\hlkwd{lm}\hlstd{(}\hlkwd{as.numeric}\hlstd{(Ger}\hlopt{$}\hlstd{agea)}\hlopt{~}\hlstd{Ger}\hlopt{$}\hlstd{PSU))}
+\hlstd{lin.mod} \hlkwb{<-} \hlkwd{lm}\hlstd{(}\hlkwd{as.numeric}\hlstd{(Ger}\hlopt{$}\hlstd{agea)}\hlopt{~}\hlstd{Ger}\hlopt{$}\hlstd{PSU)}
+\hlstd{SS} \hlkwb{<-} \hlkwd{anova}\hlstd{(lin.mod)}
 \hlcom{#  MSB and MSW are the means of SSB and SSW}
 \hlstd{MSB} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{1}\hlstd{]}
 \hlstd{MSW} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{2}\hlstd{]}
@@ -246,8 +247,63 @@ b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
+\begin{frame}[fragile]{Exercise 3b}
+
+\begin{enumerate}
+\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
+\item Calculate the mean income of the population
+\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
 
 
 
+\end{enumerate}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{Commune}\hlopt{+}\hlstd{id,}\hlkwc{fpc}\hlstd{=}\hlopt{~}\hlstd{prob1}\hlopt{+}\hlstd{prob2,}
+                  \hlkwc{data}\hlstd{=Data.be,}\hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\footnotesize{
+\begin{itemize}
+\item In \emph{Exercise 1} we had a single-stage sample, therefore the argument \R{id} has been set to 0 or 1
+\item[$\Rightarrow$] In case of a multi-stage sampling approach, every sampling stage has to be defined
+\begin{itemize}
+\item[$\Rightarrow$] PSU: \emph{Commune}; SSU: \emph{id}
+\end{itemize}
+\item This also applies for the \R{fpc}-argument 
+\item[$\Rightarrow$] \emph{prob1} reflects the porbability of inclusion for each PSU in the sample and \emph{prob2} the probability of inclusion for each SSU
+\item[] \alert{Note:} altough $prob1*prob2=n/N$ in this sample, it cannot be treated like a SRS
+
+\end{itemize}
+}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{Commune}\hlopt{+}\hlstd{id,}\hlkwc{fpc}\hlstd{=}\hlopt{~}\hlstd{prob1}\hlopt{+}\hlstd{prob2,}
+                  \hlkwc{data}\hlstd{=Data.be,} \hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\item \R{pps} should be used to define the design information; usually the second order probability of inclusion
+\item[$\Rightarrow$] If the second order probability of inclusion are unknown (or too complex to calculate), a brewer approximation can be applied to estimate the joint inclusion probabilities
+\end{itemize}
+
+\end{frame}
 
 \end{document}

@@ -1,0 +1,20 @@
+\frametitle{Reading and Writing Data}
+\footnotesize{
+\begin{center}
+\textbf{Writing/ saving data and results}\\
+\end{center}
+\R{write.table(my.pop,"Synthetic Data Day1.csv",\\
+            row.names = F, quote = F, dec = ".",sep = ",")}\\
+            \textbf{OR:}\\
+\R{save(my.samp.SRS,s.SRS,my.samp.SRSWOR1,file = "Day1.Rdata")}\\
+\begin{itemize}
+\item[$\Rightarrow$] See also: \R{write.csv} and \R{write.csv2} (\R{sep = }";")
+\end{itemize}
+\begin{center}
+\textbf{Reading/ loading data and results}\\
+\end{center}
+\R{d1 <- read.table("Synthetic Data Day1.csv",\\
+            header = F, dec = ".",sep = ",")}\\
+            \textbf{OR:}\\
+\R{load("Day1.Rdata")}}
+

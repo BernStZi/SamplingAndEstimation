@@ -74,7 +74,7 @@ frame=tb}
  \makeatother
 \addtobeamertemplate{frametitle}{}{%
  \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../../../lecture/graphs/logos/GESIS_Logo_kompakt_en.jpg}
+ \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
  \end{textblock*}}
  \title[Day 3]{Sampling, Weighting and Estimation\\ \Large{Exercise 3} }
  %\subtitle{Umgang am Beispiel von Telefonstichproben}
@@ -114,7 +114,7 @@ library(knitr)
 @
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{frame}[fragile]{Exercise 3a}
 
 \begin{enumerate}
 
@@ -190,7 +190,8 @@ b <- sum(tapply(Ger$dweight,Ger$PSU,
                 function(x)sum(x)^2))/sum(Ger$dweight^2)
 # Calculate an anova for the regression model Age by PSU 
 # (Coule also be any other Variable)
-SS <- anova(lm(as.numeric(Ger$agea)~Ger$PSU)) 
+lin.mod <- lm(as.numeric(Ger$agea)~Ger$PSU)
+SS <- anova(lin.mod) 
 #  MSB and MSW are the means of SSB and SSW
 MSB <- SS$`Mean Sq`[1]
 MSW <- SS$`Mean Sq`[2]
@@ -200,8 +201,55 @@ MSW <- SS$`Mean Sq`[2]
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
+\begin{frame}[fragile]{Exercise 3b}
+
+\begin{enumerate}
+\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
+\item Calculate the mean income of the population
+\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
 
 
 
+\end{enumerate}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
+
+<<echo=T,eval=F>>=
+surv <- svydesign(id=~Commune+id,fpc=~prob1+prob2, 
+                  data=Data.be,pps="brewer")
+@
+\footnotesize{
+\begin{itemize}
+\item In \emph{Exercise 1} we had a single-stage sample, therefore the argument \R{id} has been set to 0 or 1
+\item[$\Rightarrow$] In case of a multi-stage sampling approach, every sampling stage has to be defined
+\begin{itemize}
+\item[$\Rightarrow$] PSU: \emph{Commune}; SSU: \emph{id}
+\end{itemize}
+\item This also applies for the \R{fpc}-argument 
+\item[$\Rightarrow$] \emph{prob1} reflects the porbability of inclusion for each PSU in the sample and \emph{prob2} the probability of inclusion for each SSU
+\item[] \alert{Note:} altough $prob1*prob2=n/N$ in this sample, it cannot be treated like a SRS
+
+\end{itemize}
+}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
+
+<<echo=T,eval=F>>=
+surv <- svydesign(id=~Commune+id,fpc=~prob1+prob2, 
+                  data=Data.be, pps="brewer")
+@
+\begin{itemize}
+\item \R{pps} should be used to define the design information; usually the second order probability of inclusion
+\item[$\Rightarrow$] If the second order probability of inclusion are unknown (or too complex to calculate), a brewer approximation can be applied to estimate the joint inclusion probabilities
+\end{itemize}
+
+\end{frame}
 
 \end{document}

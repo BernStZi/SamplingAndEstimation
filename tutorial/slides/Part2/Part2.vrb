@@ -1,0 +1,26 @@
+\frametitle{Mean and Variance}\framesubtitle {of different Sampling Designs}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Mean and Variance\\ of different sampling designs}\end{center}}
+\vspace{-.5cm}
+\footnotesize{
+Calculating $\hat{V}(\overline{y}_{SRCS})$
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{SRCS.evar} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{Y}\hlstd{,}\hlkwc{sind}\hlstd{,}\hlkwc{S}\hlstd{)\{}
+  \hlstd{L} \hlkwb{<-} \hlkwd{length}\hlstd{(}\hlkwd{unique}\hlstd{(sind))}
+  \hlstd{l} \hlkwb{<-} \hlkwd{length}\hlstd{(}\hlkwd{unique}\hlstd{(sind[S]))}
+  \hlstd{N} \hlkwb{<-} \hlkwd{length}\hlstd{(Y)}
+  \hlstd{part1} \hlkwb{<-} \hlstd{L}\hlopt{^}\hlnum{2}\hlopt{/}\hlstd{N}\hlopt{^}\hlnum{2}
+  \hlstd{part2} \hlkwb{<-} \hlkwd{se.sq}\hlstd{(Y,sind,S)}\hlopt{/}\hlstd{l}
+  \hlstd{part3} \hlkwb{<-} \hlstd{(L}\hlopt{-}\hlstd{l)}\hlopt{/}\hlstd{L}
+  \hlkwd{return}\hlstd{(part1}\hlopt{*}\hlstd{part2}\hlopt{*}\hlstd{part3)}
+\hlstd{\}}
+\hlstd{Sc} \hlkwb{<-} \hlkwd{as.numeric}\hlstd{(}\hlkwd{row.names}\hlstd{(res.clus))}
+\hlkwd{SRCS.evar}\hlstd{(bm}\hlopt{$}\hlstd{averageincome,bm}\hlopt{$}\hlstd{Province,Sc)}
+\end{alltt}
+\begin{verbatim}
+## [1] 28973878
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}

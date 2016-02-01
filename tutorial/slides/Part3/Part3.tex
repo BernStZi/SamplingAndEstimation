@@ -1,0 +1,1291 @@
+\documentclass[11pt,german,hideothersubsections]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\usepackage{hyperref}
+\usepackage{amsmath,nicefrac,booktabs,mathabx}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{textpos}
+\usepackage{listings}
+\definecolor{Rblau}{rgb}{.3,.6,.9}
+
+\lstset{language=R,
+        basicstyle=\ttfamily\footnotesize,
+        keywordstyle=\color{blue}\bfseries,
+        identifierstyle=\color{Rblau},
+        commentstyle=\color{gray},
+        stringstyle=\color{green}\ttfamily,
+        showstringspaces=false,
+        frame=tb}
+
+
+
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow,dcolumn}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{booktabs}
+\colorlet{tablesubheadcolor}{gray!25}
+\colorlet{tableheadcolor}{gray!40}
+\colorlet{tablerowcolor}{gray!15.0}
+\usetheme[english]{Gesis}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]%{\hspace*{.2cm}\insertframenumber}
+\setbeamerfont{caption}{size=\footnotesize}
+\usefonttheme[onlylarge]{structuresmallcapsserif} % alte Schrift
+
+\newcommand{\R}[1]{{\tt \color{blue}  #1}}
+\newtheorem{thm}{Theorem}
+\newtheorem{rem}{Bemerkung}
+\newtheorem{lem}{Lemma}
+
+\definecolor{hellgrau}{rgb}   {0.109375,  0.40625,   0.51953125}
+\definecolor{dunkelgrau}{rgb} {0.009375,  0.30625,   0.41953125}
+\definecolor{dunkelgrau2}{rgb}{0.009375,  0.20625,   0.31953125}
+\definecolor{hellbraun}{rgb}  {0.9140625, 0.8984375, 0.8046875}
+\definecolor{hellbraun2}{rgb} {.95,       0.9,       0.8}
+\definecolor{alertred}{rgb}   {0.8515625, 0.3828125, 0.08984375}
+\definecolor{orange}{rgb}{1,0.5,0}
+
+
+\setbeamercolor{firstsecslide}{fg=white,bg=dunkelgrau}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\newcolumntype{d}[0]{D{,}{.}{6}}
+
+\newenvironment{itemizeol}{\begin{itemize}[<+->]}{\end{itemize}}
+\newenvironment{descriptionol}{\begin{description}[<+->]}{\end{description}}
+
+\newcolumntype{V}[1]{%
+  >{\RaggedRight\hspace{0pt}}p{#1}%
+}
+
+\newcommand{\emphred}[1]{\textcolor{alertred}{#1}}
+\newcommand{\emphcol}[1]{\textcolor{dunkelgrau}{\slshape #1}}
+
+\setcounter{tocdepth}{1}
+\setbeamercolor*{section in toc}{fg=hellgrau}
+\setbeamertemplate{bibliography item}[default]
+\makeatother
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(.91\textwidth,-1cm)
+\includegraphics[height=1cm,width=2cm]{../../../common/pics/GESIS_Logo_kompakt_en.jpg}
+\end{textblock*}}
+\title[Day 1]{Tutorial: Sampling, Weighting and Estimation\\ \Large{Part 3} }
+%\subtitle{Umgang am Beispiel von Telefonstichproben}
+
+\author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
+%\institute{\includegraphics[width=4.5cm]{GESIS_Logo_informell}}
+% \date[]{\color{dunkelgrau}\footnotesize%
+% \begin{minipage}{8cm}%
+% \begin{center}%
+% \scriptsize{
+% \textbf{GESIS Summer School}\\ \tiny{Cologne, Germany}%
+% }\\
+% \vspace{0.25cm}
+% \textbf{August 26th, 2015}%
+% 
+% \end{center}%
+% \end{minipage}}%
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Probability of Inclusion}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Probability of Inclusion}\end{center}}
+\footnotesize{
+\vspace{-.25cm}
+\begin{center}
+\textbf{First order inclusion probability under SRSWOR}
+\end{center}
+\begin{equation*}
+\pi_k=\frac{n}{N}
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{N} \hlkwb{<-} \hlkwd{nrow}\hlstd{(bm)}
+\hlstd{n} \hlkwb{<-} \hlnum{180}
+\hlstd{pik} \hlkwb{<-} \hlkwd{rep}\hlstd{(n}\hlopt{/}\hlstd{N,N)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\begin{center}
+\pause\textbf{First order inclusion probability under StrRS}
+\end{center}
+\begin{equation*}
+\pi_{hk}=\frac{n_h}{N_h} 
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{Nh} \hlkwb{<-} \hlkwd{table}\hlstd{(bm}\hlopt{$}\hlstd{Province)}
+\hlstd{nh} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{15}\hlstd{,}\hlnum{20}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{22}\hlstd{,}\hlnum{18}\hlstd{,}\hlnum{22}\hlstd{,}\hlnum{7}\hlstd{,}\hlnum{13}\hlstd{,}\hlnum{20}\hlstd{)}
+\hlstd{pihk} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(nh}\hlopt{/}\hlstd{Nh)}
+\hlkwd{names}\hlstd{(pihk)[}\hlnum{1}\hlstd{]} \hlkwb{<-} \hlstr{"Province"}
+\hlstd{pihk.long} \hlkwb{<-} \hlkwd{merge}\hlstd{(pihk,bm,}\hlkwc{by} \hlstd{=} \hlstr{"Province"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\pause\item Or with the \R{sampling} package
+\end{itemize}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{pihk.sa} \hlkwb{<-} \hlkwd{inclusionprobastrata}\hlstd{(bm}\hlopt{$}\hlstd{Province,nh)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Probability of Inclusion}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Probability of Inclusion}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{First order inclusion probability under $\pi$ps}
+\end{center}
+\begin{equation*}
+\pi_k=\frac{x_k}{\sum_{l=1}^{N}x_l}*n
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{phi} \hlkwb{<-} \hlstd{bm}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlkwd{sum}\hlstd{(bm}\hlopt{$}\hlstd{Tot04)}
+\hlstd{pik} \hlkwb{<-} \hlstd{phi}\hlopt{*}\hlstd{n}
+\hlkwd{head}\hlstd{(pik)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2443 7.9021 0.2066 0.2714 0.1776 0.6403
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}\footnotesize{
+\pause\item[$\Rightarrow$] Sampling frequencies $>1$
+\item[$\Rightarrow$] With replacement $\rightarrow$ average frequency of element $k$ in sample
+\item[$\Rightarrow$] Without replacement $\rightarrow$ each element can only be chosen once}
+\end{itemize}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Probability of Inclusion}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Probability of Inclusion}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{$\pi$ps and the \R{sampling} package}
+\end{center}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{pik} \hlkwb{<-} \hlkwd{inclusionprobabilities}\hlstd{(bm}\hlopt{$}\hlstd{Tot04,n)}
+\hlkwd{head}\hlstd{(pik)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.2885 1.0000 0.2439 0.3205 0.2097 0.7561
+\end{verbatim}
+\begin{alltt}
+\hlkwd{table}\hlstd{(pik} \hlopt{==} \hlnum{1}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## FALSE  TRUE 
+##   562    27
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\pause\item[$\Rightarrow$] The command \R{inclusionprobabilites} displays the first order inclusion probability $\rightarrow$ not the average sampling frequencies
+\item[$\Rightarrow$] It sets every frequency $>1$ to $1$ and redistributes the "rest", because:
+\pause\item[$\Rightarrow$] $0<\pi_k\leq 1$
+\end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{The Horvitz-Thompson-Estimator}
+\end{center}
+\begin{equation*}
+\hat{t}_{HT}=\sum_{k=1}^{n} d_k*y_k=\sum_{k=1}^{n} \frac{1}{\pi_k}y_k
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{s} \hlkwb{<-} \hlkwd{strata}\hlstd{(bm,}\hlstr{"Province"}\hlstd{,nh,} \hlstr{"srswor"}\hlstd{)}
+\hlstd{samp} \hlkwb{<-} \hlkwd{getdata}\hlstd{(bm,s)}
+\hlstd{dk} \hlkwb{<-} \hlnum{1}\hlopt{/}\hlstd{samp}\hlopt{$}\hlstd{Prob}
+\hlkwd{sum}\hlstd{(dk}\hlopt{*}\hlstd{samp}\hlopt{$}\hlstd{Men04)}
+\end{alltt}
+\begin{verbatim}
+## [1] 5681894
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\pause
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{sum}\hlstd{(bm}\hlopt{$}\hlstd{Men04)}
+\end{alltt}
+\begin{verbatim}
+## [1] 5097709
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+The \R{sampling} package also offers a function for the HT-estimator
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{HTstrata}\hlstd{(}\hlkwc{y} \hlstd{= samp}\hlopt{$}\hlstd{Men04,}\hlkwc{pik} \hlstd{= samp}\hlopt{$}\hlstd{Prob,}\hlkwc{strata} \hlstd{= samp}\hlopt{$}\hlstd{Province)}
+\end{alltt}
+\begin{verbatim}
+## [1] 5681894
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Scaling design weights to sample size}
+\end{center}
+
+\begin{itemize}
+\item Typically the sum of design weights adds up to the population size ($\sum_{k=1}^{n}d_k=N$)
+\item It is common to use scaled weights ($d_k^*$) that add up to the sample size and have a mean of $1$  ($\sum_{k=1}^{n}d_k^*=n$; $d_k^*=n*\frac{d_k}{\sum_{l=1}^n d_l}$)
+\item[$\Rightarrow$] Advantage: you see if an element has a higher or lower probability to be included in your sample 
+\end{itemize}
+\vspace{.25cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{dk.sc} \hlkwb{<-} \hlkwd{nrow}\hlstd{(samp)}\hlopt{*}\hlstd{dk}\hlopt{/}\hlkwd{sum}\hlstd{(dk)}
+\hlkwd{sum}\hlstd{(dk.sc}\hlopt{*}\hlstd{samp}\hlopt{$}\hlstd{Men04)}\hlopt{/}\hlkwd{nrow}\hlstd{(samp)}
+\end{alltt}
+\begin{verbatim}
+## [1] 9647
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Truncating weights}
+\end{center}
+\begin{itemize}
+\item Truncating the weights within specific borders to avoid high and/ or negative weights
+\item MSE argument: trade-off between biased results and lower variance
+\item Algorithm should rescale the weights to its previous sum
+\end{itemize}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\tiny{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{trunc.bounds}\hlkwb{<-}\hlkwa{function}\hlstd{(}\hlkwc{di}\hlstd{,}\hlkwc{bound}\hlstd{)\{}
+  \hlstd{n}\hlkwb{<-}\hlkwd{sum}\hlstd{(di)}
+  \hlstd{nopt}\hlkwb{<-}\hlstd{di}
+  \hlstd{i}\hlkwb{<-}\hlnum{0}
+  \hlstd{s}\hlkwb{<-}\hlkwd{which}\hlstd{(di}\hlopt{<=}\hlnum{0}\hlopt{|}\hlstd{di}\hlopt{<}\hlstd{bound[}\hlnum{1}\hlstd{]}\hlopt{|}\hlstd{di}\hlopt{>}\hlstd{bound[}\hlnum{2}\hlstd{])}
+  \hlkwa{while}\hlstd{(i}\hlopt{<}\hlstd{n)\{}
+      \hlkwa{if}\hlstd{(}\hlkwd{length}\hlstd{(s)}\hlopt{!=}\hlnum{0}\hlstd{)\{}
+      \hlstd{s1}\hlkwb{<-}\hlkwd{which}\hlstd{(nopt}\hlopt{<=}\hlnum{0}\hlstd{)}
+      \hlstd{s2}\hlkwb{<-}\hlkwd{which}\hlstd{(nopt}\hlopt{<}\hlstd{bound[}\hlnum{1}\hlstd{])}
+      \hlstd{s3}\hlkwb{<-}\hlkwd{which}\hlstd{(nopt}\hlopt{>}\hlstd{bound[}\hlnum{2}\hlstd{])}
+      \hlstd{nopt[s1]}\hlkwb{<-}\hlstd{bound[}\hlnum{1}\hlstd{]}
+      \hlstd{nopt[s2]}\hlkwb{<-}\hlstd{bound[}\hlnum{1}\hlstd{]}
+      \hlstd{nopt[s3]}\hlkwb{<-}\hlstd{bound[}\hlnum{2}\hlstd{]}
+      \hlstd{su}\hlkwb{<-}\hlkwd{length}\hlstd{(s1)}\hlopt{*}\hlstd{bound[}\hlnum{1}\hlstd{]}\hlopt{+}\hlkwd{length}\hlstd{(s2)}\hlopt{*}\hlstd{bound[}\hlnum{1}\hlstd{]}\hlopt{+}\hlkwd{length}\hlstd{(s3)}\hlopt{*}\hlstd{bound[}\hlnum{2}\hlstd{]}
+      \hlstd{ge}\hlkwb{<-}\hlstd{(n}\hlopt{-}\hlstd{su)}\hlopt{*}\hlstd{nopt[}\hlopt{-}\hlstd{s]}\hlopt{/}\hlkwd{sum}\hlstd{(nopt[}\hlopt{-}\hlstd{s])}
+      \hlstd{nopt[}\hlopt{-}\hlstd{s]}\hlkwb{<-}\hlstd{ge}
+      \hlstd{s}\hlkwb{<-}\hlkwd{which}\hlstd{(nopt}\hlopt{<=}\hlnum{0}\hlopt{|}\hlstd{nopt}\hlopt{<}\hlstd{bound[}\hlnum{1}\hlstd{]}\hlopt{|}\hlstd{nopt}\hlopt{>}\hlstd{bound[}\hlnum{2}\hlstd{])\}}
+      \hlkwa{if}\hlstd{(}\hlkwd{length}\hlstd{(s)}\hlopt{!=}\hlnum{0}\hlstd{)\{}
+      \hlstd{i}\hlkwb{<-} \hlstd{i}\hlopt{+}\hlnum{1}
+      \hlstd{fi}\hlkwb{<-}\hlstd{i\}}
+      \hlkwa{else} \hlstd{\{}
+        \hlstd{fi}\hlkwb{<-}\hlstd{i}\hlopt{+}\hlnum{1}
+        \hlstd{i}\hlkwb{<-}\hlstd{n}
+      \hlstd{\}}
+    \hlstd{\}}
+  \hlkwd{cat}\hlstd{(}\hlstr{" number of iterations "}\hlstd{,fi,}\hlstr{"\textbackslash{}n"}\hlstd{,}
+      \hlstr{"number of truncated weights "}\hlstd{,}\hlkwd{length}\hlstd{(}\hlkwd{which}\hlstd{(nopt}\hlopt{%in%}\hlstd{bound)),}\hlstr{"\textbackslash{}n"}\hlstd{,}
+  \hlstr{"minimal value"}\hlstd{,}\hlkwd{sum}\hlstd{(di}\hlopt{^}\hlnum{2}\hlopt{/}\hlstd{nopt))}
+  \hlkwd{return}\hlstd{(nopt)}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Truncating weights (example) }
+\end{center}
+\footnotesize{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{wei} \hlkwb{<-} \hlkwd{runif}\hlstd{(}\hlnum{5000}\hlstd{,}\hlnum{0.5}\hlstd{,}\hlnum{7}\hlstd{)}
+\hlkwd{table}\hlstd{(wei}\hlopt{>=}\hlnum{6}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## FALSE  TRUE 
+##  4223   777
+\end{verbatim}
+\begin{alltt}
+\hlstd{bounds} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{6}\hlstd{)}
+\hlstd{wei.trunc} \hlkwb{<-} \hlkwd{trunc.bounds}\hlstd{(wei,bounds)}
+\end{alltt}
+\begin{verbatim}
+##  number of iterations  18 
+##  number of truncated weights  925 
+##  minimal value 18908
+\end{verbatim}
+\begin{alltt}
+\hlkwd{table}\hlstd{(wei.trunc}\hlopt{==}\hlnum{6}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## FALSE  TRUE 
+##  4075   925
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Variance of the HT-Estimator}
+\end{center}
+\begin{equation*}
+V_{SYG}(\hat{t}_{HT})=\sum_{\substack{k=1\\ k<l}}^N\sum_{l=1}^N (\pi_k*\pi_l-\pi_{kl})*(\frac{y_k}{\pi_k}-\frac{y_l}{\pi_l})^2
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{bm} \hlkwb{<-} \hlstd{bm[}\hlopt{-}\hlnum{2}\hlstd{,]}
+\hlstd{pik} \hlkwb{<-} \hlkwd{inclusionprobabilities}\hlstd{(bm}\hlopt{$}\hlstd{Tot03,}\hlnum{30}\hlstd{)}
+\hlstd{IPkl1} \hlkwb{<-} \hlkwd{UPsampfordpi2}\hlstd{(pik)}
+\hlstd{IPkl2} \hlkwb{<-} \hlkwd{UPsystematicpi2}\hlstd{(pik)}
+\hlstd{SIGMA.samp} \hlkwb{<-} \hlstd{IPkl1} \hlopt{-} \hlstd{pik}\hlopt{%*%}\hlkwd{t}\hlstd{(pik)}
+\hlstd{SIGMA.syst} \hlkwb{<-} \hlstd{IPkl2} \hlopt{-} \hlstd{pik}\hlopt{%*%}\hlkwd{t}\hlstd{(pik)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Variance of the HT-Estimator}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{var.HT.tot.samp} \hlkwb{<-} \hlkwd{t}\hlstd{(bm}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik}
+                    \hlstd{)}\hlopt{%*%}\hlstd{SIGMA.samp}\hlopt{%*%}\hlstd{(bm}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik)}
+\hlstd{var.HT.tot.sys}\hlkwb{<-} \hlkwd{t}\hlstd{(bm}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik}
+                    \hlstd{)}\hlopt{%*%}\hlstd{SIGMA.syst}\hlopt{%*%}\hlstd{(bm}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik)}
+\hlstd{var.HT.tot.samp}
+\end{alltt}
+\begin{verbatim}
+##          [,1]
+## [1,] 92926611
+\end{verbatim}
+\begin{alltt}
+\hlstd{var.HT.tot.sys}
+\end{alltt}
+\begin{verbatim}
+##           [,1]
+## [1,] 113132108
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\pause\item Same design weights
+\item Different sampling algorithm
+\item[$\Rightarrow$] Different Variance!
+\end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Weighting}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Weighting}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{The HT-Estimator: Variance Estimation}
+\end{center}
+\begin{equation*}
+\hat{V}_{SYG}(\hat{t}_{HT})=\sum_{\substack{k=1\\ k<l}}^n\sum_{l=1}^n \frac{\pi_k*\pi_l-\pi_{kl}}{\pi_{kl}}*(\frac{y_k}{\pi_k}-\frac{y_l}{\pi_l})^2
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{s} \hlkwb{<-} \hlkwd{UPsystematic}\hlstd{(pik)}
+\hlstd{samp} \hlkwb{<-} \hlkwd{getdata}\hlstd{(bm,s)}
+\hlstd{SIGMA.s} \hlkwb{<-} \hlstd{SIGMA.syst[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{]}
+\hlstd{SIGMA.s.tilde} \hlkwb{<-} \hlstd{SIGMA.s}\hlopt{/}\hlstd{IPkl2[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{]}
+\hlstd{var.hat.HT.tot.syst} \hlkwb{<-} \hlkwd{t}\hlstd{(samp}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik[s}\hlopt{==}\hlnum{1}\hlstd{]}
+                    \hlstd{)}\hlopt{%*%}\hlstd{SIGMA.s.tilde}\hlopt{%*%}\hlstd{(samp}\hlopt{$}\hlstd{Tot04}\hlopt{/}\hlstd{pik[s}\hlopt{==}\hlnum{1}\hlstd{])}
+\hlstd{var.hat.HT.tot.syst}
+\end{alltt}
+\begin{verbatim}
+##           [,1]
+## [1,] 7.403e+13
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Effects}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Effects}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Design-based approach}
+\end{center}
+\begin{equation*}
+deff=\frac{Var_c(\hat{t})}{Var_{srs}(\hat{t})}
+\end{equation*}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{var.tot.srs} \hlkwb{<-} \hlkwd{var}\hlstd{(bm}\hlopt{$}\hlstd{Tot04)}\hlopt{/}\hlnum{30}\hlopt{*}\hlstd{(}\hlnum{1}\hlopt{-}\hlnum{30}\hlopt{/}\hlkwd{nrow}\hlstd{(bm))}\hlopt{*}\hlkwd{nrow}\hlstd{(bm)}\hlopt{^}\hlnum{2}
+\hlstd{deff} \hlkwb{<-} \hlstd{var.HT.tot.samp}\hlopt{/}\hlstd{var.tot.srs}
+\hlstd{deff}
+\end{alltt}
+\begin{verbatim}
+##           [,1]
+## [1,] 1.881e-05
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\item Although the sample has been drawn with unequal probabilities, the design effect is below 1
+\item[$\Rightarrow$] Highly correlated variable has been used to calculate the inclusion probabilities 
+\end{itemize}
+
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Design Effects}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Design Effects}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Model-based approach}
+\end{center}
+\begin{equation*}
+\hat{deff}=\hat{deff_p} * \hat{deff_c} = n\frac{\sum_{h=1}^ld_h^2 n_h}{(\sum_{h=1}^ld_h n_h)^2}*(1+(\overline{b}-1)\rho)
+\end{equation*}
+
+\begin{itemize}
+\item[] \alert{$n_h$} is the number of units per cluster; \alert{$\overline{b}$} is the average cluster size; \alert{$\rho$} reflects the Intraclass Correlation Coefficient (ICC)
+\pause\item[$\Rightarrow$] No cluster/ stratified random sample
+\item[$\Rightarrow$] $deff_p$ captures the design effect due to unequal inclusion probabilities
+\end{itemize}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{deff_p} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlnum{30}\hlopt{*}\hlstd{(}\hlnum{1}\hlopt{/}\hlstd{pik[s}\hlopt{==}\hlnum{1}\hlstd{])}\hlopt{^}\hlnum{2}\hlstd{)}\hlopt{/}\hlkwd{sum}\hlstd{(}\hlnum{1}\hlopt{/}\hlstd{pik[s}\hlopt{==}\hlnum{1}\hlstd{])}\hlopt{^}\hlnum{2}
+\hlstd{deff_p}
+\end{alltt}
+\begin{verbatim}
+## [1] 2.258
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\pause\begin{center}
+\textbf{Effective sample size}
+\end{center}
+\begin{equation*}
+n_{eff}=\frac{n}{deff}
+\end{equation*}
+ 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlnum{30}\hlopt{/}\hlstd{deff}
+\end{alltt}
+\begin{verbatim}
+        [,1]
+[1,] 1594905
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Calibration}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Calibration}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Poststratification}
+\end{center}
+
+Using the my.pop data set of day 1
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{s} \hlkwb{<-} \hlkwd{srswor}\hlstd{(}\hlnum{100}\hlstd{,}\hlnum{10000}\hlstd{)}
+\hlstd{samp} \hlkwb{<-} \hlstd{my.pop[s}\hlopt{==}\hlnum{1}\hlstd{,]}
+\hlstd{genXedu.s} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwd{table}\hlstd{(samp}\hlopt{$}\hlstd{gender,samp}\hlopt{$}\hlstd{education))}
+\hlstd{genXedu.s[,}\hlnum{3}\hlstd{]} \hlkwb{<-} \hlstd{genXedu.s[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlkwd{sum}\hlstd{(genXedu.s[,}\hlnum{3}\hlstd{])}
+\hlstd{genXedu.pop} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwd{table}\hlstd{(my.pop}\hlopt{$}\hlstd{gender,my.pop}\hlopt{$}\hlstd{education))}
+\hlstd{genXedu.pop[,}\hlnum{3}\hlstd{]} \hlkwb{<-} \hlstd{genXedu.pop[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlkwd{sum}\hlstd{(genXedu.pop[,}\hlnum{3}\hlstd{])}
+\hlstd{adj.w} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(genXedu.pop[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlstd{genXedu.s[,}\hlnum{3}\hlstd{])}
+\hlstd{adj.w[,}\hlnum{1}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.7626 1.2745 0.8618 0.7132 2.0489 0.8720 1.8350 1.2467
+\end{verbatim}
+\begin{alltt}
+\hlstd{samp}\hlopt{$}\hlstd{to.merge} \hlkwb{<-} \hlkwd{paste}\hlstd{(samp}\hlopt{$}\hlstd{gender,samp}\hlopt{$}\hlstd{education)}
+\hlstd{adj.w}\hlopt{$}\hlstd{to.merge} \hlkwb{<-} \hlkwd{paste}\hlstd{(genXedu.s}\hlopt{$}\hlstd{Var1,genXedu.s}\hlopt{$}\hlstd{Var2)}
+\hlstd{adjusted} \hlkwb{<-} \hlkwd{merge}\hlstd{(adj.w,samp,}\hlkwc{by}\hlstd{=}\hlstr{"to.merge"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Calibration}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Calibration}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Raking/ Iterative Proportional Fitting}
+\end{center}
+Generating the necessary data frames
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{age} \hlkwb{<-} \hlkwd{rep}\hlstd{(}\hlkwd{as.character}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{6}\hlstd{),}\hlkwc{times}\hlstd{=}\hlnum{10}\hlstd{)}
+\hlstd{edu} \hlkwb{<-} \hlkwd{rep}\hlstd{(}\hlkwd{as.character}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{5}\hlstd{),}\hlkwc{each}\hlstd{=}\hlnum{6}\hlstd{,}\hlkwc{times}\hlstd{=}\hlnum{2}\hlstd{)}
+\hlstd{gender} \hlkwb{<-} \hlkwd{rep}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"m"}\hlstd{,}\hlstr{"w"}\hlstd{),}\hlkwc{each}\hlstd{=}\hlnum{30}\hlstd{)}
+\hlstd{freq} \hlkwb{<-} \hlkwd{sample}\hlstd{(}\hlnum{100}\hlstd{,}\hlnum{60}\hlstd{,}\hlkwc{replace}\hlstd{=T)}
+\hlcom{# Synthetic sample distribution}
+\hlstd{samp} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(age,edu,gender,freq)}
+\hlstd{samp[,}\hlnum{4}\hlstd{]} \hlkwb{<-} \hlstd{samp[,}\hlnum{4}\hlstd{]}\hlopt{/}\hlkwd{sum}\hlstd{(samp[,}\hlnum{4}\hlstd{])}
+\hlstd{freq2} \hlkwb{<-} \hlkwd{sample}\hlstd{(}\hlnum{100}\hlstd{,}\hlnum{60}\hlstd{,}\hlkwc{replace}\hlstd{=T)}
+\hlcom{# in population}
+\hlstd{master} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(age,edu,gender,freq2)}
+\hlstd{master[,}\hlnum{4}\hlstd{]} \hlkwb{<-} \hlstd{master[,}\hlnum{4}\hlstd{]}\hlopt{/}\hlkwd{sum}\hlstd{(master[,}\hlnum{4}\hlstd{])}
+\hlstd{masageXedu} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(master[,}\hlnum{4}\hlstd{],}
+                   \hlkwd{list}\hlstd{(}\hlkwc{age}\hlstd{=master[,}\hlnum{1}\hlstd{],}\hlkwc{edu}\hlstd{=master[,}\hlnum{2}\hlstd{]),sum)}
+\hlstd{masageXgen} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(master[,}\hlnum{4}\hlstd{],}
+                   \hlkwd{list}\hlstd{(}\hlkwc{age}\hlstd{=master[,}\hlnum{1}\hlstd{],}\hlkwc{gender}\hlstd{=master[,}\hlnum{3}\hlstd{]),sum)}
+\hlstd{maseduXgen} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(master[,}\hlnum{4}\hlstd{],}
+                   \hlkwd{list}\hlstd{(}\hlkwc{edu}\hlstd{=master[,}\hlnum{2}\hlstd{],}\hlkwc{gender}\hlstd{=master[,}\hlnum{3}\hlstd{]),sum)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Calibration}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Calibration}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Raking/ Iterative Proportional Fitting}
+\end{center}
+\tiny{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{w_0} \hlkwb{<-} \hlkwd{rep}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{times}\hlstd{=}\hlkwd{nrow}\hlstd{(samp))}
+\hlstd{times} \hlkwb{<-} \hlnum{0}
+\hlkwa{while}\hlstd{(times} \hlopt{<=} \hlnum{1000}\hlstd{)\{}
+  \hlcom{#AgexEducation}
+  \hlstd{saxe} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(samp[,}\hlnum{4}\hlstd{]}\hlopt{*}\hlstd{w_0,}\hlkwd{list}\hlstd{(}\hlkwc{age}\hlstd{=samp[,}\hlnum{1}\hlstd{],}\hlkwc{edu}\hlstd{=samp[,}\hlnum{2}\hlstd{]),sum)}
+  \hlstd{w_1} \hlkwb{<-} \hlstd{masageXedu[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlstd{saxe[,}\hlnum{3}\hlstd{]}
+  \hlstd{w_1} \hlkwb{<-} \hlkwd{rep}\hlstd{(w_1,}\hlkwc{times}\hlstd{=(}\hlkwd{nrow}\hlstd{(samp)}\hlopt{/}\hlkwd{nrow}\hlstd{(saxe)))}
+  \hlcom{#AgexGender}
+  \hlstd{saxg} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(samp[,}\hlnum{4}\hlstd{]}\hlopt{*}\hlstd{w_0}\hlopt{*}\hlstd{w_1,}\hlkwd{list}\hlstd{(}\hlkwc{age}\hlstd{=samp[,}\hlnum{1}\hlstd{],}\hlkwc{gen}\hlstd{=samp[,}\hlnum{3}\hlstd{]),sum)}
+  \hlstd{w_2} \hlkwb{<-} \hlstd{masageXgen[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlstd{saxg[,}\hlnum{3}\hlstd{]}
+  \hlstd{w_2} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(w_2[}\hlnum{1}\hlopt{:}\hlstd{(}\hlkwd{length}\hlstd{(w_2)}\hlopt{/}\hlnum{2}\hlstd{)],}\hlkwc{times}\hlstd{=(}\hlkwd{nrow}\hlstd{(samp)}\hlopt{/}\hlkwd{nrow}\hlstd{(saxg))),}
+         \hlkwd{rep}\hlstd{(w_2[(}\hlkwd{length}\hlstd{(w_2)}\hlopt{/}\hlnum{2}\hlopt{+}\hlnum{1}\hlstd{)}\hlopt{:}\hlkwd{length}\hlstd{(w_2)],}\hlkwc{times}\hlstd{=(}\hlkwd{nrow}\hlstd{(samp)}\hlopt{/}\hlkwd{nrow}\hlstd{(saxg))))}
+  \hlcom{#EducationxGender}
+  \hlstd{sexg} \hlkwb{<-} \hlkwd{aggregate}\hlstd{(samp[,}\hlnum{4}\hlstd{]}\hlopt{*}\hlstd{w_0}\hlopt{*}\hlstd{w_1}\hlopt{*}\hlstd{w_2,}\hlkwd{list}\hlstd{(}\hlkwc{edu}\hlstd{=samp[,}\hlnum{2}\hlstd{],}\hlkwc{gen}\hlstd{=samp[,}\hlnum{3}\hlstd{]),sum)}
+  \hlstd{w_3} \hlkwb{<-} \hlstd{maseduXgen[,}\hlnum{3}\hlstd{]}\hlopt{/}\hlstd{sexg[,}\hlnum{3}\hlstd{]}
+  \hlstd{w_3} \hlkwb{<-} \hlkwd{rep}\hlstd{(w_3,}\hlkwc{each}\hlstd{=(}\hlkwd{nrow}\hlstd{(samp)}\hlopt{/}\hlkwd{nrow}\hlstd{(sexg)))}
+  \hlcom{#w4}
+  \hlstd{w_4} \hlkwb{<-} \hlstd{w_0}\hlopt{*}\hlstd{w_1}\hlopt{*}\hlstd{w_2}\hlopt{*}\hlstd{w_3}
+  \hlkwa{if}\hlstd{(}\hlkwd{max}\hlstd{(}\hlkwd{abs}\hlstd{(w_0}\hlopt{-}\hlstd{w_4))}\hlopt{>}\hlnum{0.05}\hlstd{)}
+          \hlstd{\{w_0}\hlkwb{<-}\hlstd{w_4}
+          \hlstd{times}\hlkwb{<-}\hlstd{times}\hlopt{+}\hlnum{1}\hlstd{\}}
+  \hlkwa{else} \hlstd{\{}\hlkwa{break}\hlstd{\}}
+  \hlkwd{cat}\hlstd{(}\hlstr{"iteration"}\hlstd{,times,}\hlstr{"\textbackslash{}n"}\hlstd{)}
+\hlstd{\}}
+\end{alltt}
+\begin{verbatim}
+## iteration 1 
+## iteration 2 
+## iteration 3 
+## iteration 4 
+## iteration 5
+\end{verbatim}
+\begin{alltt}
+\hlstd{samp}\hlopt{$}\hlstd{weight}\hlkwb{<-}\hlstd{w_0}\hlopt{*}\hlstd{samp[,}\hlnum{4}\hlstd{]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Calibration}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Calibration}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Raking/ Iterative Proportional Fitting}
+\end{center}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{sampeduXgen}\hlkwb{<-}\hlkwd{aggregate}\hlstd{(samp[,}\hlnum{5}\hlstd{],}
+                       \hlkwd{list}\hlstd{(}\hlkwc{edu}\hlstd{=samp[,}\hlnum{2}\hlstd{],}\hlkwc{gen}\hlstd{=samp[,}\hlnum{3}\hlstd{]),sum)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\begin{columns}
+\begin{column}{.5\textwidth}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{sampeduXgen}
+\end{alltt}
+\begin{verbatim}
+##    edu gen       x
+## 1    1   m 0.09474
+## 2    2   m 0.09211
+## 3    3   m 0.09836
+## 4    4   m 0.09309
+## 5    5   m 0.10395
+## 6    1   w 0.10000
+## 7    2   w 0.10724
+## 8    3   w 0.12204
+## 9    4   w 0.10395
+## 10   5   w 0.08454
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{column}
+\begin{column}{.5\textwidth}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{maseduXgen}
+\end{alltt}
+\begin{verbatim}
+##    edu gender       x
+## 1    1      m 0.09474
+## 2    2      m 0.09211
+## 3    3      m 0.09836
+## 4    4      m 0.09309
+## 5    5      m 0.10395
+## 6    1      w 0.10000
+## 7    2      w 0.10724
+## 8    3      w 0.12204
+## 9    4      w 0.10395
+## 10   5      w 0.08454
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{column}
+\end{columns}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{The survey package}%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{itemize}
+\item The survey package provides a large range of applications for complex survey samples
+\item Typically, the first step is to define a survey object with the \R{svydesign()} command
+\end{itemize}
+\begin{center}
+\textbf{Simple survey object (single stage)}
+\end{center}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(Matrix)}
+\hlkwd{library}\hlstd{(survey)}
+\hlstd{bm}\hlopt{$}\hlstd{pik1} \hlkwb{<-} \hlkwd{inclusionprobabilities}\hlstd{(bm}\hlopt{$}\hlstd{Tot03,}\hlnum{100}\hlstd{)}
+\hlstd{s} \hlkwb{<-} \hlkwd{UPmaxentropy}\hlstd{(bm}\hlopt{$}\hlstd{pik1)}
+\hlstd{samp} \hlkwb{<-} \hlkwd{getdata}\hlstd{(bm,s)}
+\hlstd{IPkl} \hlkwb{<-} \hlkwd{UPmaxentropypi2}\hlstd{(bm}\hlopt{$}\hlstd{pik1)}
+\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{= samp}\hlopt{$}\hlstd{pik1,}
+               \hlkwc{data} \hlstd{= samp,}\hlkwc{pps} \hlstd{=} \hlkwd{ppsmat}\hlstd{(IPkl[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{]),}
+               \hlkwc{variance} \hlstd{=} \hlstr{"YG"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{= samp}\hlopt{$}\hlstd{pik1,}
+              \hlkwc{data} \hlstd{= samp,}\hlkwc{pps} \hlstd{=} \hlkwd{ppsmat}\hlstd{(IPkl[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{]),}
+              \hlkwc{variance} \hlstd{=} \hlstr{"YG"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\begin{itemize}
+\item \R{id} specifies the identifier of PSU and SSU;\R{id$=$ \textasciitilde0} or \R{id$=$\textasciitilde1} stipulates a single stage sampling
+\item For multi-stage samples the \R{id} argument should always specify a formula with the cluster-identifier at each stage
+\item \R{fpc} should be used for the finite population correction
+\item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{= samp}\hlopt{$}\hlstd{pik,}
+                \hlkwc{data} \hlstd{= samp,}\hlkwc{pps} \hlstd{=} \hlkwd{ppsmat}\hlstd{(IPkl[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{]),}
+                \hlkwc{variance} \hlstd{=} \hlstr{"YG"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\begin{itemize}
+\item \R{data} reflects the data set for which the design object should be defined
+\item \R{pps} should be used to define the design information that should be used; usually the second order probability of inclusion
+\item[$\Rightarrow$] \R{ppsmat()} is a wrapper for the joint inclusion probabilities of the HT-Estimator
+\item With \R{variance} you can specify whether you use the Yates-Grundy- or the HT-Estimator
+\item[$\Rightarrow$] For fixed sample sizes, "YG" should be used
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Important commands}
+\end{center}
+\begin{tabular}{ll}
+\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
+\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
+\R{svyquantile} & Computes quantiles for data from complex surveys\\
+\R{svyvar} & Computes variances  for data from complex surveys\\
+\R{weights} & Returns the (design) weights of a survey object\\
+\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
+... & ...\\
+\end{tabular}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{Tot04,surv.obj)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svytotal"{} nicht finden}}\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Example: changing the "YG" argument with fixed sample sizes}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv.obj2} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{= samp}\hlopt{$}\hlstd{pik,}
+             \hlkwc{data} \hlstd{= samp,}\hlkwc{pps} \hlstd{=} \hlkwd{ppsmat}\hlstd{(IPkl[s}\hlopt{==}\hlnum{1}\hlstd{,s}\hlopt{==}\hlnum{1}\hlstd{])}
+             \hlstd{,}\hlkwc{variance} \hlstd{=} \hlstr{"HT"}\hlstd{)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svydesign"{} nicht finden}}\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{Tot04,surv.obj2)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svytotal"{} nicht finden}}\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\pause\item[$\Rightarrow$] The variance estimator under HT varies more than the ont of the YG estimator
+\pause\item[$\Rightarrow$] In this case the estimator is negative
+\end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Calibrating the sample}
+\end{center}
+\footnotesize{
+The GREG-Estimator within the survey package}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{averageincome,surv.obj)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svymean"{} nicht finden}}\begin{alltt}
+\hlkwd{mean}\hlstd{(bm}\hlopt{$}\hlstd{averageincome)}
+\end{alltt}
+\begin{verbatim}
+[1] 25095
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}\footnotesize{
+\item Using the variable Men03 and Arrondiss as auxiliary information 
+\item Calculating the population Total}
+\end{itemize}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{lm1} \hlkwb{<-} \hlkwd{lm}\hlstd{(averageincome} \hlopt{~}\hlstd{Men03}\hlopt{+}\hlstd{Arrondiss,} \hlkwc{data}\hlstd{=bm)}
+\hlstd{pop.tot} \hlkwb{<-} \hlkwd{colSums}\hlstd{(}\hlkwd{model.matrix}\hlstd{(lm1))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Calibrating the sample}
+\end{center}
+
+\begin{itemize}\footnotesize{
+\item Calculation the calibration weights with the \R{calibrate()} command}
+\end{itemize}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv.obj3} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{0}\hlstd{,}\hlkwc{fpc} \hlstd{= samp}\hlopt{$}\hlstd{pik1,}
+                       \hlkwc{data} \hlstd{= samp,}\hlkwc{pps} \hlstd{=} \hlstr{"brewer"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\item The \R{calibrate} function cannot be applied to the previous object of class "ppsmat"
+\item[$\Rightarrow$] Therefore we use the brewer approximation for joint inclusion probabilities
+\pause\item[$\Rightarrow$] Seems odd, since only first order inclusion probabilities are used for calibration
+\end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\footnotesize{
+\begin{center}
+\textbf{Calibrating the sample}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{g_i} \hlkwb{<-} \hlkwd{calibrate}\hlstd{(surv.obj3,}\hlkwc{formula} \hlstd{=}\hlopt{~}\hlstd{Men03}\hlopt{+}\hlstd{Arrondiss}
+                 \hlstd{,}\hlkwc{population}\hlstd{=pop.tot,}\hlkwc{calfun}\hlstd{=}\hlstr{"linear"}\hlstd{)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}calibrate"{} nicht finden}}\end{kframe}
+\end{knitrout}
+\begin{itemize}
+\item The names of the variables that are used for the calibration have to be identical for your survey object and your population
+\item \R{formula} specifies the calibration model
+\item With \R{calfun} you can choose between a linear model (GREG) or a raking approach
+\item For only one calibration variable, \R{calibrate} produces the same weights as a poststratification
+\end{itemize}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\vspace{-.25cm}
+\begin{center}
+\textbf{Calibration results}
+\end{center}
+\footnotesize{
+\vspace{.25cm}
+\begin{columns}
+\begin{column}{.5\textwidth}
+\begin{block}{Sample}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{averageincome,g_i)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svymean"{} nicht finden}}\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{Men03,g_i)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svytotal"{} nicht finden}}\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{Arrondiss,g_i)}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in eval(expr, envir, enclos): konnte Funktion "{}svytotal"{} nicht finden}}\end{kframe}
+\end{knitrout}
+\end{block}
+\end{column}
+\begin{column}{.5\textwidth}
+\vspace{-1cm}
+\begin{block}{Population}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{mean}\hlstd{(bm}\hlopt{$}\hlstd{averageincome)}
+\end{alltt}
+\begin{verbatim}
+[1] 25095
+\end{verbatim}
+\begin{alltt}
+\hlkwd{sum}\hlstd{(bm}\hlopt{$}\hlstd{Men03)}
+\end{alltt}
+\begin{verbatim}
+[1] 4853501
+\end{verbatim}
+\begin{alltt}
+\hlkwd{sum}\hlstd{(bm}\hlopt{$}\hlstd{Arrondiss)}
+\end{alltt}
+\begin{verbatim}
+[1] 27744
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{block}
+\end{column}
+\end{columns}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\vspace{-.25cm}
+\begin{center}
+\textbf{Multi-stage samples}
+\end{center}
+\footnotesize{
+Loading the \R{api} data set and generating a \emph{multi-stage} data frame
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{data}\hlstd{(api)}
+\hlstd{score} \hlkwb{<-} \hlkwd{by}\hlstd{(apiclus1,apiclus1}\hlopt{$}\hlstd{cds,}
+        \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}\hlkwd{rnorm}\hlstd{(x}\hlopt{$}\hlstd{api.stu,}
+        \hlkwc{mean} \hlstd{= x}\hlopt{$}\hlstd{api00,} \hlkwc{sd} \hlstd{=} \hlkwd{sqrt}\hlstd{(x}\hlopt{$}\hlstd{api00)))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{itemize}
+\item the \R{by} command is similar to \R{tapply} and creates a list of normal distributed test scores for each school 
+\end{itemize}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{l} \hlkwb{<-} \hlnum{50}
+\hlstd{nh} \hlkwb{<-} \hlnum{60}
+\hlstd{apiclus1}\hlopt{$}\hlstd{fpc} \hlkwb{<-} \hlkwd{inclusionprobabilities}\hlstd{(apiclus1}\hlopt{$}\hlstd{enroll,l)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{itemize}
+\item We draw a sample of $l=50$ schools (PSUs) proportional to the number of enrolled pupils
+\end{itemize}
+
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Sampling the cluster}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{cs} \hlkwb{<-} \hlkwd{UPmaxentropy}\hlstd{(apiclus1}\hlopt{$}\hlstd{fpc)}
+\hlstd{cs.dat} \hlkwb{<-} \hlstd{apiclus1[cs}\hlopt{==}\hlnum{1}\hlstd{,]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\vspace{.5cm}
+\begin{center}
+\textbf{Sampling within a school}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{score.cs.dat} \hlkwb{<-} \hlstd{score[}\hlkwd{as.character}\hlstd{(cs.dat}\hlopt{$}\hlstd{cds)]}
+\hlstd{score.samp} \hlkwb{<-} \hlkwd{lapply}\hlstd{(score.cs.dat,}
+                     \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)x[}\hlkwd{sample}\hlstd{(}\hlkwd{length}\hlstd{(x),nh)])}
+\hlkwd{names}\hlstd{(score.samp)} \hlkwb{<-} \hlkwd{names}\hlstd{(score.cs.dat)}
+\hlstd{data.s} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{score} \hlstd{=} \hlkwd{unlist}\hlstd{(score.samp),}
+          \hlkwc{cds}\hlstd{=}\hlkwd{rep}\hlstd{(}\hlkwd{names}\hlstd{(score.samp),}
+                  \hlkwc{times}\hlstd{=}\hlkwd{sapply}\hlstd{(score.samp,length)))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{The survey package}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
+\vspace{-.25cm}
+\footnotesize{
+\begin{center}
+\textbf{Merging the data sets/ Second stage inclusion probabilities}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{DATA.s} \hlkwb{<-} \hlkwd{merge}\hlstd{(cs.dat,data.s,}\hlkwc{by}\hlstd{=}\hlstr{"cds"}\hlstd{)}
+\hlstd{DATA.s}\hlopt{$}\hlstd{id} \hlkwb{<-} \hlnum{1}\hlopt{:}\hlkwd{nrow}\hlstd{(DATA.s)}
+\hlstd{DATA.s}\hlopt{$}\hlstd{fpc2} \hlkwb{<-} \hlstd{nh}\hlopt{/}\hlstd{DATA.s}\hlopt{$}\hlstd{enroll}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{itemize}
+\item[$\Rightarrow$] Full sample of 50 PSUs with 60 SSUs each
+\item[$\Rightarrow$] \emph{Self-weighting} approach
+\end{itemize}
+
+\pause\begin{center}
+\textbf{Specifying the survey object}
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{mul.surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{cds}\hlopt{+}\hlstd{id,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc}\hlopt{+}\hlstd{fpc2,}
+                      \hlkwc{data}\hlstd{=DATA.s,} \hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
+\hlkwd{svymean}\hlstd{(}\hlopt{~}\hlstd{api00,mul.surv)}
+\end{alltt}
+\begin{verbatim}
+      mean   SE
+api00  625 12.4
+\end{verbatim}
+\begin{alltt}
+\hlkwd{table}\hlstd{(}\hlkwd{weights}\hlstd{(mul.surv))}
+\end{alltt}
+\begin{verbatim}
+
+33.3914893617021             35.1 35.7833333333333            36.35 
+            2820               60               60               60 
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Exercise 4}
+%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Exercise 4}\end{center}}
+\footnotesize{
+\begin{exampleblock}{Design effects/ One-stage cluster sample}
+\begin{enumerate}\footnotesize{
+\item Draw a sample of $l=20$ FULL arondissments proportional to the population of 2003
+\begin{itemize}
+\item[$\Rightarrow$] Use the maximum entropy algorithm
+\end{itemize}
+\item Calculate the design effect by the model based approach
+\begin{block}{Model based approach}
+\begin{equation*}
+\hat{deff}=\hat{deff_p} * \hat{deff_c} = n\frac{\sum_{h=1}^ld_h^2 n_h}{(\sum_{h=1}^ld_h n_h)^2}*(1+(\overline{b}-1)\rho)
+\end{equation*}
+\begin{equation*}
+\hat{\rho}^{AOV}=\frac{MSB-MSW}{MSB+(K-1)MSW}
+\end{equation*}
+\begin{equation*}
+MSB=\frac{SSB}{l-1}\text{;~~~~~~~}MSW=\frac{SSW}{n-l}\text{;~~~~~~~}K=\frac{1}{l-1}(n-\sum_{h=1}^l\frac{n_h^2}{n})
+\end{equation*}
+\end{block}
+}
+\end{enumerate}
+\end{exampleblock}
+}
+\end{frame}
+%' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%' \begin{frame}[fragile]{Exercise 4}
+%' %\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Exercise 4}\end{center}}
+%' \footnotesize{
+%' \begin{exampleblock}{Design effects/ One-stage cluster sample}
+%' \begin{enumerate}\footnotesize{
+%' \begin{block}{R-code MSW/ MSB}
+%' <<echo=T,eval=F>>=
+%' ### MSW and MSB 
+%' SS <- anova(lm(DATA.c$Tot04~DATA.c$Arrondiss))
+%' MSB <- SS$`Mean Sq`[1]
+%' MSW <- SS$`Mean Sq`[2]
+%' @
+%' \end{block}
+%' \item[3] Calculate deff under the design based approach
+%' \item[4] Calculate the effective sample size}
+%' \end{enumerate}
+%' \end{exampleblock}
+%' }
+%' \end{frame}
+%' 
+%' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%' \begin{frame}[fragile]{Exercise 5}
+%' %\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{Exercise 5}\end{center}}
+%' \footnotesize{
+%' \begin{exampleblock}{The survey package/ Multi-stage sampling}
+%' \begin{enumerate}
+%' \item Create the normal distributed income for each individual in 2004 within each commune of the belgianmunicipalities data set (use the square root of the average income as the standard deviation)
+%' \item Draw a sample of $l=50$ communes (use the INS as identifier) proportional to the population of 2003
+%' \item Draw a sample of $n_h=80$ individuals within each commune
+%' \item Estimate the mean income of your sample (design weighted)
+%' \item Poststratify your data set to the number of men in 2003
+%' \end{enumerate}
+%' \end{exampleblock}
+%' }
+%' \end{frame}
+%' 
+%' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%' 
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
