@@ -95,6 +95,7 @@ frame=tb}
 
  \begin{document}
 
+
 <<include=FALSE>>=
 library(knitr)
 opts_chunk$set(
@@ -137,8 +138,7 @@ library(knitr)
 
 \setcounter{enumi}{4}
 \item Determine the sampling strategy (Inspect the variables \alert{SAMPPOIN},\alert{STRATFY} and \alert{PROB})
-\item Add the variable \R{N} to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
-\item[] \alert{Advice:} \R{dweight}*\R{pweight}*$10000*n$
+\item Add the variable \R{N}$=\R{dweight}*\R{pweight}*10000*n$ to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
 \item Convert your data frame to a survey object (\R{survey}-Package)
 \item Estimate the total and mean of the variable \R{tvtot}
 

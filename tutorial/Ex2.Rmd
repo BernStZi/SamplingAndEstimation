@@ -1,0 +1,136 @@
+---
+title: "Exercise 2"
+author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
+date: "1. Februar 2016"
+output: html_document
+---
+
+```{r,echo=F}
+Ex <- F
+library(knitr)
+```
+
+## Example A
+
+- Load the survey package and the `api` datasets.
+
+- Estimation under SRS
+
+- Use other allocations
+
+- Select a StrSRS from apipop for each allocations.
+
+- Estimate the mean of api00 from different
+samples (equal, proportional, optimal).
+
+## The survey library
+
+Load `survey` library and dataset apistrat
+
+```{r,message=F}
+library(survey)
+```
+
+
+The dataset apistrat is a sample of schools from apipop
+stratified by stype. 
+
+```{r}
+data(api)
+```
+
+```{r,eval=F}
+head(apistrat)
+```
+
+```{r,echo=F}
+kable(apistrat[1:8,1:5])
+```
+
+
+## Stratified designs
+
+Assuming the selection within the
+strata was done by SRS, define a svydesign object that
+enables you to make unbiased point and variance
+estimates. 
+
+- Estimate the mean of variable `api00`.
+
+```{r}
+mean(apistrat$api00)
+```
+
+## Allocations
+
+Now you should try different allocations. 
+
+Using `stype` as a stratification variable calculate the allocation of a sample of 60 schools from apipop. Use
+
+- equal allocation
+- proportional allocation (proportional to nr. of schools)
+- optimal allocation (with regard to `api99` allocation)
+
+Select a StrSRS from apipop for each of your allocations.
+
+- Estimate again the mean of api00 from your three different
+samples.
+
+
+## Example B
+
+Estimation under stratified design
+
+- Download ESS for Sweden and Denmark
+- Define a survey object
+
+## Download ESS
+
+- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
+
+
+## Packages for data import
+
+- Use the package `foreign`
+
+```{r,message=F,warning=F}
+library(foreign)
+```
+
+```{r,message=F,warning=F}
+library(memisc)
+```
+
+
+
+```{r,echo=F}
+## Set working directory
+main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+
+data.path <- paste(main.path,"data/",sep="")
+
+setwd(data.path)
+```
+
+
+## Load the ESS dataset and the country file
+
+
+[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
+
+```{r,eval=Ex}
+DK <- as.data.set(spss.portable.file("ESS5DK.por"))
+SE <- as.data.set(spss.portable.file("ESS5SE.por"))
+```
+
+
+```{r,eval=Ex}
+DK <- as.data.frame(DK)
+SE <- as.data.frame(SE)
+```
+
+```{r,eval=Ex,echo=F}
+
+```
+
+
