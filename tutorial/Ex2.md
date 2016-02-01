@@ -1,29 +1,21 @@
-Exercise 2
-----------
+Example A
+---------
 
-1 Load the survey package and the api datasets in it.
+-   Load the survey package and the `api` datasets.
 
-2 The dataset apistrat is a sample of schools from apipop stratified by
-stype. Assuming the selection within the strata was done by SRS, define
-a svydesign object that enables your to make unbiased point and variance
-estimates. Estimate the mean of api00.
+-   Estimation under SRS
 
-3 Now you should try different allocations. Using stype again as a
-stratification variable calculate the allocation of a sample of 60
-schools from apipop, using equal, proportional to the number of schools,
-and optimal with regard to api99 allocation.
+-   Use other allocations
 
-4 Select a StrSRS from apipop for each of your allocations.
+-   Select a StrSRS from apipop for each allocations.
 
-5 Estimate again the mean of api00 from your three different samples.
-
-The `survey` library
---------------------
-
--   Load `survey` library and dataset apistrat
+-   Estimate the mean of api00 from different samples (equal,
+    proportional, optimal).
 
 The survey library
 ------------------
+
+Load `survey` library and dataset apistrat
 
     library(survey)
 
@@ -104,8 +96,8 @@ stype.
 </tbody>
 </table>
 
-Exercise 1 - Part 2
--------------------
+Stratified designs
+------------------
 
 Assuming the selection within the strata was done by SRS, define a
 svydesign object that enables you to make unbiased point and variance
@@ -119,8 +111,8 @@ estimates.
 
     ## [1] 652.82
 
-Exercise 1 - Part 3
--------------------
+Allocations
+-----------
 
 Now you should try different allocations.
 
@@ -135,16 +127,16 @@ Select a StrSRS from apipop for each of your allocations.
 
 -   Estimate again the mean of api00 from your three different samples.
 
-Exercise 2 - Estimation under stratified design
------------------------------------------------
+Example B
+---------
 
--   Download ESS
+Estimation under stratified design
+
+-   Download ESS for Sweden and Denmark
 -   Define a survey object
 
-Exercise 1 - Part 1
--------------------
-
 Download ESS
+------------
 
 -   Download the ESS dataset for
     [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010)
@@ -161,8 +153,11 @@ Packages for data import
 
     library(memisc)
 
-[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
-----------------------------------------------------------------------------------------------
+Load the ESS dataset and the country file
+-----------------------------------------
+
+[Import portable
+spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
 
     DK <- as.data.set(spss.portable.file("ESS5DK.por"))
     SE <- as.data.set(spss.portable.file("ESS5SE.por"))
@@ -170,5 +165,10 @@ Packages for data import
     DK <- as.data.frame(DK)
     SE <- as.data.frame(SE)
 
-Load the ESS dataset and the country file
------------------------------------------
+    DK_tv <- data.frame(tvtot=DK$tvtot)
+    SE_tv <- data.frame(tvtot=SE$tvtot)
+
+
+    NE <- rbind(DK_tv,SE_tv)
+
+Define a survey object:

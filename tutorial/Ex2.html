@@ -71,6 +71,43 @@ img {
 
 <div id="example-a" class="section level2">
 <h2>Example A</h2>
+<p>Estimation under stratified design</p>
+<ul>
+<li>Download ESS for Sweden and Denmark</li>
+<li>Import data to R and define a <code>survey</code> object</li>
+<li>Calculate the unbiased mean</li>
+</ul>
+</div>
+<div id="download-ess" class="section level2">
+<h2>Download ESS</h2>
+<ul>
+<li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) of the 5th round</li>
+</ul>
+</div>
+<div id="packages-for-data-import" class="section level2">
+<h2>Packages for data import</h2>
+<ul>
+<li>Use the package <code>foreign</code></li>
+</ul>
+<pre class="r"><code>library(foreign)</code></pre>
+<pre class="r"><code>library(memisc)</code></pre>
+</div>
+<div id="load-the-ess-dataset-and-the-country-file" class="section level2">
+<h2>Load the ESS dataset and the country file</h2>
+<p><a href="http://stackoverflow.com/questions/3136293/read-spss-file-into-r">Import portable spss-files</a></p>
+<pre class="r"><code>DK &lt;- as.data.set(spss.portable.file(&quot;ESS5DK.por&quot;))
+SE &lt;- as.data.set(spss.portable.file(&quot;ESS5SE.por&quot;))</code></pre>
+<pre class="r"><code>DK &lt;- as.data.frame(DK)
+SE &lt;- as.data.frame(SE)</code></pre>
+<pre class="r"><code>DK_tv &lt;- data.frame(tvtot=DK$tvtot)
+SE_tv &lt;- data.frame(tvtot=SE$tvtot)
+
+
+NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
+<p>Define a survey object:</p>
+</div>
+<div id="example-b" class="section level2">
+<h2>Example B</h2>
 <ul>
 <li><p>Load the survey package and the <code>api</code> datasets.</p></li>
 <li><p>Estimation under SRS</p></li>
@@ -178,36 +215,6 @@ img {
 <ul>
 <li>Estimate again the mean of api00 from your three different samples.</li>
 </ul>
-</div>
-<div id="example-b" class="section level2">
-<h2>Example B</h2>
-<p>Estimation under stratified design</p>
-<ul>
-<li>Download ESS for Sweden and Denmark</li>
-<li>Define a survey object</li>
-</ul>
-</div>
-<div id="download-ess" class="section level2">
-<h2>Download ESS</h2>
-<ul>
-<li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) of the 5th round</li>
-</ul>
-</div>
-<div id="packages-for-data-import" class="section level2">
-<h2>Packages for data import</h2>
-<ul>
-<li>Use the package <code>foreign</code></li>
-</ul>
-<pre class="r"><code>library(foreign)</code></pre>
-<pre class="r"><code>library(memisc)</code></pre>
-</div>
-<div id="load-the-ess-dataset-and-the-country-file" class="section level2">
-<h2>Load the ESS dataset and the country file</h2>
-<p><a href="http://stackoverflow.com/questions/3136293/read-spss-file-into-r">Import portable spss-files</a></p>
-<pre class="r"><code>DK &lt;- as.data.set(spss.portable.file(&quot;ESS5DK.por&quot;))
-SE &lt;- as.data.set(spss.portable.file(&quot;ESS5SE.por&quot;))</code></pre>
-<pre class="r"><code>DK &lt;- as.data.frame(DK)
-SE &lt;- as.data.frame(SE)</code></pre>
 </div>
 
 
