@@ -26,13 +26,21 @@ The implications of using survey on doing statistical inference are also shown.
 
 The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts:
 
-Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1-knitr.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex1-knitr.pdf)) sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
+Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex1.pdf)) sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
-Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2-knitr.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2-knitr.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
+Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
 
-Part 3 focuses on **unequal probability samples**, **multistage samples** and **cluster samples** and the estimation of central parameters within those sampling strategies. Therefore, the exercise uses the ESS data of the 5th round for Germany and Netherlands and will provide insights on how to declare more complex **survey objects** and on how to use these survey objects to estimate central parameters.
+Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex3.pdf)) focuses on **design effects**,   **multistage samples** and **cluster samples** and the estimation of central parameters within those sampling strategies. To estimate a design effect of a genuine survey, the exercise uses the ESS data of the 5th round for Germany.
+The estimation of parameters in complex sampling designs will use a previously generated sample. Participants will then learn how to specifiy such samples as a **survey object** and how to estimate parameters of interest.
 
 ### R-Intro
 If you are new to R there you will find a document [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/preparation/Preparation.md), which you might find helpful in guiding you through your first steps in R and gives you hints on where to find further information.
+
+### Further Reading for R
+A more detailed description of the utilization of R with sample surveys can be found [here](https://github.com/BernStZi/SamplingAndEstimation/tree/short/tutorial/slides).
+
+
+
