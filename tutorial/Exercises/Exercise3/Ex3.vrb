@@ -1,12 +1,25 @@
-\frametitle{Exercise 3}
+\frametitle{Multistage- and Cluster-Samples \\ with the \R {survey} package}
 
-\begin{enumerate}
-\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX4.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
-\item Calculate the mean income
-\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{Commune}\hlopt{+}\hlstd{id,}\hlkwc{fpc}\hlstd{=}\hlopt{~}\hlstd{prob1}\hlopt{+}\hlstd{prob2,}
+                  \hlkwc{data}\hlstd{=Data.be,}\hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
+\begin{itemize}
+\item In \emph{Exercise 1} we had a single-stage sample, therefore the argument \R{id} has been set to 0 or 1
+\item[$\Rightarrow$] In case of a multi-stage sampling approach, every sampling stage has to be defined
+\begin{itemize}
+\item[$\Rightarrow$] PSU: \emph{Commune}; SSU: \emph{id}
+\end{itemize}
+\item This also applies for the \R{fpc}-argument
+\item[$\Rightarrow$] \emph{prob1} reflects the porbability of inclusion for each PSU in the sample and \emph{prob2} the probability of inclusion for each SSU
+\item[] \alert{Note:} altough $prob1*prob2=\frac{n}{N}$ in this sample, it cannot be treated like a SRS
 
+\end{itemize}
 
-\end{enumerate}
 
 
