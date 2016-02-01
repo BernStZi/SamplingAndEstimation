@@ -40,7 +40,7 @@ The estimation of parameters in complex sampling designs will use a previously g
 If you are new to R there you will find a document [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/preparation/Preparation.md), which you might find helpful in guiding you through your first steps in R and gives you hints on where to find further information.
 
 ### Further Reading for R
-A more detailed description of the utilization of R with sample surveys can be found [here](https://github.com/BernStZi/SamplingAndEstimation/tree/short/tutorial/slides).
+A more detailed description of the utilization of R with sample surveys can be found [here](https://github.com/BernStZi/SamplingAndEstimation/tree/short/tutorial/slides). Please note, that these slides are not necessary to understand the lectures and exercises, but more to help with specific questions or applications in R.
 
 
 
