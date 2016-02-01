@@ -208,6 +208,11 @@ img {
 SE &lt;- as.data.set(spss.portable.file(&quot;ESS5SE.por&quot;))</code></pre>
 <pre class="r"><code>DK &lt;- as.data.frame(DK)
 SE &lt;- as.data.frame(SE)</code></pre>
+<pre class="r"><code>DK_tv &lt;- data.frame(tvtot=DK$tvtot)
+SE_tv &lt;- data.frame(tvtot=SE$tvtot)
+
+
+NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
 </div>
 
 

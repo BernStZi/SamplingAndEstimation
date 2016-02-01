@@ -2,7 +2,7 @@
 title: "Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "1. Februar 2016"
-output: html_document
+output: md_document
 ---
 
 ```{r,echo=F}
@@ -129,8 +129,17 @@ DK <- as.data.frame(DK)
 SE <- as.data.frame(SE)
 ```
 
-```{r,eval=Ex,echo=F}
+```{r,eval=Ex}
+DK_tv <- data.frame(tvtot=DK$tvtot)
+SE_tv <- data.frame(tvtot=SE$tvtot)
 
+
+NE <- rbind(DK_tv,SE_tv)
 ```
 
+Define a survey object:
+
+```{r}
+
+```
 
