@@ -112,7 +112,7 @@ opts_chunk$set(
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 2: Stratification and Allocation}
+\begin{frame}[fragile]{Stratification and Allocation}
 
 \begin{enumerate}
 \item Load the \R{survey} package and the \R{api} datasets in it.
