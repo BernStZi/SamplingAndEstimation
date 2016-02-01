@@ -69,22 +69,19 @@ img {
 </div>
 
 
-<div id="exercise-2" class="section level2">
-<h2>Exercise 2</h2>
-<p>1 Load the survey package and the api datasets in it.</p>
-<p>2 The dataset apistrat is a sample of schools from apipop stratified by stype. Assuming the selection within the strata was done by SRS, define a svydesign object that enables your to make unbiased point and variance estimates. Estimate the mean of api00.</p>
-<p>3 Now you should try different allocations. Using stype again as a stratification variable calculate the allocation of a sample of 60 schools from apipop, using equal, proportional to the number of schools, and optimal with regard to api99 allocation.</p>
-<p>4 Select a StrSRS from apipop for each of your allocations.</p>
-<p>5 Estimate again the mean of api00 from your three different samples.</p>
-</div>
-<div id="the-survey-library" class="section level2">
-<h2>The <code>survey</code> library</h2>
+<div id="example-a" class="section level2">
+<h2>Example A</h2>
 <ul>
-<li>Load <code>survey</code> library and dataset apistrat</li>
+<li><p>Load the survey package and the <code>api</code> datasets.</p></li>
+<li><p>Estimation under SRS</p></li>
+<li><p>Use other allocations</p></li>
+<li><p>Select a StrSRS from apipop for each allocations.</p></li>
+<li><p>Estimate the mean of api00 from different samples (equal, proportional, optimal).</p></li>
 </ul>
 </div>
-<div id="the-survey-library-1" class="section level2">
+<div id="the-survey-library" class="section level2">
 <h2>The survey library</h2>
+<p>Load <code>survey</code> library and dataset apistrat</p>
 <pre class="r"><code>library(survey)</code></pre>
 <p>The dataset apistrat is a sample of schools from apipop stratified by stype.</p>
 <pre class="r"><code>data(api)</code></pre>
@@ -159,8 +156,8 @@ img {
 </tbody>
 </table>
 </div>
-<div id="exercise-1---part-2" class="section level2">
-<h2>Exercise 1 - Part 2</h2>
+<div id="stratified-designs" class="section level2">
+<h2>Stratified designs</h2>
 <p>Assuming the selection within the strata was done by SRS, define a svydesign object that enables you to make unbiased point and variance estimates.</p>
 <ul>
 <li>Estimate the mean of variable <code>api00</code>.</li>
@@ -168,8 +165,8 @@ img {
 <pre class="r"><code>mean(apistrat$api00)</code></pre>
 <pre><code>## [1] 652.82</code></pre>
 </div>
-<div id="exercise-1---part-3" class="section level2">
-<h2>Exercise 1 - Part 3</h2>
+<div id="allocations" class="section level2">
+<h2>Allocations</h2>
 <p>Now you should try different allocations.</p>
 <p>Using <code>stype</code> as a stratification variable calculate the allocation of a sample of 60 schools from apipop. Use</p>
 <ul>
@@ -182,16 +179,16 @@ img {
 <li>Estimate again the mean of api00 from your three different samples.</li>
 </ul>
 </div>
-<div id="exercise-2---estimation-under-stratified-design" class="section level2">
-<h2>Exercise 2 - Estimation under stratified design</h2>
+<div id="example-b" class="section level2">
+<h2>Example B</h2>
+<p>Estimation under stratified design</p>
 <ul>
-<li>Download ESS</li>
+<li>Download ESS for Sweden and Denmark</li>
 <li>Define a survey object</li>
 </ul>
 </div>
-<div id="exercise-1---part-1" class="section level2">
-<h2>Exercise 1 - Part 1</h2>
-<p>Download ESS</p>
+<div id="download-ess" class="section level2">
+<h2>Download ESS</h2>
 <ul>
 <li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) of the 5th round</li>
 </ul>
@@ -204,15 +201,13 @@ img {
 <pre class="r"><code>library(foreign)</code></pre>
 <pre class="r"><code>library(memisc)</code></pre>
 </div>
-<div id="import-portable-spss-files" class="section level2">
-<h2><a href="http://stackoverflow.com/questions/3136293/read-spss-file-into-r">Import portable spss-files</a></h2>
+<div id="load-the-ess-dataset-and-the-country-file" class="section level2">
+<h2>Load the ESS dataset and the country file</h2>
+<p><a href="http://stackoverflow.com/questions/3136293/read-spss-file-into-r">Import portable spss-files</a></p>
 <pre class="r"><code>DK &lt;- as.data.set(spss.portable.file(&quot;ESS5DK.por&quot;))
 SE &lt;- as.data.set(spss.portable.file(&quot;ESS5SE.por&quot;))</code></pre>
 <pre class="r"><code>DK &lt;- as.data.frame(DK)
 SE &lt;- as.data.frame(SE)</code></pre>
-</div>
-<div id="load-the-ess-dataset-and-the-country-file" class="section level2">
-<h2>Load the ESS dataset and the country file</h2>
 </div>
 
 
