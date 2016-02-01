@@ -2,7 +2,7 @@
 title: "Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "1. Februar 2016"
-output: md_document
+output: html_document
 ---
 
 ```{r,echo=F}
@@ -10,7 +10,79 @@ Ex <- F
 library(knitr)
 ```
 
+
+
 ## Example A
+
+Estimation under stratified design
+
+- Download ESS for Sweden and Denmark
+- Import data to R and define a `survey` object
+- Calculate the unbiased mean
+
+## Download ESS
+
+- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
+
+
+## Packages for data import
+
+- Use the package `foreign`
+
+```{r,message=F,warning=F}
+library(foreign)
+```
+
+```{r,message=F,warning=F}
+library(memisc)
+```
+
+
+
+```{r,echo=F}
+## Set working directory
+main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+
+data.path <- paste(main.path,"data/",sep="")
+
+setwd(data.path)
+```
+
+
+## Load the ESS dataset and the country file
+
+
+[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
+
+```{r,eval=Ex}
+DK <- as.data.set(spss.portable.file("ESS5DK.por"))
+SE <- as.data.set(spss.portable.file("ESS5SE.por"))
+```
+
+
+```{r,eval=Ex}
+DK <- as.data.frame(DK)
+SE <- as.data.frame(SE)
+```
+
+```{r,eval=Ex}
+DK_tv <- data.frame(tvtot=DK$tvtot)
+SE_tv <- data.frame(tvtot=SE$tvtot)
+
+
+NE <- rbind(DK_tv,SE_tv)
+```
+
+Define a survey object:
+
+```{r}
+
+```
+
+
+
+
+## Example B
 
 - Load the survey package and the `api` datasets.
 
@@ -75,71 +147,4 @@ Select a StrSRS from apipop for each of your allocations.
 
 - Estimate again the mean of api00 from your three different
 samples.
-
-
-## Example B
-
-Estimation under stratified design
-
-- Download ESS for Sweden and Denmark
-- Define a survey object
-
-## Download ESS
-
-- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
-
-
-## Packages for data import
-
-- Use the package `foreign`
-
-```{r,message=F,warning=F}
-library(foreign)
-```
-
-```{r,message=F,warning=F}
-library(memisc)
-```
-
-
-
-```{r,echo=F}
-## Set working directory
-main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
-
-data.path <- paste(main.path,"data/",sep="")
-
-setwd(data.path)
-```
-
-
-## Load the ESS dataset and the country file
-
-
-[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
-
-```{r,eval=Ex}
-DK <- as.data.set(spss.portable.file("ESS5DK.por"))
-SE <- as.data.set(spss.portable.file("ESS5SE.por"))
-```
-
-
-```{r,eval=Ex}
-DK <- as.data.frame(DK)
-SE <- as.data.frame(SE)
-```
-
-```{r,eval=Ex}
-DK_tv <- data.frame(tvtot=DK$tvtot)
-SE_tv <- data.frame(tvtot=SE$tvtot)
-
-
-NE <- rbind(DK_tv,SE_tv)
-```
-
-Define a survey object:
-
-```{r}
-
-```
 
