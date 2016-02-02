@@ -14,3 +14,17 @@ Estimation  under a stratified design
 - Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
 - Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+
+
+## Exercise 2.B
+
+- Load the survey package and the `api` datasets.
+
+- Compute the mean of the Academic Performance Index (2000),  asuming SRS
+
+- Use other allocations
+
+- Select a StrSRS from apipop for each allocations.
+
+- Estimate the mean of api00 from different
+samples (equal, proportional, optimal).
