@@ -29,7 +29,7 @@ The tutorial consists of exercises in which students will apply the methodology 
 Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.pdf) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex1.pdf)) sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
-Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.pdf) | 
+Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
 
 Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf) | 
