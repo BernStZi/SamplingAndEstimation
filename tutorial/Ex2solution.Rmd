@@ -19,7 +19,7 @@ Estimation under a stratified design
 
 - Download the ESS for Sweden and Denmark (round 5)
 
-Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) and [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) of the 5th round
+Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) and [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) of the 5th round.
 
 Use the package `foreign` for import
 
@@ -27,6 +27,10 @@ Use the package `foreign` for import
 library(foreign)
 ```
 
+```{r,echo=F}
+Ex <- F
+library(knitr)
+```
 
 ```{r,echo=F,eval=Ex}
 ## Set working directory
@@ -44,6 +48,53 @@ Load the ESS dataset and the country file
 library(foreign)
 DK <- read.spss("ESS5DK.sav",to.data.frame=T)
 SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+```
+
+## Preparation - finite population correction
+
+```{r,eval=Ex}
+DK <- as.data.frame(DK)
+DK$N <- DK$pweight*10000*nrow(DK)
+
+SE <- as.data.frame(SE)
+SE$N <- SE$pweight*10000*nrow(SE)
+```
+
+## Combine the two datasets
+
+
+```{r,eval=Ex}
+DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+                    N=DK$N,
+                    cntry=as.character(DK$cntry))
+SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+                    N=SE$N,
+                    cntry=as.character(SE$cntry))
+
+
+NE <- rbind(DK_tv,SE_tv)
+```
+
+## Define a survey object
+
+```{r,message=F}
+library(survey)
+```
+
+
+[Define the survey object:](http://r-survey.r-forge.r-project.org/survey/example-design.html)
+
+```{r,eval=Ex}
+svydes_NE <- svydesign(id=~1,strata=~cntry, 
+                       fpc=~N, data=NE)
+```
+
+
+
+## Calculate the total for the tv consumption 
+
+```{r,eval=Ex}
+svytable(~tvtot,svydes_NE)
 ```
 
 
