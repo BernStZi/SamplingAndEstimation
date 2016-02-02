@@ -2,8 +2,6 @@
 
 library(sampling)
 library(survey)
-path <- "F:/ESS Data/"
-setwd(path)
 
 data(belgianmunicipalities)
 bm <- belgianmunicipalities

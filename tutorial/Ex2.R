@@ -9,7 +9,6 @@ strSR.sample <- function(strind, nh, replace=FALSE){
                        , h.id
                        , sam, SIMPLIFY = F))
   sam
-  
 }
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
-date: "1. Februar 2016"
+date: "1 Februar 2016"
 output: html_document
 ---
 
@@ -12,31 +12,26 @@ library(knitr)
 
 
 
-## Example A
+## Exercise 2.A
 
-Estimation for the European Social Survey under stratified design
+Estimation  under a stratified design
 
-- Download ESS for Sweden and Denmark
-- Import data to R and merge the two datasets
+- Download the ESS for Sweden and Denmark (round 5)
+- Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the unbiased totals for the tv consumption 
+- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
 
 ## Download and Import ESS
 
-- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
+- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) and [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) of the 5th round
 
 Packages for data import
 
-- Use the package `foreign` or `memisc` for import
+- Use the package `foreign` for import
 
 ```{r,message=F,warning=F}
 library(foreign)
 ```
-
-```{r,message=F,warning=F}
-library(memisc)
-```
-
 
 
 ```{r,echo=F}
@@ -51,12 +46,10 @@ setwd(data.path)
 
 ## Load the ESS dataset and the country file
 
-
-[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
-
 ```{r,eval=Ex}
-DK <- as.data.set(spss.portable.file("ESS5DK.por"))
-SE <- as.data.set(spss.portable.file("ESS5SE.por"))
+library(foreign)
+DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 ```
 
 
@@ -99,7 +92,7 @@ svytable(~tvtot,svydes_NE)
 
 
 
-## Example B
+## Exercise 2.B
 
 - Load the survey package and the `api` datasets.
 
@@ -162,8 +155,66 @@ Using `stype` as a stratification variable calculate the allocation of a sample 
 
 Select a StrSRS from apipop for each of your allocations.
 
+
+## Equal allocation
+
+```{r}
+library(sampling)
+Nh <- table(apistrat$stype)
+
+s_equal <- strata(apistrat,"stype",
+         size=c(20,20,20), 
+         method="srswor")
+
+ind <- match(s_equal$stype,names(Nh))
+s_equal$N <- Nh[ind]
+s_equal$api00 <- apistrat$api00[s_equal$ID_unit]
+```
+
+## Proportional allocation
+
+```{r}
+strSRsample <- function(strind, nh, replace=FALSE){
+  Nh <- table(strind)[names(nh)]
+  h.id <- split(1:sum(Nh), strind)[names(nh)]
+  
+  
+  sam <- mapply( function(x,y) sample(x, y, replace=replace)
+                 , Nh, nh, SIMPLIFY = F)
+  unlist(mapply(function(x,y) x[y]
+                , h.id
+                , sam, SIMPLIFY = F)
+         ,use.names = FALSE)
+}
+```
+
+
+```{r,eval=F}
+n <- 2000
+
+nh <- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
+samp <- strSRsample(apipop$stype,nh)
+
+ap <- apipop[samp,]
+```
+
+
+## Estimation
+
 - Estimate again the mean of api00 from your three different
 samples.
+
+```{r}
+
+svy_equal <- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
+
+svymean(s_equal$api00,svy_equal)
+```
+
+
+
+
+
 
 ```{r,eval=F}
 library(devtools)

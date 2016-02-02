@@ -1,9 +1,72 @@
 Example A
 ---------
 
+Estimation for the European Social Survey under stratified design
+
+-   Download ESS for Sweden and Denmark
+-   Import data to R and merge the two datasets
+-   Define a `survey` object (stratified design)
+-   Calculate the unbiased totals for the tv consumption
+
+Download and Import ESS
+-----------------------
+
+-   Download the ESS dataset for
+    [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010)
+    (Sampling Data and Country File) of the 5th round
+
+Packages for data import
+
+-   Use the package `foreign` or `memisc` for import
+
+<!-- -->
+
+    library(foreign)
+
+    library(memisc)
+
+Load the ESS dataset and the country file
+-----------------------------------------
+
+    library(foreign)
+    DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+    SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+
+    DK <- as.data.frame(DK)
+    DK$N <- DK$pweight*10000*nrow(DK)
+
+    SE <- as.data.frame(SE)
+    SE$N <- SE$pweight*10000*nrow(SE)
+
+    DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+                        N=DK$N,
+                        cntry=as.character(DK$cntry))
+    SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+                        N=SE$N,
+                        cntry=as.character(SE$cntry))
+
+
+    NE <- rbind(DK_tv,SE_tv)
+
+Define a survey object
+----------------------
+
+    library(survey)
+
+[Define a survey
+object:](http://r-survey.r-forge.r-project.org/survey/example-design.html)
+
+    svydes_NE <- svydesign(id=~1,strata=~cntry, fpc=~N, data=NE)
+
+    svytable(~tvtot,svydes_NE)
+
+Example B
+---------
+
 -   Load the survey package and the `api` datasets.
 
--   Estimation under SRS
+-   Compute the mean of the Academic Performance Index (2000), asuming
+    SRS
 
 -   Use other allocations
 
@@ -125,50 +188,57 @@ sample of 60 schools from apipop. Use
 
 Select a StrSRS from apipop for each of your allocations.
 
+Equal allocation
+----------------
+
+    library(sampling)
+    Nh <- table(apistrat$stype)
+
+    s_equal <- strata(apistrat,"stype",
+             size=c(20,20,20), 
+             method="srswor")
+
+    ind <- match(s_equal$stype,names(Nh))
+    s_equal$N <- Nh[ind]
+    s_equal$api00 <- apistrat$api00[s_equal$ID_unit]
+
+Proportional allocation
+-----------------------
+
+    strSRsample <- function(strind, nh, replace=FALSE){
+      Nh <- table(strind)[names(nh)]
+      h.id <- split(1:sum(Nh), strind)[names(nh)]
+      
+      
+      sam <- mapply( function(x,y) sample(x, y, replace=replace)
+                     , Nh, nh, SIMPLIFY = F)
+      unlist(mapply(function(x,y) x[y]
+                    , h.id
+                    , sam, SIMPLIFY = F)
+             ,use.names = FALSE)
+    }
+
+    n <- 2000
+
+    nh <- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
+    samp <- strSRsample(apipop$stype,nh)
+
+    ap <- apipop[samp,]
+
+Estimation
+----------
+
 -   Estimate again the mean of api00 from your three different samples.
-
-Example B
----------
-
-Estimation under stratified design
-
--   Download ESS for Sweden and Denmark
--   Define a survey object
-
-Download ESS
-------------
-
--   Download the ESS dataset for
-    [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010)
-    (Sampling Data and Country File) of the 5th round
-
-Packages for data import
-------------------------
-
--   Use the package `foreign`
 
 <!-- -->
 
-    library(foreign)
+    svy_equal <- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
 
-    library(memisc)
+    svymean(s_equal$api00,svy_equal)
 
-Load the ESS dataset and the country file
------------------------------------------
+    ##        mean     SE
+    ## [1,] 656.92 13.877
 
-[Import portable
-spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
+    library(devtools)
 
-    DK <- as.data.set(spss.portable.file("ESS5DK.por"))
-    SE <- as.data.set(spss.portable.file("ESS5SE.por"))
-
-    DK <- as.data.frame(DK)
-    SE <- as.data.frame(SE)
-
-    DK_tv <- data.frame(tvtot=DK$tvtot)
-    SE_tv <- data.frame(tvtot=SE$tvtot)
-
-
-    NE <- rbind(DK_tv,SE_tv)
-
-Define a survey object:
+    install_github("BernStZi/SamplingAndEstimation/r/sampaest",ref="short")

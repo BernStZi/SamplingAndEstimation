@@ -63,7 +63,9 @@ img {
 <div id="header">
 <h1 class="title">Exercise 2</h1>
 <h4 class="author"><em>Jan-Philipp Kolb, Stefan Zins and Matthias Sand</em></h4>
-<h4 class="date"><em>1 Februar 2016</em></h4>
+<h4 class="date"><em><ol start="2" style="list-style-type: decimal">
+<li>Februar 2016</li>
+</ol></em></h4>
 </div>
 
 
@@ -77,198 +79,19 @@ img {
 <li>Calculate the combined total for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
 </ul>
 </div>
-<div id="download-and-import-ess" class="section level2">
-<h2>Download and Import ESS</h2>
-<ul>
-<li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) and <a href="http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&amp;c=SE&amp;y=2010">Sweden</a> of the 5th round</li>
-</ul>
-<p>Packages for data import</p>
-<ul>
-<li>Use the package <code>foreign</code> for import</li>
-</ul>
-<pre class="r"><code>library(foreign)</code></pre>
-</div>
-<div id="load-the-ess-dataset-and-the-country-file" class="section level2">
-<h2>Load the ESS dataset and the country file</h2>
-<pre class="r"><code>library(foreign)
-DK &lt;- read.spss(&quot;ESS5DK.sav&quot;,to.data.frame=T)
-SE &lt;- read.spss(&quot;ESS5SE.sav&quot;,to.data.frame=T)</code></pre>
-<pre class="r"><code>DK &lt;- as.data.frame(DK)
-DK$N &lt;- DK$pweight*10000*nrow(DK)
-
-SE &lt;- as.data.frame(SE)
-SE$N &lt;- SE$pweight*10000*nrow(SE)</code></pre>
-<pre class="r"><code>DK_tv &lt;- data.frame(tvtot=as.character(DK$tvtot),
-                    N=DK$N,
-                    cntry=as.character(DK$cntry))
-SE_tv &lt;- data.frame(tvtot=as.character(SE$tvtot),
-                    N=SE$N,
-                    cntry=as.character(SE$cntry))
-
-
-NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
-</div>
-<div id="define-a-survey-object" class="section level2">
-<h2>Define a survey object</h2>
-<pre class="r"><code>library(survey)</code></pre>
-<p><a href="http://r-survey.r-forge.r-project.org/survey/example-design.html">Define a survey object:</a></p>
-<pre class="r"><code>svydes_NE &lt;- svydesign(id=~1,strata=~cntry, fpc=~N, data=NE)</code></pre>
-<pre class="r"><code>svytable(~tvtot,svydes_NE)</code></pre>
-</div>
 <div id="exercise-2.b" class="section level2">
 <h2>Exercise 2.B</h2>
 <ul>
-<li><p>Load the survey package and the <code>api</code> datasets.</p></li>
-<li><p>Compute the mean of the Academic Performance Index (2000), asuming SRS</p></li>
-<li><p>Use other allocations</p></li>
-<li><p>Select a StrSRS from apipop for each allocations.</p></li>
-<li><p>Estimate the mean of api00 from different samples (equal, proportional, optimal).</p></li>
+<li>Load the <code>survey</code> package and the <code>api</code> datasets.</li>
 </ul>
-</div>
-<div id="the-survey-library" class="section level2">
-<h2>The survey library</h2>
-<p>Load <code>survey</code> library and dataset apistrat</p>
-<pre class="r"><code>library(survey)</code></pre>
-<p>The dataset apistrat is a sample of schools from apipop stratified by stype.</p>
-<pre class="r"><code>data(api)</code></pre>
-<pre class="r"><code>head(apistrat)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">cds</th>
-<th align="left">stype</th>
-<th align="left">name</th>
-<th align="left">sname</th>
-<th align="right">snum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">19647336097927</td>
-<td align="left">E</td>
-<td align="left">Open Magnet: Ce</td>
-<td align="left">Open Magnet: Center for Individual (Char</td>
-<td align="right">2077</td>
-</tr>
-<tr class="even">
-<td align="left">19647336016018</td>
-<td align="left">E</td>
-<td align="left">Belvedere Eleme</td>
-<td align="left">Belvedere Elementary</td>
-<td align="right">1622</td>
-</tr>
-<tr class="odd">
-<td align="left">19648816021505</td>
-<td align="left">E</td>
-<td align="left">Altadena Elemen</td>
-<td align="left">Altadena Elementary</td>
-<td align="right">2236</td>
-</tr>
-<tr class="even">
-<td align="left">19647336019285</td>
-<td align="left">E</td>
-<td align="left">Soto Street Ele</td>
-<td align="left">Soto Street Elementary</td>
-<td align="right">1921</td>
-</tr>
-<tr class="odd">
-<td align="left">56739406115430</td>
-<td align="left">E</td>
-<td align="left">Walnut Canyon E</td>
-<td align="left">Walnut Canyon Elementary</td>
-<td align="right">6140</td>
-</tr>
-<tr class="even">
-<td align="left">56726036084917</td>
-<td align="left">E</td>
-<td align="left">Atherwood Eleme</td>
-<td align="left">Atherwood Elementary</td>
-<td align="right">6077</td>
-</tr>
-<tr class="odd">
-<td align="left">56726036055800</td>
-<td align="left">E</td>
-<td align="left">Township Elemen</td>
-<td align="left">Township Elementary</td>
-<td align="right">6071</td>
-</tr>
-<tr class="even">
-<td align="left">15633216109078</td>
-<td align="left">E</td>
-<td align="left">Thorner (Dr. Ju</td>
-<td align="left">Thorner (Dr. Juliet) Elementary</td>
-<td align="right">904</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="stratified-designs" class="section level2">
-<h2>Stratified designs</h2>
-<p>Assuming the selection within the strata was done by SRS, define a svydesign object that enables you to make unbiased point and variance estimates.</p>
+<pre class="r"><code>library(survey)
+data(api)</code></pre>
 <ul>
-<li>Estimate the mean of variable <code>api00</code>.</li>
+<li>The dataset <code>apistrat</code> is a sample of schools from <code>apipop</code> stratified by <code>stype</code>. Assuming the selection within the strata was done by SRS, define a <code>svydesign</code> a survey object and calculate a point and variance estimate for the mean of <code>api00</code>.</li>
+<li>Using <code>stype</code> again as a stratification variable try different allocations for stratified sample. Calculate the allocation of a sample of 60 schools from <code>apipop</code> using equal, proportional and optimal allocation. The proportional allocation should be proportional to the number of schools within the strata and the optimal alloaction should be optimal with regard to <code>api99</code>.</li>
+<li>Select a StrSRS from <code>apipop</code> for each allocation.</li>
+<li>Estimate again the mean of <code>api00</code> from all three samples and compare the results.</li>
 </ul>
-<pre class="r"><code>mean(apistrat$api00)</code></pre>
-<pre><code>## [1] 652.82</code></pre>
-</div>
-<div id="allocations" class="section level2">
-<h2>Allocations</h2>
-<p>Now you should try different allocations.</p>
-<p>Using <code>stype</code> as a stratification variable calculate the allocation of a sample of 60 schools from apipop. Use</p>
-<ul>
-<li>equal allocation</li>
-<li>proportional allocation (proportional to nr. of schools)</li>
-<li>optimal allocation (with regard to <code>api99</code> allocation)</li>
-</ul>
-<p>Select a StrSRS from apipop for each of your allocations.</p>
-</div>
-<div id="equal-allocation" class="section level2">
-<h2>Equal allocation</h2>
-<pre class="r"><code>library(sampling)
-Nh &lt;- table(apistrat$stype)
-
-s_equal &lt;- strata(apistrat,&quot;stype&quot;,
-         size=c(20,20,20), 
-         method=&quot;srswor&quot;)
-
-ind &lt;- match(s_equal$stype,names(Nh))
-s_equal$N &lt;- Nh[ind]
-s_equal$api00 &lt;- apistrat$api00[s_equal$ID_unit]</code></pre>
-</div>
-<div id="proportional-allocation" class="section level2">
-<h2>Proportional allocation</h2>
-<pre class="r"><code>strSRsample &lt;- function(strind, nh, replace=FALSE){
-  Nh &lt;- table(strind)[names(nh)]
-  h.id &lt;- split(1:sum(Nh), strind)[names(nh)]
-  
-  
-  sam &lt;- mapply( function(x,y) sample(x, y, replace=replace)
-                 , Nh, nh, SIMPLIFY = F)
-  unlist(mapply(function(x,y) x[y]
-                , h.id
-                , sam, SIMPLIFY = F)
-         ,use.names = FALSE)
-}</code></pre>
-<pre class="r"><code>n &lt;- 2000
-
-nh &lt;- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
-samp &lt;- strSRsample(apipop$stype,nh)
-
-ap &lt;- apipop[samp,]</code></pre>
-</div>
-<div id="estimation" class="section level2">
-<h2>Estimation</h2>
-<ul>
-<li>Estimate again the mean of api00 from your three different samples.</li>
-</ul>
-<pre class="r"><code>svy_equal &lt;- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
-
-svymean(s_equal$api00,svy_equal)</code></pre>
-<pre><code>##        mean    SE
-## [1,] 656.12 16.36</code></pre>
-<pre class="r"><code>library(devtools)
-
-install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,ref=&quot;short&quot;)</code></pre>
 </div>
 
 
