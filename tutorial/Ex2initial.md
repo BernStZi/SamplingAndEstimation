@@ -1,0 +1,34 @@
+Exercise 2.A
+------------
+
+Estimation under a stratified design
+
+-   Download the ESS for Sweden and Denmark (round 5)
+-   Import data to R and combine the two datasets
+-   Define a `survey` object (stratified design)
+-   Calculate the combined total for the tv consumption (`tvtot`) and
+    compare it with the totals in Sweden and Denmark
+
+Exercise 2.B
+------------
+
+-   Load the `survey` package and the `api` datasets.
+
+<!-- -->
+
+    library(survey)
+    data(api)
+
+-   The dataset `apistrat` is a sample of schools from `apipop`
+    stratified by `stype`. Assuming the selection within the strata was
+    done by SRS, define a `svydesign` a survey object and calculate a
+    point and variance estimate for the mean of `api00`.
+-   Using `stype` again as a stratification variable try different
+    allocations for stratified sample. Calculate the allocation of a
+    sample of 60 schools from `apipop` using equal, proportional and
+    optimal allocation. The proportional allocation should be
+    proportional to the number of schools within the strata and the
+    optimal alloaction should be optimal with regard to `api99`.
+-   Select a StrSRS from `apipop` for each allocation.
+-   Estimate again the mean of `api00` from all three samples and
+    compare the results.
