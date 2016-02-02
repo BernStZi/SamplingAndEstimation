@@ -118,9 +118,10 @@ library(knitr)
 
 \begin{enumerate}
 
-\item Download the data set for Germany of the 5th ESS-Round (Country File and Sampling Data)
+\item Download the data set for Germany of the 5th ESS-Round (SDDF File and Sampling Data)
 \item[] \url{http://www.europeansocialsurvey.org/data/country.html?c=germany}
-\item Estimate the design effect using the variables \alert{dweight},\alert{PSU} and \alert{agea} (model based approach) 
+\item Create a \R{svydesign} object to estimate the mean of the variable \R{agea}
+\item To acknowledge that the sample has been collected by a multi stage design, estimate the design effect of your estimate above using the PSU-Indicator variable 
 \item[] \alert{Advice:} The variable \alert{PSU} has to be a factor
 \item Calculate the effective sample size
  
@@ -143,7 +144,7 @@ library(knitr)
 MSB=\frac{SSB}{l-1}\text{;~~~~}MSW=\frac{SSW}{n-l}\text{;~~~~}K=\frac{1}{l-1}(n-\sum_{h=1}^l\frac{n_h^2}{n})\text{;}
 \end{equation*}
 \begin{equation*}
-b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}w_{li}^2}
+b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}d_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}d_{li}^2}
 \end{equation*}
 \end{block}
 
@@ -186,7 +187,7 @@ L <- length(unique(Ger$PSU))
 \footnotesize{
 <<eval=FALSE>>=
 ## deffc
-b <- sum(tapply(Ger$dweight,Ger$PSU,
+b.star <- sum(tapply(Ger$dweight,Ger$PSU,
                 function(x)sum(x)^2))/sum(Ger$dweight^2)
 # Calculate an anova for the regression model Age by PSU 
 # (Coule also be any other Variable)
@@ -205,9 +206,9 @@ MSW <- SS$`Mean Sq`[2]
 \begin{frame}[fragile]{Exercise 3b}
 
 \begin{enumerate}
-\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
-\item Calculate the mean income of the population
-\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
+\item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
+\item Your workspace now contains the data sets \R{income}  Calculate the mean income of the population
+\item Estimate the mean income from both samples using the \R{survey} package and compare the results
 
 
 

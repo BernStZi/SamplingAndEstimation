@@ -156,11 +156,11 @@ frame=tb}
 
 \begin{enumerate}
 
-\item Download the ESS dataset for Sweden (Sampling Data and Country File) of the 5th round
+\item Download the ESS dataset for Sweden (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
 \item[] \alert{\url{http://www.europeansocialsurvey.org/data/country.html?c=sweden}}
 \item Setup your workspace and load the R-packages \R{foreign} and \R{survey}
-\item Load the ESS dataset and the country file
-\item Merge both data frames by their ID-variable, using the \R{merge()}-command
+\item Load the ESS dataset and the SDDF
+\item Merge both data frames by their ID-variable, using the \R{merge()} command
 
 \end{enumerate}
 
@@ -171,9 +171,13 @@ frame=tb}
 \begin{enumerate}
 
 \setcounter{enumi}{4}
-\item Determine the sampling strategy (Inspect the variables \alert{SAMPPOIN},\alert{STRATFY} and \alert{PROB})
-\item Add the variable \R{N}$=\R{dweight}*\R{pweight}*10000*n$ to your data frame that equals the total population size for the target population of the ESS Round 5 of Sweden
-\item Convert your data frame to a survey object (\R{survey}-Package)
+\item Determine the sampling strategy (Inspect the variables \alert{PSU},\alert{STRATFY} and \alert{PROB})
+\item Add the variable \R{N} for the population size to your data frame. \R{N} can be calulated by
+\begin{equation*}
+\R{N}=\R{dweight}*\R{pweight}*10000*n\text{,}
+\end{equation*}
+where $n$ refers to the sample size
+\item Create a \R{svydesign} object from the dataset for Sweden using the \R{survey} package
 \item Estimate the total and mean of the variable \R{tvtot}
 
 \end{enumerate}
@@ -187,7 +191,7 @@ frame=tb}
 \item Typically, the first step is to define a survey object with the \R{svydesign()} command
 \end{itemize}
 \begin{center}
-\textbf{Simple survey object (Simple Random Sample)}
+\textbf{Simple Survey Object (Simple Random Sample)}
 \end{center}
 
 
@@ -217,8 +221,8 @@ frame=tb}
 \end{knitrout}
 }
 \begin{itemize}
-\item \R{id} specifies the identifier of PSU and SSU;\R{id$=$ \textasciitilde0} or \R{id$=$\textasciitilde1} stipulates a single stage sampling
-\item For multi-stage samples the \R{id} argument should always specify a formula with the cluster-identifier at each stage
+\item \R{id} specifies the identifier of PSU and SSU; \R{id$=$ \textasciitilde 0} or \R{id$=$\textasciitilde 1} stipulates a single stage sampling
+\item For multi-stage samples the \R{id} argument should always specify a formula with the (cluster-) identifier at each stage
 \item \R{fpc} should be used for the finite population correction
 \item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
 \item \R{data} reflects the data set for which the design object should be defined
@@ -238,7 +242,7 @@ frame=tb}
 \R{svyquantile} & Computes quantiles for data from complex surveys\\
 \R{svyvar} & Computes variances  for data from complex surveys\\
 \R{weights} & Returns the (design) weights of a survey object\\
-\R{calibrate} & Calibration of a data set (uses the GREG-Estimator)\\
+\R{calibrate} & Calibration of a data set (uses the GREG-Estimator by default)\\
 ... & ...\\
 \end{tabular}
 
