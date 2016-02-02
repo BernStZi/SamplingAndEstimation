@@ -14,20 +14,20 @@ library(knitr)
 
 ## Example A
 
-Estimation under stratified design
+Estimation for the European Social Survey under stratified design
 
 - Download ESS for Sweden and Denmark
-- Import data to R and define a `survey` object
-- Calculate the unbiased mean
+- Import data to R and merge the two datasets
+- Define a `survey` object (stratified design)
+- Calculate the unbiased totals for the tv consumption 
 
-## Download ESS
+## Download and Import ESS
 
 - Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
 
+Packages for data import
 
-## Packages for data import
-
-- Use the package `foreign`
+- Use the package `foreign` or `memisc` for import
 
 ```{r,message=F,warning=F}
 library(foreign)
@@ -62,23 +62,40 @@ SE <- as.data.set(spss.portable.file("ESS5SE.por"))
 
 ```{r,eval=Ex}
 DK <- as.data.frame(DK)
+DK$N <- DK$pweight*10000*nrow(DK)
+
 SE <- as.data.frame(SE)
+SE$N <- SE$pweight*10000*nrow(SE)
 ```
 
 ```{r,eval=Ex}
-DK_tv <- data.frame(tvtot=DK$tvtot)
-SE_tv <- data.frame(tvtot=SE$tvtot)
+DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+                    N=DK$N,
+                    cntry=as.character(DK$cntry))
+SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+                    N=SE$N,
+                    cntry=as.character(SE$cntry))
 
 
 NE <- rbind(DK_tv,SE_tv)
 ```
 
-Define a survey object:
+## Define a survey object
 
-```{r}
-
+```{r,message=F}
+library(survey)
 ```
 
+
+[Define a survey object:](http://r-survey.r-forge.r-project.org/survey/example-design.html)
+
+```{r,eval=Ex}
+svydes_NE <- svydesign(id=~1,strata=~cntry, fpc=~N, data=NE)
+```
+
+```{r,eval=Ex}
+svytable(~tvtot,svydes_NE)
+```
 
 
 
