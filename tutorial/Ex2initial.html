@@ -82,11 +82,15 @@ img {
 <div id="exercise-2.b" class="section level2">
 <h2>Exercise 2.B</h2>
 <ul>
-<li><p>Load the survey package and the <code>api</code> datasets.</p></li>
-<li><p>Compute the mean of the Academic Performance Index (2000), asuming SRS</p></li>
-<li><p>Use other allocations</p></li>
-<li><p>Select a StrSRS from apipop for each allocations.</p></li>
-<li><p>Estimate the mean of api00 from different samples (equal, proportional, optimal).</p></li>
+<li>Load the <code>survey</code> package and the <code>api</code> datasets.</li>
+</ul>
+<pre class="r"><code>library(survey)
+data(api)</code></pre>
+<ul>
+<li>The dataset <code>apistrat</code> is a sample of schools from <code>apipop</code> stratified by <code>stype</code>. Assuming the selection within the strata was done by SRS, define a <code>svydesign</code> a survey object and calculate a point and variance estimate for the mean of <code>api00</code>.</li>
+<li>Using <code>stype</code> again as a stratification variable try different allocations for stratified sample. Calculate the allocation of a sample of 60 schools from <code>apipop</code> using equal, proportional and optimal allocation. The proportional allocation should be proportional to the number of schools within the strata and the optimal alloaction should be optimal with regard to <code>api99</code>.</li>
+<li>Select a StrSRS from <code>apipop</code> for each allocation.</li>
+<li>Estimate again the mean of <code>api00</code> from all three samples and compare the results.</li>
 </ul>
 </div>
 

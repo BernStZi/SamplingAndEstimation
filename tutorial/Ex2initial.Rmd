@@ -18,13 +18,19 @@ Estimation  under a stratified design
 
 ## Exercise 2.B
 
-- Load the survey package and the `api` datasets.
 
-- Compute the mean of the Academic Performance Index (2000),  asuming SRS
+- Load the `survey` package and the `api` datasets.
 
-- Use other allocations
+```{r,message=F}
+library(survey)
+data(api)
+```
 
-- Select a StrSRS from apipop for each allocations.
 
-- Estimate the mean of api00 from different
-samples (equal, proportional, optimal).
+- The dataset `apistrat` is a sample of schools from `apipop` stratified by `stype`. Assuming the selection within the strata was done by SRS, define a `svydesign` a survey object and calculate a point and variance estimate for the mean of `api00`. 
+- Using `stype` again as a stratification variable try different allocations for stratified sample. Calculate the allocation of a sample of 60 schools from `apipop` using equal, proportional and optimal allocation. The proportional allocation should be proportional to the number of schools within the strata and the optimal alloaction should be optimal with regard to `api99`.
+- Select a StrSRS from `apipop` for each allocation.
+- Estimate again the mean of `api00` from all three samples and compare the results.
+
+
+
