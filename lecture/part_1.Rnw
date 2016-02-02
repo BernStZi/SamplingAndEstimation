@@ -125,7 +125,7 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 
 
 \title[Sampling Designs]{Sampling and Estimation}   
-\subtitle{Part 1: Sampling Designs}
+\subtitle{Part 1: Introduction to Design Based Inference}
 
 \author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
 \date{\today} 
