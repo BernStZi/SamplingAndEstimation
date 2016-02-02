@@ -11,7 +11,7 @@ Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/l
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_1.pdf))
 covers the concept of sampling from a finite population. The depiction of estimation and inference is driven  **sampling design** that was used in selecting the sample. **Simple random sampling** is explained as one of the most basic sampling designs. Then **stratfication** of the surveyed population is introduced as one of the most common elements of sampling designs.
 
-Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.Rmd) | 
+Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_2.pdf))
 introduces features of more **complex sampling designs** that however find often application in sampling surveys.
 These features include **cluster sampling**, **mutlistage sampling** and **sampling with unequal inclusion probabilities**.

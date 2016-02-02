@@ -2,7 +2,7 @@
 title: "Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "1. Februar 2016"
-output: html_document
+output: md_document
 ---
 
 ```{r,echo=F}
