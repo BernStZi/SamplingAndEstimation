@@ -1,11 +1,6 @@
----
-title: "Exercise 1"
-author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
-date: "2. Februar 2016"
-output: 
-  html_document: 
-    keep_md: yes
----
+# Exercise 1
+Stefan Zins, Matthias Sand and Jan-Philipp Kolb  
+2. Februar 2016  
 *** 
 1. Download the ESS dataset for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
 2. Setup your workspace and load the R-packages [foreign](https://cran.r-project.org/web/packages/foreign/foreign.pdf) and [survey](https://cran.r-project.org/web/packages/survey/index.html)
@@ -26,14 +21,12 @@ where $n$ refers to the sample size
 - The survey package provides a large range of applications for complex survey samples
 - Typically, the first step is to define a survey object with the `svydesign()` command
 
-```{r echo=FALSE,message=FALSE}
-library(Matrix)
-library(survey)
-```
+
 
 ### Simple Survey Object (Simple Random Sample)
 
-```{r}
+
+```r
 data(api)
 
 surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
@@ -59,8 +52,14 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 
 # 
 
-```{r}
+
+```r
 svytotal(~api00,surv.obj)
+```
+
+```
+##         total    SE
+## api00 4066888 57293
 ```
 
 
