@@ -79,6 +79,7 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+\newsavebox{\mysavebox}
 
 \newcommand{\E}[1]{\text{E}\left(#1\right)}
 \newcommand{\V}[1]{\text{V}\left(#1\right)}
@@ -643,7 +644,8 @@ Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs ar
 
 
 \begin{frame}\frametitle{Design Effect for a Cluster Sample}
-  \onslide*<1>{
+
+\onslide*<1>{
   Recall from stratified sampling:
   \begin{table}\caption{Population ANOVA}
   \begin{tabular}{l | l | l }
@@ -655,30 +657,29 @@ Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs ar
   \end{tabular}
   \end{table}
   }
-  \onslide*<2-3>{
-  The homogeneity coefficient 
-  $$\delta=1 - \dfrac{SSW(N-N_{\RN{1}})^{-1}}{SSTO (N-1)^{-1} }$$
-  is a measure for the similarity of elements within the same cluster.
-  }
-  \onslide<3->{
-  It can be shown that 
-  $$\V{ \overline{y}_{\text{SRCS}} }_{\text{SRS}} = 
-  \left( 1+ \dfrac{N-N_{\RN{1}}}{N_{\RN{1}}-1}\delta  \right)\V{\overline{y}}_{\text{SRS}} + N_{\RN{1}}^2 \left( 1-\dfrac{n_{\RN{1}}} {N_{\RN{1}}}  \right) \dfrac{\text{COV}}{n_{\RN{1}}} \,,  $$
-  where $\text{COV} = \frac{1}{N_{\RN{1}}-1 }\sum_{i \in \mathcal{U}_\RN{1}} (N_i - \frac{N}{N_{\RN{1}}}) N_i \mu_i^2$
-  [S\"{a}ndal, 1992, p. 131f.]
-  and the design of SRCS is given by
-   $$ \deff(SRCS, \hat{\tau}_{\pi}/N) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta  + \dfrac{N\, \text{COV}}{N_{\RN{1}} V^2}\;. 
-   $$
-   \onslide<4>{
-   In case $N_i$ is constant for all cluster COV = 0 and we have
-   $$ \deff(SRCS, \hat{\tau}_{\pi}/N) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta \approx 1 + \left(\dfrac{N}{N_\RN{1}}  - 1 \right)\delta
-   $$
-   Note that $\delta$ is the adjusted measure of fit for fitting the linear regression of  $\mathcal{Y}$  on $N_{\RN{1}}-1$ dummy variables, indicating cluster membership.
-   }
-  }
-\end{frame}
-
-\begin{frame}[fragile]\frametitle{Design Effect for a Cluster Sample}
+%   \onslide*<2-3>{
+%   The homogeneity coefficient 
+%   $$\delta=1 - \dfrac{SSW(N-N_{\RN{1}})^{-1}}{SSTO (N-1)^{-1} }$$
+%   is a measure for the similarity of elements within the same cluster.
+%   }
+%   \onslide<3->{
+%   It can be shown that 
+%   $$\V{ \overline{y}_{\text{SRCS}} }_{\text{SRS}} = 
+%   \left( 1+ \dfrac{N-N_{\RN{1}}}{N_{\RN{1}}-1}\delta  \right)\V{\overline{y}}_{\text{SRS}} + N_{\RN{1}}^2 \left( 1-\dfrac{n_{\RN{1}}} {N_{\RN{1}}}  \right) \dfrac{\text{COV}}{n_{\RN{1}}} \,,  $$
+%   where $\text{COV} = \frac{1}{N_{\RN{1}}-1 }\sum_{i \in \mathcal{U}_\RN{1}} (N_i - \frac{N}{N_{\RN{1}}}) N_i \mu_i^2$
+%   [S\"{a}ndal, 1992, p. 131f.]
+%   and the design of SRCS is given by
+%    $$ \deff(SRCS, \hat{\tau}_{\pi}/N) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta  + \dfrac{N\, \text{COV}}{N_{\RN{1}} V^2}\;. 
+%    $$
+%    \onslide<4>{
+%    In case $N_i$ is constant for all cluster COV = 0 and we have
+%    $$ \deff(SRCS, \hat{\tau}_{\pi}/N) =  1+ \dfrac{ N-N_{\RN{1}} }{ N_{\RN{1}} -1 } \delta \approx 1 + \left(\dfrac{N}{N_\RN{1}}  - 1 \right)\delta
+%    $$
+%    Note that $\delta$ is the adjusted measure of fit for fitting the linear regression of  $\mathcal{Y}$  on $N_{\RN{1}}-1$ dummy variables, indicating cluster membership.
+%    }
+%   }
+%\begin{lrbox}{\mysavebox}
+\onslide*<2>{
 <<ExCluSamDeff,echo=FALSE,results='asis',message=FALSE>>=
 
 SSW.byrow <- sum(apply(clu,1,function(x)sum((x-mean(x))^2)))
@@ -697,11 +698,295 @@ dimnames(deffs) <-
 deffs.tab <- xtable(deffs, digits = 5, caption = "Intra-Cluster Homogeneity and Design Effects")
 align(deffs.tab ) <- "l|rr"
 
+
+  
+print.xtable(clu.tab, hline.after = c(0,5,6),caption.placement="top", sanitize.text.function = identity)
 print.xtable(deffs.tab, hline.after = 0,  caption.placement="top", sanitize.text.function = identity)
-print.xtable(clu.tab,hline.after = c(0,5,6),caption.placement="top", sanitize.text.function = identity)
+
+@
+}
+
+\end{frame}
+
+
+\begin{frame}{Issues associated with Estimation of $\deff$}
+  $$ \deff(p(.),\hat{\theta}) = \dfrac{\V{\hat{\theta}}_p}{\V{\hat{\theta}}_{\text{SRS}}} $$
+	\begin{itemize}
+		\item<1->{ Find suitable estimators for both
+		\begin{itemize}
+			\item the denominator and
+			\item the numerator
+		\end{itemize}
+		}
+		\item<2-> Treat the data as if it had arisen from SRS for estimation of the enumerator (but using available weights).
+	\item<3> It is also common to use SRSWR as the reference design, which can simplify the design effect estimation.
+	\end{itemize}
+	
+\end{frame}
+
+
+% \begin{frame}{Variance Estimation}
+% 	\begin{itemize}
+% 		\item Depending on the estimator under study, variance estimation can be cumbersome
+% 		\item The usual (approximate) variance estimation techniques can be applied:
+% 		\begin{itemize}
+% 			\item Linearization
+% 			\item Resampling
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{frame}
+
+
+\begin{frame}{Model Based Approach}
+Since it is so difficult to estimate the design effect models are used to describe it. Effectively an alternative version of the design effect is defined which is easier to estimate.
+	\begin{itemize}
+		\item Again we have $N_{\RN{1}}$ clusters in the population of size $N_i$, $i=1,\dots,N_{\RN{1}}$
+		\item Variable $\mathcal{Y}$ is assumed to follow the \emph{common parameter model},
+		\begin{eqnarray*}
+		  \E{y_{ki}}_{M} &=& \mu \\
+		  \notag\V{ y_{ki}}_{M}	&	=	&	\sigma^2 \\
+			\COV{y_{ki}}{y_{k'i'}}_{M}	&	=	&
+																\begin{cases}%
+																	\sigma^2 \rho & \text{for } k\neq k', i = i'
+																	\\
+																	0							& \text{otherwise.}
+																\end{cases}%
+		\end{eqnarray*}%
+	\end{itemize}
+	$\rho$ the so called \emph{Intra-Class Correlation Coefficient} is a central parameter to the model. It determine how similar to each other the elements from the same cluster are.
+	
+\end{frame}
+
+
+
+\begin{frame}{Estimation of $\deff$}{under Cluster Sampling}
+\onslide*<1>{
+	The considered estimator is $\overline{y}_{w} = \dfrac{\sum_{k \in \mathfrc{s}} w_k y_k}{\sum_{k \in \mathfrc{s}} w_k }$, where $w_k$ is the survey associated with $k$-th element, e.g. 
+	$$ w_k =
+	\begin{cases}
+	\pi_k^{-1} & \text{for}\; k \in \mathfrc{s} \\
+	0          & \text{else}
+	\end{cases}\,{.}
+	$$
+	\begin{itemize}
+		\item Under the model-based approach, $\deff$ can be displayed as the product of two factors:
+		\begin{description}
+			\item[$\deffc$] design effect due to clustering
+			\item[$\deffp$] design effect due to unequal survey weights
+		\end{description}
+		\item They indicate loss in precision due to cluster sampling and unequal weights, respectively.
+	\end{itemize}
+}\onslide*<2>{	Note that under the model-based approach $w_k$ is treated as independent of $y_k$ for all $k \in \mathcal{U}$. Potential gains in precision by using proportional to size design are not considered, quite the contrary, unequal weight will increase the variance of $\overline{y}_{w}$ in this setting.}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Estimation of $\deffc$}
+	\begin{itemize}
+		\item Under cluster sampling and two-stage sampling we can use:\\
+					$$
+						\deffhatc = 1 + \left(\bar{b} - 1\right) \hat{\rho}
+					$$
+					with
+					\begin{description}
+						\item[$\bar{b}$]  as the average cluster size $\frac{N}{N_{\RN{1}}}$ ($\frac{n}{n_{\RN{1}}}$ ) or an estimator for it and 
+						\item[$\hat{\rho}$] an appropriate estimator of $\rho$.
+					\end{description}
+		\item When $w_k$'s vary we have
+					$$
+					  \deffhatc = 1 + \left(b^{\ast} - 1\right) \hat{\rho}
+					$$
+					where $b^{\ast}= \frac{ \sum_{i \in \mathfrc{s}_{\RN{1}}} \left( \sum_{k \in \mathfrc{s}_i} w_{k} \right)^2 }{ \sum_{k \in \mathfrc{s} } w_k^2}$ is a kind of weighted average cluster size \cite{GablerEtal1999}.
+	\end{itemize}
+	%For two stage cluster 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Calculation of $\deffp$}
+	\begin{itemize}
+		\item The design effect due to unequal weights is
+					$$
+					  \deffp = n \frac{\sum_{k \in \mathfrc{s}} w_k^2} { \left( \sum_{k \in \mathfrc{s}}  w_k \right)^2 }
+					$$
+		\item Obviously, if $w_k$'s are constant, $\deffp = 1$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior of $\deffc$}
+~\\[-1cm]
+<<deff-illustration-wire,echo=FALSE,out.width='.8\\linewidth', fig.pos='th', fig.show = 'asis',cache=TRUE>>=
+library(lattice)
+bbar <- seq(5, 25, by = .5)
+rho  <- seq(.02, .2, by=.005)
+deff <- function(bbar,rho) 1+ ((bbar-1)*rho)
+D <- sapply(bbar, function(x) sapply(rho, function(y) deff(x,y)))
+dimnames(D) <- list(rho, bbar)
+
+a.pts <- data.frame(x = c(15,15,15),
+                    y = c(.05,.10,.15),
+                    z = NA)
+a.pts$z <- 1 + ((a.pts$x-1)*a.pts$y)
+a <- sort(c(1:6,a.pts$z))
+
+b.pts <- data.frame(x = c(20,20,20),
+                    y = c(.05,.10,.15),
+                    z = NA)
+b.pts$z <- 1 + ((b.pts$x-1)*b.pts$y)
+b <- sort(c(1:6,b.pts$z))
+
+f <- unique(sort(c(a,b)))
+cols <-  rep("black",length(f))
+cols[f%in%a.pts$z] <- "red"
+cols[f%in%b.pts$z] <- "green"
+cols <- cols[-1]
+
+deffTildeBbarRho <- 
+wireframe(D ~ rep(bbar,each=length(rho)) + rep(rho,length(bbar)),
+          drape = TRUE,
+          at = seq(1,6,by=.5),
+          colorkey = TRUE,
+          col.regions = c("blue2","grey70"),
+          alpha.regions = .5,
+          xlab = expression(bar(b)),
+          ylab = expression(rho),
+          zlab = expression(Deff[c]),
+          default.scales = list(arrows = FALSE,
+                                x = list(at = c(seq(5,25,by=5),max(bbar))),
+                                y = list(at = c(seq(.05,max(rho),by=.05),max(rho))),
+                                z = list(at = f, col = cols)),
+          a.pts = a.pts,
+          b.pts = b.pts,
+          screen =list(x=-50,y=55,z=35),
+          panel.3d.wireframe = function(x,y,z,
+                                        xlim, ylim, zlim,
+                                        xlim.scaled, ylim.scaled, zlim.scaled,
+                                        a.pts, b.pts, ...){
+
+                                a.xx <- ((a.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
+                                a.yy <- ((a.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
+                                a.zz <- ((a.pts$z -min(D))/ (max(D)-min(D)))-.5
+
+                                b.xx <- ((b.pts$x -min(bbar))/ (max(bbar)-min(bbar)))-.5
+                                b.yy <- ((b.pts$y -min(rho))/ (max(rho)-min(rho)))-.5
+                                b.zz <- ((b.pts$z -min(D))/ (max(D)-min(D)))-.5
+
+                                panel.3dscatter(x = a.xx, y = a.yy, z = a.zz,
+                                                xlim = xlim,
+                                                ylim = ylim,
+                                                zlim = zlim,
+                                                xlim.scaled = xlim.scaled,
+                                                ylim.scaled = ylim.scaled,
+                                                zlim.scaled = zlim.scaled,
+                                                type = "h", pch = 0, lwd = 5, col = "red",...)
+
+                                panel.3dscatter(x = b.xx, y = b.yy, z = b.zz,
+                                                xlim = xlim,
+                                                ylim = ylim,
+                                                zlim = zlim,
+                                                xlim.scaled = xlim.scaled,
+                                                ylim.scaled = ylim.scaled,
+                                                zlim.scaled = zlim.scaled,
+                                                type = "h", pch = 0, lwd = 5, col = "green",...)
+
+                                panel.3dwire(x,y,z,
+                                             xlim = xlim,
+                                             ylim = ylim,
+                                             zlim = zlim,
+                                             xlim.scaled = xlim.scaled,
+                                             ylim.scaled = ylim.scaled,
+                                             zlim.scaled = zlim.scaled,
+                                             lwd = 0.25,...)
+
+                                for(i in 1:nrow(a.pts)){
+                                  panel.3dscatter(x = c(a.xx[i],-.5,-.5),
+                                                  y = c(a.yy[i],a.yy[i],.5),
+                                                  z = c(a.zz[i],a.zz[i],a.zz[i]),
+                                  xlim = xlim,
+                                  ylim = ylim,
+                                  zlim = zlim,
+                                  xlim.scaled = xlim.scaled,
+                                  ylim.scaled = ylim.scaled,
+                                  zlim.scaled = zlim.scaled,
+                                  pch = 2, col = "red", lwd = 4, type="l",...)}
+
+                                for(i in 1:nrow(b.pts)){
+                                  panel.3dscatter(x = c(b.xx[i],-.5,-.5),
+                                                  y = c(b.yy[i],b.yy[i],.5),
+                                                  z = c(b.zz[i],b.zz[i],b.zz[i]),
+                                  xlim = xlim,
+                                  ylim = ylim,
+                                  zlim = zlim,
+                                  xlim.scaled = xlim.scaled,
+                                  ylim.scaled = ylim.scaled,
+                                  zlim.scaled = zlim.scaled,
+                                  pch = 2, col = "green", lwd = 4, type="l",...)}
+                               })
+
+print(deffTildeBbarRho)
+@
+\end{frame}
+
+
+
+\begin{frame}{An Estimators of $\rho$}
+\onslide<1->{
+  There are many different ways to estimate $\rho$ \cite{Ganninger2009}.
+  The classical ANOVA estimator is:
+	\begin{align*}
+		\hat{\rho} = \dfrac{ \widehat{MSB} -  \widehat{MSW}}{ \widehat{MSB}+(K-1) \widehat{MSW} }\;{,}
+	\end{align*}%
+where $ \widehat{MSB} =  (n_\RN{1}-1)^{-1} \sum_{i \in \mathfrc{s}_{\RN{1}}} n_i (\overline{y}_i - \overline{y})^2 $, $\widehat{MSW}  = (n-n_\RN{1})^{-1} \sum_{i \in \mathfrc{s}_{\RN{1}}} (n_i - 1) s^2_i$, and 
+$$
+ K = (n_\RN{1}-1)^{-1} \left( n - \sum_{ i \in \mathfrc{s}_\RN{1} }  \dfrac{n_i^2}{n} \right) \;{.}
+$$
+}
+\onslide<2>{
+\begin{itemize}
+\item The model-based approach is widely used because it presents for data users often the only option to estimate a design effect.
+\item For multi-stage design the used model considers only the cluster effect of the PSU's and neglects any subsequent sampling stages.
+\end{itemize}
+}
+\end{frame}
+
+
+\begin{frame}{Comparison of Design Based and Model Based Design Effects}
+<<modelDeffEst, echo=FALSE,results='asis',message=FALSE>>=
+#model-based
+clu.data <- as.vector(clu)
+psu.col  <- rep(1:5,each=5)
+psu.row  <- rep(1:5,5)
+
+n_I <- 2
+n_i <- rep(5,n_I)
+n <- sum(n_i)
+
+K <- (n - sum( n_i^2/n))/(n_I-1)
+b.star <- sum(n_i^2)/n
+
+MS.col <- anova(lm( clu.data ~ psu.col))["Mean Sq"]
+MS.row <- anova(lm( clu.data ~ psu.row))["Mean Sq"]
+
+rho.col <- (MS.col["psu",]-MS.col["Residual",])/(MS.col["psu",]+(K-1)*MS.col["Residual",])
+rho.row <- (MS.row["psu",]-MS.row["Residual",])/(MS.row["psu",]+(K-1)*MS.row["Residual",])
+
+deff.bycol.m <- 1+(b.star - 1)*rho.col
+deff.byrow.m <- 1+(b.star - 1)*rho.row
+
+
+deffm <- matrix(c(rho.col, deff.bycol.m, rho.row, deff.byrow.m),ncol=2)
+
+dimnames(deffm) <- 
+ list(c("$\\rho$","$\\deff$"), c("SRCS a", "SRCS b"))
+
+deffm.tab <- xtable(deffm, digits = 5, caption = "Intra-Class Correlation Coefficient and (Model) Design Effects")
+align(deffm.tab ) <- "l|rr"
+
+print.xtable(deffm.tab, hline.after = 0,  caption.placement="top", sanitize.text.function = identity)
+print.xtable(deffs.tab, hline.after = 0,  caption.placement="top", sanitize.text.function = identity)
 
 @
 \end{frame}
+
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}    
 %\scriptsize
