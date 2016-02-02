@@ -1,8 +1,8 @@
 ---
 title: "Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
-date: "1. Februar 2016"
-output: md_document
+date: "1 Februar 2016"
+output: html_document
 ---
 
 ```{r,echo=F}
@@ -12,14 +12,14 @@ library(knitr)
 
 
 
-## Example A
+## Exercise 2.A
 
-Estimation for the European Social Survey under stratified design
+Estimation  under a stratified design
 
-- Download ESS for Sweden and Denmark
+- Download the ESS for Sweden and Denmark (round 5)
 - Import data to R and merge the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the unbiased totals for the tv consumption 
+- Calculate the unbiased totals for the tv consumption (`tvtot`)
 
 ## Download and Import ESS
 
@@ -31,10 +31,6 @@ Packages for data import
 
 ```{r,message=F,warning=F}
 library(foreign)
-```
-
-```{r,message=F,warning=F}
-library(memisc)
 ```
 
 
@@ -96,7 +92,7 @@ svytable(~tvtot,svydes_NE)
 
 
 
-## Example B
+## Exercise 2.B
 
 - Load the survey package and the `api` datasets.
 

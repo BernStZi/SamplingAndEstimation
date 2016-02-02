@@ -237,7 +237,7 @@ Estimation
     svymean(s_equal$api00,svy_equal)
 
     ##        mean     SE
-    ## [1,] 680.19 13.105
+    ## [1,] 656.92 13.877
 
     library(devtools)
 

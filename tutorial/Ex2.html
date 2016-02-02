@@ -63,20 +63,18 @@ img {
 <div id="header">
 <h1 class="title">Exercise 2</h1>
 <h4 class="author"><em>Jan-Philipp Kolb, Stefan Zins and Matthias Sand</em></h4>
-<h4 class="date"><em><ol style="list-style-type: decimal">
-<li>Februar 2016</li>
-</ol></em></h4>
+<h4 class="date"><em>1 Februar 2016</em></h4>
 </div>
 
 
-<div id="example-a" class="section level2">
-<h2>Example A</h2>
-<p>Estimation for the European Social Survey under stratified design</p>
+<div id="exercise-2.a" class="section level2">
+<h2>Exercise 2.A</h2>
+<p>Estimation under a stratified design</p>
 <ul>
-<li>Download ESS for Sweden and Denmark</li>
+<li>Download the ESS for Sweden and Denmark (round 5)</li>
 <li>Import data to R and merge the two datasets</li>
 <li>Define a <code>survey</code> object (stratified design)</li>
-<li>Calculate the unbiased totals for the tv consumption</li>
+<li>Calculate the unbiased totals for the tv consumption(<code>tvtot</code>)</li>
 </ul>
 </div>
 <div id="download-and-import-ess" class="section level2">
@@ -118,8 +116,8 @@ NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
 <pre class="r"><code>svydes_NE &lt;- svydesign(id=~1,strata=~cntry, fpc=~N, data=NE)</code></pre>
 <pre class="r"><code>svytable(~tvtot,svydes_NE)</code></pre>
 </div>
-<div id="example-b" class="section level2">
-<h2>Example B</h2>
+<div id="exercise-2.b" class="section level2">
+<h2>Exercise 2.B</h2>
 <ul>
 <li><p>Load the survey package and the <code>api</code> datasets.</p></li>
 <li><p>Compute the mean of the Academic Performance Index (2000), asuming SRS</p></li>
@@ -240,6 +238,18 @@ s_equal$api00 &lt;- apistrat$api00[s_equal$ID_unit]</code></pre>
 </div>
 <div id="proportional-allocation" class="section level2">
 <h2>Proportional allocation</h2>
+<pre class="r"><code>strSRsample &lt;- function(strind, nh, replace=FALSE){
+  Nh &lt;- table(strind)[names(nh)]
+  h.id &lt;- split(1:sum(Nh), strind)[names(nh)]
+  
+  
+  sam &lt;- mapply( function(x,y) sample(x, y, replace=replace)
+                 , Nh, nh, SIMPLIFY = F)
+  unlist(mapply(function(x,y) x[y]
+                , h.id
+                , sam, SIMPLIFY = F)
+         ,use.names = FALSE)
+}</code></pre>
 <pre class="r"><code>n &lt;- 2000
 
 nh &lt;- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
@@ -256,7 +266,7 @@ ap &lt;- apipop[samp,]</code></pre>
 
 svymean(s_equal$api00,svy_equal)</code></pre>
 <pre><code>##        mean     SE
-## [1,] 662.54 14.653</code></pre>
+## [1,] 637.76 15.094</code></pre>
 <pre class="r"><code>library(devtools)
 
 install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,ref=&quot;short&quot;)</code></pre>
