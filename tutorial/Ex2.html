@@ -86,16 +86,16 @@ img {
 </ul>
 <p>Packages for data import</p>
 <ul>
-<li>Use the package <code>foreign</code></li>
+<li>Use the package <code>foreign</code> or <code>memisc</code> for import</li>
 </ul>
 <pre class="r"><code>library(foreign)</code></pre>
 <pre class="r"><code>library(memisc)</code></pre>
 </div>
 <div id="load-the-ess-dataset-and-the-country-file" class="section level2">
 <h2>Load the ESS dataset and the country file</h2>
-<p><a href="http://stackoverflow.com/questions/3136293/read-spss-file-into-r">Import portable spss-files</a></p>
-<pre class="r"><code>DK &lt;- as.data.set(spss.portable.file(&quot;ESS5DK.por&quot;))
-SE &lt;- as.data.set(spss.portable.file(&quot;ESS5SE.por&quot;))</code></pre>
+<pre class="r"><code>library(foreign)
+DK &lt;- read.spss(&quot;ESS5DK.sav&quot;,to.data.frame=T)
+SE &lt;- read.spss(&quot;ESS5SE.sav&quot;,to.data.frame=T)</code></pre>
 <pre class="r"><code>DK &lt;- as.data.frame(DK)
 DK$N &lt;- DK$pweight*10000*nrow(DK)
 
@@ -122,7 +122,7 @@ NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
 <h2>Example B</h2>
 <ul>
 <li><p>Load the survey package and the <code>api</code> datasets.</p></li>
-<li><p>Estimation under SRS</p></li>
+<li><p>Compute the mean of the Academic Performance Index (2000), asuming SRS</p></li>
 <li><p>Use other allocations</p></li>
 <li><p>Select a StrSRS from apipop for each allocations.</p></li>
 <li><p>Estimate the mean of api00 from different samples (equal, proportional, optimal).</p></li>
@@ -224,9 +224,42 @@ NE &lt;- rbind(DK_tv,SE_tv)</code></pre>
 <li>optimal allocation (with regard to <code>api99</code> allocation)</li>
 </ul>
 <p>Select a StrSRS from apipop for each of your allocations.</p>
+</div>
+<div id="equal-allocation" class="section level2">
+<h2>Equal allocation</h2>
+<pre class="r"><code>library(sampling)
+Nh &lt;- table(apistrat$stype)
+
+s_equal &lt;- strata(apistrat,&quot;stype&quot;,
+         size=c(20,20,20), 
+         method=&quot;srswor&quot;)
+
+ind &lt;- match(s_equal$stype,names(Nh))
+s_equal$N &lt;- Nh[ind]
+s_equal$api00 &lt;- apistrat$api00[s_equal$ID_unit]</code></pre>
+</div>
+<div id="proportional-allocation" class="section level2">
+<h2>Proportional allocation</h2>
+<pre class="r"><code>n &lt;- 2000
+
+nh &lt;- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
+samp &lt;- strSRsample(apipop$stype,nh)
+
+ap &lt;- apipop[samp,]</code></pre>
+</div>
+<div id="estimation" class="section level2">
+<h2>Estimation</h2>
 <ul>
 <li>Estimate again the mean of api00 from your three different samples.</li>
 </ul>
+<pre class="r"><code>svy_equal &lt;- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
+
+svymean(s_equal$api00,svy_equal)</code></pre>
+<pre><code>##        mean     SE
+## [1,] 662.54 14.653</code></pre>
+<pre class="r"><code>library(devtools)
+
+install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,ref=&quot;short&quot;)</code></pre>
 </div>
 
 

@@ -38,7 +38,6 @@ library(memisc)
 ```
 
 
-
 ```{r,echo=F}
 ## Set working directory
 main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
@@ -51,12 +50,10 @@ setwd(data.path)
 
 ## Load the ESS dataset and the country file
 
-
-[Import portable spss-files](http://stackoverflow.com/questions/3136293/read-spss-file-into-r)
-
 ```{r,eval=Ex}
-DK <- as.data.set(spss.portable.file("ESS5DK.por"))
-SE <- as.data.set(spss.portable.file("ESS5SE.por"))
+library(foreign)
+DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 ```
 
 
@@ -162,8 +159,66 @@ Using `stype` as a stratification variable calculate the allocation of a sample 
 
 Select a StrSRS from apipop for each of your allocations.
 
+
+## Equal allocation
+
+```{r}
+library(sampling)
+Nh <- table(apistrat$stype)
+
+s_equal <- strata(apistrat,"stype",
+         size=c(20,20,20), 
+         method="srswor")
+
+ind <- match(s_equal$stype,names(Nh))
+s_equal$N <- Nh[ind]
+s_equal$api00 <- apistrat$api00[s_equal$ID_unit]
+```
+
+## Proportional allocation
+
+```{r}
+strSRsample <- function(strind, nh, replace=FALSE){
+  Nh <- table(strind)[names(nh)]
+  h.id <- split(1:sum(Nh), strind)[names(nh)]
+  
+  
+  sam <- mapply( function(x,y) sample(x, y, replace=replace)
+                 , Nh, nh, SIMPLIFY = F)
+  unlist(mapply(function(x,y) x[y]
+                , h.id
+                , sam, SIMPLIFY = F)
+         ,use.names = FALSE)
+}
+```
+
+
+```{r,eval=F}
+n <- 2000
+
+nh <- tapply(apipop$api99,apipop$stype,function(x)sum(x)/sum(apipop$api99)*n)
+samp <- strSRsample(apipop$stype,nh)
+
+ap <- apipop[samp,]
+```
+
+
+## Estimation
+
 - Estimate again the mean of api00 from your three different
 samples.
+
+```{r}
+
+svy_equal <- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
+
+svymean(s_equal$api00,svy_equal)
+```
+
+
+
+
+
 
 ```{r,eval=F}
 library(devtools)
