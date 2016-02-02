@@ -72,22 +72,21 @@ img {
 <p>Estimation under a stratified design</p>
 <ul>
 <li>Download the ESS for Sweden and Denmark (round 5)</li>
-<li>Import data to R and merge the two datasets</li>
+<li>Import data to R and combine the two datasets</li>
 <li>Define a <code>survey</code> object (stratified design)</li>
-<li>Calculate the unbiased totals for the tv consumption(<code>tvtot</code>)</li>
+<li>Calculate the combined total for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
 </ul>
 </div>
 <div id="download-and-import-ess" class="section level2">
 <h2>Download and Import ESS</h2>
 <ul>
-<li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) of the 5th round</li>
+<li>Download the ESS dataset for <a href="http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&amp;c=DK&amp;y=2010">Denmark</a> (Sampling Data and Country File) and <a href="http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&amp;c=SE&amp;y=2010">Sweden</a> of the 5th round</li>
 </ul>
 <p>Packages for data import</p>
 <ul>
-<li>Use the package <code>foreign</code> or <code>memisc</code> for import</li>
+<li>Use the package <code>foreign</code> for import</li>
 </ul>
 <pre class="r"><code>library(foreign)</code></pre>
-<pre class="r"><code>library(memisc)</code></pre>
 </div>
 <div id="load-the-ess-dataset-and-the-country-file" class="section level2">
 <h2>Load the ESS dataset and the country file</h2>
@@ -265,8 +264,8 @@ ap &lt;- apipop[samp,]</code></pre>
 <pre class="r"><code>svy_equal &lt;- svydesign(id=~1,strata=~stype, fpc=~N, data=s_equal)
 
 svymean(s_equal$api00,svy_equal)</code></pre>
-<pre><code>##        mean     SE
-## [1,] 637.76 15.094</code></pre>
+<pre><code>##        mean    SE
+## [1,] 656.12 16.36</code></pre>
 <pre class="r"><code>library(devtools)
 
 install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,ref=&quot;short&quot;)</code></pre>

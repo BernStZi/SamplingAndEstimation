@@ -17,17 +17,17 @@ library(knitr)
 Estimation  under a stratified design
 
 - Download the ESS for Sweden and Denmark (round 5)
-- Import data to R and merge the two datasets
+- Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the unbiased totals for the tv consumption (`tvtot`)
+- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
 
 ## Download and Import ESS
 
-- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) of the 5th round
+- Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) and [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) of the 5th round
 
 Packages for data import
 
-- Use the package `foreign` or `memisc` for import
+- Use the package `foreign` for import
 
 ```{r,message=F,warning=F}
 library(foreign)
