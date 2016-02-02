@@ -103,7 +103,7 @@ svytable(~tvtot,svydes_NE)
 
 - Load the survey package and the `api` datasets.
 
-- Estimation under SRS
+- Compute the mean of the Academic Performance Index (2000),  asuming SRS
 
 - Use other allocations
 
