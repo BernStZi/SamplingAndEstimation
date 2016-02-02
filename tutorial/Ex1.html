@@ -98,9 +98,9 @@ surv.obj &lt;- svydesign(id=~1,fpc = ~fpc, data = apisrs)</code></pre>
 <ul>
 <li><code>id</code> specifies the identifier of PSU and SSU;<code>id</code> <span class="math">\(=\)</span> ~ 0 or <span class="math">\(=\)</span> ~ 1 stipulates a single stage sampling</li>
 <li>For multi-stage samples the <code>id</code> argument should always specify a formula with the (cluster-) identifier at each stage</li>
-<li><code>fpc</code> should be used for the finite population correction</li>
-<li><span class="math">\(\Rightarrow\)</span> Either as the total population size of each stratum or as a fraction of the total population that has been sampled</li>
-<li><code>data</code>reflects the data set for which the design object should be defined</li>
+<li><p><code>fpc</code> should be used for the finite population correction</p>
+<span class="math">\(\Rightarrow\)</span> Either as the total population size of each stratum or as a fraction of the total population that has been sampled<br /></li>
+<li><p><code>data</code>reflects the data set for which the design object should be defined</p></li>
 </ul>
 <hr />
 </div>

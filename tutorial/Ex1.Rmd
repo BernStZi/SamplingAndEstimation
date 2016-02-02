@@ -40,7 +40,8 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 - `id` specifies the identifier of PSU and SSU;`id` $=$ \~ 0 or $=$ \~ 1 stipulates a single stage sampling
 - For multi-stage samples the `id` argument should always specify a formula with the (cluster-) identifier at each stage
 - `fpc` should be used for the finite population correction
-- $\Rightarrow$ Either as the total population size of each stratum or as a fraction of the total population that has been sampled
+
+      $\Rightarrow$  Either as the total population size of each stratum or as a fraction of the total population that has been sampled  
 - `data`reflects the data set for which the design object should be defined
 
 ***
