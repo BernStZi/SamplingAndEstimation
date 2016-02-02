@@ -8,5 +8,5 @@ fct()
 Objective function
 }
 \examples{
-fct()
+fct(1)
 }
