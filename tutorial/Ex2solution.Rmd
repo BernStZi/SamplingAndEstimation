@@ -1,0 +1,73 @@
+---
+title: "Sampling and Estimation - Exercise 2"
+author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
+date: "2 Februar 2016"
+output: beamer_presentation
+---
+
+
+## Exercise 2.A
+
+Estimation under a stratified design
+
+- Download the ESS for Sweden and Denmark (round 5)
+- Import data to R and combine the two datasets
+- Define a `survey` object (stratified design)
+- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+
+## Solution Exercise 2.A 
+
+- Download the ESS for Sweden and Denmark (round 5)
+
+Download the ESS dataset for [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (Sampling Data and Country File) and [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) of the 5th round
+
+Use the package `foreign` for import
+
+```{r,message=F,warning=F}
+library(foreign)
+```
+
+
+```{r,echo=F,eval=Ex}
+## Set working directory
+main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+
+data.path <- paste(main.path,"data/",sep="")
+
+setwd(data.path)
+```
+
+
+Load the ESS dataset and the country file
+
+```{r,eval=Ex}
+library(foreign)
+DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+```
+
+
+## Exercise 2.B
+
+
+- Load the `survey` package and the `api` datasets.
+
+```{r,message=F}
+library(survey)
+data(api)
+```
+
+
+- The dataset `apistrat` is a sample of schools from `apipop` stratified by `stype`. Assuming the selection within the strata was done by SRS, define a survey object (`svydesign`) and calculate a point and variance estimate for the mean of `api00`. 
+
+## Exercise 2.B
+
+- Using `stype` again as a stratification variable try different allocations for stratified sample. Calculate the allocation of a sample of 60 schools from `apipop` using equal, proportional and optimal allocation. The proportional allocation should be proportional to the number of schools within the strata and the optimal alloaction should be optimal with regard to `api99`.
+
+## Exercise 2.B
+
+- Select a StrSRS from `apipop` for each allocation.
+- Estimate again the mean of `api00` from all three samples and compare the results.
+
+
+
