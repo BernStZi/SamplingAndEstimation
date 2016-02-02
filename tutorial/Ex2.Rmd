@@ -165,3 +165,8 @@ Select a StrSRS from apipop for each of your allocations.
 - Estimate again the mean of api00 from your three different
 samples.
 
+```{r,eval=F}
+library(devtools)
+
+install_github("BernStZi/SamplingAndEstimation/r/sampaest",ref="short")
+```
