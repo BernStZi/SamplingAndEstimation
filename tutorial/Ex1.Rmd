@@ -1,12 +1,12 @@
 ---
 title: ' Introduction to the Analysis of Sample Surveys with R - Exercise 1'
 author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
-date: "4 February 2016"
+date: "February 4th, 2016"
 output:
-  html_document:
-    keep_md: yes
   pdf_document:
     keep_tex: yes
+  html_document:
+    keep_md: yes
 ---
 *** 
 1. Download the ESS dataset for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) (Survey Data and Sampling Design Data File (SDDF)) of the 5th round

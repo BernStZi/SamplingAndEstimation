@@ -1,6 +1,6 @@
 #  Introduction to the Analysis of Sample Surveys with R - Exercise 1
 Stefan Zins, Matthias Sand and Jan-Philipp Kolb  
-4 February 2016  
+February 4th, 2016  
 *** 
 1. Download the ESS dataset for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
 2. Setup your workspace and load the R-packages [foreign](https://cran.r-project.org/web/packages/foreign/foreign.pdf) and [survey](https://cran.r-project.org/web/packages/survey/index.html)

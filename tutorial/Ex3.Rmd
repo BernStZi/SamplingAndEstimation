@@ -1,7 +1,7 @@
 ---
 title: "Complex Sampling Designs - Exercise 3"
 author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
-date: "6 February 2016"
+date: "February 6th, 2016"
 output:
   html_document: default
   pdf_document:
@@ -9,7 +9,7 @@ output:
 ---
 
 ***
-# Exercise 3a
+# Exercise 3.A
  1. Download the dataset for [Germany](http://www.europeansocialsurvey.org/data/country.html?c=germany) of the 5th ESS-Round (SDDF File and Sampling Data)
  2. Create a `svydesign` object to estimate the mean of the variable `agea`
  3. To acknowledge that the sample has been collected by a multi stage design, estimate the design effect of your estimate above using the PSU-Indicator variable (Use the [model based approach](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf) described on slide 20 of today's lecture)
@@ -50,6 +50,9 @@ MSB <- SS$`Mean Sq`[1]
 MSW <- SS$`Mean Sq`[2]
 ```
 ***
+# Exercise 3.B
+
+
 
 - Execute the following [R-Script](https://raw.githubusercontent.com/BernStZi/SamplingAndEstimation/short/tutorial/Samples_for_EX3b.R) to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities dataset
 ```{r eval=FALSE}
