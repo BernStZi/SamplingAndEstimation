@@ -82,9 +82,13 @@ surv <- svydesign(id=~Commune+id,fpc=~prob1+prob2,
 -  `pps` should be used to define the design information; usually the second order probability of inclusion  
    If the second order probability of inclusion are unknown (or too complex to calculate), a brewer approximation can be applied to estimate the joint inclusion probabilities
 
+***
+# Exercise 3.C
 
-
-
+- Load the `survey` package and the `api` datasets.
+- Build the same survey object based on the sample data `apistrat` as in *Exercise 2.B*.
+- Now calibrate the weights of this this survey object to the population totals of api99 within the strata (`stype`) of the sample using the *GREG* approach.
+- Compare point and variance estimates for the mean of `api00` using design and calibrated weights. 
 
 
 

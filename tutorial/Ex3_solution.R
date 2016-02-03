@@ -81,10 +81,32 @@ surv2 <- svydesign(id=~Commune,data = Data.be2,fpc=~N)
 svymean(~inc,surv2)
 
 
+###################
+## Exercise 3C ####
+###################
+#0. load the data
+data(api)
 
+#1. build a 'design' object
+svy_api <- svydesign(id=~1,strata=~stype, 
+                     fpc=~fpc, data=apistrat)
 
+#2. compute pop totals of auxiliaries
+lmod <- lm(1:nrow(apipop) ~ stype:api99, data=apipop)
+pop.tots <- colSums(model.matrix(lmod)) 
+#note that we can use any variable on the left side of "~", because
+#we will only use the lm object "lmod" only to extract the population margins in a 
+#convenient way
 
+#3. use 'calibrate' to compute the new weights
+svy_api.cal <- 
+  calibrate(design = svy_api,
+            formula = ~ stype:api99,
+            population = pop.tots,
+            calfun='linear' )
 
+svymean(~api00, svy_api)
+svymean(~api00, svy_api.cal)
 
 
 
