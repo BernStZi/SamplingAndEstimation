@@ -3,9 +3,9 @@ title: "Complex Sampling Designs - Exercise 3"
 author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
 date: "6 February 2016"
 output:
-  html_document: default
   pdf_document:
     keep_tex: yes
+  html_document: default
 ---
 
 ***

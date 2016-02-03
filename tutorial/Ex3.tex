@@ -1,310 +1,242 @@
-\documentclass[11pt,german,hideothersubsections]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
   \else
-    \Gin@nat@width
+    \usepackage{fontspec}
   \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
-
-\usepackage{hyperref}
-\usepackage{amsmath,nicefrac,booktabs,mathabx}
-\usepackage{natbib}
-\usepackage{url}
-\usepackage{textpos}
-\usepackage{listings}
-\definecolor{Rblau}{rgb}{.3,.6,.9}
-
-\lstset{language=R,
-basicstyle=\ttfamily\footnotesize,
-keywordstyle=\color{blue}\bfseries,
-identifierstyle=\color{Rblau},
-commentstyle=\color{gray},
-stringstyle=\color{green}\ttfamily,
-showstringspaces=false,
-frame=tb}
-
-
-
-\bibpunct{(}{)}{;}{a}{,}{,}
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{multirow,dcolumn}
-\usepackage{ragged2e}
-\usepackage{xcolor}
-\usepackage{colortbl}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usepackage{booktabs}
-\colorlet{tablesubheadcolor}{gray!25}
-\colorlet{tableheadcolor}{gray!40}
-\colorlet{tablerowcolor}{gray!15.0}
-\usetheme[english]{Gesis}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]%{\hspace*{.2cm}\insertframenumber}
-\setbeamerfont{caption}{size=\footnotesize}
-\usefonttheme[onlylarge]{structuresmallcapsserif} % alte Schrift
-
-\newcommand{\R}[1]{{\tt \color{blue}  #1}}
-  \newtheorem{thm}{Theorem}
-  \newtheorem{rem}{Bemerkung}
-  \newtheorem{lem}{Lemma}
-  
-  \definecolor{hellgrau}{rgb}   {0.109375,  0.40625,   0.51953125}
-  \definecolor{dunkelgrau}{rgb} {0.009375,  0.30625,   0.41953125}
-  \definecolor{dunkelgrau2}{rgb}{0.009375,  0.20625,   0.31953125}
-  \definecolor{hellbraun}{rgb}  {0.9140625, 0.8984375, 0.8046875}
-  \definecolor{hellbraun2}{rgb} {.95,       0.9,       0.8}
-  \definecolor{alertred}{rgb}   {0.8515625, 0.3828125, 0.08984375}
-  \definecolor{orange}{rgb}{1,0.5,0}
-  
-  
-  \setbeamercolor{firstsecslide}{fg=white,bg=dunkelgrau}
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  
-  \newcolumntype{d}[0]{D{,}{.}{6}}
-  
-  \newenvironment{itemizeol}{\begin{itemize}[<+->]}{\end{itemize}}
-  \newenvironment{descriptionol}{\begin{description}[<+->]}{\end{description}}
-  
-  \newcolumntype{V}[1]{ {\RaggedRight\hspace{0pt}}p{#1}}
-
-\newcommand{\emphred}[1]{\textcolor{alertred}{#1}}
-\newcommand{\emphcol}[1]{\textcolor{dunkelgrau}{\slshape #1}}
- 
- \setcounter{tocdepth}{1}
- \setbeamercolor*{section in toc}{fg=hellgrau}
-\setbeamertemplate{bibliography item}[default]
- \makeatother
-\addtobeamertemplate{frametitle}{}{%
- \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
- \end{textblock*}}
- \title[Day 3]{Sampling, Weighting and Estimation\\ \Large{Exercise 3} }
- %\subtitle{Umgang am Beispiel von Telefonstichproben}
- 
- \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
- %\institute{\includegraphics[width=4.5cm]{GESIS_Logo_informell}}
-%  \date[]{\color{dunkelgrau}\footnotesize%
-% \begin{minipage}{8cm}%
-% \begin{center}%
-%  \scriptsize{
-% \textbf{GESIS Summer School}\\ \tiny{Cologne, Germany}%
-%  }\\
-% \vspace{0.25cm}
-%  \textbf{August 24th, 2015}%
-%  
-%  \end{center}%
-%  \end{minipage}}%
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textbf{{#1}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Stefan Zins, Matthias Sand and Jan-Philipp Kolb},
+            pdftitle={Complex Sampling Designs - Exercise 3},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Complex Sampling Designs - Exercise 3}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Stefan Zins, Matthias Sand and Jan-Philipp Kolb}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{6 February 2016}
+
+
+
 \begin{document}
-
-
-
 
 \maketitle
 
 
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 3a}
-
-\begin{enumerate}
-
-\item Download the data set for Germany of the 5th ESS-Round (SDDF File and Sampling Data)
-\item[] \url{http://www.europeansocialsurvey.org/data/country.html?c=germany}
-\item Create a \R{svydesign} object to estimate the mean of the variable \R{agea}
-\item To acknowledge that the sample has been collected by a multi stage design, estimate the design effect of your estimate above using the PSU-Indicator variable 
-\item[] \alert{Advice:} The variable \alert{PSU} has to be a factor
-\item Calculate the effective sample size
- 
-
-\end{enumerate}
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Design Effects: Model Based Approach}
-\footnotesize{
-\begin{block}{Model based approach}
-\begin{equation*}
-\hat{deff}=\hat{deff_p} * \hat{deff_c} = n\frac{\sum_{h=1}^ld_h^2 n_h}{(\sum_{h=1}^ld_h n_h)^2}*(1+(b^{*}-1)\rho)
-\end{equation*}
-\begin{equation*}
-\hat{\rho}^{AOV}=\frac{MSB-MSW}{MSB+(K-1)MSW}
-\end{equation*}
-\begin{equation*}
-MSB=\frac{SSB}{l-1}\text{;~~~~}MSW=\frac{SSW}{n-l}\text{;~~~~}K=\frac{1}{l-1}(n-\sum_{h=1}^l\frac{n_h^2}{n})\text{;}
-\end{equation*}
-\begin{equation*}
-b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}d_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}d_{li}^2}
-\end{equation*}
-\end{block}
-
-\begin{itemize}
-\item[] \alert{$n_h$} is the number of units per cluster; \alert{$b^{*}$} is the average cluster size; \alert{$\rho$} reflects the Intraclass Correlation Coefficient (ICC)
-\item[$\Rightarrow$] $deff_p$ captures the design effect due to unequal inclusion probabilities
-\end{itemize}
-}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Design Effects: Model Based Approach}
-\begin{center}
-\textbf{Obtaining \emph{MSB}, \emph{MSW} and \emph{$b^{*}$}:}
-\end{center}
-
-\footnotesize{
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{Ger.d} \hlkwb{<-} \hlkwd{read.spss}\hlstd{(}\hlstr{"ESS5DE.spss/ESS5DE.sav"}\hlstd{,}
-                   \hlkwc{to.data.frame} \hlstd{=} \hlnum{TRUE}\hlstd{,}
-                   \hlkwc{use.value.labels} \hlstd{=} \hlnum{TRUE}\hlstd{)}
-\hlstd{Ger.ctry} \hlkwb{<-} \hlkwd{read.spss}\hlstd{(}\hlstr{"ESS5_DE_SDDF.spss/ESS5_DE_SDDF.por"}\hlstd{,}
-                      \hlkwc{to.data.frame} \hlstd{=} \hlnum{TRUE}\hlstd{,}
-                      \hlkwc{use.value.labels} \hlstd{=} \hlnum{TRUE}\hlstd{)}
-
-\hlkwd{colnames}\hlstd{(Ger.d)[}\hlnum{5}\hlstd{]} \hlkwb{<-} \hlstr{"IDNO"}
-\hlstd{Ger} \hlkwb{<-} \hlkwd{merge}\hlstd{(Ger.d,Ger.ctry,}\hlkwc{by}\hlstd{=}\hlstr{"IDNO"}\hlstd{,} \hlkwc{all.x} \hlstd{=} \hlnum{TRUE}\hlstd{)}
-\hlstd{Ger}\hlopt{$}\hlstd{PSU} \hlkwb{<-} \hlkwd{as.factor}\hlstd{(Ger}\hlopt{$}\hlstd{PSU)}
-\hlstd{n} \hlkwb{<-} \hlkwd{nrow}\hlstd{(Ger)}
-\hlstd{L} \hlkwb{<-} \hlkwd{length}\hlstd{(}\hlkwd{unique}\hlstd{(Ger}\hlopt{$}\hlstd{PSU))}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Design Effects: Model Based Approach}
-\begin{center}
-\textbf{Obtaining \emph{MSB}, \emph{MSW} and \emph{$b^{*}$}:}
-\end{center}
-
-\footnotesize{
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{## deffc}
-\hlstd{b.star} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlkwd{tapply}\hlstd{(Ger}\hlopt{$}\hlstd{dweight,Ger}\hlopt{$}\hlstd{PSU,}
-                \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}\hlkwd{sum}\hlstd{(x)}\hlopt{^}\hlnum{2}\hlstd{))}\hlopt{/}\hlkwd{sum}\hlstd{(Ger}\hlopt{$}\hlstd{dweight}\hlopt{^}\hlnum{2}\hlstd{)}
-\hlcom{# Calculate an anova for the regression model Age by PSU }
-\hlcom{# (Could also be any other Variable)}
-\hlstd{lin.mod} \hlkwb{<-} \hlkwd{lm}\hlstd{(}\hlkwd{as.numeric}\hlstd{(Ger}\hlopt{$}\hlstd{agea)}\hlopt{~}\hlstd{Ger}\hlopt{$}\hlstd{PSU)}
-\hlstd{SS} \hlkwb{<-} \hlkwd{anova}\hlstd{(lin.mod)}
-\hlcom{#  MSB and MSW are the means of SSB and SSW}
-\hlstd{MSB} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{1}\hlstd{]}
-\hlstd{MSW} \hlkwb{<-} \hlstd{SS}\hlopt{$}\hlstd{`Mean Sq`[}\hlnum{2}\hlstd{]}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-
-}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
-\begin{frame}[fragile]{Exercise 3b}
+\section{Exercise 3a}\label{exercise-3a}
 
 \begin{enumerate}
-\item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities dataset
-\item Your workspace now contains the datasets \R{true\_ income}, \R{Data.be} and \R{Data.be2}. \R{true\_ income} resembles the  mean of the income variable for the population of the belgianmunicipalities dataset. \R{Data.be} is a multistage sample with 80 PSUs and 300 individual datapoints whithin each PSU. \R{Data.be2} is a clustersample of 10 communes
-\item Estimate the mean income from both samples using the \R{survey} package and compare the results
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Download the dataset for
+  \href{http://www.europeansocialsurvey.org/data/country.html?c=germany}{Germany}
+  of the 5th ESS-Round (SDDF File and Sampling Data)
+\item
+  Create a \texttt{svydesign} object to estimate the mean of the
+  variable \texttt{agea}
+\item
+  To acknowledge that the sample has been collected by a multi stage
+  design, estimate the design effect of your estimate above using the
+  PSU-Indicator variable (Use the
+  \href{https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf}{model
+  based approach} described on slide 20 of today's lecture)
 
-
-
+  \textbf{Advice:} the variable \texttt{PSU} has to be a factor\\
+\item
+  Calculate the effective sample size
 \end{enumerate}
 
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
+\subsubsection{Obtaining MSB, MSW and
+\(b^{*}\)}\label{obtaining-msb-msw-and-b}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{Commune}\hlopt{+}\hlstd{id,}\hlkwc{fpc}\hlstd{=}\hlopt{~}\hlstd{prob1}\hlopt{+}\hlstd{prob2,}
-                  \hlkwc{data}\hlstd{=Data.be,}\hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-\footnotesize{
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ger.d <-}\StringTok{ }\KeywordTok{read.spss}\NormalTok{(}\StringTok{"ESS5DE.spss/ESS5DE.sav"}\NormalTok{,}
+                   \DataTypeTok{to.data.frame =} \OtherTok{TRUE}\NormalTok{,}
+                   \DataTypeTok{use.value.labels =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{Ger.ctry <-}\StringTok{ }\KeywordTok{read.spss}\NormalTok{(}\StringTok{"ESS5_DE_SDDF.spss/ESS5_DE_SDDF.por"}\NormalTok{,}
+                      \DataTypeTok{to.data.frame =} \OtherTok{TRUE}\NormalTok{, }
+                      \DataTypeTok{use.value.labels =} \OtherTok{TRUE}\NormalTok{)}
+
+\KeywordTok{colnames}\NormalTok{(Ger.d)[}\DecValTok{5}\NormalTok{] <-}\StringTok{ "IDNO"}
+\NormalTok{Ger <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(Ger.d,Ger.ctry,}\DataTypeTok{by=}\StringTok{"IDNO"}\NormalTok{, }\DataTypeTok{all.x =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{Ger$PSU <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(Ger$PSU)}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(Ger)}
+\NormalTok{L <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(Ger$PSU))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## deffc}
+\NormalTok{b.star <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{tapply}\NormalTok{(Ger$dweight,Ger$PSU,}
+                \NormalTok{function(x)}\KeywordTok{sum}\NormalTok{(x)^}\DecValTok{2}\NormalTok{))/}\KeywordTok{sum}\NormalTok{(Ger$dweight^}\DecValTok{2}\NormalTok{)}
+\CommentTok{# Calculate an anova for the regression model Age by PSU }
+\CommentTok{# (Could also be any other variable)}
+\NormalTok{lin.mod <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(Ger$agea)~Ger$PSU)}
+\NormalTok{SS <-}\StringTok{ }\KeywordTok{anova}\NormalTok{(lin.mod) }
+\CommentTok{#  MSB and MSW are the means of SSB and SSW}
+\NormalTok{MSB <-}\StringTok{ }\NormalTok{SS$}\StringTok{`}\DataTypeTok{Mean Sq}\StringTok{`}\NormalTok{[}\DecValTok{1}\NormalTok{]}
+\NormalTok{MSW <-}\StringTok{ }\NormalTok{SS$}\StringTok{`}\DataTypeTok{Mean Sq}\StringTok{`}\NormalTok{[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
 \begin{itemize}
-\item In \emph{Exercise 1} we had a single-stage sample, therefore the argument \R{id} has been set to 0 or 1
-\item[$\Rightarrow$] In case of a multi-stage sampling approach, every sampling stage has to be defined
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Execute the following
+  \href{https://raw.githubusercontent.com/BernStZi/SamplingAndEstimation/short/tutorial/Samples_for_EX3b.R}{R-Script}
+  to generate a Multistage- and a Cluster- Sample for the
+  belgianmunicipalities dataset
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ "http://raw.githubusercontent.com/BernStZi/SamplingAndEstimation/short/tutorial/Samples_for_EX3b.R"}
+\KeywordTok{source}\NormalTok{(url)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{itemize}
-\item[$\Rightarrow$] PSU: \emph{Commune}; SSU: \emph{id}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Your workspace now contains the objects: \texttt{true\_income},
+  \texttt{Data.be} and \texttt{Data.be2}. \texttt{true\_income}
+  resembles the mean of the income variable for the population of the
+  \texttt{belgianmunicipalities} dataset. \texttt{Data.be} is a
+  multistage sample with 80 PSUs and 300 individual datapoints whithin
+  each PSU. \texttt{Data.be2} is a clustersample of 10 communes
+\item
+  Estimate the mean income from both samples using the \texttt{survey}
+  package and compare the results to the population mean
 \end{itemize}
-\item This also applies for the \R{fpc}-argument 
-\item[$\Rightarrow$] \emph{prob1} reflects the porbability of inclusion for each PSU in the sample and \emph{prob2} the probability of inclusion for each SSU
-\item[] \alert{Note:} altough $prob1*prob2=n/N$ in this sample, it cannot be treated like a SRS
 
-\end{itemize}
-}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{surv <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\NormalTok{~Commune+id,}\DataTypeTok{fpc=}\NormalTok{~prob1+prob2, }
+                  \DataTypeTok{data=}\NormalTok{Data.be,}\DataTypeTok{pps=}\StringTok{"brewer"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Multistage- and Cluster-Samples \\ with the \R{survey} package}
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{surv} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlstd{Commune}\hlopt{+}\hlstd{id,}\hlkwc{fpc}\hlstd{=}\hlopt{~}\hlstd{prob1}\hlopt{+}\hlstd{prob2,}
-                  \hlkwc{data}\hlstd{=Data.be,} \hlkwc{pps}\hlstd{=}\hlstr{"brewer"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
 \begin{itemize}
-\item \R{pps} should be used to define the design information; usually the second order probability of inclusion
-\item[$\Rightarrow$] If the second order probability of inclusion are unknown (or too complex to calculate), a brewer approximation can be applied to estimate the joint inclusion probabilities
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  In \textbf{Exercise 1} we had a single-stage sample, therefore the
+  argument \texttt{id} has been set to 0 or 1
 \end{itemize}
 
-\end{frame}
+In case of a multistage sampling approach, every sampling stage has to
+be defined
+
+PSU: \texttt{Commune}; SSU: \texttt{id}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  This also applies for the \texttt{fpc}-argument\\ \texttt{prob1}
+  reflects the porbability of inclusion for each PSU in the sample and
+  \texttt{prob2} the probability of inclusion for each SSU
+\end{itemize}
+
+\textbf{Note:} altough \(prob1*prob2=n/N\) in this sample, it cannot be
+treated like a SRS
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \texttt{pps} should be used to define the design information; usually
+  the second order probability of inclusion\\ If the second order
+  probability of inclusion are unknown (or too complex to calculate), a
+  brewer approximation can be applied to estimate the joint inclusion
+  probabilities
+\end{itemize}
 
 \end{document}
