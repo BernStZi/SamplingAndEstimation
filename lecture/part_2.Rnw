@@ -423,7 +423,7 @@ for(i in sam.str) {
  \item[Second stage] For every $i \in \mathfrc{s}_{\RN{1}}$ a sample $\mathfrc{s}_i$ of SSU's is selected from $\mathcal{U}_i$ according to some design $p_i(.|\mathfrc{s}_{\RN{1}})$
  \end{description}
  The resulting sample of SSU's is denote $\mathfrc{s}= \bigcup_{i \in \mathfrc{s}_{\RN{1}}} \mathfrc{s}_i $.
- In general samples $\mathfrc{s}_i$ are selected independently of each other, thus the inclusion probability of a element $k \in \mathcal{U}_i$ is
+ In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus the inclusion probability of a element $k \in \mathcal{U}_i$ is
 $$\pi_k=\pi_{\RN{1}i}\pi_{k|i}\;,$$
 where $\pi_{\RN{1}i}$ is the probability of selecting the $i$-th PSU and $\pi_{k|i}$  the probability of selecting
 the $k$-th SSU in the $i$-th PSU.
@@ -455,7 +455,7 @@ with $\overline{y}_i  = \sum_{k \in \mathfrc{s}_{i} } \frac{y_{ki}}{n_i}$.
 
 
 \begin{frame}{Unequal Probability Sampling I}
-There are good reasons to deviate from the simple selection procedure that gives every unit the same inclusion probability. If good prior information is available its incorporation into the sampling design can dramatically improve the efficiency of an estimator.
+There are good reasons to deviate from the simple selection procedure that gives every unit the same inclusion probability. If good prior information is available, its incorporation into the sampling design can dramatically improve the efficiency of an estimator.
 \begin{itemize}
  \item An optimal allocation would be favorable to a proportional allocation.
  \item Selecting the elements proportional to a variable that is correlated to the variable of interest can greatly improve the quality of estimates.
@@ -489,7 +489,7 @@ which can be estimated by
  \Vest{ \hat{\tau}_{\pi}}_1 = \sum_{k \in \mathfrc{s}} \sum_{l \in \mathfrc{s}} \dfrac{\left( \pi_{kl} - \pi_k \pi_l \right)}{\pi_{kl}} \dfrac{y_k}{\pi_k}\dfrac{y_l}{\pi_l} \;.
 \end{align*}
 }\onslide*<3->{
-For a fixed size design we may write the variance of $\hat{\tau}_{\pi}$ as
+For a fixed size design, we may write the variance of $\hat{\tau}_{\pi}$ as
 \begin{align*}
  \V{ \hat{\tau}_{\pi}} = - \dfrac{1}{2} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \left( \pi_{kl} - \pi_k \pi_l \right) \left(\dfrac{y_k}{\pi_k} - \dfrac{y_l}{\pi_l}\right)^2 \;,
 \end{align*}
@@ -503,7 +503,7 @@ which can be estimated by
 
 
 \begin{frame}{Unequal Probability Sampling II}
-If there is some prior information available in the form of a variable $\mathcal{X} =  \{ x_1{,}x_2{,}\,\ldots{,}\,x_k{,}\,\ldots{,}\,x_N \}$ which is correlated to our variable interest $\mathcal{Y}$ we can select elements proportional to it
+If there is some prior information available in the form of a variable $\mathcal{X} =  \{ x_1{,}x_2{,}\,\ldots{,}\,x_k{,}\,\ldots{,}\,x_N \}$, which is correlated to our variable of interest $\mathcal{Y}$, we can select elements proportional to it
 
 $$\nu_k = \dfrac{x_k}{\sum_{k \in \mathcal{U}} x_k} n \;.$$
 Unequal inclusion probabilities can reduce the variance of an estimator, \emph{if} they are related to the variable of interest. We may have $\nu_k=\pi_k$ but in general $\nu_k$ can be greater than 1. \newline
@@ -614,9 +614,9 @@ This however does not mean that the inclusion probabilities of elementary units 
 The principle of such multi-stage design remains the same, select clusters then select again within clusters.
 
 \item<3|only@3>  There are many ways to optimize the sampling design with respect to one particular goal, i.e. the estimation of a specific statistic. However, it becomes difficult to optimize a design and at the same time retain a balance for a maximum of possible applications, which is a problem when planning a multipurpose survey that has a multitude of variables and covers different topics.
-Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs are robust towards any possible analysis of the sample data.
+Thus, simple designs,  such as SRS or StrSRS, are justifiable, as these designs are robust towards any possible analysis of the sample data.
 
-\item<4|only@4>  Multi-stage sampling is usually not a matter of choose but done out of necessity.
+\item<4|only@4>  Multi-stage sampling is usually not a matter of choose, but done out of necessity.
 
 \item<5|only@5>  Most importantly, the same design weights ($\pi_k^{-1}$) do \emph{not} imply the same sampling variance. Different designs can be used to select samples with same $\pi_k$'s, however their $\pi_{kl}$'s might be very different and so is their associated sampling variance.
 
@@ -738,7 +738,7 @@ print.xtable(deffs.tab, hline.after = 0,  caption.placement="top", sanitize.text
 
 
 \begin{frame}{Model Based Approach}
-Since it is so difficult to estimate the design effect models are used to describe it. Effectively an alternative version of the design effect is defined which is easier to estimate.
+Since it is so difficult to estimate the design effect, models are used to describe it. Effectively an alternative version of the design effect is defined which is easier to estimate.
 	\begin{itemize}
 		\item Again we have $N_{\RN{1}}$ clusters in the population of size $N_i$, $i=1,\dots,N_{\RN{1}}$
 		\item Variable $\mathcal{Y}$ is assumed to follow the \emph{common parameter model},
@@ -776,7 +776,7 @@ Since it is so difficult to estimate the design effect models are used to descri
 		\end{description}
 		\item They indicate loss in precision due to cluster sampling and unequal weights, respectively.
 	\end{itemize}
-}\onslide*<2>{	Note that under the model-based approach $w_k$ is treated as independent of $y_k$ for all $k \in \mathcal{U}$. Potential gains in precision by using proportional to size design are not considered, quite the contrary, unequal weight will increase the variance of $\overline{y}_{w}$ in this setting.}
+}\onslide*<2>{	Note that under the model-based approach, $w_k$ is treated as independent of $y_k$ for all $k \in \mathcal{U}$. Potential gains in precision by using proportional to size design are not considered, quite the contrary, unequal weight will increase the variance of $\overline{y}_{w}$ in this setting.}
 \end{frame}
 
 
@@ -942,8 +942,8 @@ $$
 }
 \onslide<2>{
 \begin{itemize}
-\item The model-based approach is widely used because it presents for data users often the only option to estimate a design effect.
-\item For multi-stage design the used model considers only the cluster effect of the PSU's and neglects any subsequent sampling stages.
+\item The model-based approach is widely used, because it often presents the only option for data users to estimate a design effect.
+\item For multi-stage design, the used model considers only the cluster effect of the PSU's and neglects any subsequent sampling stages.
 \end{itemize}
 }
 \end{frame}
