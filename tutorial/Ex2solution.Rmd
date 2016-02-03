@@ -2,7 +2,7 @@
 title: "Sampling and Estimation - Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "2 Februar 2016"
-output: ioslides_presentation
+output: md_document
 ---
 
 
@@ -31,6 +31,13 @@ Ex <- F
 library(knitr)
 ```
 
+```{r,echo=F,eval=F}
+main.path <- "C:/Users/kolbjp/Documents/GitHub/SamplingAndEsimation/tutorial"
+setwd(main.path)
+purl("Ex2solution.Rmd")
+```
+
+
 ```{r,echo=F,eval=Ex}
 ## Set working directory
 main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
@@ -49,6 +56,8 @@ SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 ```
 
 ## Construction of N
+
+Later it is necessary for the specification of fpc.
 
 ```{r,eval=Ex}
 DK <- as.data.frame(DK)
@@ -78,7 +87,7 @@ NE <- rbind(DK_tv,SE_tv)
 
 ## Adding new variables
 
-```{r}
+```{r,eval=Ex}
 NE$mt3 <- 0
 NE$mt3[NE$tvtot=="More than 3 hours"] <- 1  
 ```
@@ -91,7 +100,7 @@ NE$mt3[NE$tvtot=="More than 3 hours"] <- 1
 library(survey)
 ```
 
-- [Define `survey` objects]((http://r-survey.r-forge.r-project.org/survey/example-design.html))
+- [Define survey objects]((http://r-survey.r-forge.r-project.org/survey/example-design.html))
 
 ```{r,eval=Ex}
 # SRS design
@@ -109,8 +118,7 @@ svydes_NE <- svydesign(id=~1,strata=~cntry,
 
 ## The analysis functions in R-package `survey`
 
-- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
-
+- Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
 
 
 ```{r,eval=Ex}
@@ -124,28 +132,29 @@ stab_SE <- svytable(~tvtot,svydes_SE)
 stab_SE
 ```
 
+```{r,eval=Ex}
+stab_NE <- svytable(~tvtot,svydes_NE)
+stab_NE
+```
+
+
 ## Visualisation
 
 ```{r,eval=Ex}
 library(lattice)
 barchart(stab_DK)
+barchart(stab_SE)
 ```
 
 
 ## More analysis functions
 
-```{r,eval=Ex}
-svytable(~tvtot,svydes_NE)
-```
-
-
 
 ```{r,eval=Ex}
-svytotal(~tvtot,svydes_NE)
+svytotal(~mt3,svydes_NE)
+
+svymean(~mt3,svydes_NE)
 ```
-
-
-
 
 
 
@@ -203,11 +212,22 @@ strSRsample <- function(strind, nh, replace=FALSE){
 }
 ```
 
+## Getting the function
+
+```{r,eval=F}
+library(devtools)
+install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+               ref="short")
+```
+
+```{r,eval=F}
+url <- "https://raw.githubusercontent.com/BernStZi/
+SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
+source(url)
+```
 
 
-## Stratification
-
-Equal allocation:
+## Equal allocation:
 
 ```{r}
 nh.eq <- c(20,20,20)
@@ -216,7 +236,7 @@ names(nh.eq) <- names(table(apipop$stype))
 s.eq <- strSRsample(apipop$stype, nh.eq, replace=FALSE)
 ```
 
-Proportional allocation:
+## Proportional allocation:
 
 ```{r}
 Nh.tab  <- table(apipop$stype)
@@ -226,10 +246,11 @@ nh.pr <- round(Nh.tab/sum(Nh.tab)*n)
 s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 ```
 
-Optimal allocation: 
+## Optimal allocation: 
 
 ```{r}
-tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,collapse="_")
+tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,
+                       collapse="_")
 
 V.h   <- tapply(apipop$api99,apipop$stype,sd)[tab.names]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
@@ -258,7 +279,8 @@ strSRS.op <- pop[s.op,]
 - Estimate again the mean of `api00` from all three samples and compare the results.
 
 ```{r}
-svystrSRS.eq <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.eq)
+svystrSRS.eq <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.eq)
 
 svymean(~api00, svystrSRS.eq)
 ```
@@ -266,7 +288,8 @@ svymean(~api00, svystrSRS.eq)
 ## `survey` - proportional allocation
 
 ```{r}
-svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.pr)
+svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.pr)
 
 svymean(~api00, svystrSRS.pr)
 ```
@@ -275,7 +298,8 @@ svymean(~api00, svystrSRS.pr)
 ## `survey` - optimal allocation
 
 ```{r}
-svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.op)
+svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.op)
 
 svymean(~api00, svystrSRS.op)
 ```

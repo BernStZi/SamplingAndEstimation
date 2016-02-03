@@ -120,6 +120,8 @@ SE &lt;- read.spss(&quot;ESS5SE.sav&quot;,to.data.frame=T)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Construction of N</h2></hgroup><article  id="construction-of-n">
 
+<p>Later it is necessary for the specification of fpc.</p>
+
 <pre class = 'prettyprint lang-r'>DK &lt;- as.data.frame(DK)
 DK$N &lt;- DK$pweight*10000*nrow(DK)
 
@@ -138,12 +140,17 @@ SE$N &lt;- SE$pweight*10000*nrow(SE)</pre>
 
 <pre class = 'prettyprint lang-r'>NE &lt;- rbind(DK_tv,SE_tv)</pre>
 
+</article></slide><slide class=''><hgroup><h2>Adding new variables</h2></hgroup><article  id="adding-new-variables">
+
+<pre class = 'prettyprint lang-r'>NE$mt3 &lt;- 0
+NE$mt3[NE$tvtot==&quot;More than 3 hours&quot;] &lt;- 1  </pre>
+
 </article></slide><slide class=''><hgroup><h2>R-package <code>survey</code></h2></hgroup><article  id="r-package-survey">
 
 <pre class = 'prettyprint lang-r'>library(survey)</pre>
 
 <ul>
-<li><a href='(http://r-survey.r-forge.r-project.org/survey/example-design.html)' title=''>Define <code>survey</code> objects</a></li>
+<li><a href='(http://r-survey.r-forge.r-project.org/survey/example-design.html)' title=''>Define survey objects</a></li>
 </ul>
 
 <pre class = 'prettyprint lang-r'># SRS design
@@ -157,7 +164,7 @@ svydes_NE &lt;- svydesign(id=~1,strata=~cntry,
 </article></slide><slide class=''><hgroup><h2>The analysis functions in R-package <code>survey</code></h2></hgroup><article  id="the-analysis-functions-in-r-package-survey">
 
 <ul>
-<li>Calculate the combined total for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
+<li>Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
 </ul>
 
 <pre class = 'prettyprint lang-r'>stab_DK &lt;- svytable(~tvtot,svydes_DK)
@@ -166,12 +173,17 @@ stab_DK</pre>
 <pre class = 'prettyprint lang-r'>stab_SE &lt;- svytable(~tvtot,svydes_SE)
 stab_SE</pre>
 
+</article></slide><slide class=''><hgroup><h2>Visualisation</h2></hgroup><article  id="visualisation">
+
 <pre class = 'prettyprint lang-r'>library(lattice)
-barchart(stab_DK)</pre>
+barchart(stab_DK)
+barchart(stab_SE)</pre>
 
-<pre class = 'prettyprint lang-r'>svytable(~tvtot,svydes_NE)</pre>
+</article></slide><slide class=''><hgroup><h2>More analysis functions</h2></hgroup><article  id="more-analysis-functions">
 
-<pre class = 'prettyprint lang-r'>svytotal(~tvtot,svydes_NE)</pre>
+<pre class = 'prettyprint lang-r'>svytotal(~mt3,svydes_NE)
+
+svymean(~mt3,svydes_NE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Exercise 2.B</h2></hgroup><article  id="exercise-2.b">
 
@@ -289,16 +301,24 @@ svymean(~api00,svy_api)</pre>
          ,use.names = FALSE)
 }</pre>
 
-</article></slide><slide class=''><hgroup><h2>Stratification</h2></hgroup><article  id="stratification">
+</article></slide><slide class=''><hgroup><h2>Getting the function</h2></hgroup><article  id="getting-the-function">
 
-<p>Equal allocation:</p>
+<pre class = 'prettyprint lang-r'>library(devtools)
+install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,
+               ref=&quot;short&quot;)</pre>
+
+<pre class = 'prettyprint lang-r'>url &lt;- &quot;https://raw.githubusercontent.com/BernStZi/
+SamplingAndEstimation/short/r/sampaest/R/strSRsample.R&quot;
+source(url)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Equal allocation:</h2></hgroup><article  id="equal-allocation">
 
 <pre class = 'prettyprint lang-r'>nh.eq &lt;- c(20,20,20)
 names(nh.eq) &lt;- names(table(apipop$stype))
 
 s.eq &lt;- strSRsample(apipop$stype, nh.eq, replace=FALSE)</pre>
 
-<p>Proportional allocation:</p>
+</article></slide><slide class=''><hgroup><h2>Proportional allocation:</h2></hgroup><article  id="proportional-allocation">
 
 <pre class = 'prettyprint lang-r'>Nh.tab  &lt;- table(apipop$stype)
 n &lt;- 60
@@ -306,9 +326,10 @@ nh.pr &lt;- round(Nh.tab/sum(Nh.tab)*n)
 
 s.pr &lt;- strSRsample(apipop$stype, nh.pr, replace=FALSE)</pre>
 
-<p>Optimal allocation:</p>
+</article></slide><slide class=''><hgroup><h2>Optimal allocation:</h2></hgroup><article  id="optimal-allocation">
 
-<pre class = 'prettyprint lang-r'>tab.names     &lt;- apply(expand.grid(dimnames(Nh.tab)),1,paste,collapse=&quot;_&quot;)
+<pre class = 'prettyprint lang-r'>tab.names     &lt;- apply(expand.grid(dimnames(Nh.tab)),1,paste,
+                       collapse=&quot;_&quot;)
 
 V.h   &lt;- tapply(apipop$api99,apipop$stype,sd)[tab.names]
 nh.op &lt;- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
@@ -339,8 +360,8 @@ strSRS.op &lt;- pop[s.op,]</pre>
 
 svymean(~api00, svystrSRS.eq)</pre>
 
-<pre >##         mean     SE
-## api00 663.41 25.587</pre>
+<pre >##        mean     SE
+## api00 674.7 23.174</pre>
 
 </article></slide><slide class=''><hgroup><h2><code>survey</code> - proportional allocation</h2></hgroup><article  id="survey---proportional-allocation">
 
@@ -349,7 +370,7 @@ svymean(~api00, svystrSRS.eq)</pre>
 svymean(~api00, svystrSRS.pr)</pre>
 
 <pre >##         mean     SE
-## api00 680.28 18.211</pre>
+## api00 687.23 14.866</pre>
 
 </article></slide><slide class=''><hgroup><h2><code>survey</code> - optimal allocation</h2></hgroup><article  id="survey---optimal-allocation">
 
@@ -358,7 +379,7 @@ svymean(~api00, svystrSRS.pr)</pre>
 svymean(~api00, svystrSRS.op)</pre>
 
 <pre >##         mean     SE
-## api00 677.37 15.507</pre></article></slide>
+## api00 664.66 18.577</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
