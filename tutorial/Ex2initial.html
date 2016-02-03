@@ -101,6 +101,30 @@ data(api)</code></pre>
 <li>Estimate again the mean of <code>api00</code> from all three samples and compare the results.</li>
 </ul>
 </div>
+<div id="function-for-stratified-samples" class="section level2">
+<h2>Function for stratified samples</h2>
+<pre class="r"><code>strSRsample &lt;- function(strind, nh, replace=FALSE){
+  Nh &lt;- table(strind)[names(nh)]
+  h.id &lt;- split(1:sum(Nh), strind)[names(nh)]
+  
+  
+  sam &lt;- mapply( function(x,y) sample(x, y, replace=replace)
+                 , Nh, nh, SIMPLIFY = F)
+  unlist(mapply(function(x,y) x[y]
+                , h.id
+                , sam, SIMPLIFY = F)
+         ,use.names = FALSE)
+}</code></pre>
+</div>
+<div id="getting-the-function" class="section level2">
+<h2>Getting the function</h2>
+<pre class="r"><code>library(devtools)
+install_github(&quot;BernStZi/SamplingAndEstimation/r/sampaest&quot;,
+               ref=&quot;short&quot;)</code></pre>
+<pre class="r"><code>url &lt;- &quot;https://raw.githubusercontent.com/BernStZi/
+SamplingAndEstimation/short/r/sampaest/R/strSRsample.R&quot;
+source(url)</code></pre>
+</div>
 
 
 </div>

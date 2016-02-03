@@ -40,3 +40,34 @@ data(api)
 
 
 
+## Function for stratified samples
+
+```{r}
+strSRsample <- function(strind, nh, replace=FALSE){
+  Nh <- table(strind)[names(nh)]
+  h.id <- split(1:sum(Nh), strind)[names(nh)]
+  
+  
+  sam <- mapply( function(x,y) sample(x, y, replace=replace)
+                 , Nh, nh, SIMPLIFY = F)
+  unlist(mapply(function(x,y) x[y]
+                , h.id
+                , sam, SIMPLIFY = F)
+         ,use.names = FALSE)
+}
+```
+
+## Getting the function
+
+```{r,eval=F}
+library(devtools)
+install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+               ref="short")
+```
+
+```{r,eval=F}
+url <- "https://raw.githubusercontent.com/BernStZi/
+SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
+source(url)
+```
+
