@@ -301,8 +301,8 @@ Subselect the sample:
 
     svymean(~api00, svystrSRS.eq)
 
-    ##        mean     SE
-    ## api00 662.5 21.286
+    ##         mean     SE
+    ## api00 659.21 20.273
 
 `survey` - proportional allocation
 ----------------------------------
@@ -313,7 +313,7 @@ Subselect the sample:
     svymean(~api00, svystrSRS.pr)
 
     ##         mean     SE
-    ## api00 684.73 14.649
+    ## api00 691.24 17.683
 
 `survey` - optimal allocation
 -----------------------------
@@ -324,4 +324,4 @@ Subselect the sample:
     svymean(~api00, svystrSRS.op)
 
     ##         mean     SE
-    ## api00 687.03 15.904
+    ## api00 674.65 16.467
