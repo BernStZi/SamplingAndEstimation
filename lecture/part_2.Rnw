@@ -349,13 +349,17 @@ sim.tab <- xtable(OUT, digits = 1, caption = "Results from the Simulation Study"
 align(sim.tab ) <- "l|rrr"
 print.xtable(sim.tab, hline.after = 0,  caption.placement="top")
 
+SRS.var      <- (1-n/N)*var(as.vector(clu))/n 
+SRcS.var.col <- ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,2,sum))/n_I
+SRcS.var.row <- ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,1,sum))/n_I
+
 @
 \onslide<2->{True values:
 \begin{tabular}{l c d{1} l}
 $\mu $ & =& \Sexpr{mean(clu)} & \\
-$\V{\overline{y}}_{\text{SRS}}$ &=& \Sexpr{ (1-n/N)*var(as.vector(clu))/n}	&  SRS \\
-$\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$  &=& \Sexpr{ ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,2,sum))/n_I }   & SRCS  a \\
- $\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$ &=& \Sexpr{ nrow(clu)^2/N^2 * (1-n_I/nrow(clu))*var(apply(clu,1,sum))/n_I }   &  SRCS b \\
+$\V{\overline{y}}_{\text{SRS}}$ &=& \Sexpr{ SRS.var  }	&  SRS \\
+$\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$  &=& \Sexpr{ SRcS.var.col }   & SRCS  a \\
+ $\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$ &=& \Sexpr{ SRcS.var.row }   &  SRCS b \\
 \end{tabular} \newline
 Bias is not an issue, however variance is. 
 }
@@ -682,14 +686,19 @@ Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs ar
 \onslide*<2>{
 <<ExCluSamDeff,echo=FALSE,results='asis',message=FALSE>>=
 
+
+#   
 SSW.byrow <- sum(apply(clu,1,function(x)sum((x-mean(x))^2)))
 SSW.bycol <- sum(apply(clu,2,function(x)sum((x-mean(x))^2)))
 
 delta.byrow <- 1 - (SSW.byrow/(length(clu)-nrow(clu)))/var(as.vector(clu))
 delta.bycol <- 1 - (SSW.bycol/(length(clu)-ncol(clu)))/var(as.vector(clu))
+# 
+# deff.byrow <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.byrow
+# deff.bycol <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.bycol
 
-deff.byrow <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.byrow
-deff.bycol <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.bycol
+deff.bycol <- SRcS.var.col/SRS.var 
+deff.byrow <- SRcS.var.row/SRS.var
 
 deffs <- matrix(c(delta.bycol, delta.byrow, deff.bycol, deff.byrow),ncol=2,byrow=T)
 dimnames(deffs) <- 
@@ -697,7 +706,6 @@ dimnames(deffs) <-
 
 deffs.tab <- xtable(deffs[-1,,drop=F], digits = 5, caption = "Design Effects")
 align(deffs.tab ) <- "l|rr"
-
 
   
 print.xtable(clu.tab, hline.after = c(0,5,6),caption.placement="top", sanitize.text.function = identity)
@@ -971,7 +979,6 @@ rho.row <- (MS.row["psu",]-MS.row["Residual",])/(MS.row["psu",]+(K-1)*MS.row["Re
 
 deff.bycol.m <- 1+(b.star - 1)*rho.col
 deff.byrow.m <- 1+(b.star - 1)*rho.row
-
 
 deffm <- matrix(c(rho.col, deff.bycol.m, rho.row, deff.byrow.m),ncol=2)
 
