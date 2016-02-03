@@ -66,6 +66,7 @@ stab_SE
 library(lattice)
 barchart(stab_DK)
 
+
 ## ----eval=Ex-------------------------------------------------------------
 svytotal(~mt3,svydes_NE)
 
