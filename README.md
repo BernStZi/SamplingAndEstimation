@@ -1,2 +1,2 @@
-# SamplingAndEsimation
-Exercises for the workshop *sampling and estimation* in the field of sample surveys
+# Sampling and Estimation
+Exercises for the workshop *sampling and estimation*.
