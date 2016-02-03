@@ -1,2 +1,2 @@
 # SamplingAndEsimation
-A lecture about sampling and estimation in the field of sample surveys
+Exercises for the workshop *sampling and estimation* in the field of sample surveys
