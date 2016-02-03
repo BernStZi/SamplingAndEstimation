@@ -45,7 +45,7 @@ The estimation of parameters in complex sampling designs will use a previously g
 |1;14:00 - 16:00:  [Introduction to Design Based Inference](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf)                               |
 |1;16:30 – 18:00: [Tutorial: Brief Introduction to the Analysis of Sample Surveys with R](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md) |
 |2;09:30 – 11:30: [Complex Sampling Designs I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)                                          |
-|2;12:30 – 14:30: [Complex Sampling Designs II ]((https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf))                                           |
+|2;12:30 – 14:30: [Complex Sampling Designs II ](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)                                           |
 |2;15:00 – 17:00: [Tutorial: Stratified Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md)                                 |
 |3;09:30 – 11:30: [Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                 |
 |3;12:30 – 14:30: [Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                |
