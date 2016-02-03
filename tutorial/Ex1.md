@@ -1,6 +1,6 @@
 # Exercise 1
 Stefan Zins, Matthias Sand and Jan-Philipp Kolb  
-2. Februar 2016  
+2 Februar 2016  
 *** 
 1. Download the ESS dataset for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
 2. Setup your workspace and load the R-packages [foreign](https://cran.r-project.org/web/packages/foreign/foreign.pdf) and [survey](https://cran.r-project.org/web/packages/survey/index.html)
@@ -13,7 +13,7 @@ Stefan Zins, Matthias Sand and Jan-Philipp Kolb
 6. Add the variable `N` for the population size to your data frame. `N` can be calulated by
 $$N= dweight* pweight *10000*n \text{,}$$
 where $n$ refers to the sample size
-7. Create a \R{svydesign} object from the dataset for Sweden using the `survey` package
+7. Create a `svydesign` object from the dataset for Sweden using the `survey` package
 8. Estimate the total and mean of the variable `tvtot`
 
 *** 
@@ -37,11 +37,11 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 - `fpc` should be used for the finite population correction
 
       $\Rightarrow$  Either as the total population size of each stratum or as a fraction of the total population that has been sampled  
-- `data`reflects the data set for which the design object should be defined
+- `data` reflects the data set for which the design object should be defined
 
 ***
-### Important Commands
-
+ 
+** ** | **Important Commands**
 -----------|-----------------------------------------------------------------------------
 `svytotal` |  returns the estimated total of a variable  and its standard error ($+ deff$)
 `svymean` |  returns the estimated mean of a variable and its standard error ($+ deff$)

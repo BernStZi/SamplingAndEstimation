@@ -190,7 +190,7 @@ L <- length(unique(Ger$PSU))
 b.star <- sum(tapply(Ger$dweight,Ger$PSU,
                 function(x)sum(x)^2))/sum(Ger$dweight^2)
 # Calculate an anova for the regression model Age by PSU 
-# (Coule also be any other Variable)
+# (Could also be any other Variable)
 lin.mod <- lm(as.numeric(Ger$agea)~Ger$PSU)
 SS <- anova(lin.mod) 
 #  MSB and MSW are the means of SSB and SSW
@@ -207,7 +207,7 @@ MSW <- SS$`Mean Sq`[2]
 
 \begin{enumerate}
 \item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
-\item Your workspace now contains the data sets \R{income}  Calculate the mean income of the population
+\item Your workspace now contains the data sets \R{income}, \R{Data.be} and \R{Data.be2} Calculate the mean income of the population
 \item Estimate the mean income from both samples using the \R{survey} package and compare the results
 
 

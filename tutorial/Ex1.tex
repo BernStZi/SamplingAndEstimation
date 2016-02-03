@@ -1,266 +1,225 @@
-\documentclass[11pt,german,hideothersubsections]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
   \else
-    \Gin@nat@width
+    \usepackage{fontspec}
   \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
-
-\usepackage{hyperref}
-\usepackage{amsmath,nicefrac,booktabs,mathabx}
-\usepackage{natbib}
-\usepackage{url}
-\usepackage{textpos}
-\usepackage{listings}
-\definecolor{Rblau}{rgb}{.3,.6,.9}
-
-\lstset{language=R,
-basicstyle=\ttfamily\footnotesize,
-keywordstyle=\color{blue}\bfseries,
-identifierstyle=\color{Rblau},
-commentstyle=\color{gray},
-stringstyle=\color{green}\ttfamily,
-showstringspaces=false,
-frame=tb}
-
-
-
-\bibpunct{(}{)}{;}{a}{,}{,}
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{helvet}
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{multirow,dcolumn}
-\usepackage{ragged2e}
-\usepackage{xcolor}
-\usepackage{colortbl}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usepackage{booktabs}
-\colorlet{tablesubheadcolor}{gray!25}
-\colorlet{tableheadcolor}{gray!40}
-\colorlet{tablerowcolor}{gray!15.0}
-\usetheme[english]{Gesis}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]%{\hspace*{.2cm}\insertframenumber}
-\setbeamerfont{caption}{size=\footnotesize}
-\usefonttheme[onlylarge]{structuresmallcapsserif} % alte Schrift
-
-\newcommand{\R}[1]{{\tt \color{blue}  #1}}
-  \newtheorem{thm}{Theorem}
-  \newtheorem{rem}{Bemerkung}
-  \newtheorem{lem}{Lemma}
-  
-  \definecolor{hellgrau}{rgb}   {0.109375,  0.40625,   0.51953125}
-  \definecolor{dunkelgrau}{rgb} {0.009375,  0.30625,   0.41953125}
-  \definecolor{dunkelgrau2}{rgb}{0.009375,  0.20625,   0.31953125}
-  \definecolor{hellbraun}{rgb}  {0.9140625, 0.8984375, 0.8046875}
-  \definecolor{hellbraun2}{rgb} {.95,       0.9,       0.8}
-  \definecolor{alertred}{rgb}   {0.8515625, 0.3828125, 0.08984375}
-  \definecolor{orange}{rgb}{1,0.5,0}
-  
-  
-  \setbeamercolor{firstsecslide}{fg=white,bg=dunkelgrau}
-  \setbeamertemplate{blocks}[rounded][shadow=true]
-  
-  \newcolumntype{d}[0]{D{,}{.}{6}}
-  
-  \newenvironment{itemizeol}{\begin{itemize}[<+->]}{\end{itemize}}
-  \newenvironment{descriptionol}{\begin{description}[<+->]}{\end{description}}
-  
-  \newcolumntype{V}[1]{ {\RaggedRight\hspace{0pt}}p{#1}}
-
-\newcommand{\emphred}[1]{\textcolor{alertred}{#1}}
-\newcommand{\emphcol}[1]{\textcolor{dunkelgrau}{\slshape #1}}
- 
- \setcounter{tocdepth}{1}
- \setbeamercolor*{section in toc}{fg=hellgrau}
-\setbeamertemplate{bibliography item}[default]
- \makeatother
-\addtobeamertemplate{frametitle}{}{%
- \begin{textblock*}{100mm}(.91\textwidth,-1cm)
- \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
- \end{textblock*}}
- \title[Day 1]{Sampling, Weighting and Estimation\\ \Large{Exercise 1} }
- %\subtitle{Umgang am Beispiel von Telefonstichproben}
- 
- \author[M. Sand]{Stefan Zins, Matthias Sand\\ and Jan-Philipp Kolb\\ \vspace{.5cm} \footnotesize{GESIS - Leibniz Institute\\ for the Social Sciences}}
- %\institute{\includegraphics[width=4.5cm]{GESIS_Logo_informell}}
-%  \date[]{\color{dunkelgrau}\footnotesize%
-% \begin{minipage}{8cm}%
-% \begin{center}%
-%  \scriptsize{
-% \textbf{GESIS Summer School}\\ \tiny{Cologne, Germany}%
-%  }\\
-% \vspace{0.25cm}
-%  \textbf{August 24th, 2015}%
-%  
-%  \end{center}%
-%  \end{minipage}}%
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textbf{{#1}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Stefan Zins, Matthias Sand and Jan-Philipp Kolb},
+            pdftitle={Exercise 1},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Exercise 1}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Stefan Zins, Matthias Sand and Jan-Philipp Kolb}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2 Februar 2016}
+
+
+
 \begin{document}
-
-
-
 
 \maketitle
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \begin{enumerate}
-
-\item Download the ESS dataset for Sweden (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
-\item[] \alert{\url{http://www.europeansocialsurvey.org/data/country.html?c=sweden}}
-\item Setup your workspace and load the R-packages \R{foreign} and \R{survey}
-\item Load the ESS dataset and the SDDF
-\item Merge both data frames by their ID-variable, using the \R{merge()} command
-
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Download the ESS dataset for
+  \href{http://www.europeansocialsurvey.org/data/country.html?c=sweden}{Sweden}
+  (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
+\item
+  Setup your workspace and load the R-packages
+  \href{https://cran.r-project.org/web/packages/foreign/foreign.pdf}{foreign}
+  and
+  \href{https://cran.r-project.org/web/packages/survey/index.html}{survey}
+\item
+  Load the ESS dataset and the SDDF
+\item
+  Merge both data frames by their ID-variable, using the
+  \texttt{merge()} command
 \end{enumerate}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Exercise 1}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \begin{enumerate}
-
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{4}
-\item Determine the sampling strategy (Inspect the variables \alert{PSU},\alert{STRATFY} and \alert{PROB})
-\item Add the variable \R{N} for the population size to your data frame. \R{N} can be calulated by
-\begin{equation*}
-\R{N}=\R{dweight}*\R{pweight}*10000*n\text{,}
-\end{equation*}
-where $n$ refers to the sample size
-\item Create a \R{svydesign} object from the dataset for Sweden using the \R{survey} package
-\item Estimate the total and mean of the variable \R{tvtot}
-
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Determine the sampling strategy (Inspect the variables
+  \texttt{PSU},\texttt{STRATFY} and \texttt{PROB})
+\item
+  Add the variable \texttt{N} for the population size to your data
+  frame. \texttt{N} can be calulated by
+  \[N= dweight* pweight *10000*n \text{,}\] where \(n\) refers to the
+  sample size
+\item
+  Create a \texttt{svydesign} object from the dataset for Sweden using
+  the \texttt{survey} package
+\item
+  Estimate the total and mean of the variable \texttt{tvtot}
 \end{enumerate}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The \R{survey}-Package}
-\footnotesize{
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{The survey package}\label{the-survey-package}
+
 \begin{itemize}
-\item The survey package provides a large range of applications for complex survey samples
-\item Typically, the first step is to define a survey object with the \R{svydesign()} command
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  The survey package provides a large range of applications for complex
+  survey samples
+\item
+  Typically, the first step is to define a survey object with the
+  \texttt{svydesign()} command
 \end{itemize}
-\begin{center}
-\textbf{Simple Survey Object (Simple Random Sample)}
-\end{center}
 
+\subsubsection{Simple Survey Object (Simple Random
+Sample)}\label{simple-survey-object-simple-random-sample}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(api)}
 
+\NormalTok{surv.obj <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\NormalTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{fpc =} \NormalTok{~fpc, }\DataTypeTok{data =} \NormalTok{apisrs)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{data}\hlstd{(api)}
-
-\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc,} \hlkwc{data} \hlstd{= apisrs)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{surv.obj} \hlkwb{<-} \hlkwd{svydesign}\hlstd{(}\hlkwc{id}\hlstd{=}\hlopt{~}\hlnum{1}\hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{fpc,} \hlkwc{data} \hlstd{= apisrs)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-}
 \begin{itemize}
-\item \R{id} specifies the identifier of PSU and SSU; \R{id$=$ \textasciitilde 0} or \R{id$=$\textasciitilde 1} stipulates a single stage sampling
-\item For multi-stage samples the \R{id} argument should always specify a formula with the (cluster-) identifier at each stage
-\item \R{fpc} should be used for the finite population correction
-\item[$\Rightarrow$] Either as the total population size of each stratum or as a fraction of the total population that has been sampled 
-\item \R{data} reflects the data set for which the design object should be defined
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{The survey package}
-%\frametitle{\vspace{-.05cm}\begin{center}\footnotesize{The survey package}\end{center}}
-\footnotesize{
-\begin{center}
-\textbf{Important commands}
-\end{center}
-\begin{tabular}{ll}
-\R{svytotal} & returns the estimated total of a variable \\ & and its standard error ($+ deff$)\\
-\R{svymean} & returns the estimated mean of a variable\\ & and its standard error ($+ deff$)\\
-\R{svyquantile} & Computes quantiles for data from complex surveys\\
-\R{svyvar} & Computes variances  for data from complex surveys\\
-\R{weights} & Returns the (design) weights of a survey object\\
-\R{calibrate} & Calibration of a data set (uses the GREG-Estimator by default)\\
-... & ...\\
-\end{tabular}
+\item
+  \texttt{id} specifies the identifier of PSU and SSU;\texttt{id} \(=\)
+  \textasciitilde{} 0 or \(=\) \textasciitilde{} 1 stipulates a single
+  stage sampling
+\item
+  For multi-stage samples the \texttt{id} argument should always specify
+  a formula with the (cluster-) identifier at each stage
+\item
+  \texttt{fpc} should be used for the finite population correction
 
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{api00,surv.obj)}
-\end{alltt}
+  \(\Rightarrow\) Either as the total population size of each stratum or
+  as a fraction of the total population that has been sampled\\
+\item
+  \texttt{data} reflects the data set for which the design object should
+  be defined
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule
+** ** & \textbf{Important Commands}\tabularnewline
+\midrule
+\endhead
+\texttt{svytotal} & returns the estimated total of a variable and its
+standard error (\(+ deff\))\tabularnewline
+\texttt{svymean} & returns the estimated mean of a variable and its
+standard error (\(+ deff\))\tabularnewline
+\texttt{svyquantile} & Computes quantiles for data from complex
+surveys\tabularnewline
+\texttt{svyvar} & Computes variances for data from complex
+surveys\tabularnewline
+\texttt{weights} & Returns the (design) weights of a survey
+object\tabularnewline
+\texttt{calibrate} & Calibration of a data set (uses the GREG-Estimator
+by default)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{}\label{section}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svytotal}\NormalTok{(~api00,surv.obj)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ##         total    SE
 ## api00 4066888 57293
 \end{verbatim}
-\end{kframe}
-\end{knitrout}
-}
-\end{frame}
-
-
-
 
 \end{document}
