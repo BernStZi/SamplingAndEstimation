@@ -23,10 +23,8 @@ library(knitr)
 ## SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 
 ## ----eval=Ex-------------------------------------------------------------
-## DK <- as.data.frame(DK)
 ## DK$N <- DK$pweight*10000*nrow(DK)
 ## 
-## SE <- as.data.frame(SE)
 ## SE$N <- SE$pweight*10000*nrow(SE)
 
 ## ----eval=Ex-------------------------------------------------------------
@@ -131,12 +129,12 @@ nh.pr <- round(Nh.tab/sum(Nh.tab)*n)
 
 s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 
-## ------------------------------------------------------------------------
-tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,
-                       collapse="_")
-
-V.h   <- tapply(apipop$api99,apipop$stype,sd)[tab.names]
+## ----echo=F,eval=T-------------------------------------------------------
+V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
+
+## ------------------------------------------------------------------------
+nh.op <- nh_op(Nh.tab,opt=apipop$api99,strind=apipop$stype,n)
 
 s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 

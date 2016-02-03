@@ -74,7 +74,8 @@ img {
 <li>Download the ESS for Sweden and Denmark (round 5)</li>
 <li>Import data to R and combine the two datasets</li>
 <li>Define a <code>survey</code> object (stratified design)</li>
-<li>Calculate the combined total for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
+<li>Estimate the empirical distribution of tv consumption (<code>tvtot</code>) in Sweden and Denmark</li>
+<li>Estimate the joined empirical distribution of tv consumption in Sweden and Denmark</li>
 </ul>
 </div>
 <div id="solution-exercise-2.a" class="section level2">
@@ -126,12 +127,15 @@ svydes_NE &lt;- svydesign(id=~1,strata=~cntry,
 <div id="the-analysis-functions-in-r-package-survey" class="section level2">
 <h2>The analysis functions in R-package <code>survey</code></h2>
 <ul>
-<li>Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (<code>tvtot</code>) and compare it with the totals in Sweden and Denmark</li>
+<li>Estimate the empirical distribution of tv consumption (<code>tvtot</code>) in Sweden and Denmark</li>
 </ul>
 <pre class="r"><code>stab_DK &lt;- svytable(~tvtot,svydes_DK)
 stab_DK</code></pre>
 <pre class="r"><code>stab_SE &lt;- svytable(~tvtot,svydes_SE)
 stab_SE</code></pre>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
 <pre class="r"><code>stab_NE &lt;- svytable(~tvtot,svydes_NE)
 stab_NE</code></pre>
 </div>
@@ -143,6 +147,9 @@ barchart(stab_SE)</code></pre>
 </div>
 <div id="more-analysis-functions" class="section level2">
 <h2>More analysis functions</h2>
+<ul>
+<li>Estimate the joined empirical distribution of tv consumption in Sweden and Denmark</li>
+</ul>
 <pre class="r"><code>svytotal(~mt3,svydes_NE)
 
 svymean(~mt3,svydes_NE)</code></pre>
@@ -289,15 +296,7 @@ s.pr &lt;- strSRsample(apipop$stype, nh.pr, replace=FALSE)</code></pre>
 </div>
 <div id="optimal-allocation" class="section level2">
 <h2>Optimal allocation:</h2>
-<pre class="r"><code>nh_op &lt;- function(Nh.tab,opt,strind,n){
-  tab.names     &lt;- apply(expand.grid(dimnames(Nh.tab)),1,paste,collapse=&quot;_&quot;)
-  V.h   &lt;- tapply(opt,strind,sd)[tab.names]
-  nh.op &lt;- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
-  return(nh.op)
-}</code></pre>
-<pre class="r"><code>nh.op &lt;- nh_op(Nh.tab,opt=apipop$api99,strind=apipop$stype,n)
-
-s.op &lt;- strSRsample(apipop$stype, nh.op, replace=FALSE)</code></pre>
+<pre class="r"><code>s.op &lt;- strSRsample(apipop$stype, nh.op, replace=FALSE)</code></pre>
 </div>
 <div id="exercise-2.b-2" class="section level2">
 <h2>Exercise 2.B</h2>
@@ -321,7 +320,7 @@ strSRS.op &lt;- pop[s.op,]</code></pre>
 
 svymean(~api00, svystrSRS.eq)</code></pre>
 <pre><code>##         mean     SE
-## api00 644.28 22.514</code></pre>
+## api00 634.47 23.235</code></pre>
 </div>
 <div id="survey---proportional-allocation" class="section level2">
 <h2><code>survey</code> - proportional allocation</h2>
@@ -330,7 +329,7 @@ svymean(~api00, svystrSRS.eq)</code></pre>
 
 svymean(~api00, svystrSRS.pr)</code></pre>
 <pre><code>##         mean     SE
-## api00 677.38 16.667</code></pre>
+## api00 673.13 16.497</code></pre>
 </div>
 <div id="survey---optimal-allocation" class="section level2">
 <h2><code>survey</code> - optimal allocation</h2>
@@ -339,7 +338,7 @@ svymean(~api00, svystrSRS.pr)</code></pre>
 
 svymean(~api00, svystrSRS.op)</code></pre>
 <pre><code>##         mean     SE
-## api00 656.74 17.276</code></pre>
+## api00 667.68 15.766</code></pre>
 </div>
 
 
