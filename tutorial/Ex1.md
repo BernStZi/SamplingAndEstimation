@@ -42,13 +42,13 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 ***
 ### Important Commands
 
------------|-----------------------------------------------------------------------------
-`svytotal` |  returns the estimated total of a variable  and its standard error ($+ deff$)
-`svymean` |  returns the estimated mean of a variable and its standard error ($+ deff$)
-`svyquantile` |  Computes quantiles for data from complex surveys
-`svyvar` |  Computes variances  for data from complex surveys
-`weights` |  Returns the (design) weights of a survey object
-`calibrate` | Calibration of a data set (uses the GREG-Estimator by default)
+|X.svytotal.   |returns.the.estimated.total.of.a.variable..and.its.standard.error.....deff.. |
+|:-------------|:----------------------------------------------------------------------------|
+|`svymean`     |returns the estimated mean of a variable and its standard error ($+ deff$)   |
+|`svyquantile` |Computes quantiles for data from complex surveys                             |
+|`svyvar`      |Computes variances  for data from complex surveys                            |
+|`weights`     |Returns the (design) weights of a survey object                              |
+|`calibrate`   |Calibration of a data set (uses the GREG-Estimator by default)               |
 
 # 
 

@@ -60,10 +60,8 @@ SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 Later it is necessary for the specification of fpc.
 
 ```{r,eval=Ex}
-DK <- as.data.frame(DK)
 DK$N <- DK$pweight*10000*nrow(DK)
 
-SE <- as.data.frame(SE)
 SE$N <- SE$pweight*10000*nrow(SE)
 ```
 
