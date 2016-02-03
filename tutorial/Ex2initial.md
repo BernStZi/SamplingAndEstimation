@@ -6,8 +6,9 @@ Estimation under a stratified design
 -   Download the ESS for Sweden and Denmark (round 5)
 -   Import data to R and combine the two datasets
 -   Define a `survey` object (stratified design)
--   Calculate the combined total for the tv consumption (`tvtot`) and
-    compare it with the totals in Sweden and Denmark
+-   Calculate the combined total (nr. of persons watching 3 or more
+    hours) for the tv consumption (`tvtot`) and compare it with the
+    totals in Sweden and Denmark
 
 Exercise 2.B
 ------------
