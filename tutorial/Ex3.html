@@ -63,13 +63,13 @@ img {
 <div id="header">
 <h1 class="title">Complex Sampling Designs - Exercise 3</h1>
 <h4 class="author"><em>Stefan Zins, Matthias Sand and Jan-Philipp Kolb</em></h4>
-<h4 class="date"><em>6 February 2016</em></h4>
+<h4 class="date"><em>February 6th, 2016</em></h4>
 </div>
 
 
 <hr />
-<div id="exercise-3a" class="section level1">
-<h1>Exercise 3a</h1>
+<div id="exercise-3.a" class="section level1">
+<h1>Exercise 3.A</h1>
 <ol style="list-style-type: decimal">
 <li>Download the dataset for <a href="http://www.europeansocialsurvey.org/data/country.html?c=germany">Germany</a> of the 5th ESS-Round (SDDF File and Sampling Data)</li>
 <li>Create a <code>svydesign</code> object to estimate the mean of the variable <code>agea</code></li>
@@ -104,6 +104,10 @@ SS &lt;- anova(lin.mod)
 MSB &lt;- SS$`Mean Sq`[1]
 MSW &lt;- SS$`Mean Sq`[2]</code></pre>
 <hr />
+</div>
+</div>
+<div id="exercise-3.b" class="section level1">
+<h1>Exercise 3.B</h1>
 <ul>
 <li>Execute the following <a href="https://raw.githubusercontent.com/BernStZi/SamplingAndEstimation/short/tutorial/Samples_for_EX3b.R">R-Script</a> to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities dataset</li>
 </ul>
@@ -128,7 +132,6 @@ source(url)</code></pre>
 <ul>
 <li><code>pps</code> should be used to define the design information; usually the second order probability of inclusion<br /> If the second order probability of inclusion are unknown (or too complex to calculate), a brewer approximation can be applied to estimate the joint inclusion probabilities</li>
 </ul>
-</div>
 </div>
 
 
