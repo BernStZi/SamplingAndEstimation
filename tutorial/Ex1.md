@@ -40,6 +40,7 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 - `data` reflects the data set for which the design object should be defined
 
 ***
+<<<<<<< HEAD
  
 ** ** | **Important Commands**
 -----------|-----------------------------------------------------------------------------
@@ -49,6 +50,18 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 `svyvar` |  Computes variances  for data from complex surveys
 `weights` |  Returns the (design) weights of a survey object
 `calibrate` | Calibration of a data set (uses the GREG-Estimator by default)
+=======
+### Important Commands
+
+| Command | What |
+|:-------------|:----------------------------------------------------------------------------|
+|`svytotal`   |returns the estimated total of a variable and its standard error ($+ deff$) |
+|`svymean`     |returns the estimated mean of a variable and its standard error ($+ deff$)   |
+|`svyquantile` |Computes quantiles for data from complex surveys                             |
+|`svyvar`      |Computes variances  for data from complex surveys                            |
+|`weights`     |Returns the (design) weights of a survey object                              |
+|`calibrate`   |Calibration of a data set (uses the GREG-Estimator by default)               |
+>>>>>>> b42ac851cc3780b1e398b9abef8dabd219740304
 
 # 
 

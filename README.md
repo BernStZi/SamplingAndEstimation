@@ -26,15 +26,31 @@ The implications of using survey on doing statistical inference are also shown.
 
 The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts:
 
-Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.pdf) | 
+Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex1.pdf)) sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
-Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.pdf) | 
-[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
+Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md) | 
+[Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2initial.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
 
 Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex3.pdf)) focuses on **design effects**,   **multistage samples** and **cluster samples** and the estimation of central parameters within those sampling strategies. To estimate a design effect of a genuine survey, the exercise uses the ESS data of the 5th round for Germany.
 The estimation of parameters in complex sampling designs will use a previously generated sample. Participants will then learn how to specifiy such samples as a **survey object** and how to estimate parameters of interest.
+
+
+### Timetable
+
+
+|Day; Time: Topic                                                                           |
+|:--------------------------------------------------------------------------------------|
+|1;14:00 - 16:00:  [Introduction to Design Based Inference](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf)                               |
+|1;16:30 – 18:00: [Tutorial: Brief Introduction to the Analysis of Sample Surveys with R](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.pdf) |
+|2;09:30 – 11:30: [Complex Sampling Designs I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)                                          |
+|2;12:30 – 14:30: [Complex Sampling Designs II]((https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf))                                           |
+|2;15:00 – 17:00: [Tutorial: Stratified Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md)                                 |
+|3;09:30 – 11:30: [Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                 |
+|3;12:30 – 14:30: [Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                |
+|3;15:00 – 17:00: [Tutorial: Design Based Estimation](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf)                                     |
+
 
 ### R-Intro
 If you are new to R there you will find a document [here](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/preparation/Preparation.md), which you might find helpful in guiding you through your first steps in R and gives you hints on where to find further information.

@@ -695,7 +695,7 @@ deffs <- matrix(c(delta.bycol, delta.byrow, deff.bycol, deff.byrow),ncol=2,byrow
 dimnames(deffs) <- 
  list(c("$\\delta$","$\\deff$"), c("SRCS a", "SRCS b"))
 
-deffs.tab <- xtable(deffs, digits = 5, caption = "Intra-Cluster Homogeneity and Design Effects")
+deffs.tab <- xtable(deffs[-1,,drop=F], digits = 5, caption = "Design Effects")
 align(deffs.tab ) <- "l|rr"
 
 
@@ -790,7 +790,7 @@ Since it is so difficult to estimate the design effect models are used to descri
 					with
 					\begin{description}
 						\item[$\bar{b}$]  as the average cluster size $\frac{N}{N_{\RN{1}}}$ ($\frac{n}{n_{\RN{1}}}$ ) or an estimator for it and 
-						\item[$\hat{\rho}$] an appropriate estimator of $\rho$.
+						\item[$\hat{\rho}$] as an appropriate estimator of $\rho$.
 					\end{description}
 		\item When $w_k$'s vary we have
 					$$
@@ -949,7 +949,7 @@ $$
 \end{frame}
 
 
-\begin{frame}{Comparison of Design Based and Model Based Design Effects}
+\begin{frame}{Comparison of Design Based \\ and Model Based Design Effects}
 <<modelDeffEst, echo=FALSE,results='asis',message=FALSE>>=
 #model-based
 clu.data <- as.vector(clu)
@@ -978,7 +978,7 @@ deffm <- matrix(c(rho.col, deff.bycol.m, rho.row, deff.byrow.m),ncol=2)
 dimnames(deffm) <- 
  list(c("$\\rho$","$\\deff$"), c("SRCS a", "SRCS b"))
 
-deffm.tab <- xtable(deffm, digits = 5, caption = "Intra-Class Correlation Coefficient and (Model) Design Effects")
+deffm.tab <- xtable(deffm, digits = 5, caption = "Intra-Class Correlation Coefficients and (Model) Design Effects")
 align(deffm.tab ) <- "l|rr"
 
 print.xtable(deffm.tab, hline.after = 0,  caption.placement="top", sanitize.text.function = identity)

@@ -8,5 +8,11 @@ strSRsample()
 Draw a stratified sample
 }
 \examples{
-# strSRsample()
+library(survey)
+data(api)
+
+nh.eq <- c(20,20,20)
+names(nh.eq) <- names(table(apipop$stype))
+
+s.eq <- strSRsample(apipop$stype, nh.eq, replace=FALSE)
 }
