@@ -26,7 +26,7 @@ The implications of using survey on doing statistical inference are also shown.
 
 The tutorial consists of exercises in which students will apply the methodology covered in the lecture using the R language. The exercise is also split into three parts:
 
-Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.pdf) | 
+Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex1.pdf)) sets its focus on the application of basic R commands, such as loading and inspecting a data set. Furthermore the R package **survey** will be introduced and an introduction on how to define **survey objects** will be given. The first exercise focuses on estimation within **simple random sample**, using the survey package and the data of the 5th ESS-Round for Sweden.
 
 Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md) | 
