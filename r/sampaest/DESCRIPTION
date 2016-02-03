@@ -8,3 +8,4 @@ Maintainer: <Jan-Philipp.Kolb@gesis.org>
 Description: Sampling and Estimation
 License: GPL-2
 LazyData: TRUE
+Imports: survey
