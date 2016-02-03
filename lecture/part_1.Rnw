@@ -273,7 +273,7 @@ Drawing $n$ elements out of a urn without putting them back (i.e. $S_k \geq I_k$
 
 \begin{frame}{Simple Random Sampling}{With Replacement}
 Simple random sampling with replacement (SRSWR):
-Drawing $n$ elements out of a urn by making $n$ successive draws and putting after each draw the element back (i.e. $S_k \neq I_k$). The order of the selected elements is also not remembered.
+Drawing $n$ elements out of a urn by making $n$ successive draws and putting after each draw the element back (i.e. $S_k \geq I_k$). The order of the selected elements is also not remembered.
 \begin{align*}
   \mathcal{G}= & \binom{N+n-1}{n}     &  p(\mathfrc{s}) = & {\binom{N+n-1}{n}}^{-1}   \\
  \nu_k      = & \dfrac{n}{N}         &  \pi_k          = &  1-\left( \dfrac{N-1}{N} \right)^n \\
