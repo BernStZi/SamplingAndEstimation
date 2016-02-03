@@ -5,7 +5,6 @@ output: html_document
 ## A lecture with tutorial about sampling and estimation in the field of sample surveys. 
 
 ### Lecture 
-The lecture is split into three part.
 
 Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/lecture/part_1.pdf))
