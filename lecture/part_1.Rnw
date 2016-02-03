@@ -228,7 +228,7 @@ Hence, $p: \; \mathcal{G} \mapsto (0, 1]$.
 
 
 \begin{frame}{Simple Random Sampling}{Without Replacement}
-Simple random sampling without replacement (SRS):
+Simple random sampling without replacement (SRS):
 Drawing $n$ elements out of a urn without putting them back (i.e. $S_k \geq I_k$) and without remembering the order of the selected element.
 \begin{align}
   \mathcal{G}    =&  \binom{N}{n}         \\

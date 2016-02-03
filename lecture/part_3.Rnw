@@ -795,7 +795,7 @@ sam.dsgn <-
             ,data = sam.dat   # the sample data 
             ,fpc = ~IP        # incl. prob
             ,pps= "brewer")    # variance approx. method
-    #the model we use for the GREG
+ #the model we use for the GREG
 lmod2 <- lm(EXPTOTAL ~ SEENCNT + EOYCNT + hosp.type:BEDS, data=smho.)
 #2. compute pop totals of auxiliaries
 pop.tots <- colSums(model.matrix(lmod2)) #Inefficient but convenient!
