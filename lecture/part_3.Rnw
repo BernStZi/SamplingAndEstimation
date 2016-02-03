@@ -205,7 +205,7 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 
 
 \begin{frame}{Missing Data} 
-\emph{Missing data is the norm, rather than the expectation!}
+\emph{Missing data is the norm, rather than the exception!}
 
 %\begin{minipage}[h]{8cm}
 % \begin{center}
@@ -630,7 +630,7 @@ and $\hat{\boldsymbol{\tau}}_{x\,\pi}=(\hat{\tau}_{x_1\,\pi}\,,\ldots\,,\hat{\ta
 
 The  adjustment to the design weight $g_k$ can be written as:
 \begin{gather*}
-g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s}} d_k \mathbf{x}_k\Big)^\top \Big(\sum_{k\in\mathfrc{s}} d_k c_k \mathbf{x}_k (\mathbf{x}_k)^\top \Big)^{-1}\right)^\top c_k \mathbf{x}_k
+g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s}} d_k \mathbf{x}_k\Big)^\top \Big(\sum_{k\in\mathfrc{s}} d_k c_k \mathbf{x}_k (\mathbf{x}_k)^\top \Big)^{-1}\right) c_k \mathbf{x}_k
 \end{gather*}
 \end{frame}
 

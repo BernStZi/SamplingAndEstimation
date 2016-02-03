@@ -687,13 +687,13 @@ Thus simple design,  such as SRS or StrSRS, are justifiable, as these designs ar
 <<ExCluSamDeff,echo=FALSE,results='asis',message=FALSE>>=
 
 
-#   
+   
 SSW.byrow <- sum(apply(clu,1,function(x)sum((x-mean(x))^2)))
 SSW.bycol <- sum(apply(clu,2,function(x)sum((x-mean(x))^2)))
 
 delta.byrow <- 1 - (SSW.byrow/(length(clu)-nrow(clu)))/var(as.vector(clu))
 delta.bycol <- 1 - (SSW.bycol/(length(clu)-ncol(clu)))/var(as.vector(clu))
-# 
+ 
 # deff.byrow <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.byrow
 # deff.bycol <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.bycol
 

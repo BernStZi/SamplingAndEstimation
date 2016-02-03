@@ -243,7 +243,7 @@
 
 
 \begin{frame}{Missing Data} 
-\emph{Missing data is the norm, rather than the expectation!}
+\emph{Missing data is the norm, rather than the exception!}
 
 %\begin{minipage}[h]{8cm}
 % \begin{center}
@@ -387,7 +387,7 @@ x_{kq}=
 
 \onslide<1->{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:28 2016
+% Wed Feb 03 17:03:57 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for Hair and Eye Colour} 
@@ -404,7 +404,7 @@ Black & 68 & 20 & 15 & 5 \\
 }
 \onslide*<2>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:28 2016
+% Wed Feb 03 17:03:57 2016
 \begin{table}[ht]
 \centering
 \caption{Sample counts $\sum_{k \in \mathfrc{s}} x_{kq}$ in a SRS with $n=150$} 
@@ -421,7 +421,7 @@ Black & 14 & 7 & 2 & 2 \\
 }
 \onslide*<3>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:28 2016
+% Wed Feb 03 17:03:57 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ } 
@@ -438,7 +438,7 @@ Black & 55.2533 & 27.6267 & 7.8933 & 7.8933 \\
 }
 \onslide<4>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:28 2016
+% Wed Feb 03 17:03:58 2016
 \begin{table}[ht]
 \centering
 \caption{Post-stratification $g_k = \dfrac{\tau_{x_q}}{\hat{\tau}_{x_q}}$ } 
@@ -485,7 +485,7 @@ variables school type (\texttt{stype}) and the accomplishment of the growth targ
 \begin{center}
 \usebox{\mysavebox}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:28 2016
+% Wed Feb 03 17:03:58 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for School Type (\texttt{stype}) and School Target (\texttt{sch.wide}) } 
@@ -587,7 +587,7 @@ SUM & 1072 & 5122 & 6194 \\
 
 \only<1>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Jan 27 18:07:29 2016
+% Wed Feb 03 17:03:58 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated Totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ from a SRCS of Districts (\texttt{dname})  with $n_{\RN{1}}=10$} 
@@ -660,7 +660,7 @@ and $\hat{\boldsymbol{\tau}}_{x\,\pi}=(\hat{\tau}_{x_1\,\pi}\,,\ldots\,,\hat{\ta
 
 The  adjustment to the design weight $g_k$ can be written as:
 \begin{gather*}
-g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s}} d_k \mathbf{x}_k\Big)^\top \Big(\sum_{k\in\mathfrc{s}} d_k c_k \mathbf{x}_k (\mathbf{x}_k)^\top \Big)^{-1}\right)^\top c_k \mathbf{x}_k
+g_k = 1 + \left(\Big(\sum_{k\in\mathcal{U}} \mathbf{x}_k - \sum_{k\in \mathfrc{s}} d_k \mathbf{x}_k\Big)^\top \Big(\sum_{k\in\mathfrc{s}} d_k c_k \mathbf{x}_k (\mathbf{x}_k)^\top \Big)^{-1}\right) c_k \mathbf{x}_k
 \end{gather*}
 \end{frame}
 
