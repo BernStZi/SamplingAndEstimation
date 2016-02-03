@@ -11,9 +11,10 @@ Estimation under a stratified design
     (round 5)
 -   Import data to R and combine the two datasets
 -   Define a `survey` object (stratified design)
--   Calculate the combined total (nr. of persons watching 3 or more
-    hours) for the tv consumption (`tvtot`) and compare it with the
-    totals in Sweden and Denmark
+-   Estimate the empirical distribution of tv consumption (`tvtot`) in
+    Sweden and Denmark
+-   Estimate the joined empirical distribution of tv consumption in
+    Sweden and Denmark
 
 [Codebook ESS round
 5](http://www.europeansocialsurvey.org/docs/round5/survey/ESS5_appendix_a6_e04_0.pdf)
