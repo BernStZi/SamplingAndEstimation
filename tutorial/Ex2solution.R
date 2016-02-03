@@ -5,70 +5,79 @@ library(foreign)
 Ex <- F
 library(knitr)
 
+## ----echo=F,eval=F-------------------------------------------------------
+## main.path <- "C:/Users/kolbjp/Documents/GitHub/SamplingAndEsimation/tutorial"
+## setwd(main.path)
+## purl("Ex2solution.Rmd")
+
 ## ----echo=F,eval=Ex------------------------------------------------------
-## Set working directory
-main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
-
-data.path <- paste(main.path,"data/",sep="")
-
-setwd(data.path)
-
-## ----eval=Ex-------------------------------------------------------------
-DK <- read.spss("ESS5DK.sav",to.data.frame=T)
-SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+## ## Set working directory
+## main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+## 
+## data.path <- paste(main.path,"data/",sep="")
+## 
+## setwd(data.path)
 
 ## ----eval=Ex-------------------------------------------------------------
-DK <- as.data.frame(DK)
-DK$N <- DK$pweight*10000*nrow(DK)
-
-SE <- as.data.frame(SE)
-SE$N <- SE$pweight*10000*nrow(SE)
+## DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+## SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 
 ## ----eval=Ex-------------------------------------------------------------
-DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
-                    N=DK$N,
-                    cntry=as.character(DK$cntry))
+## DK$N <- DK$pweight*10000*nrow(DK)
+## 
+## SE$N <- SE$pweight*10000*nrow(SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
-                    N=SE$N,
-                    cntry=as.character(SE$cntry))
+## DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+##                     N=DK$N,
+##                     cntry=as.character(DK$cntry))
 
 ## ----eval=Ex-------------------------------------------------------------
-NE <- rbind(DK_tv,SE_tv)
+## SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+##                     N=SE$N,
+##                     cntry=as.character(SE$cntry))
 
-## ------------------------------------------------------------------------
-NE$mt3 <- 0
-NE$mt3[NE$tvtot=="More than 3 hours"] <- 1  
+## ----eval=Ex-------------------------------------------------------------
+## NE <- rbind(DK_tv,SE_tv)
+
+## ----eval=Ex-------------------------------------------------------------
+## NE$mt3 <- 0
+## NE$mt3[NE$tvtot=="More than 3 hours"] <- 1
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
 
 ## ----eval=Ex-------------------------------------------------------------
-# SRS design
-svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
-svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
+## # SRS design
+## svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
+## svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-# Stratified design
-svydes_NE <- svydesign(id=~1,strata=~cntry, 
-                       fpc=~N, data=NE)
+## # Stratified design
+## svydes_NE <- svydesign(id=~1,strata=~cntry,
+##                        fpc=~N, data=NE)
 
 ## ----eval=Ex-------------------------------------------------------------
-stab_DK <- svytable(~tvtot,svydes_DK)
-stab_DK
+## stab_DK <- svytable(~tvtot,svydes_DK)
+## stab_DK
 
 ## ----eval=Ex-------------------------------------------------------------
-stab_SE <- svytable(~tvtot,svydes_SE)
-stab_SE
+## stab_SE <- svytable(~tvtot,svydes_SE)
+## stab_SE
 
 ## ----eval=Ex-------------------------------------------------------------
-library(lattice)
-barchart(stab_DK)
-
+## stab_NE <- svytable(~tvtot,svydes_NE)
+## stab_NE
 
 ## ----eval=Ex-------------------------------------------------------------
-svytotal(~mt3,svydes_NE)
+## library(lattice)
+## barchart(stab_DK)
+## barchart(stab_SE)
+
+## ----eval=Ex-------------------------------------------------------------
+## svytotal(~mt3,svydes_NE)
+## 
+## svymean(~mt3,svydes_NE)
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
@@ -97,6 +106,16 @@ strSRsample <- function(strind, nh, replace=FALSE){
          ,use.names = FALSE)
 }
 
+## ----eval=F--------------------------------------------------------------
+## library(devtools)
+## install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+##                ref="short")
+
+## ----eval=F--------------------------------------------------------------
+## url <- "https://raw.githubusercontent.com/BernStZi/
+## SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
+## source(url)
+
 ## ------------------------------------------------------------------------
 nh.eq <- c(20,20,20)
 names(nh.eq) <- names(table(apipop$stype))
@@ -110,11 +129,12 @@ nh.pr <- round(Nh.tab/sum(Nh.tab)*n)
 
 s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 
-## ------------------------------------------------------------------------
-tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,collapse="_")
-
-V.h   <- tapply(apipop$api99,apipop$stype,sd)[tab.names]
+## ----echo=F,eval=T-------------------------------------------------------
+V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
+
+## ------------------------------------------------------------------------
+nh.op <- nh_op(Nh.tab,opt=apipop$api99,strind=apipop$stype,n)
 
 s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 
@@ -126,17 +146,20 @@ strSRS.pr <- pop[s.pr,]
 strSRS.op <- pop[s.op,]
 
 ## ------------------------------------------------------------------------
-svystrSRS.eq <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.eq)
+svystrSRS.eq <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.eq)
 
 svymean(~api00, svystrSRS.eq)
 
 ## ------------------------------------------------------------------------
-svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.pr)
+svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.pr)
 
 svymean(~api00, svystrSRS.pr)
 
 ## ------------------------------------------------------------------------
-svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  fpc=~Nh, data=strSRS.op)
+svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  
+                          fpc=~Nh, data=strSRS.op)
 
 svymean(~api00, svystrSRS.op)
 

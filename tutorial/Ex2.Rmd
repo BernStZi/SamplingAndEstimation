@@ -1,8 +1,8 @@
 ---
-title: "Sampling and Estimation - Exercise 2"
-author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
-date: "2 Februar 2016"
-output: html_document
+title: "Stratified Sampling Designs - Exercise 2"
+author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
+date: "5 February 2016"
+output: md_document
 ---
 
 
@@ -13,7 +13,11 @@ Estimation  under a stratified design
 - [Download](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/preparation/Preparation.md) the ESS for [Sweden](http://www.europeansocialsurvey.org/file/download?f=ESS7SE.spss.zip&c=SE&y=2010) and [Denmark](http://www.europeansocialsurvey.org/file/download?f=ESS5DK.spss.zip&c=DK&y=2010) (round 5)
 - Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+- Estimate the  empirical distribution of tv consumption (`tvtot`) in Sweden and Denmark 
+- Estimate the joined empirical distribution of tv consumption in Sweden and Denmark
+
+
+[Codebook ESS round 5](http://www.europeansocialsurvey.org/docs/round5/survey/ESS5_appendix_a6_e04_0.pdf)
 
 
 ## Exercise 2.B

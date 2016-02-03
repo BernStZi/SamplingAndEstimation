@@ -156,9 +156,10 @@ frame=tb}
 
 \begin{enumerate}
 
-\item Download the data set for Germany of the 5th ESS-Round (Country File and Sampling Data)
+\item Download the data set for Germany of the 5th ESS-Round (SDDF File and Sampling Data)
 \item[] \url{http://www.europeansocialsurvey.org/data/country.html?c=germany}
-\item Estimate the design effect using the variables \alert{dweight},\alert{PSU} and \alert{agea} (model based approach) 
+\item Create a \R{svydesign} object to estimate the mean of the variable \R{agea}
+\item To acknowledge that the sample has been collected by a multi stage design, estimate the design effect of your estimate above using the PSU-Indicator variable 
 \item[] \alert{Advice:} The variable \alert{PSU} has to be a factor
 \item Calculate the effective sample size
  
@@ -181,7 +182,7 @@ frame=tb}
 MSB=\frac{SSB}{l-1}\text{;~~~~}MSW=\frac{SSW}{n-l}\text{;~~~~}K=\frac{1}{l-1}(n-\sum_{h=1}^l\frac{n_h^2}{n})\text{;}
 \end{equation*}
 \begin{equation*}
-b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}w_{li}^2}
+b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}d_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{n_h}d_{li}^2}
 \end{equation*}
 \end{block}
 
@@ -230,10 +231,10 @@ b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlcom{## deffc}
-\hlstd{b} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlkwd{tapply}\hlstd{(Ger}\hlopt{$}\hlstd{dweight,Ger}\hlopt{$}\hlstd{PSU,}
+\hlstd{b.star} \hlkwb{<-} \hlkwd{sum}\hlstd{(}\hlkwd{tapply}\hlstd{(Ger}\hlopt{$}\hlstd{dweight,Ger}\hlopt{$}\hlstd{PSU,}
                 \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)}\hlkwd{sum}\hlstd{(x)}\hlopt{^}\hlnum{2}\hlstd{))}\hlopt{/}\hlkwd{sum}\hlstd{(Ger}\hlopt{$}\hlstd{dweight}\hlopt{^}\hlnum{2}\hlstd{)}
 \hlcom{# Calculate an anova for the regression model Age by PSU }
-\hlcom{# (Coule also be any other Variable)}
+\hlcom{# (Could also be any other Variable)}
 \hlstd{lin.mod} \hlkwb{<-} \hlkwd{lm}\hlstd{(}\hlkwd{as.numeric}\hlstd{(Ger}\hlopt{$}\hlstd{agea)}\hlopt{~}\hlstd{Ger}\hlopt{$}\hlstd{PSU)}
 \hlstd{SS} \hlkwb{<-} \hlkwd{anova}\hlstd{(lin.mod)}
 \hlcom{#  MSB and MSW are the means of SSB and SSW}
@@ -251,9 +252,9 @@ b^{*}=\frac{\sum_{l=1}^{L}(\sum_{i=1}^{n_h}w_{li})^2}{\sum_{l=1}^{L}\sum_{i=1}^{
 \begin{frame}[fragile]{Exercise 3b}
 
 \begin{enumerate}
-\item Download the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
-\item Calculate the mean income of the population
-\item Estimate the mean income from both samples, using the \R{survey} package and compare the results
+\item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities dataset
+\item Your workspace now contains the datasets \R{true\_ income}, \R{Data.be} and \R{Data.be2}. \R{true\_ income} resembles the  mean of the income variable for the population of the belgianmunicipalities dataset. \R{Data.be} is a multistage sample with 80 PSUs and 300 individual datapoints whithin each PSU. \R{Data.be2} is a clustersample of 10 communes
+\item Estimate the mean income from both samples using the \R{survey} package and compare the results
 
 
 

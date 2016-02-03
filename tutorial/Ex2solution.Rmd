@@ -2,7 +2,7 @@
 title: "Sampling and Estimation - Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "2 Februar 2016"
-output: md_document
+output: html_document
 ---
 
 
@@ -13,7 +13,9 @@ Estimation under a stratified design
 - Download the ESS for Sweden and Denmark (round 5)
 - Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+- Estimate the  empirical distribution of tv consumption (`tvtot`) in Sweden and Denmark 
+- Estimate the joined empirical distribution of tv consumption in Sweden and Denmark
+
 
 ## Solution Exercise 2.A 
 
@@ -29,6 +31,7 @@ library(foreign)
 ```{r,echo=F}
 Ex <- F
 library(knitr)
+set.seed(1133)
 ```
 
 ```{r,echo=F,eval=F}
@@ -60,10 +63,8 @@ SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 Later it is necessary for the specification of fpc.
 
 ```{r,eval=Ex}
-DK <- as.data.frame(DK)
 DK$N <- DK$pweight*10000*nrow(DK)
 
-SE <- as.data.frame(SE)
 SE$N <- SE$pweight*10000*nrow(SE)
 ```
 
@@ -118,7 +119,7 @@ svydes_NE <- svydesign(id=~1,strata=~cntry,
 
 ## The analysis functions in R-package `survey`
 
-- Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+- Estimate the  empirical distribution of tv consumption (`tvtot`) in Sweden and Denmark 
 
 
 ```{r,eval=Ex}
@@ -131,6 +132,9 @@ stab_DK
 stab_SE <- svytable(~tvtot,svydes_SE)
 stab_SE
 ```
+
+
+## 
 
 ```{r,eval=Ex}
 stab_NE <- svytable(~tvtot,svydes_NE)
@@ -149,6 +153,7 @@ barchart(stab_SE)
 
 ## More analysis functions
 
+- Estimate the joined empirical distribution of tv consumption in Sweden and Denmark
 
 ```{r,eval=Ex}
 svytotal(~mt3,svydes_NE)
@@ -221,7 +226,7 @@ install_github("BernStZi/SamplingAndEstimation/r/sampaest",
 ```
 
 ```{r,eval=F}
-url <- "https://raw.githubusercontent.com/BernStZi/
+url <- "http://raw.githubusercontent.com/BernStZi/
 SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
 source(url)
 ```
@@ -248,13 +253,13 @@ s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 
 ## Optimal allocation: 
 
-```{r}
-tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,
-                       collapse="_")
-
-V.h   <- tapply(apipop$api99,apipop$stype,sd)[tab.names]
+```{r,echo=F,eval=T}
+V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
+```
 
+
+```{r}
 s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 ```
 

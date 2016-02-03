@@ -6,8 +6,10 @@ Estimation under a stratified design
 -   Download the ESS for Sweden and Denmark (round 5)
 -   Import data to R and combine the two datasets
 -   Define a `survey` object (stratified design)
--   Calculate the combined total for the tv consumption (`tvtot`) and
-    compare it with the totals in Sweden and Denmark
+-   Estimate the empirical distribution of tv consumption (`tvtot`) in
+    Sweden and Denmark
+-   Estimate the joined empirical distribution of tv consumption in
+    Sweden and Denmark
 
 Solution Exercise 2.A
 ---------------------
@@ -32,10 +34,8 @@ Construction of N
 
 Later it is necessary for the specification of fpc.
 
-    DK <- as.data.frame(DK)
     DK$N <- DK$pweight*10000*nrow(DK)
 
-    SE <- as.data.frame(SE)
     SE$N <- SE$pweight*10000*nrow(SE)
 
 Combine the two datasets (DK,SE)
@@ -78,9 +78,8 @@ R-package `survey`
 The analysis functions in R-package `survey`
 --------------------------------------------
 
--   Calculate the combined total (nr. of persons watching 3 or more
-    hours) for the tv consumption (`tvtot`) and compare it with the
-    totals in Sweden and Denmark
+-   Estimate the empirical distribution of tv consumption (`tvtot`) in
+    Sweden and Denmark
 
 <!-- -->
 
@@ -102,6 +101,11 @@ Visualisation
 
 More analysis functions
 -----------------------
+
+-   Estimate the joined empirical distribution of tv consumption in
+    Sweden and Denmark
+
+<!-- -->
 
     svytotal(~mt3,svydes_NE)
 
@@ -267,12 +271,6 @@ Proportional allocation:
 Optimal allocation:
 -------------------
 
-    tab.names     <- apply(expand.grid(dimnames(Nh.tab)),1,paste,
-                           collapse="_")
-
-    V.h   <- tapply(apipop$api99,apipop$stype,sd)[tab.names]
-    nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
-
     s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 
 Exercise 2.B
@@ -301,8 +299,8 @@ Subselect the sample:
 
     svymean(~api00, svystrSRS.eq)
 
-    ##         mean     SE
-    ## api00 659.21 20.273
+    ##        mean     SE
+    ## api00 675.6 21.796
 
 `survey` - proportional allocation
 ----------------------------------
@@ -313,7 +311,7 @@ Subselect the sample:
     svymean(~api00, svystrSRS.pr)
 
     ##         mean     SE
-    ## api00 691.24 17.683
+    ## api00 680.07 17.082
 
 `survey` - optimal allocation
 -----------------------------
@@ -324,4 +322,4 @@ Subselect the sample:
     svymean(~api00, svystrSRS.op)
 
     ##         mean     SE
-    ## api00 674.65 16.467
+    ## api00 646.66 16.872

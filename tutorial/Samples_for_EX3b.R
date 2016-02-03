@@ -13,6 +13,7 @@ l <- 80
 nh <- 300
 
 ### income ###
+set.seed(42)
 income <- by(bm, bm$INS, function(x)rnorm(x$Tot04, mean=x$averageincome,sd=sqrt(x$averageincome)))
 
 ### first stage inclusion probability ####
@@ -87,5 +88,12 @@ Data.be2 <- merge(clus2,data.inc2,by="INS", all.x=TRUE)
 
 ### population size
 Data.be2$N <- sum(bm2$Tot03)
+
+
+### mean income population ###
+
+true_income <- mean(unlist(income))
+
+
 
 
