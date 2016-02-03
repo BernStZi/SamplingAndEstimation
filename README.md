@@ -49,7 +49,7 @@ The estimation of parameters in complex sampling designs will use a previously g
 |2;15:00 – 17:00: [Tutorial: Stratified Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2initial.md)                                 |
 |3;09:30 – 11:30: [Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                 |
 |3;12:30 – 14:30: [Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                |
-|3;15:00 – 17:00: [Tutorial: Design Based Estimation](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf)                                     |
+|3;15:00 – 17:00: [Tutorial: Complex Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf)                                     |
 
 
 ### R-Intro
