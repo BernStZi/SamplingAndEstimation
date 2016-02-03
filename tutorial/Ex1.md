@@ -1,6 +1,6 @@
-# Exercise 1
+#  Introduction to the Analysis of Sample Surveys with R - Exercise 1
 Stefan Zins, Matthias Sand and Jan-Philipp Kolb  
-2 Februar 2016  
+4 February 2016  
 *** 
 1. Download the ESS dataset for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) (Survey Data and Sampling Design Data File (SDDF)) of the 5th round
 2. Setup your workspace and load the R-packages [foreign](https://cran.r-project.org/web/packages/foreign/foreign.pdf) and [survey](https://cran.r-project.org/web/packages/survey/index.html)
@@ -40,7 +40,7 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 - `data` reflects the data set for which the design object should be defined
 
 ***
-<<<<<<< HEAD
+
  
 ** ** | **Important Commands**
 -----------|-----------------------------------------------------------------------------
@@ -50,20 +50,8 @@ surv.obj <- svydesign(id=~1,fpc = ~fpc, data = apisrs)
 `svyvar` |  Computes variances  for data from complex surveys
 `weights` |  Returns the (design) weights of a survey object
 `calibrate` | Calibration of a data set (uses the GREG-Estimator by default)
-=======
-### Important Commands
 
-| Command | What |
-|:-------------|:----------------------------------------------------------------------------|
-|`svytotal`   |returns the estimated total of a variable and its standard error ($+ deff$) |
-|`svymean`     |returns the estimated mean of a variable and its standard error ($+ deff$)   |
-|`svyquantile` |Computes quantiles for data from complex surveys                             |
-|`svyvar`      |Computes variances  for data from complex surveys                            |
-|`weights`     |Returns the (design) weights of a survey object                              |
-|`calibrate`   |Calibration of a data set (uses the GREG-Estimator by default)               |
->>>>>>> b42ac851cc3780b1e398b9abef8dabd219740304
 
-# 
 
 
 ```r

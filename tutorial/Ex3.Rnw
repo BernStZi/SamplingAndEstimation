@@ -206,8 +206,8 @@ MSW <- SS$`Mean Sq`[2]
 \begin{frame}[fragile]{Exercise 3b}
 
 \begin{enumerate}
-\item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities data set
-\item Your workspace now contains the data sets \R{income}, \R{Data.be} and \R{Data.be2} Calculate the mean income of the population
+\item Execute the following R-Script: \url{https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Samples_for_EX3b.R} to generate a Multistage- and a Cluster- Sample for the belgianmunicipalities dataset
+\item Your workspace now contains the datasets \R{true\_ income}, \R{Data.be} and \R{Data.be2}. \R{true\_ income} resembles the  mean of the income variable for the population of the belgianmunicipalities dataset. \R{Data.be} is a multistage sample with 80 PSUs and 300 individual datapoints whithin each PSU. \R{Data.be2} is a clustersample of 10 communes
 \item Estimate the mean income from both samples using the \R{survey} package and compare the results
 
 
