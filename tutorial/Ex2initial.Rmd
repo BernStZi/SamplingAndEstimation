@@ -2,7 +2,7 @@
 title: "Sampling and Estimation - Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "2 Februar 2016"
-output: beamer_presentation
+output: html_document
 ---
 
 
@@ -13,7 +13,7 @@ Estimation  under a stratified design
 - Download the ESS for Sweden and Denmark (round 5)
 - Import data to R and combine the two datasets
 - Define a `survey` object (stratified design)
-- Calculate the combined total for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
+- Calculate the combined total (nr. of persons watching 3 or more hours) for the tv consumption (`tvtot`) and compare it with the totals in Sweden and Denmark
 
 
 ## Exercise 2.B
