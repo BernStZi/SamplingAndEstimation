@@ -349,13 +349,17 @@ sim.tab <- xtable(OUT, digits = 1, caption = "Results from the Simulation Study"
 align(sim.tab ) <- "l|rrr"
 print.xtable(sim.tab, hline.after = 0,  caption.placement="top")
 
+SRS.var      <- (1-n/N)*var(as.vector(clu))/n 
+SRcS.var.col <- ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,2,sum))/n_I
+SRcS.var.row <- ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,1,sum))/n_I
+
 @
 \onslide<2->{True values:
 \begin{tabular}{l c d{1} l}
 $\mu $ & =& \Sexpr{mean(clu)} & \\
-$\V{\overline{y}}_{\text{SRS}}$ &=& \Sexpr{ (1-n/N)*var(as.vector(clu))/n}	&  SRS \\
-$\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$  &=& \Sexpr{ ncol(clu)^2/N^2 * (1-n_I/ncol(clu))*var(apply(clu,2,sum))/n_I }   & SRCS  a \\
- $\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$ &=& \Sexpr{ nrow(clu)^2/N^2 * (1-n_I/nrow(clu))*var(apply(clu,1,sum))/n_I }   &  SRCS b \\
+$\V{\overline{y}}_{\text{SRS}}$ &=& \Sexpr{ SRS.var  }	&  SRS \\
+$\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$  &=& \Sexpr{ SRcS.var.col }   & SRCS  a \\
+ $\V{\overline{y}_{\text{SRCS}}}_{\text{SRS}}$ &=& \Sexpr{ SRcS.var.row }   &  SRCS b \\
 \end{tabular} \newline
 Bias is not an issue, however variance is. 
 }
@@ -423,7 +427,7 @@ for(i in sam.str) {
  \item[Second stage] For every $i \in \mathfrc{s}_{\RN{1}}$ a sample $\mathfrc{s}_i$ of SSU's is selected from $\mathcal{U}_i$ according to some design $p_i(.|\mathfrc{s}_{\RN{1}})$
  \end{description}
  The resulting sample of SSU's is denote $\mathfrc{s}= \bigcup_{i \in \mathfrc{s}_{\RN{1}}} \mathfrc{s}_i $.
- In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus the inclusion probability of a element $k \in \mathcal{U}_i$ is
+ In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus, the inclusion probability of a element $k \in \mathcal{U}_i$ is
 $$\pi_k=\pi_{\RN{1}i}\pi_{k|i}\;,$$
 where $\pi_{\RN{1}i}$ is the probability of selecting the $i$-th PSU and $\pi_{k|i}$  the probability of selecting
 the $k$-th SSU in the $i$-th PSU.
@@ -597,7 +601,7 @@ $\nu_i = \dfrac{N_i}{N} n_{\RN{1}} > 1$. The integer part of $\nu_i$ indicates h
 
 \onslide<3->{Has this design equal inclusion probabilities? \newline}\onslide<4>{Yes, if for each sampling point the same number of SSU's $n_{\ast}$ is sampled. Because 
 $$\dfrac{N_i}{N} n_{\RN{1}} \times \dfrac{n_{\ast}}{N_i} = \dfrac{n_{\RN{1}} n_{\ast}}{N} \;.$$
-Note that $n_{\RN{1}}$ is not the size of the PSU sample, but the number of sampling points, which can be higher.
+Note, that $n_{\RN{1}}$ is not the size of the PSU sample, but the number of sampling points, which can be higher.
 }
 
 \end{frame}
@@ -682,14 +686,19 @@ Thus, simple designs,  such as SRS or StrSRS, are justifiable, as these designs 
 \onslide*<2>{
 <<ExCluSamDeff,echo=FALSE,results='asis',message=FALSE>>=
 
+
+   
 SSW.byrow <- sum(apply(clu,1,function(x)sum((x-mean(x))^2)))
 SSW.bycol <- sum(apply(clu,2,function(x)sum((x-mean(x))^2)))
 
 delta.byrow <- 1 - (SSW.byrow/(length(clu)-nrow(clu)))/var(as.vector(clu))
 delta.bycol <- 1 - (SSW.bycol/(length(clu)-ncol(clu)))/var(as.vector(clu))
+ 
+# deff.byrow <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.byrow
+# deff.bycol <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.bycol
 
-deff.byrow <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.byrow
-deff.bycol <- 1 + (length(clu)-nrow(clu))/(nrow(clu)-1)*delta.bycol
+deff.bycol <- SRcS.var.col/SRS.var 
+deff.byrow <- SRcS.var.row/SRS.var
 
 deffs <- matrix(c(delta.bycol, delta.byrow, deff.bycol, deff.byrow),ncol=2,byrow=T)
 dimnames(deffs) <- 
@@ -697,7 +706,6 @@ dimnames(deffs) <-
 
 deffs.tab <- xtable(deffs[-1,,drop=F], digits = 5, caption = "Design Effects")
 align(deffs.tab ) <- "l|rr"
-
 
   
 print.xtable(clu.tab, hline.after = c(0,5,6),caption.placement="top", sanitize.text.function = identity)
@@ -971,7 +979,6 @@ rho.row <- (MS.row["psu",]-MS.row["Residual",])/(MS.row["psu",]+(K-1)*MS.row["Re
 
 deff.bycol.m <- 1+(b.star - 1)*rho.col
 deff.byrow.m <- 1+(b.star - 1)*rho.row
-
 
 deffm <- matrix(c(rho.col, deff.bycol.m, rho.row, deff.byrow.m),ncol=2)
 
