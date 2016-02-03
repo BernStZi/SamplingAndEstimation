@@ -387,7 +387,7 @@ x_{kq}=
 
 \onslide<1->{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:22 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for Hair and Eye Colour} 
@@ -404,7 +404,7 @@ Black & 68 & 20 & 15 & 5 \\
 }
 \onslide*<2>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:22 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Sample counts $\sum_{k \in \mathfrc{s}} x_{kq}$ in a SRS with $n=150$} 
@@ -421,7 +421,7 @@ Black & 14 & 7 & 2 & 2 \\
 }
 \onslide*<3>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:22 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ } 
@@ -438,7 +438,7 @@ Black & 55.2533 & 27.6267 & 7.8933 & 7.8933 \\
 }
 \onslide<4>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:22 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Post-stratification $g_k = \dfrac{\tau_{x_q}}{\hat{\tau}_{x_q}}$ } 
@@ -485,7 +485,7 @@ variables school type (\texttt{stype}) and the accomplishment of the growth targ
 \begin{center}
 \usebox{\mysavebox}
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:22 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Population Counts $\tau_{x_q}$ for School Type (\texttt{stype}) and School Target (\texttt{sch.wide}) } 
@@ -587,7 +587,7 @@ SUM & 1072 & 5122 & 6194 \\
 
 \only<1>{
 % latex table generated in R 3.2.2 by xtable 1.7-4 package
-% Wed Feb 03 17:30:23 2016
+% Wed Feb 03 18:50:21 2016
 \begin{table}[ht]
 \centering
 \caption{Estimated Totals $\hat{\tau}_{x_q\,\pi}=\sum_{k \in \mathfrc{s}} x_{kq} d_k$ from a SRCS of Districts (\texttt{dname})  with $n_{\RN{1}}=10$} 
@@ -820,7 +820,7 @@ We want to estimate total expenditures of hospitals. To improve a possible estim
             \hlstd{,}\hlkwc{data} \hlstd{= sam.dat}   \hlcom{# the sample data }
             \hlstd{,}\hlkwc{fpc} \hlstd{=} \hlopt{~}\hlstd{IP}        \hlcom{# incl. prob}
             \hlstd{,}\hlkwc{pps}\hlstd{=} \hlstr{"brewer"}\hlstd{)}    \hlcom{# variance approx. method}
-    \hlcom{#the model we use for the GREG}
+ \hlcom{#the model we use for the GREG}
 \hlstd{lmod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(EXPTOTAL} \hlopt{~} \hlstd{SEENCNT} \hlopt{+} \hlstd{EOYCNT} \hlopt{+} \hlstd{hosp.type}\hlopt{:}\hlstd{BEDS,} \hlkwc{data}\hlstd{=smho.)}
 \hlcom{#2. compute pop totals of auxiliaries}
 \hlstd{pop.tots} \hlkwb{<-} \hlkwd{colSums}\hlstd{(}\hlkwd{model.matrix}\hlstd{(lmod2))} \hlcom{#Inefficient but convenient!}
