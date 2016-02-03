@@ -213,17 +213,17 @@ Missingness may be either
 \begin{description} 
   \item[MCAR]<2-> missing completely at random,  
    \begin{itemize}
-     \item every unit has same response propensity (RP)
+     \item every unit has same response propensity (RP);
      \item respondents are a random sample of the initial sample
    \end{itemize}
   \item[MAR]<3->  missing at random, or
    \begin{itemize}
-     \item RP depends on auxiliary variables $\boldsymbol{\mathcal{X}}$
+     \item RP depends on auxiliary variables $\boldsymbol{\mathcal{X}}$;
      \item can be modeled, if $\boldsymbol{\mathcal{X}}$ is known for both respondents \& non-respondents
    \end{itemize}
   \item[MNAR]<4-> missing not at random \vspace{2mm}
   \begin{itemize}
-    \item RP depends on variables of interest $\mathcal{Y}$ 
+    \item RP depends on variables of interest $\mathcal{Y}$; 
     \item cannot be modeled, because $\mathcal{Y}$ not known for non-respondents
   \end{itemize}
 \end{description}
@@ -232,8 +232,8 @@ Missingness may be either
 %\end{minipage}
 ~\\[3mm]
 $\boldsymbol{\longrightarrow}$\quad {In
-multivariate analysis often 30\% to 40\% of the data are lost with
-case deletion assuming MCAR!}
+multivariate analysis 30\% to 40\% of the data are often lost with
+case deletion, assuming MCAR!}
 }
 \end{frame}
 
@@ -258,8 +258,8 @@ case deletion assuming MCAR!}
 \end{itemize}
 \end{description}
 \onslide+<3>{
-The calibration approach is more direct as the design weights are directly calibrated without considering the response propensities.
-Also, if the same models are used for both the modeling of the response propensities and the calibration the two approaches can be equivalent.
+The calibration approach is more direct, as the design weights are directly calibrated without considering the response propensities.
+Also, if the same models are used for both the modeling of the response propensities and the calibration, the two approaches can be equivalent.
 }
 \end{frame}
 
@@ -278,7 +278,7 @@ w_k =
 	0          & \text{else}
 	\end{cases}\,{.}
 $$
-}\onslide<3>{Sometimes  called base weights or design weights, the inverse of inclusion probabilities $d_k=\pi^{-1}$ is usually the first step in weighting. If we have $g_k=1$ the $\hat{\tau}_w$ would be the HT estimator or $\pi$-estimator.
+}\onslide<3>{Sometimes  called base weights or design weights, the inverse of inclusion probabilities $d_k=\pi^{-1}$ is usually the first step in weighting. If we have $g_k=1$, the $\hat{\tau}_w$ would be the HT estimator or $\pi$-estimator.
 The factor $g_k$ adjusts the design weights to reduce
 \begin{itemize}
 \item the sampling error (i.e. variance),
@@ -297,7 +297,7 @@ Thereby the $w_k$'s should not deviate to much from the $d_k$'s as these weights
 
 \onslide*<1>{The general idea is to exploit the relationship between auxiliary variables and the variable of interest to improve the efficiency of estimators.}
 \onslide*<2>{ The following problem is solved with weight calibration: \newline
-For a give design $p(.)$ and a sample $\mathfrc{s}$ weights $w_k$ for all $k \in  \mathfrc{s}$ have to be found that minimize
+For a given design $p(.)$ and a sample $\mathfrc{s}$ weights $w_k$ for all $k \in  \mathfrc{s}$ have to be found that minimize
  $$\sum_{k \in \mathfrc{s} } G_k(w_k,d_k,c_k)\;,$$
 subject to constraints
  $$
@@ -309,11 +309,11 @@ where $\mathbf{x}_k=(x_{k1},\,x_{k2},\,\ldots,\,x_{kQ})^\top$ is a vector of $q$
 
 \begin{frame}{Weights Calibration II}
 \begin{itemize}
-\item To calculate the weights the $\mathbf{x}_k$'s are only needed for the elements in the net sample (i.e. typically only for the respondents), but $\boldsymbol{\tau}_x$, their population totals need to be know.
+\item To calculate the weights, the $\mathbf{x}_k$'s are only needed for the elements in the net sample (i.e. typically only for the respondents), but $\boldsymbol{\tau}_x$, their population totals, need to be known.
 
 \item The auxiliary variables can be metric (e.g. income or age) or categorical (e.g. gender or age groups).
 
-\item Depending on the choice of $G_k$ different calibration estimators can be obtained, some of the most common are: \begin{itemize}
+\item Depending on the choice of $G_k$, different calibration estimators can be obtained, some of the most common are: \begin{itemize}
 \item Post-stratification Estimator
 \item Raking Estimator
 \item Generalized Regression Estimator
@@ -436,14 +436,14 @@ print.xtable(tau.hat.tab,hline.after = 0, caption.placement="top", sanitize.text
 <<ExPS.g, echo=FALSE, results='asis'>>=
 print.xtable(g.tab,hline.after = 0, caption.placement="top", sanitize.text.function = identity)
 @
-Beware, there must be at least one element in the sample from each post-stratum, otherwise we divide by null!
+Beware, there must be at least one element in the sample from each post-stratum, otherwise we divide by zero!
 }
 \end{frame}
 
 
 \begin{frame}[fragile]{Raking}
 \onslide*<1>{
-In raking only the marginal totals are need, \emph{not} the totals for all the cross-categories.
+In raking, only the marginal totals are needed, \emph{not} the totals for all the cross-categories.
 Raking can be implemented as iterative post-stratification to adjust the design weights to the margins of the different auxiliary variables.
 }
 <<DataRaking,echo=FALSE,results='hide',message=FALSE>>=
@@ -615,7 +615,7 @@ summary(w1/weights(dclus1r))
 \end{frame}
 
 \begin{frame}{Generalized Regression Estimator}
-For the linear generalized regression estimator (GREG) the measure of distance $G_k$ is
+For the linear generalized regression estimator (GREG), the measure of distance $G_k$ is
 $$G_k(w,\pi,c)=G(w_k,d_k,c_k)=\dfrac{(w_k - d_k)^2}{2 d_k c_k} \;,$$
 and we have
 \begin{equation*}
@@ -702,7 +702,7 @@ smho <- smho.N874[smho.N874$hosp.type != 4, ]
 @
 \end{lrbox}
 \onslide*<1>{
-We want to estimate total expenditures of hospitals. To improve a possible estimate we use data from survey in 1998 to explore if there are any useful predictors for our variable of interest.
+We want to estimate total expenditures of hospitals. To improve a possible estimate we use data from survey in 1998 to explore, if there are any useful predictors for our variable of interest.
 \usebox{\mysavebox}}
 \onslide*<2>{
 ~\\[-0.75cm]
@@ -832,7 +832,7 @@ Now we check if the calibration constrains are satisfied:
 \begin{itemize}
   \item<1-> Nothing prevents the GREG weights from becoming negative, which is theoretically not a problem, as long as we infer to the population (or sub-populations) to which we calibrated. 
   \item<2-> However the effects might be catastrophic of domain estimation, in case of estimation domains that where not considered in the calibration. 
-  \item<3-> In general it is advisable to only use calibrated weights to infer to the whole population or sub-populations that are found in the marginal totals used for the calibration!
+  \item<3-> In general, it is advisable to only use calibrated weights to infer to the whole population or sub-populations that are found in the marginal totals used for the calibration!
   \item<4> Design weights can always be used to do unbiased domain estimation, although the precision of these estimates can be very poor.
 \end{itemize}
 \end{frame}
@@ -840,7 +840,7 @@ Now we check if the calibration constrains are satisfied:
 
 \begin{frame}[fragile]{The Variance of the \\ Generalized Regression Estimator}
 Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
-Thus the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
+Thus, the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
 \onslide*<1>{
  We can write its approximate variance as
 \begin{equation*}
