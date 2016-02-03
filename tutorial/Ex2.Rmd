@@ -2,7 +2,7 @@
 title: "Sampling and Estimation - Exercise 2"
 author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
 date: "2 Februar 2016"
-output: md_document
+output: pdf_document
 ---
 
 
