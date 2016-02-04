@@ -36,6 +36,9 @@ set.seed(1133)
 
 ```{r,echo=F,eval=F}
 main.path <- "C:/Users/kolbjp/Documents/GitHub/SamplingAndEsimation/tutorial"
+
+main.path <- "C:/Users/Kolb/Documents/GitHub/SamplingAndEstimation/tutorial"
+
 setwd(main.path)
 purl("Ex2solution.Rmd")
 ```

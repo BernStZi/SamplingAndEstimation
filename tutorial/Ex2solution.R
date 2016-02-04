@@ -2,82 +2,88 @@
 library(foreign)
 
 ## ----echo=F--------------------------------------------------------------
-Ex <- F
+Ex <- T
 library(knitr)
+set.seed(1133)
 
 ## ----echo=F,eval=F-------------------------------------------------------
 ## main.path <- "C:/Users/kolbjp/Documents/GitHub/SamplingAndEsimation/tutorial"
+## 
+## main.path <- "C:/Users/Kolb/Documents/GitHub/SamplingAndEstimation/tutorial"
+## 
 ## setwd(main.path)
 ## purl("Ex2solution.Rmd")
 
 ## ----echo=F,eval=Ex------------------------------------------------------
-## ## Set working directory
-## main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
-## 
-## data.path <- paste(main.path,"data/",sep="")
-## 
-## setwd(data.path)
+## Set working directory
+main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+
+data.path <- paste(main.path,"data/",sep="")
+
+setwd(data.path)
 
 ## ----eval=Ex-------------------------------------------------------------
-## DK <- read.spss("ESS5DK.sav",to.data.frame=T)
-## SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 
 ## ----eval=Ex-------------------------------------------------------------
-## DK$N <- DK$pweight*10000*nrow(DK)
-## 
-## SE$N <- SE$pweight*10000*nrow(SE)
+DK$N <- DK$pweight*10000*nrow(DK)
+
+SE$N <- SE$pweight*10000*nrow(SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-## DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
-##                     N=DK$N,
-##                     cntry=as.character(DK$cntry))
+DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+                    N=DK$N,
+                    cntry=as.character(DK$cntry))
 
 ## ----eval=Ex-------------------------------------------------------------
-## SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
-##                     N=SE$N,
-##                     cntry=as.character(SE$cntry))
+SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+                    N=SE$N,
+                    cntry=as.character(SE$cntry))
 
 ## ----eval=Ex-------------------------------------------------------------
-## NE <- rbind(DK_tv,SE_tv)
+NE <- rbind(DK_tv,SE_tv)
 
 ## ----eval=Ex-------------------------------------------------------------
-## NE$mt3 <- 0
-## NE$mt3[NE$tvtot=="More than 3 hours"] <- 1
+NE$mt3 <- 0
+NE$mt3[NE$tvtot=="More than 3 hours"] <- 1  
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
 
 ## ----eval=Ex-------------------------------------------------------------
-## # SRS design
-## svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
-## svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
+# SRS design
+svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
+svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-## # Stratified design
-## svydes_NE <- svydesign(id=~1,strata=~cntry,
-##                        fpc=~N, data=NE)
+# Stratified design
+svydes_NE <- svydesign(id=~1,strata=~cntry, 
+                       fpc=~N, data=NE)
 
 ## ----eval=Ex-------------------------------------------------------------
-## stab_DK <- svytable(~tvtot,svydes_DK)
-## stab_DK
+stab_DK <- svytable(~tvtot,svydes_DK)
+stab_DK
 
 ## ----eval=Ex-------------------------------------------------------------
-## stab_SE <- svytable(~tvtot,svydes_SE)
-## stab_SE
+stab_SE <- svytable(~tvtot,svydes_SE)
+stab_SE
 
 ## ----eval=Ex-------------------------------------------------------------
-## stab_NE <- svytable(~tvtot,svydes_NE)
-## stab_NE
+stab_NE <- svytable(~tvtot,svydes_NE)
+stab_NE
 
 ## ----eval=Ex-------------------------------------------------------------
-## library(lattice)
-## barchart(stab_DK)
-## barchart(stab_SE)
+# R-package for visualisation
+
+library(lattice)
+barchart(stab_DK)
+barchart(stab_SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-## svytotal(~mt3,svydes_NE)
-## 
-## svymean(~mt3,svydes_NE)
+svytotal(~mt3,svydes_NE)
+
+svymean(~mt3,svydes_NE)
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
@@ -98,7 +104,8 @@ strSRsample <- function(strind, nh, replace=FALSE){
   h.id <- split(1:sum(Nh), strind)[names(nh)]
   
   
-  sam <- mapply( function(x,y) sample(x, y, replace=replace)
+  sam <- mapply( function(x,y) sample(x, y,
+                  replace=replace)
                  , Nh, nh, SIMPLIFY = F)
   unlist(mapply(function(x,y) x[y]
                 , h.id
@@ -108,11 +115,12 @@ strSRsample <- function(strind, nh, replace=FALSE){
 
 ## ----eval=F--------------------------------------------------------------
 ## library(devtools)
-## install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+## install_github("BernStZi/SamplingAndEstimation/r/
+##                sampaest",
 ##                ref="short")
 
 ## ----eval=F--------------------------------------------------------------
-## url <- "https://raw.githubusercontent.com/BernStZi/
+## url <- "http://raw.githubusercontent.com/BernStZi/
 ## SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
 ## source(url)
 
@@ -134,8 +142,6 @@ V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
 
 ## ------------------------------------------------------------------------
-nh.op <- nh_op(Nh.tab,opt=apipop$api99,strind=apipop$stype,n)
-
 s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 
 ## ------------------------------------------------------------------------
