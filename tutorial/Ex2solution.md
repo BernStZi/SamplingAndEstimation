@@ -95,6 +95,8 @@ The analysis functions in R-package `survey`
 Visualisation
 -------------
 
+    # R-package for visualisation
+
     library(lattice)
     barchart(stab_DK)
     barchart(stab_SE)
@@ -232,7 +234,8 @@ Function for stratified samples
       h.id <- split(1:sum(Nh), strind)[names(nh)]
       
       
-      sam <- mapply( function(x,y) sample(x, y, replace=replace)
+      sam <- mapply( function(x,y) sample(x, y,
+                      replace=replace)
                      , Nh, nh, SIMPLIFY = F)
       unlist(mapply(function(x,y) x[y]
                     , h.id
@@ -244,10 +247,11 @@ Getting the function
 --------------------
 
     library(devtools)
-    install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+    install_github("BernStZi/SamplingAndEstimation/r/
+                   sampaest",
                    ref="short")
 
-    url <- "https://raw.githubusercontent.com/BernStZi/
+    url <- "http://raw.githubusercontent.com/BernStZi/
     SamplingAndEstimation/short/r/sampaest/R/strSRsample.R"
     source(url)
 
@@ -299,8 +303,8 @@ Subselect the sample:
 
     svymean(~api00, svystrSRS.eq)
 
-    ##        mean     SE
-    ## api00 675.6 21.796
+    ##         mean     SE
+    ## api00 634.47 23.235
 
 `survey` - proportional allocation
 ----------------------------------
@@ -311,7 +315,7 @@ Subselect the sample:
     svymean(~api00, svystrSRS.pr)
 
     ##         mean     SE
-    ## api00 680.07 17.082
+    ## api00 673.13 16.497
 
 `survey` - optimal allocation
 -----------------------------
@@ -322,4 +326,4 @@ Subselect the sample:
     svymean(~api00, svystrSRS.op)
 
     ##         mean     SE
-    ## api00 646.66 16.872
+    ## api00 667.68 15.766
