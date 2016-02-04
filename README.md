@@ -31,7 +31,7 @@ Part 1 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/t
 Part 2 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex2.pdf))  will provide a further insight in the application of the **survey package** and **stratified sampling**. The focus will be on estimation with stratified samples and the use of different allocations, like **proportional**, **equal** and **optimal** allocation.
 
-Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf) | 
+Part 3 ([Browser](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.md) | 
 [Download](https://github.com/BernStZi/SamplingAndEstimation/raw/short/tutorial/Ex3.pdf)) focuses on **design effects**,   **multistage samples** and **cluster samples** and the estimation of central parameters within those sampling strategies. To estimate a design effect of a genuine survey, the exercise uses the ESS data of the 5th round for Germany.
 The estimation of parameters in complex sampling designs will use a previously generated sample. Participants will then learn how to specifiy such samples as a **survey object** and how to estimate parameters of interest.
 
