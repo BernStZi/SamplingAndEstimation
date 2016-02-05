@@ -1,8 +1,8 @@
 ---
 title: "Sampling and Estimation - Exercise 2"
-author: "Jan-Philipp Kolb, Stefan Zins and Matthias Sand"
+author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
 date: "2 Februar 2016"
-output: html_document
+output: pdf_document
 ---
 
 
@@ -36,6 +36,9 @@ set.seed(1133)
 
 ```{r,echo=F,eval=F}
 main.path <- "C:/Users/kolbjp/Documents/GitHub/SamplingAndEsimation/tutorial"
+
+main.path <- "C:/Users/Kolb/Documents/GitHub/SamplingAndEstimation/tutorial"
+
 setwd(main.path)
 purl("Ex2solution.Rmd")
 ```
@@ -133,9 +136,6 @@ stab_SE <- svytable(~tvtot,svydes_SE)
 stab_SE
 ```
 
-
-## 
-
 ```{r,eval=Ex}
 stab_NE <- svytable(~tvtot,svydes_NE)
 stab_NE
@@ -145,6 +145,8 @@ stab_NE
 ## Visualisation
 
 ```{r,eval=Ex}
+# R-package for visualisation
+
 library(lattice)
 barchart(stab_DK)
 barchart(stab_SE)
@@ -208,7 +210,8 @@ strSRsample <- function(strind, nh, replace=FALSE){
   h.id <- split(1:sum(Nh), strind)[names(nh)]
   
   
-  sam <- mapply( function(x,y) sample(x, y, replace=replace)
+  sam <- mapply( function(x,y) sample(x, y,
+                  replace=replace)
                  , Nh, nh, SIMPLIFY = F)
   unlist(mapply(function(x,y) x[y]
                 , h.id
@@ -221,7 +224,8 @@ strSRsample <- function(strind, nh, replace=FALSE){
 
 ```{r,eval=F}
 library(devtools)
-install_github("BernStZi/SamplingAndEstimation/r/sampaest",
+install_github("BernStZi/SamplingAndEstimation/r/
+               sampaest",
                ref="short")
 ```
 
