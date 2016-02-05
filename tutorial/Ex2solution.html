@@ -123,9 +123,9 @@ SE &lt;- read.spss(&quot;ESS5SE.sav&quot;,to.data.frame=T)</pre>
 
 <p>Later it is necessary for the specification of fpc.</p>
 
-<pre class = 'prettyprint lang-r'>DK$N &lt;- DK$pweight*10000*nrow(DK)
+<pre class = 'prettyprint lang-r'>DK$N &lt;- DK$dweight*DK$pweight*10000*nrow(DK)
 
-SE$N &lt;- SE$pweight*10000*nrow(SE)</pre>
+SE$N &lt;- SE$dweight*SE$pweight*10000*nrow(SE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Combine the two datasets (DK,SE)</h2></hgroup><article  id="combine-the-two-datasets-dkse">
 
@@ -172,6 +172,8 @@ stab_DK</pre>
 <pre class = 'prettyprint lang-r'>stab_SE &lt;- svytable(~tvtot,svydes_SE)
 stab_SE</pre>
 
+<p>empirical distribution of joined dataset</p>
+
 <pre class = 'prettyprint lang-r'>stab_NE &lt;- svytable(~tvtot,svydes_NE)
 stab_NE</pre>
 
@@ -185,13 +187,13 @@ barchart(stab_SE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>More analysis functions</h2></hgroup><article  id="more-analysis-functions">
 
-<ul>
-<li>Estimate the joined empirical distribution of tv consumption in Sweden and Denmark</li>
-</ul>
+<p>Estimate the number of persons watching 3 or more hours:</p>
 
-<pre class = 'prettyprint lang-r'>svytotal(~mt3,svydes_NE)
+<pre class = 'prettyprint lang-r'>svytotal(~mt3,svydes_NE)</pre>
 
-svymean(~mt3,svydes_NE)</pre>
+<p>Percentage of persons watching more than 3 hours tv:</p>
+
+<pre class = 'prettyprint lang-r'>svymean(~mt3,svydes_NE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Exercise 2.B</h2></hgroup><article  id="exercise-2.b">
 
@@ -338,6 +340,9 @@ s.pr &lt;- strSRsample(apipop$stype, nh.pr, replace=FALSE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Optimal allocation:</h2></hgroup><article  id="optimal-allocation">
 
+<pre class = 'prettyprint lang-r'>V.h   &lt;- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
+nh.op &lt;- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)</pre>
+
 <pre class = 'prettyprint lang-r'>s.op &lt;- strSRsample(apipop$stype, nh.op, replace=FALSE)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Exercise 2.B</h2></hgroup><article  id="exercise-2.b-2">
@@ -354,7 +359,7 @@ strSRS.eq &lt;- pop[s.eq,]
 strSRS.pr &lt;- pop[s.pr,]
 strSRS.op &lt;- pop[s.op,]</pre>
 
-</article></slide><slide class=''><hgroup><h2><code>survey</code> - equal allocation</h2></hgroup><article  id="survey---equal-allocation">
+</article></slide><slide class=''><hgroup><h2>Equal allocation</h2></hgroup><article  id="equal-allocation-1">
 
 <ul>
 <li>Estimate again the mean of <code>api00</code> from all three samples and compare the results.</li>
@@ -368,7 +373,7 @@ svymean(~api00, svystrSRS.eq)</pre>
 <pre >##         mean     SE
 ## api00 634.47 23.235</pre>
 
-</article></slide><slide class=''><hgroup><h2><code>survey</code> - proportional allocation</h2></hgroup><article  id="survey---proportional-allocation">
+</article></slide><slide class=''><hgroup><h2>Proportional allocation</h2></hgroup><article  id="proportional-allocation-1">
 
 <pre class = 'prettyprint lang-r'>svystrSRS.pr &lt;- svydesign(ids=~cds, strata =~stype,  
                           fpc=~Nh, data=strSRS.pr)
@@ -378,7 +383,7 @@ svymean(~api00, svystrSRS.pr)</pre>
 <pre >##         mean     SE
 ## api00 673.13 16.497</pre>
 
-</article></slide><slide class=''><hgroup><h2><code>survey</code> - optimal allocation</h2></hgroup><article  id="survey---optimal-allocation">
+</article></slide><slide class=''><hgroup><h2>Optimal allocation</h2></hgroup><article  id="optimal-allocation-1">
 
 <pre class = 'prettyprint lang-r'>svystrSRS.op &lt;- svydesign(ids=~cds, strata =~stype,  
                           fpc=~Nh, data=strSRS.op)
