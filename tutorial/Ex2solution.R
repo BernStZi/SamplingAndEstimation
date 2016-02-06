@@ -2,7 +2,7 @@
 library(foreign)
 
 ## ----echo=F--------------------------------------------------------------
-Ex <- T
+Ex <- F
 library(knitr)
 set.seed(1133)
 
@@ -15,75 +15,78 @@ set.seed(1133)
 ## purl("Ex2solution.Rmd")
 
 ## ----echo=F,eval=Ex------------------------------------------------------
-## Set working directory
-main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
-
-data.path <- paste(main.path,"data/",sep="")
-
-setwd(data.path)
-
-## ----eval=Ex-------------------------------------------------------------
-DK <- read.spss("ESS5DK.sav",to.data.frame=T)
-SE <- read.spss("ESS5SE.sav",to.data.frame=T)
+## ## Set working directory
+## main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
+## 
+## data.path <- paste(main.path,"data/",sep="")
+## 
+## data.path <- "F:/GESIS/Workshops/grade_sampling/data"
+## 
+## setwd(data.path)
 
 ## ----eval=Ex-------------------------------------------------------------
-DK$N <- DK$pweight*10000*nrow(DK)
-
-SE$N <- SE$pweight*10000*nrow(SE)
-
-## ----eval=Ex-------------------------------------------------------------
-DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
-                    N=DK$N,
-                    cntry=as.character(DK$cntry))
+## DK <- read.spss("ESS5DK.sav",to.data.frame=T)
+## SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 
 ## ----eval=Ex-------------------------------------------------------------
-SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
-                    N=SE$N,
-                    cntry=as.character(SE$cntry))
+## DK$N <- DK$dweight*DK$pweight*10000*nrow(DK)
+## 
+## SE$N <- SE$dweight*SE$pweight*10000*nrow(SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-NE <- rbind(DK_tv,SE_tv)
+## DK_tv <- data.frame(tvtot=as.character(DK$tvtot),
+##                     N=DK$N,
+##                     cntry=as.character(DK$cntry))
 
 ## ----eval=Ex-------------------------------------------------------------
-NE$mt3 <- 0
-NE$mt3[NE$tvtot=="More than 3 hours"] <- 1  
+## SE_tv <- data.frame(tvtot=as.character(SE$tvtot),
+##                     N=SE$N,
+##                     cntry=as.character(SE$cntry))
+
+## ----eval=Ex-------------------------------------------------------------
+## NE <- rbind(DK_tv,SE_tv)
+
+## ----eval=Ex-------------------------------------------------------------
+## NE$mt3 <- 0
+## NE$mt3[NE$tvtot=="More than 3 hours"] <- 1
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
 
 ## ----eval=Ex-------------------------------------------------------------
-# SRS design
-svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
-svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
+## # SRS design
+## svydes_DK <- svydesign(id=~1,fpc=~N, data=DK)
+## svydes_SE <- svydesign(id=~1,fpc=~N, data=SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-# Stratified design
-svydes_NE <- svydesign(id=~1,strata=~cntry, 
-                       fpc=~N, data=NE)
+## # Stratified design
+## svydes_NE <- svydesign(id=~1,strata=~cntry,
+##                        fpc=~N, data=NE)
 
 ## ----eval=Ex-------------------------------------------------------------
-stab_DK <- svytable(~tvtot,svydes_DK)
-stab_DK
+## stab_DK <- svytable(~tvtot,svydes_DK)
+## stab_DK
 
 ## ----eval=Ex-------------------------------------------------------------
-stab_SE <- svytable(~tvtot,svydes_SE)
-stab_SE
+## stab_SE <- svytable(~tvtot,svydes_SE)
+## stab_SE
 
 ## ----eval=Ex-------------------------------------------------------------
-stab_NE <- svytable(~tvtot,svydes_NE)
-stab_NE
+## stab_NE <- svytable(~tvtot,svydes_NE)
+## stab_NE
 
 ## ----eval=Ex-------------------------------------------------------------
-# R-package for visualisation
-
-library(lattice)
-barchart(stab_DK)
-barchart(stab_SE)
+## # R-package for visualisation
+## 
+## library(lattice)
+## barchart(stab_DK)
+## barchart(stab_SE)
 
 ## ----eval=Ex-------------------------------------------------------------
-svytotal(~mt3,svydes_NE)
+## svytotal(~mt3,svydes_NE)
 
-svymean(~mt3,svydes_NE)
+## ----eval=Ex-------------------------------------------------------------
+## svymean(~mt3,svydes_NE)
 
 ## ----message=F-----------------------------------------------------------
 library(survey)
@@ -137,7 +140,7 @@ nh.pr <- round(Nh.tab/sum(Nh.tab)*n)
 
 s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 
-## ----echo=F,eval=T-------------------------------------------------------
+## ----echo=T,eval=T-------------------------------------------------------
 V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
 
