@@ -1,0 +1,11 @@
+base
+knitr
+xtable
+plyr
+survey
+sampling
+mvtnorm
+PracTools
+GGally
+ggplot2
+lattice
