@@ -506,7 +506,7 @@ which can be estimated by
 \end{frame}
 
 %See Yates & Grundy, 1953, S. 257, Equations 8, 11, and 12.
-%
+%When is Yates Grundy estimator larger than the Horvitz-Thompso Estimator
 %
 
 
