@@ -1,5 +1,7 @@
 ---
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 # Sampling and Estimation
 ## A lecture with tutorial about sampling and estimation in the field of sample surveys. 
@@ -39,16 +41,16 @@ The estimation of parameters in complex sampling designs will use a previously g
 ### Timetable
 
 
-|Day; Time: Topic                                                                           |
-|:--------------------------------------------------------------------------------------|
-|1;14:00 - 16:00:  [Introduction to Design Based Inference](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf)                               |
-|1;16:30 – 18:00: [Tutorial: Brief Introduction to the Analysis of Sample Surveys with R](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md) |
-|2;09:30 – 11:30: [Complex Sampling Designs I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)                                          |
-|2;12:30 – 14:30: [Complex Sampling Designs II ](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)                                           |
-|2;15:00 – 17:00: [Tutorial: Stratified Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.md)                                 |
-|3;09:30 – 11:30: [Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                 |
-|3;12:30 – 14:30: [Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)                                                |
-|3;15:00 – 17:00: [Tutorial: Complex Sampling Designs](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex3.pdf)                                     |
+|Day    | Time  | Topic                                                                     |
+|:-----:|:--------------:|-------------------------------------------------------------------:|
+|24.04  | 09:00 - 11:00 |[Introduction to Design Based Inference](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_1.pdf)                                             |
+|24.04  | 11:00 - 13:00 |[Complex Sampling Designs I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)  |
+|24.04  | 14:00 – 16:00 |[Complex Sampling Designs II ](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)|
+|24.04  | 16:30 – 18:00 |[Tutorial: Brief Introduction to the Analysis of Sample Surveys with R](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md)                                                    |
+|25.04  | 09:00 – 11:00 |[Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)       |
+|25.04  | 11:00 – 13:00 |[Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)      |
+|25.04  | 14:00 – 16:00 |[Tutorial: Estimation with Complex Weights](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.md)                                 |
+
 
 
 ### R-Intro
