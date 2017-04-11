@@ -48,7 +48,7 @@ The estimation of parameters in complex sampling designs will use a previously g
 |24.04  | 14:00 – 16:00 |[Complex Sampling Designs II ](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_2.pdf)|
 |24.04  | 16:30 – 18:00 |[Tutorial: Brief Introduction to the Analysis of Sample Surveys with R](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex1.md)                                                    |
 |25.04  | 09:00 – 11:00 |[Calibration Weights I](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)       |
-|25.04  | 11:00 – 13:00 |[Calibration Weights II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)      |
+|25.04  | 11:00 – 13:00 |[Calibration Weights II II](https://github.com/BernStZi/SamplingAndEstimation/blob/short/lecture/part_3.pdf)      |
 |25.04  | 14:00 – 16:00 |[Tutorial: Estimation with Complex Weights](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/Ex2.md)                                 |
 
 
