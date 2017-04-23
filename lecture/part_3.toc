@@ -1,3 +1,5 @@
 \beamer@endinputifotherversion {3.36pt}
 \select@language {english}
-\beamer@sectionintoc {1}{Weighting Methods}{12}{0}{1}
+\beamer@sectionintoc {1}{Survey Errors}{2}{0}{1}
+\beamer@sectionintoc {2}{Weighting Methods}{13}{0}{2}
+\beamer@sectionintoc {3}{Variance Estimation for Complex Statistics}{55}{0}{3}

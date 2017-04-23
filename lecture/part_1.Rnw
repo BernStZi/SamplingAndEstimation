@@ -111,6 +111,19 @@
 \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
+% Sektionen Title Folie
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
 
 \begin{document}
 %\SweaveOpts{concordance=TRUE}
@@ -127,8 +140,8 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 \title[Sampling Designs]{Sampling and Estimation}   
 \subtitle{Part 1: Introduction to Design Based Inference}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
-\date{\today} 
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\date{April 24, 2017} 
 
 \makebeamertitle
 
@@ -162,6 +175,8 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
  and if the level of precision is high enough, we say our estimation \emph{strategy} is representative.}
 
 \end{frame}
+
+\section{Framework and Notation}
 
 \begin{frame}{Finite population, Sample, and Sampling Design}
 
@@ -225,7 +240,7 @@ Hence, $p: \; \mathcal{G} \mapsto (0, 1]$.
 \end{equation}
 \end{frame}
 
-
+\section{Simple Random Sampling}
 
 \begin{frame}{Simple Random Sampling}{Without Replacement}
 Simple random sampling without replacement (SRS):
@@ -270,63 +285,63 @@ Drawing $n$ elements out of a urn without putting them back (i.e. $S_k \geq I_k$
     \end{columns}
  \end{frame}
 
-
-\begin{frame}{Simple Random Sampling}{With Replacement}
-Simple random sampling with replacement (SRSWR):
-Drawing $n$ elements out of a urn by making $n$ successive draws and putting after each draw the element back (i.e. $S_k \geq I_k$). The order of the selected elements is also not remembered.
-\begin{align*}
-  \mathcal{G}= & \binom{N+n-1}{n}     &  p(\mathfrc{s}) = & {\binom{N+n-1}{n}}^{-1}   \\
- \nu_k      = & \dfrac{n}{N}         &  \pi_k          = &  1-\left( \dfrac{N-1}{N} \right)^n \\
- \nu_{kl}   = & \dfrac{n(n-1)}{N^2}  &  \pi_{kl}       = &  1- 2\left( \dfrac{N-1}{N}  \right)^n + \left( \dfrac{N-2}{N}  \right)^n \qquad \text{for}\; k \neq l
-\end{align*}
-\end{frame}
-
-
-\begin{frame}{Sample Mean with SRSWR}
-  \begin{columns}[t]
-   \onslide<1->{
-    \begin{column}{.5\textwidth}
-    Expected value
-      \begin{align*} 
-        \E{\overline{y}} & = \E{\sum_{k \in \mathcal{U}} S_k \dfrac{y_k}{n} } \\
-        & = \dfrac{1}{n} \sum_{k \in \mathcal{U}} \E{S_k} y_k  \\
-        & = \dfrac{1}{n} \sum_{k \in \mathcal{U}}\nu_k y_k  \\
-        & = \dfrac{1}{N} \sum_{k \in \mathcal{U}}  y_k  
-       \end{align*}
-      \end{column}
-    \begin{column}{.5\textwidth}
-   }
-   \onslide<2->{
-    Variance
-      \begin{align*} 
-        \V{\overline{y}} & = \V{\sum_{k \in \mathcal{U}} S_k \dfrac{y_k}{n}} \\
-        & = \dfrac{1}{n^2} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \COV{S_k}{S_l} y_k y_l  \\
-        & = -\dfrac{1}{2} \dfrac{1}{n^2} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} (\nu_{kl}-\nu_k\nu_l)  \left(y_k - y_l \right)^2  \\
-        & = \dfrac{\sigma^2}{n}    
-      \end{align*}
-    \end{column}
-   }
-    \end{columns}
-    \onslide<3>{\begin{center} 
-     Note: $\dfrac{\sigma^2}{n} >   \left( 1 -  \dfrac{n}{N} \right) \dfrac{V^2}{n}$, if $n > 1$.
-     \end{center}}
- \end{frame}
-
-\begin{frame}{Variance Estimation SRS/WR}
-\begin{align*}
-\Vest{\overline{y}}_{\text{SRS}}   =   \dfrac{N-n}{N} \dfrac{s^2}{n} \\
-\Vest{\overline{y}}_{\text{SRSWR}} =  \dfrac{s^2}{n} 
-\end{align*}
-Sample variance
-\begin{equation*}
-s^2 = \dfrac{1}{n-1} \sum_{k \in \mathfrc{s}} (y_k - \overline{y})^2 = \dfrac{1}{n(n-1)} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} (y_k - y_l)^2 S_k S_l
-\end{equation*}
-\begin{align*}
-\E{s^2}_{\text{SRS}}    &=   \dfrac{N}{N-1} \sigma^2 = V^2 \\
-\E{s^2}_{\text{SRSWR}}  &=   \sigma^2
-\end{align*}
-
-\end{frame}
+% 
+% \begin{frame}{Simple Random Sampling}{With Replacement}
+% Simple random sampling with replacement (SRSWR):
+% Drawing $n$ elements out of a urn by making $n$ successive draws and putting after each draw the element back (i.e. $S_k \geq I_k$). The order of the selected elements is also not remembered.
+% \begin{align*}
+%   \mathcal{G}= & \binom{N+n-1}{n}     &  p(\mathfrc{s}) = & {\binom{N+n-1}{n}}^{-1}   \\
+%  \nu_k      = & \dfrac{n}{N}         &  \pi_k          = &  1-\left( \dfrac{N-1}{N} \right)^n \\
+%  \nu_{kl}   = & \dfrac{n(n-1)}{N^2}  &  \pi_{kl}       = &  1- 2\left( \dfrac{N-1}{N}  \right)^n + \left( \dfrac{N-2}{N}  \right)^n \qquad \text{for}\; k \neq l
+% \end{align*}
+% \end{frame}
+% 
+% 
+% \begin{frame}{Sample Mean with SRSWR}
+%   \begin{columns}[t]
+%    \onslide<1->{
+%     \begin{column}{.5\textwidth}
+%     Expected value
+%       \begin{align*} 
+%         \E{\overline{y}} & = \E{\sum_{k \in \mathcal{U}} S_k \dfrac{y_k}{n} } \\
+%         & = \dfrac{1}{n} \sum_{k \in \mathcal{U}} \E{S_k} y_k  \\
+%         & = \dfrac{1}{n} \sum_{k \in \mathcal{U}}\nu_k y_k  \\
+%         & = \dfrac{1}{N} \sum_{k \in \mathcal{U}}  y_k  
+%        \end{align*}
+%       \end{column}
+%     \begin{column}{.5\textwidth}
+%    }
+%    \onslide<2->{
+%     Variance
+%       \begin{align*} 
+%         \V{\overline{y}} & = \V{\sum_{k \in \mathcal{U}} S_k \dfrac{y_k}{n}} \\
+%         & = \dfrac{1}{n^2} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \COV{S_k}{S_l} y_k y_l  \\
+%         & = -\dfrac{1}{2} \dfrac{1}{n^2} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} (\nu_{kl}-\nu_k\nu_l)  \left(y_k - y_l \right)^2  \\
+%         & = \dfrac{\sigma^2}{n}    
+%       \end{align*}
+%     \end{column}
+%    }
+%     \end{columns}
+%     \onslide<3>{\begin{center} 
+%      Note: $\dfrac{\sigma^2}{n} >   \left( 1 -  \dfrac{n}{N} \right) \dfrac{V^2}{n}$, if $n > 1$.
+%      \end{center}}
+%  \end{frame}
+% 
+% \begin{frame}{Variance Estimation SRS/WR}
+% \begin{align*}
+% \Vest{\overline{y}}_{\text{SRS}}   =   \dfrac{N-n}{N} \dfrac{s^2}{n} \\
+% \Vest{\overline{y}}_{\text{SRSWR}} =  \dfrac{s^2}{n} 
+% \end{align*}
+% Sample variance
+% \begin{equation*}
+% s^2 = \dfrac{1}{n-1} \sum_{k \in \mathfrc{s}} (y_k - \overline{y})^2 = \dfrac{1}{n(n-1)} \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} (y_k - y_l)^2 S_k S_l
+% \end{equation*}
+% \begin{align*}
+% \E{s^2}_{\text{SRS}}    &=   \dfrac{N}{N-1} \sigma^2 = V^2 \\
+% \E{s^2}_{\text{SRSWR}}  &=   \sigma^2
+% \end{align*}
+% 
+% \end{frame}
 
 % \begin{frame}{Model-based Approach}
 % The sample data: $\mathfrc{y}=\{y_1{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_n\}$.
@@ -360,6 +375,11 @@ s^2 = \dfrac{1}{n-1} \sum_{k \in \mathfrc{s}} (y_k - \overline{y})^2 = \dfrac{1}
 % \end{frame}
 
 
+
+
+\section{Complex Sampling Designs - Stratification}
+
+
 \begin{frame}{Features of Sampling Designs}
 \begin{itemize}
 \item Stratification
@@ -367,7 +387,6 @@ s^2 = \dfrac{1}{n-1} \sum_{k \in \mathfrc{s}} (y_k - \overline{y})^2 = \dfrac{1}
 \item Multistage Sampling: The population is structured by hierarchically ordered clusters that are nested within each other. The sampling procedure has multiple selecting stages. 
 \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Stratified Random Sampling Notation I}
   The universe $\mathcal{U}$ is decomposed into $H$ non-overlapping groups,
@@ -544,7 +563,7 @@ the  effect of stratification.
 %$N_h > 2$ variance estimation is difficult 
 % $\V{\hat{\theta}}$
 
-\section{Allocation Methods}
+%\section{Allocation Methods}
 
 \begin{frame}{Allocation Methods}
 For all $h = 1{,}\,\ldots{,}\,H$
@@ -575,21 +594,21 @@ $$ SSB > \sum_{h=1}^H \dfrac{N - N_h}{N} V^2_{h} \;.$$
 \end{frame}
 
 
-\begin{frame}{The Rounding Problem}
-  \begin{itemize}
-  \item It is not assured that $\gamma_h n$ is an integer. If 
-$n_h^{\ast}=\left[ n_h \right]$ is used instead, the allocation is no longer
-strictly proportional. Furthermore $\sum_{h=1}^H n_h^{\ast}=n$ is also not assured.
-  \item However stochastic techniques can be used that ensure that $\E{n_h^{\ast}}=n_h$ and
-thus $\E{\sum_{h=1}^H n_h^{\ast}}=n$.
- \end{itemize}
-  \begin{gather*}
-  n_h^{\ast} = \begin{cases} \lfloor n_h \rfloor & \mbox{with prob. } 1 - (n_h \mod{1}) \\
-			    \lceil  n_h \rceil  & \mbox{with prob. } (n_h \mod{1})
-                \end{cases} 
- \end{gather*}
- There are stochastic rounding procedures that are controlled and unbiased, i.e. $\sum_{h=1}^H n_h =n$ and  $\E{n^{\ast}_h} = \frac{N_h}{N} n$ and $|n^{\ast}_{h} - n_{h}| \leq 1$ (see \cite{Cox1987}).
-\end{frame}
+% \begin{frame}{The Rounding Problem}
+%   \begin{itemize}
+%   \item It is not assured that $\gamma_h n$ is an integer. If 
+% $n_h^{\ast}=\left[ n_h \right]$ is used instead, the allocation is no longer
+% strictly proportional. Furthermore $\sum_{h=1}^H n_h^{\ast}=n$ is also not assured.
+%   \item However stochastic techniques can be used that ensure that $\E{n_h^{\ast}}=n_h$ and
+% thus $\E{\sum_{h=1}^H n_h^{\ast}}=n$.
+%  \end{itemize}
+%   \begin{gather*}
+%   n_h^{\ast} = \begin{cases} \lfloor n_h \rfloor & \mbox{with prob. } 1 - (n_h \mod{1}) \\
+% 			    \lceil  n_h \rceil  & \mbox{with prob. } (n_h \mod{1})
+%                 \end{cases} 
+%  \end{gather*}
+%  There are stochastic rounding procedures that are controlled and unbiased, i.e. $\sum_{h=1}^H n_h =n$ and  $\E{n^{\ast}_h} = \frac{N_h}{N} n$ and $|n^{\ast}_{h} - n_{h}| \leq 1$.% (see \cite{Cox1987}).
+% \end{frame}
 
 
 %Variants of proportional allocation to totals
@@ -598,24 +617,24 @@ thus $\E{\sum_{h=1}^H n_h^{\ast}}=n$.
 % Problem: There is no guarantee that $\frac{N_h}{N}n$ is a integer. This rounding problem can be negiliable for large $N_h$
 % There a stochastic rounding procedures that are controlled and unbiased, i.e. $\sum_{h=1}^H n_h =n$ and  $\E{n_h} = \frac{N_h}{N} n$. [Cox]
 
-
-
-\begin{frame}{Simple Systematic Sampling}
- The elements of a population of size $N=n H$ are ordered in a specific way (every unit having a unique rank).
- Starting form a random number $k$, with $1 \leq k \leq H$ and $ k\in \{ 1{,}2{,}\,\ldots{,}\,H \}$ the sample is defined as the elements with ranks 
- $$k{,}\, k+H{,}\, k+2H{,}\,k+3H{,}\,\ldots{,}\, k+(n-1)H\,{.}$$
- %The design has $H$ possible non-overlapping samples.
- %Picture?
-\begin{align*}
-\overline{y}_{k} & = \dfrac{1}{n} \sum_{i=0}^{n-1} y_{(k+iH)}   \eqname{sample mean}        \\
- \E{\overline{y}_{k}}_{\text{SyS}} &= \mu  \eqname{expected value of $\overline{y}_{k}$} \\
- \V{\overline{y}_{k}}_{\text{SyS}} &=  \dfrac{1}{H} \sum_{h=1}^H \left( \overline{y}_{k} - \mu  \right)^2  \eqname{variance of $\overline{y}_{k}$}
-\end{align*}
-%right?
-There is no unbiased variance estimator for systematic sampling.
-Ordering the population with respect to certain variables has a 
-similar effects as stratification by the same variable with proportional allocation.
-\end{frame}
+% \section{Systenatic Sampling}
+% 
+% \begin{frame}{Simple Systematic Sampling}
+%  The elements of a population of size $N=n H$ are ordered in a specific way (every unit having a unique rank).
+%  Starting form a random number $k$, with $1 \leq k \leq H$ and $ k\in \{ 1{,}2{,}\,\ldots{,}\,H \}$ the sample is defined as the elements with ranks 
+%  $$k{,}\, k+H{,}\, k+2H{,}\,k+3H{,}\,\ldots{,}\, k+(n-1)H\,{.}$$
+%  %The design has $H$ possible non-overlapping samples.
+%  %Picture?
+% \begin{align*}
+% \overline{y}_{k} & = \dfrac{1}{n} \sum_{i=0}^{n-1} y_{(k+iH)}   \eqname{sample mean}        \\
+%  \E{\overline{y}_{k}}_{\text{SyS}} &= \mu  \eqname{expected value of $\overline{y}_{k}$} \\
+%  \V{\overline{y}_{k}}_{\text{SyS}} &=  \dfrac{1}{H} \sum_{h=1}^H \left( \overline{y}_{k} - \mu  \right)^2  \eqname{variance of $\overline{y}_{k}$}
+% \end{align*}
+% %right?
+% There is no unbiased variance estimator for systematic sampling.
+% Ordering the population with respect to certain variables has a 
+% similar effects as stratification by the same variable with proportional allocation.
+% \end{frame}
 
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}    

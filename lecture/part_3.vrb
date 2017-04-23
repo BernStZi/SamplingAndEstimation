@@ -41,8 +41,8 @@ where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\bolds
 \end{lrbox}
 \onslide*<3>{Compare the estimates for the total expenditure with calibrated and design weights.
 \usebox{\mysavebox}
-We find that $\hat{\tau}_\text{GREG} /  \hat{\tau}_\pi  = 1.0581$, but
-$ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = 1.7006$.
+We find that $\hat{\tau}_\text{GREG} /  \hat{\tau}_\pi  = 0.9451$, but
+$ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = 0.588$.
 }
 
 

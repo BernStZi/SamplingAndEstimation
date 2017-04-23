@@ -107,6 +107,17 @@
 \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
+% Sektionen Title Folie
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
@@ -140,12 +151,14 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 \title[Complex Sampling Designs]{Sampling and Estimation}   
 \subtitle{Part 2: Complex Sampling Designs}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
-\date{\today} 
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\date{April 24, 2017}
 
 \makebeamertitle
 
 %Picture for cluster sampling
+
+\section{Complex Sampling Designs - Cluster Sampling}
 
 \begin{frame}{Clustering}
 <<StratSetUp,echo=FALSE>>=
@@ -368,6 +381,7 @@ If the cluster where strata, which stratification would you use, columns or rows
 \onslide<4->{\newline What good is for stratified sampling, i.e. low SSW, is bad of cluster sampling and vice versa.}
 \end{frame}
 
+\section{Complex Sampling Designs - Two Stage Sampling}
 
 \begin{frame}{Two Stage Sampling}
 A Population of 100 elements is clustered into $N_{\RN{1}}=6$ clusters
@@ -457,6 +471,7 @@ with $\overline{y}_i  = \sum_{k \in \mathfrc{s}_{i} } \frac{y_{ki}}{n_i}$.
 %Note: For $M_i = n_i$ we are back to SRCS.
 \end{frame}
 
+\section{Complex Sampling Designs - Unequal Probability Sampling}
 
 \begin{frame}{Unequal Probability Sampling I}
 There are good reasons to deviate from the simple selection procedure that gives every unit the same inclusion probability. If good prior information is available, its incorporation into the sampling design can dramatically improve the efficiency of an estimator.
@@ -522,68 +537,68 @@ Note: In the extreme case if $\pi_k = \alpha y_k$, with  $\alpha \in \mathbb{R}$
 
 \end{frame}
 
-
-\begin{frame}{Systematic Sampling with \\ Unequal Inclusion Probabilities}
-Again the elements of the population are brought into a specific ordered and $V^i = \sum_{k=1}^i \pi_k$. Then $\lambda_k$ is drawn from a uniform distribution between $0$ and $1$.
-~\\[-4cm]
-<<UP.SYS,echo=FALSE,fig.height=8,out.width='.95\\linewidth',fig.pos='th',fig.show = 'asis'>>=
-  set.seed(43)
-  N   <- 15
-  n   <- 3
-  ip  <- runif(N)
-  ip  <- ip/sum(ip)*3
-  V   <- cumsum(ip)
-  rs  <- unique(ceiling(V))
-  #pdf(file=paste0(graphPath,"presentation/presentation.pdf"), width = 10 , height = 10)
-  par(mar=c(0, 0, 0, 0), xpd=NA)
-   plot(c(0, 3), c(0, 3), type = "n", xlab = "", ylab = "", bty="n", axes=FALSE)
-  lines(x=c(0,3),y=c(1.5,1.5),lwd=1.2)
-  
-  #integers
-  arrows(x0=c(0,rs), y=1.5, x1=c(0,rs), y1=1.3, length=0, lwd=2)
-    text(x=c(0, rs), y=1.2, labels=c(0,rs), cex=1.2, offset=0)
-  
-  #cumulated inclusion pobabilities
-  arrows(x0=c(0,V) ,y=1.5, x1=c(0,V) , y1=1.6, length=0, lwd=1.5)
-  text(x=0, y=1.7, labels=bquote(V^{.(0)}) , pos=1, offset=0, cex=1.2)
- 
-  for(i in 1:length(ip)){
-   expr. <- bquote(V^{.(i)})
-   text(x=V[i], y=1.7, labels=expr. ,cex=1.2, pos=1, offset=0)
-  }
-  
-  #The sample 
-  #S. <- UPsystematic.(n/N)
-  u  <- runif(1)
-  a = (c(0, cumsum( ip)) - u)%%1
-  S. = as.integer(a[1:N] > a[2:(N + 1)])
-  
-  s.cod <- u + 0:(floor(max(V))-1)
-  s.id <- which(S.==1)
-  
-  #graphPath1 <- paste0(graphPath,"SYS_coord_start_fixPop.pdf")
-  #dev.copy(pdf,file=graphPath1)
-  #dev.off()
- 
-  for(i in 1:length(s.id)){
-
-  #graphPath2 <- paste0(graphPath,"SYS_coord_sample",i,".pdf")
-
-   arrows(x0=s.cod[i] , y0=1.1, x1=s.cod[i], y1=1.5, length=0.1, lwd=1.5)
-   if(i==1) text(x=s.cod[i]  , y=1, labels=bquote(lambda[k])  ,  cex=1.2)
-   if(i>1)  text(x=s.cod[i]  , y=1, labels=bquote(lambda[k]+.(i-1))  ,  cex=1.2)
-     text(x=V[s.id[i]], y=1.7 , labels=bquote(V^{.(s.id[i])}), pos=1, offset=0
-          ,cex=1.2, col="firebrick1")
-   #dev.copy(pdf,file=graphPath2)
-   #dev.off()
-  }
-  
-@
-~\\[-4cm]
-Systematic selection remains popular because of its simplicity. Also it can easily be applied to the case where an element can be selected more than one time, i.e. $\pi_k \neq \nu_k > 1$. Then we would use $V^i = \sum_{k=1}^i \nu_k$.
-
-\end{frame}
-
+% 
+% \begin{frame}{Systematic Sampling with \\ Unequal Inclusion Probabilities}
+% Again the elements of the population are brought into a specific ordered and $V^i = \sum_{k=1}^i \pi_k$. Then $\lambda_k$ is drawn from a uniform distribution between $0$ and $1$.
+% ~\\[-4cm]
+% <<UP.SYS,echo=FALSE,fig.height=8,out.width='.95\\linewidth',fig.pos='th',fig.show = 'asis'>>=
+%   set.seed(43)
+%   N   <- 15
+%   n   <- 3
+%   ip  <- runif(N)
+%   ip  <- ip/sum(ip)*3
+%   V   <- cumsum(ip)
+%   rs  <- unique(ceiling(V))
+%   #pdf(file=paste0(graphPath,"presentation/presentation.pdf"), width = 10 , height = 10)
+%   par(mar=c(0, 0, 0, 0), xpd=NA)
+%    plot(c(0, 3), c(0, 3), type = "n", xlab = "", ylab = "", bty="n", axes=FALSE)
+%   lines(x=c(0,3),y=c(1.5,1.5),lwd=1.2)
+%   
+%   #integers
+%   arrows(x0=c(0,rs), y=1.5, x1=c(0,rs), y1=1.3, length=0, lwd=2)
+%     text(x=c(0, rs), y=1.2, labels=c(0,rs), cex=1.2, offset=0)
+%   
+%   #cumulated inclusion pobabilities
+%   arrows(x0=c(0,V) ,y=1.5, x1=c(0,V) , y1=1.6, length=0, lwd=1.5)
+%   text(x=0, y=1.7, labels=bquote(V^{.(0)}) , pos=1, offset=0, cex=1.2)
+%  
+%   for(i in 1:length(ip)){
+%    expr. <- bquote(V^{.(i)})
+%    text(x=V[i], y=1.7, labels=expr. ,cex=1.2, pos=1, offset=0)
+%   }
+%   
+%   #The sample 
+%   #S. <- UPsystematic.(n/N)
+%   u  <- runif(1)
+%   a = (c(0, cumsum( ip)) - u)%%1
+%   S. = as.integer(a[1:N] > a[2:(N + 1)])
+%   
+%   s.cod <- u + 0:(floor(max(V))-1)
+%   s.id <- which(S.==1)
+%   
+%   #graphPath1 <- paste0(graphPath,"SYS_coord_start_fixPop.pdf")
+%   #dev.copy(pdf,file=graphPath1)
+%   #dev.off()
+%  
+%   for(i in 1:length(s.id)){
+% 
+%   #graphPath2 <- paste0(graphPath,"SYS_coord_sample",i,".pdf")
+% 
+%    arrows(x0=s.cod[i] , y0=1.1, x1=s.cod[i], y1=1.5, length=0.1, lwd=1.5)
+%    if(i==1) text(x=s.cod[i]  , y=1, labels=bquote(lambda[k])  ,  cex=1.2)
+%    if(i>1)  text(x=s.cod[i]  , y=1, labels=bquote(lambda[k]+.(i-1))  ,  cex=1.2)
+%      text(x=V[s.id[i]], y=1.7 , labels=bquote(V^{.(s.id[i])}), pos=1, offset=0
+%           ,cex=1.2, col="firebrick1")
+%    #dev.copy(pdf,file=graphPath2)
+%    #dev.off()
+%   }
+%   
+% @
+% ~\\[-4cm]
+% Systematic selection remains popular because of its simplicity. Also it can easily be applied to the case where an element can be selected more than one time, i.e. $\pi_k \neq \nu_k > 1$. Then we would use $V^i = \sum_{k=1}^i \nu_k$.
+% 
+% \end{frame}
+% 
 
 \begin{frame}{A Typical Sample of Persons}{in Germany}
 \onslide*<1>{A two-stage Sampling Design:
@@ -808,7 +823,7 @@ Since it is so difficult to estimate the design effect, models are used to descr
 					$$
 					  \deffhatc = 1 + \left(b^{\ast} - 1\right) \hat{\rho}
 					$$
-					where $b^{\ast}= \frac{ \sum_{i \in \mathfrc{s}_{\RN{1}}} \left( \sum_{k \in \mathfrc{s}_i} w_{k} \right)^2 }{ \sum_{k \in \mathfrc{s} } w_k^2}$ is a kind of weighted average cluster size \cite{GablerEtal1999}.
+					where $b^{\ast}= \frac{ \sum_{i \in \mathfrc{s}_{\RN{1}}} \left( \sum_{k \in \mathfrc{s}_i} w_{k} \right)^2 }{ \sum_{k \in \mathfrc{s} } w_k^2}$ is a kind of weighted average cluster size.% \cite{GablerEtal1999}.
 	\end{itemize}
 	%For two stage cluster 
 \end{frame}
@@ -942,7 +957,7 @@ print(deffTildeBbarRho)
 
 \begin{frame}{An Estimators of $\rho$}
 \onslide<1->{
-  There are many different ways to estimate $\rho$ \cite{Ganninger2009}.
+  There are many different ways to estimate $\rho$.% \cite{Ganninger2009}.
   The classical ANOVA estimator is:
 	\begin{align*}
 		\hat{\rho} = \dfrac{ \widehat{MSB} -  \widehat{MSW}}{ \widehat{MSB}+(K-1) \widehat{MSW} }\;{,}

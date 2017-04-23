@@ -9,3 +9,5 @@ PracTools
 GGally
 ggplot2
 lattice
+Matrix
+survival

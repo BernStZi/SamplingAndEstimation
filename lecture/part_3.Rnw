@@ -107,6 +107,17 @@
 \includegraphics[height=1cm,width=2cm]{../common/pics/GESIS_Logo_kompakt_en.jpg}
 \end{textblock*}}
 
+% Sektionen Title Folie
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
 
 
 
@@ -139,8 +150,8 @@ library(survey)
 library(sampling)
 library(mvtnorm)
 library(PracTools)
-library(GGally)
 library(ggplot2)
+library(GGally)
 opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
 @
 
@@ -148,10 +159,12 @@ opts_chunk$set(fig.path='graphs/beamer-',fig.align='center',fig.show='hold',size
 \title[Estimation]{Sampling and Estimation}   
 \subtitle{Part 3: Calibration Weights}
 
-\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}}, Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}, and Jan-Philipp Kolb\thanks{\href{mailto:Jan-Philipp.Kolb@gesis.org}{Jan-Philipp.Kolb@gesis.org}}}
-\date{\today} 
+\author{Stefan Zins\thanks{\href{mailto:Stefan.Zins@gesis.org}{Stefan.Zins@gesis.org}} and Matthias Sand\thanks{\href{mailto:Matthias.Sand@gesis.org}{Matthias.Sand@gesis.org}}}
+\date{April 24, 2017} 
 
 \makebeamertitle
+
+\section{Survey Errors}
 
 \begin{frame}[fragile]{Survey Imperfections}
 \begin{figure}[H]
@@ -227,7 +240,7 @@ Missingness may be either
     \item cannot be modeled, because $\mathcal{Y}$ not known for non-respondents
   \end{itemize}
 \end{description}
-\uncover<4>{ (see \cite{LittleRubin2002}) 
+\uncover<4>{ %(see \cite{LittleRubin2002}) 
 %\end{center}\vspace*{3mm}
 %\end{minipage}
 ~\\[3mm]
@@ -244,7 +257,7 @@ case deletion, assuming MCAR!}
  \begin{frame}{Weighting Methods}
 
 \begin{description}
-\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$ (see  \cite{SaerndalLundstroem2005}).
+\item[Calibration approach]<1|only@1> The design weighs are calibrated to the totals of some auxiliary variables $\boldsymbol{\mathcal{X}}$.% (see  \cite{SaerndalLundstroem2005}).
 \begin{itemize}
   \item Sample estimates using the calibrated weights will exactly replicated those totals.
   \item If the used auxiliary variables help to explain the response process the calibrated weight can reduce the non-response error.
@@ -837,6 +850,136 @@ Now we check if the calibration constrains are satisfied:
 \end{itemize}
 \end{frame}
 
+\section{Variance Estimation for Complex Statistics}
+
+\begin{frame}
+\frametitle{Preliminary comments on variance estimation}
+\uncover<1-4>{In practice design based variance estimation will \emph{not} be an option for most surveys.} \uncover<2-4>{Why?} \uncover<3-4>{We do not know the $\pi_{kl}$ and in some cases not even the $\pi_k$
+and even if we would, the response process and frame imperfections remain still unknown.}
+\uncover<4>{
+Thus we have to resort to second best solutions:
+\begin{itemize}
+\item Model based estimation (as shown for the estimation of the $\deff$)
+\item Estimation of approximated variances
+\end{itemize}
+}
+\uncover<5->{What exactly has variance estimation to fulfill?
+\begin{itemize}
+\item Deliver adequate quality measures
+\item Consider practical issues
+\end{itemize}}
+\uncover<6->{But
+\begin{itemize}
+\item Can we apply general methods like for point estimation?
+%\item Do we encounter contradictions in optimizing strategies between point and variance estimators?
+\end{itemize}}
+\end{frame}
+
+
+\begin{frame}{Methods for Variance Estimation}
+In variance estimation we face often following obstacles:
+\begin{itemize}
+\item<1-> Non-linear Statistics
+\item<2-> Complex Designs (incl. non-response)
+\end{itemize}
+
+\uncover<3->{
+Two of the commonly used methods to overcome these are
+\begin{description}
+\item<4->[Linearization]; An approximation to the variance of the estimator is sought that is far easier to estimate.
+\item<5->[Resampling Methods]; The distribution of the estimator is simulated in order to estimate its variance.
+\end{description}
+} 
+\uncover<6->{The line between model and design based approaches is not so clear in some cases.
+There are resampling methods and linearization techniques that assume infinite population,  i.e.  they rely on models. We try to stay with the finite population \emph{model}.
+}
+\end{frame}
+
+\begin{frame}{Non-linear Statistics}
+The estimator we use are often non-linear, like $\overline{y}_w$. 
+Which is a problem, in particular for variance estimation. Mind that:
+\begin{align*}
+\E{ \dfrac{\hat{\tau}_{y_1\,w}}{\hat{\tau}_{y_2\,w}} } \approx \dfrac{\E{\hat{\tau}_{y_1\,w}}}{\E{\hat{\tau}_{y_2\,w} } }  \\
+\V{ \dfrac{\hat{\tau}_{y_1\,w}}{\hat{\tau}_{y_2\,w}} } \neq \dfrac{\V{\hat{\tau}_{y_1\,w}}}{\V{\hat{\tau}_{y_2\,w} } }  
+\end{align*}
+\end{frame}
+
+\begin{frame}{Taylor-linearization}
+\onslide*<1>{
+In case our statistic of interest $\theta$ can be displayed as a function $f$ of $Q$ totals
+ $$
+ \theta  = f \left( \boldsymbol{\tau} \right)\;{,}
+ $$
+  with $\boldsymbol{\tau} = (\tau_{x_1}{,}\,\ldots{,}\,\tau_{x_q}{,}\,\ldots{,}\,\tau_{x_Q})^\top$ and
+  $\tau_{x_1} = \sum_{k \in \mathcal{U}} x_{kq}$.
+  We estimate $\theta$ by 
+  $$
+  \hat{\theta}  = f \left( \hat{\boldsymbol{\tau}} \right) \;{,}
+  $$
+ with $\hat{\boldsymbol{\tau}} = (\hat\tau_{x_1}{,}\,\ldots{,}\,\hat\tau_{x_q}{,}\,\ldots{,}\,\hat\tau_{x_Q})^\top$.
+}
+\onslide*<2>{
+If $f$ is continuously differentiable up to second order between $\boldsymbol{\tau}$ and $\hat{\boldsymbol{\tau}}$ we can use the Taylor series of estimator $\hat{\theta}$ to obtain a linearized version of it
+\begin{align*}
+\hat{\theta}  = \theta + \sum_{q = 1}^Q \left[ \dfrac{\partial f( t_1,\,\ldots,\,t_Q
+)}{\partial t_q} \right]_{\mathbf{t}=\boldsymbol{\tau}} \left( \hat{\tau}_{x_q} - \tau_{x_q}
+\right) + R(\hat{\boldsymbol{\tau}}{,}\boldsymbol{\tau})\;{,}
+\end{align*}
+where
+\begin{align*}
+R(\hat{\boldsymbol{\tau}}{,}\boldsymbol{\tau}) = \dfrac{1}{2} \sum_{q = 1}^Q \sum_{p =
+1}^Q \left[  \dfrac{\partial^2 f( t_1,\,\ldots,\,t_Q)}{\partial t_{q}\partial
+t_{p}}\right]_{\mathbf{t}=\ddot{\boldsymbol{\tau}}} (\hat{\tau}_{x_q} - \tau_{x_q})
+(\hat{\tau}_{x_p} - \tau_{x_p})
+\end{align*}
+and $\ddot{\boldsymbol{\tau}}$ is between $\hat{\boldsymbol{\tau}}$ and $\boldsymbol{\tau}$.
+In most application the remainder term $R$ is ignored for large enough sample sizes.
+}
+\onslide*<3>{
+Thus we can approximate the variance of $\hat{\theta}$ by
+\begin{align*}
+\V{\hat{\theta}}  & \approx  \V{ \sum_{q = 1}^Q \left[
+\dfrac{\partial f( t_1,\,\ldots,\,t_Q )}{\partial t_q}
+\right]_{\mathbf{t}=\boldsymbol{\tau} } \hat{\tau}_{x_q} }  \\
+  & = \sum_{q = 1}^Q  a_q^2  \V{\hat{\tau}_{x_q}} + 2 \sum_{q=1}^{Q}  
+  \sum_{\substack{ p = 1 \\ p < q }}^{Q} a_q a_p \COV{\hat{\tau}_{x_q}}{\hat{\tau}_{x_p}} \;{,} \nonumber
+\end{align*}
+ with $a_q = [ \frac{\partial f( t_1,\,\ldots,\,t_Q )}{\partial t_q} ]_{\mathbf{t}=\boldsymbol{\tau}}$.
+}
+\onslide*<4>{
+For $\hat{\boldsymbol{\tau}} =  (\hat\tau_{x_1\,w}{,}\,\ldots{,}\,\hat\tau_{x_q\,w}{,}\,\ldots{,}\,\hat\tau_{x_Q\,w})^\top$
+ Woodruff (1971) proposes the transformation of $x_{kq}$
+ \begin{align*}
+ z_k = \sum_{q = 1}^Q  a_q x_{kq} 
+ \end{align*}
+ and use the following expression as an approximate variance of $\hat\theta$
+ \begin{align*}
+ \V{\hat{\theta}} \approx \V{ \sum_{k \in \mathfrc{s}} w_k z_k }\;{.}
+ \end{align*}  
+ This approximation is far more convenient to estimate then to estimate all the different variances and covariance in the above formula separately. $z_k$ is also sometimes called the linearized variable.
+}
+\end{frame}
+
+\begin{frame}{Example Taylor-linearization}
+\onslide*<1>{
+Suppose we want to estimate $\theta = \frac{\tau_y}{N}$ the population mean of variable $\mathcal{Y}$.
+To do this we use estimator $\overline{y}_w=\overline{y}_\pi$, i.e. we set $w_k = d_k$ for all $k \in \mathfrc{s}$. 
+ Now we have
+ $$\hat\theta = f \left( \boldsymbol{\tau} \right) = f \left( (\hat{\tau}_{y,\pi},\hat{\tau}_{x,\pi} ) \right) = \dfrac{\hat{\tau}_{y,\pi}}{\hat{\tau}_{x,\pi}}\;,$$
+ were $\hat{\tau}_{y,\pi} = \sum_{k \in \mathfrc{s}} d_k y_k$ and  $\hat{\tau}_{x,\pi}=\sum_{k \in \mathfrc{s}} d_k$, because $x_k=1$ for all $k \in \mathcal{U}$. Our estimator is a function of Q=2 totals, and we have
+ \begin{align*}
+ a_1 &= \dfrac{1}{\tau_{x}} & a_2 = -\dfrac{\tau_{y}}{\tau_{x}^2}= -\dfrac{\theta}{\tau_x} \\
+z_k &= a_1 y_k + a_2 x_k = \dfrac{1}{\tau_{x}}\left( y_k - \theta \right) &
+ \end{align*}
+}\onslide*<2>{
+  To estimate the approximate variance $\V{ \sum_{k \in \mathfrc{s}} d_k z_k }$ we need estimates for the $z_k$'s,  because they involve unknown statistics $\tau_{x}$ and $\theta$. 
+$$\hat{z}_k =   \dfrac{1}{\hat\tau_{x,\pi}}\left(y_k - \overline{y}_\pi \right) $$
+Our variance estimator would be $\Vest{ \sum_{k \in \mathfrc{s}} d_k \hat{z}_k }$
+for which
+$\Vest{.}_1$ or $\Vest{.}_2$ could be used or an estimator for an approximate design variance. \newline
+Note that the variances of the $\hat{z}_k$'s (and the covariances between them) is often thought to be negligible and is therefore usually not considered.
+}
+\end{frame}
 
 \begin{frame}[fragile]{The Variance of the \\ Generalized Regression Estimator}
 Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
@@ -867,8 +1010,8 @@ svytotal(~EXPTOTAL, sam.dsgn)
 svytotal(~EXPTOTAL, sam.cal)
 
 
-pest.ratio <- svytotal(~EXPTOTAL, sam.dsgn)/svytotal(~EXPTOTAL, sam.cal)
-vest.ratio   <- vcov(svytotal(~EXPTOTAL, sam.dsgn))/vcov(svytotal(~EXPTOTAL, sam.cal))
+pest.ratio <- svytotal(~EXPTOTAL, sam.cal)/svytotal(~EXPTOTAL, sam.dsgn)
+vest.ratio   <- vcov(svytotal(~EXPTOTAL, sam.cal))/vcov(svytotal(~EXPTOTAL, sam.dsgn))
 
 options(ori.opt)
 # svyby(~EXPTOTAL, by=~hosp.type, design=sam.cal,  FUN=svytotal)
@@ -897,6 +1040,10 @@ $ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = \Sexpr{round(vest.ra
   C.-E.~S\"{a}rndal, S.~Lundstr\"{o}m.
     \newblock Estimation in Surveys with Nonresponse.
     \newblock {\em Wiley}, 2005.
+    \bibitem{Woodruff1971}
+    R.S.~Woodruff.
+    \newblock A Simple Method for Approximating the Variance of a Complicated Estimate.
+    \newblock {\em Journal of the American Statistical Association}, 1971.
   \end{thebibliography}
   
 \end{frame} 
