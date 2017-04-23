@@ -1,7 +1,7 @@
 ---
 title: "Sampling and Estimation - Exercise 2"
 author: "Stefan Zins, Matthias Sand and Jan-Philipp Kolb"
-date: "2 Februar 2016"
+date: "2 February 2016"
 output: pdf_document
 ---
 
@@ -50,6 +50,8 @@ main.path <- "J:/Work/Statistik/Kolb/Workshops/2016/grade_sampling/"
 
 data.path <- paste(main.path,"data/",sep="")
 
+data.path <- "F:/GESIS/Workshops/grade_sampling/data"
+
 setwd(data.path)
 ```
 
@@ -66,9 +68,9 @@ SE <- read.spss("ESS5SE.sav",to.data.frame=T)
 Later it is necessary for the specification of fpc.
 
 ```{r,eval=Ex}
-DK$N <- DK$pweight*10000*nrow(DK)
+DK$N <- DK$dweight*DK$pweight*10000*nrow(DK)
 
-SE$N <- SE$pweight*10000*nrow(SE)
+SE$N <- SE$dweight*SE$pweight*10000*nrow(SE)
 ```
 
 ## Combine the two datasets (DK,SE)
@@ -136,6 +138,8 @@ stab_SE <- svytable(~tvtot,svydes_SE)
 stab_SE
 ```
 
+empirical distribution of joined dataset
+
 ```{r,eval=Ex}
 stab_NE <- svytable(~tvtot,svydes_NE)
 stab_NE
@@ -155,14 +159,16 @@ barchart(stab_SE)
 
 ## More analysis functions
 
-- Estimate the joined empirical distribution of tv consumption in Sweden and Denmark
+Estimate the number of persons watching 3 or more hours:
 
 ```{r,eval=Ex}
 svytotal(~mt3,svydes_NE)
-
-svymean(~mt3,svydes_NE)
 ```
 
+Percentage of persons watching more than 3 hours tv:
+```{r,eval=Ex}
+svymean(~mt3,svydes_NE)
+```
 
 
 ## Exercise 2.B
@@ -257,7 +263,7 @@ s.pr <- strSRsample(apipop$stype, nh.pr, replace=FALSE)
 
 ## Optimal allocation: 
 
-```{r,echo=F,eval=T}
+```{r,echo=T,eval=T}
 V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
 nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
 ```
@@ -283,7 +289,7 @@ strSRS.pr <- pop[s.pr,]
 strSRS.op <- pop[s.op,]
 ```
 
-## `survey` - equal allocation
+## Equal allocation
 
 - Estimate again the mean of `api00` from all three samples and compare the results.
 
@@ -294,7 +300,7 @@ svystrSRS.eq <- svydesign(ids=~cds, strata =~stype,
 svymean(~api00, svystrSRS.eq)
 ```
 
-## `survey` - proportional allocation
+## Proportional allocation
 
 ```{r}
 svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  
@@ -304,7 +310,7 @@ svymean(~api00, svystrSRS.pr)
 ```
 
 
-## `survey` - optimal allocation
+## Optimal allocation
 
 ```{r}
 svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  
@@ -312,7 +318,3 @@ svystrSRS.op <- svydesign(ids=~cds, strata =~stype,
 
 svymean(~api00, svystrSRS.op)
 ```
-
-
-
-

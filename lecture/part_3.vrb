@@ -1,0 +1,48 @@
+\frametitle{The Variance of the \\ Generalized Regression Estimator}
+Calibrated weights are \textbf{not} independent of the selected sample, i.e. they are random variables.
+Thus, the variance of the GREG estimator cannot be estimated as straightforwardly as for the $\pi$-estimator.
+\onslide*<1>{
+ We can write its approximate variance as
+\begin{equation*}
+ \AV{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathcal{U}} \sum_{l \in \mathcal{U}} \left( \pi_{kl} - \pi_k \pi_l \right)  \dfrac{E_k}{\pi_k} \dfrac{E_l}{\pi_l} \;{,}
+ \end{equation*}
+where $E_k = y_k - y_k^0$, $y_k^0= \mathbf{x}_x^\top \boldsymbol\beta $ and
+\begin{equation*}
+ \boldsymbol\beta=\left( \underset{k \in \mathcal{U} }{\sum } c_k \mathbf{x}_{k} (\mathbf{x}_{k})^\top \right)^{-1} \underset{k \in \mathcal{U}}{\sum} c_k \mathbf{x}_{k} y_{k}\;{.}
+\end{equation*}
+}
+\onslide*<2>{
+A variance estimator for $\hat{\tau}_\text{GREG}$ is given by
+ \begin{equation*}
+ \Vest{\hat{\tau}_\text{GREG}}  = \sum_{k \in \mathfrc{s}} \sum_{l \in \mathfrc{s}} \dfrac{\left( \pi_{kl} - \pi_k \pi_l \right)}{\pi_{kl}} g_k \dfrac{e_k}{\pi_k} g_l \dfrac{e_l}{\pi_l} \;{,}
+ \end{equation*}
+where $e_k = y_k - \hat{y}_k$ and $\hat{y}_k = \mathbf{x}_x^\top \widehat{\boldsymbol\beta}$.
+}
+
+\begin{lrbox}{\mysavebox}
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL, sam.dsgn)}
+\end{alltt}
+\begin{verbatim}
+##             total       SE
+## EXPTOTAL 9.55e+09 7.72e+08
+\end{verbatim}
+\begin{alltt}
+\hlkwd{svytotal}\hlstd{(}\hlopt{~}\hlstd{EXPTOTAL, sam.cal)}
+\end{alltt}
+\begin{verbatim}
+##             total       SE
+## EXPTOTAL 9.03e+09 5.92e+08
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{lrbox}
+\onslide*<3>{Compare the estimates for the total expenditure with calibrated and design weights.
+\usebox{\mysavebox}
+We find that $\hat{\tau}_\text{GREG} /  \hat{\tau}_\pi  = 1.0581$, but
+$ \Vest{\hat{\tau}_\text{GREG}} /  \Vest{\hat{\tau}_\pi}  = 1.7006$.
+}
+
+

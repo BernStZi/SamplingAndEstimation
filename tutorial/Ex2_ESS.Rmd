@@ -1,0 +1,96 @@
+---
+title: "Stratified Sampling Designs - Exercise 2"
+author: "Stefan Zins and Matthias Sand"
+date: "February, 25th 2017"
+output:
+  pdf_document:
+    keep_tex: yes
+  html_document:
+    keep_md: yes
+---
+
+
+## Exercise 2
+
+Estimation  under a stratified design
+
+1. [Download](https://github.com/BernStZi/SamplingAndEstimation/blob/short/tutorial/preparation/Preparation.md) the ESS for [Sweden](http://www.europeansocialsurvey.org/data/country.html?c=sweden) and [Denmark](http://www.europeansocialsurvey.org/data/country.html?c=denmark) (round 5)
+2. Import the data to R and combine the two datasets
+3. Define a `survey` object (stratified design)
+4. Estimate the  empirical distribution of TV consumption (`tvtot`) in Sweden and Denmark (separately) and the mean and total of those that watch more than 3 hours of TV 
+5. Estimate the joint empirical distribution of tv consumption in Sweden and Denmark
+and the mean and total of those that watch more than 3 hours of TV 
+
+6. Calculate the poststratification weights for both countries by
+
+$$postweight = pspwght*pwght*10000$$
+
+7. Conduct a weighted linear regression for the income decile (`hinctnta`) of the joined data set using the `lm` function. Use age (`agea`), household size (`hhmmb`), the integer of ISCED levels (`eisced`) and the total working hours (`wkhtot`) as independent variables
+
+8. Do the same with the generalised linear model (`svyglm`) that is incuded in the `survey` package and compare the results
+
+
+
+
+
+
+
+
+[Codebook ESS round 5](http://www.europeansocialsurvey.org/docs/round5/survey/ESS5_appendix_a6_e04_1.pdf)
+
+
+<!-- ## Exercise 2.B -->
+
+
+<!-- - Load the `survey` package and the `api` datasets. -->
+
+<!-- ```{r,message=F} -->
+<!-- library(survey) -->
+<!-- data(api) -->
+<!-- ``` -->
+
+
+<!-- - The dataset `apistrat` is a sample of schools from `apipop` stratified by `stype`. Assuming the selection within the strata was done by SRS, define a survey object (`svydesign`) and calculate a point and variance estimate for the mean of `api00`.  -->
+
+<!-- ## Exercise 2.B -->
+
+<!-- - Using `stype` again as a stratification variable try different allocations for stratified sample. Calculate the allocation of a sample of 60 schools from `apipop` using equal, proportional and optimal allocation. The proportional allocation should be proportional to the number of schools within the strata and the optimal alloaction should be optimal with regard to `api99`. -->
+
+<!-- ## Exercise 2.B -->
+
+<!-- - Select a StrSRS from `apipop` for each allocation. -->
+<!-- - Estimate again the mean of `api00` from all three samples and compare the results. -->
+
+
+
+<!-- ## Function for stratified samples -->
+
+<!-- ```{r} -->
+<!-- strSRsample <- function(strind, nh, replace=FALSE){ -->
+<!--   Nh <- table(strind)[names(nh)] -->
+<!--   h.id <- split(1:sum(Nh), strind)[names(nh)] -->
+
+
+<!--   sam <- mapply( function(x,y) sample(x, y, replace=replace) -->
+<!--                  , Nh, nh, SIMPLIFY = F) -->
+<!--   unlist(mapply(function(x,y) x[y] -->
+<!--                 , h.id -->
+<!--                 , sam, SIMPLIFY = F) -->
+<!--          ,use.names = FALSE) -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- ## Getting the function -->
+
+<!-- ```{r,eval=F} -->
+<!-- library(devtools) -->
+<!-- install_github("BernStZi/SamplingAndEstimation/r/sampaest", -->
+<!--                ref="short") -->
+<!-- ``` -->
+
+<!-- ```{r,eval=F} -->
+<!-- url <- "https://raw.githubusercontent.com/BernStZi/ -->
+<!-- SamplingAndEstimation/short/r/sampaest/R/strSRsample.R" -->
+<!-- source(url) -->
+<!-- ``` -->
+

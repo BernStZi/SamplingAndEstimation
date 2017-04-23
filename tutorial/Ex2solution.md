@@ -34,9 +34,9 @@ Construction of N
 
 Later it is necessary for the specification of fpc.
 
-    DK$N <- DK$pweight*10000*nrow(DK)
+    DK$N <- DK$dweight*DK$pweight*10000*nrow(DK)
 
-    SE$N <- SE$pweight*10000*nrow(SE)
+    SE$N <- SE$dweight*SE$pweight*10000*nrow(SE)
 
 Combine the two datasets (DK,SE)
 --------------------------------
@@ -89,6 +89,8 @@ The analysis functions in R-package `survey`
     stab_SE <- svytable(~tvtot,svydes_SE)
     stab_SE
 
+empirical distribution of joined dataset
+
     stab_NE <- svytable(~tvtot,svydes_NE)
     stab_NE
 
@@ -104,12 +106,11 @@ Visualisation
 More analysis functions
 -----------------------
 
--   Estimate the joined empirical distribution of tv consumption in
-    Sweden and Denmark
-
-<!-- -->
+Estimate the number of persons watching 3 or more hours:
 
     svytotal(~mt3,svydes_NE)
+
+Percentage of persons watching more than 3 hours tv:
 
     svymean(~mt3,svydes_NE)
 
@@ -275,6 +276,9 @@ Proportional allocation:
 Optimal allocation:
 -------------------
 
+    V.h   <- tapply(apipop$api99,apipop$stype,sd)[names(Nh.tab)]
+    nh.op <- round((Nh.tab*V.h)/(sum(Nh.tab*V.h))*n)
+
     s.op <- strSRsample(apipop$stype, nh.op, replace=FALSE)
 
 Exercise 2.B
@@ -290,8 +294,8 @@ Subselect the sample:
     strSRS.pr <- pop[s.pr,]
     strSRS.op <- pop[s.op,]
 
-`survey` - equal allocation
----------------------------
+Equal allocation
+----------------
 
 -   Estimate again the mean of `api00` from all three samples and
     compare the results.
@@ -306,8 +310,8 @@ Subselect the sample:
     ##         mean     SE
     ## api00 634.47 23.235
 
-`survey` - proportional allocation
-----------------------------------
+Proportional allocation
+-----------------------
 
     svystrSRS.pr <- svydesign(ids=~cds, strata =~stype,  
                               fpc=~Nh, data=strSRS.pr)
@@ -317,8 +321,8 @@ Subselect the sample:
     ##         mean     SE
     ## api00 673.13 16.497
 
-`survey` - optimal allocation
------------------------------
+Optimal allocation
+------------------
 
     svystrSRS.op <- svydesign(ids=~cds, strata =~stype,  
                               fpc=~Nh, data=strSRS.op)

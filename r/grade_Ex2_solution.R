@@ -1,6 +1,6 @@
 # Sampling and Estimation
 # Stefan Zins, Jan-Philipp Kolb and Matthias Sand
-# Tue Feb 02 20:45:24 2016
+# Tue Feb 02 20:45:24 2016 
 
 
 library(survey)

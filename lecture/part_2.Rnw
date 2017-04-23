@@ -505,6 +505,10 @@ which can be estimated by
 \onslide*<4>{Provided that $\pi_{kl} > 0$ for all $k \neq l \in \mathcal{U}$ both variance estimators are unbiased. Nevertheless both variance estimators can become negative!}
 \end{frame}
 
+%See Yates & Grundy, 1953, S. 257, Equations 8, 11, and 12.
+%When is Yates Grundy estimator larger than the Horvitz-Thompso Estimator
+%
+
 
 \begin{frame}{Unequal Probability Sampling II}
 If there is some prior information available in the form of a variable $\mathcal{X} =  \{ x_1{,}x_2{,}\,\ldots{,}\,x_k{,}\,\ldots{,}\,x_N \}$, which is correlated to our variable of interest $\mathcal{Y}$, we can select elements proportional to it
