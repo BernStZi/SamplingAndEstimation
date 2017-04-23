@@ -1,0 +1,11 @@
+Package: sampaest
+Type: Package
+Title: Functions for the workshop sampling and estimation
+Version: 0.1
+Date: 2016-01-21
+Author: Jan-Philipp Kolb
+Maintainer: <Jan-Philipp.Kolb@gesis.org>
+Description: Sampling and Estimation
+License: GPL-2
+LazyData: TRUE
+Imports: survey
