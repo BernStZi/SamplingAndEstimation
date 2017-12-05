@@ -1,0 +1,70 @@
+% !Mode:: "TeX:DE:UTF-8:Main"
+
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usetheme{Gesis}
+
+
+\title{Sample Theory}
+\subtitle{Epidemiological Study Design and Statistical Methods}
+
+\author{Stefan Zins - GESIS}
+\date{12.12.2017}
+
+% Gestaltungsvarianten
+% Kopfbandfarbe "shaded" von weiß zu blau: 
+% \setbeamertemplate{gesisheadband}[shaded]
+% andere Farbwerte
+% \gesisCIbluecolors % = Blau und Orange aus CI, Blau als heller Hintergrund
+% \gesisCIcolors     % = Blau und Orange aus CI, Sand als heller Hintergrund
+\begin{document}
+
+\gesismaketitle % erzeugt Titelseite
+
+\begin{frame}%[t]
+  \frametitle{Content}
+  
+  \begin{itemize}
+  \item Introduction
+  \item Populations
+  \item Sampling Designs
+  \item Planing
+  \end{itemize}
+
+
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Desgin Based Inferenz}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nur Headline}
+\end{frame}
+
+\begin{frame}
+  \tikz[overlay,remember picture]\node[rotate=30] at (current page.center) {\LARGE \textcolor{gray}{Leere Folie}};
+\end{frame}
+
+
+\setbeamercolor{background canvas}{bg=gesislightbg}
+\begin{frame}
+   \frametitle{Headline und Hintergrund}
+\end{frame}
+\setbeamercolor{background canvas}{bg=}
+
+\begin{frame}
+
+\begin{beamercolorbox}[wd=\paperwidth,center,sep=1cm]{gesisdarkbgbox}
+   Vielen Dank für die Aufmerksamkeit
+\end{beamercolorbox}
+\end{frame}
+
+\end{document} 
