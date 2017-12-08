@@ -2,11 +2,80 @@
 
 \documentclass{beamer}
 \usepackage{tikz}
-\usepackage[ngerman]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lipsum}
+
+\usepackage{textpos} 
+\usepackage{hyperref}
+\usepackage{amsmath,amsthm,amsfonts,nicefrac,mathabx,amssymb}
+\usepackage[subnum]{cases}
+\usepackage{calligra, mathrsfs}
+%\usepackage{natbib}
+\usepackage{booktabs}
+%\bibpunct{(}{)}{;}{a}{,}{,}
+
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multirow,dcolumn}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{bibentry}
+\usepackage{chngcntr}
+
 \usetheme{Gesis}
+
+
+\newcommand{\eqname}[1]{\tag*{#1}} %equation title
+
+%new math cal fonds
+\newenvironment{frcseries}{\fontfamily{frc}\selectfont}{}
+\newcommand{\textfrc}[1]{{\frcseries#1}}
+\newcommand{\mathfrc}[1]{\text{\textfrc{#1}}}
+
+\setcounter{tocdepth}{1}
+\setbeamercolor*{section in toc}{fg=hellgrau}
+\setbeamertemplate{bibliography item}[default]
+
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+\newcommand{\E}[1]{\text{E}\left(#1\right)}
+\newcommand{\V}[1]{\text{V}\left(#1\right)}
+\newcommand{\Vest}[1]{\widehat{\text{V}}\left(#1\right)}
+\newcommand{\MSE}[1]{\text{MSE}\left(#1\right)}
+\newcommand{\COV}[2]{\text{COV}\left(#1,\,#2\right)}
+
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{\texorpdfstring%
+  {L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+ % (ERT) argument for the TOC
+ \AtBeginDocument{%
+   \let\origtableofcontents=\tableofcontents
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+
+
 
 
 \title{Sample Theory}
@@ -30,7 +99,7 @@
   
   \begin{itemize}
   \item Introduction
-  \item Populations
+  %\item Populations
   \item Sampling Designs
   \item Planing
   \end{itemize}
@@ -38,27 +107,475 @@
 
 \end{frame}
 
-\section{Introduction}
+\section{Desgin Based Inferenz}
 
-\begin{frame}{Desgin Based Inferenz}
+
+
+\begin{frame}{Population, Sample, and Sampling Design}
+
+ \begin{itemize}
+ \item[] 
+ \begin{align}
+ \mathcal{Y} = & \{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \} \eqname{finite population of size $N$} \\
+ \mathcal{U} = &\, \{ 1{,}2{,}\,\ldots{,}\,k{,}\,\ldots{,}\,N \} \eqname{sampling frame} \\
+ \mathfrc{s} \subset &\, \mathcal{U} \eqname{sample of size $n$} \\
+ \mathcal{P}(\mathcal{U}) & \eqname{all possible subsets of $\mathcal{U}$}
+ \end{align}
+ \item[]
+\item[]
+The discrete probability distribution $p(.)$ over $\mathcal{P}(\mathcal{U})$ is called
+a \emph{sampling design} and  $\mathcal{G}=\{ \mathfrc{s} | \mathfrc{s} \in
+\mathcal{P}(\mathcal{U}),\, p(\mathfrc{s}) > 0 \}$ is called the support of $p(.)$ with
+$$
+\sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) = 1
+$$
+Hence, $p: \; \mathcal{G} \mapsto (0, 1]$.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Estimation}
+\begin{align}
+ \theta       & = f(\mathcal{Y})  \eqname{statistic of interest} \\
+ \hat{\theta} & = f(\mathcal{Y}, \mathfrc{s} )  \eqname{estimator for $\theta$} \\
+ \E{\hat{\theta}} & = \sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) f(\mathcal{Y}, \mathfrc{s} )   \eqname{expected value of $\hat{\theta}$} \\
+ \V{\hat{\theta}}   & =  \E{\hat{\theta}^2} -  {\E{\hat{\theta}}}^2 \eqname{variance of  $\hat{\theta}$} 
+\end{align}
+ $\E{.}$, $\V{.}$, and $\MSE{.}$ are always with respect to the sampling design $p()$ and
+ an estimator is said to be unbiased if
+ $$ \E{\hat{\theta}} = \theta\;. $$
+\end{frame}
+
+
+\begin{frame}{Representative Sample}
+\onslide*<1-2>{What is a representative sample? \newline}
+\onslide*<2>{The popular concept of a representative sample it that the sample is a \emph{miniature} of the population.}
+
+\onslide<3-4>{However, what do we really want?}
+\onslide<4>{\newline We want to estimate a statistic of interest with a certain level of precision 
+ and if the level of precision is high enough we say our estimation \emph{strategy} is representative.}
 
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Nur Headline}
+\begin{frame}{Examples}
+Does this
+
+Difference of mean
+Regression
+
 \end{frame}
 
-\begin{frame}
-  \tikz[overlay,remember picture]\node[rotate=30] at (current page.center) {\LARGE \textcolor{gray}{Leere Folie}};
+\begin{frame}{Inclusion Probabilities}
+
+$V(\theta)=f(y,\Sigma)$
+
+not only the weights 
+
+Estimation with weights
+Inference requires Variance estimaion
+
+Design Weight 
+
 \end{frame}
 
 
-\setbeamercolor{background canvas}{bg=gesislightbg}
-\begin{frame}
-   \frametitle{Headline und Hintergrund}
+\section{Sampling Designs}
+
+\begin{frame}{Sampling Frames}
+Access to target population
+
+Address    Samples (Register that list all sampling units)
+Telelephon Samples (Not fully known but all possible entries)
+
+
+
 \end{frame}
-\setbeamercolor{background canvas}{bg=}
+
+
+\begin{frame}{Sampling Methods}
+Probability based Samples
+
+Known and Accesable Sampling Frame
+Desgin should be measureable
+$\pi_{k}>0  \forall k \in \mathcal{U}$
+$\pi_{kl}>0 \forall k \neq l \in \mathcal{U}$
+
+
+
+Nonprobability based Samples
+
+Examples
+Convenience Samples
+Purposive   Samples
+Opt-in      Samples (Online) Access Panels - Addertising on webpages
+Quota       Samples
+
+The selection process is often to complex to model it
+Assumptions are made over the data itself (model-based inference)
+
+\end{frame}
+
+
+
+%alter
+
+\begin{frame}{Techniques for probabilitic Sampling}
+A set of rules (algrithm)
+
+\emph{Simple} Random Sampling
+All samples not sample elements have the same probability of being selected.
+p(s) is a constant for all s
+
+Unequal Probability Sampling
+
+
+
+Systematic Sampling
+
+Random Routes
+
+Cite Tille
+
+\end{frame}
+
+
+\begin{frame}{Stratification}
+A Population of 100 elements is stratified into $H=6$ strata.
+<<StratSetUp,echo=FALSE>>=
+N  <- 100
+Xs <- rep(1:10,each=10)
+Ys <- rep(1:10,time=10)
+
+sind <- list(c(1:4,11:14,21:24)
+             ,c(5:10,15:20,25:30)
+             ,c(31:35,41:45,51:55)
+             ,c(61:65,71:75,81:85,91:95)
+             ,c(36:40,46:50,56:60,66:70)
+             ,c(76:80,86:90,96:100))
+#sind <- list((1:30),c(31:35,41:45,51:55),c(61:65,71:75,81:85,91:95))
+SIND <- 1:100
+SIND[sind[[1]]] <- 1
+SIND[sind[[2]]] <- 2
+SIND[sind[[3]]] <- 3
+SIND[sind[[4]]] <- 4
+SIND[sind[[5]]] <- 5
+SIND[sind[[6]]] <- 6
+
+strata.Xs <- split(Xs,SIND)
+strata.Ys <- split(rev(Ys),SIND)
+Nh <- sapply(sind,length)
+n  <- 14
+nh <- round(Nh/N*n)
+@
+%fig.keep='all',fig.show='asis'
+\onslide*<1>{
+<<StratPlot1,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+plot(  x=Xs
+      ,y=Ys
+      ,pch=20
+      ,xlab=""
+      ,ylab=""
+      ,axes=FALSE
+      ,mar=c(4,4,4,10)
+      )
+#stratification
+rect(xleft=0  , ybottom = 0, xright = 3.5,ytop = 6.5,lwd=2)
+text(x=2.5, y=6, labels = "h=2")
+
+rect(xleft=0  , ybottom = 6.5, xright = 3.5,ytop = 11,lwd=2)
+text(x=2.5, y=10, labels = "h=1")
+
+rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11,lwd=2)
+text(x=5.5, y=10, labels = "h=3")
+
+
+rect(xleft=6.5, ybottom = 5.5, xright = 11, ytop = 11,lwd=2)
+text(x=9.5, y=10, labels = "h=4")
+
+
+rect(xleft=7.5, ybottom = 0, xright = 11, ytop = 5.5,lwd=2)
+text(x=6.5, y=5, labels = "h=5")
+
+text(x=9.5, y=5, labels = "h=6")
+
+box(lwd=3)
+@
+}
+\onslide<2>{
+\Sexpr{n} elements are selected population and their allocation is given by
+\begin{tabular}{cccccc}
+$n_1$ = \Sexpr{nh[1]}  & $n_2$ = \Sexpr{nh[2]}  & $n_3$ = \Sexpr{nh[3]}  & $n_4$ = \Sexpr{nh[4]} & 
+ $n_5$ = \Sexpr{nh[5]}&  $n_6$ = \Sexpr{nh[6]}\\
+\end{tabular}
+
+<<StratPlot2,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+<<StratPlot1>>
+set.seed(947)
+sam.str <- mapply(function(x,y)sample(x,y),Nh,nh)
+for(i in 1:length(nh)) {
+  points(x=strata.Xs[[i]][sam.str[[i]]],y=strata.Ys[[i]][sam.str[[i]]],pch=15,col=2,cex=2)
+}
+
+@
+}
+\end{frame}
+
+
+% \begin{frame}{Issues with Stratification}
+% \begin{itemize}
+% \item<1-> Why should stratification be used?
+% \begin{itemize}
+% \item<2-> To reduce the sampling variance of estimators.
+% \item<2-> Sometimes it is necessary because of organizational reasons, (e.g. no joint sampling frame).
+% \end{itemize}
+% \item<3-> How should the population be stratified?
+% \begin{itemize}
+% \item<4-> A \emph{good} set of variables needs to be found for stratification.
+% \item<4-> The number of strata has to be decided.
+% \end{itemize}
+% \item<5-> How should the overall sample size be allocated to the strata?
+% \begin{itemize}
+% \item<6-> Achieve proportionality between sample and population (i.e. the frame)
+% \item<6-> Fulfill precision constraints for certain estimation domains
+% \end{itemize}
+% \end{itemize}
+% 
+% \end{frame}
+
+\begin{frame}{Defining the Strata}
+
+Sratification can redure the sampling variance of estimators.
+
+  % \begin{table}\caption{Population ANOVA}
+  % \begin{tabular}{l | l | l }
+  % Source & df & Sum of Squares  \\
+  % \hline 
+  %  Between strata         & $H-1$ & $\text{SSB}  = \sum_{h=1}^H N_h ( \mu_{h} - \mu  )^2$  \\ 
+  %  Within  strata         & $N-H$ & $\text{SSW}  = \sum_{h=1}^H (N_h-1) V_{h}^2$  \\
+  %  Total,  about  $\mu_y$ & $N-1$ & $\text{SSTO} = (N-1) V^2$ \\
+  % \end{tabular}
+  % \end{table}
+
+The more homogeneous the strata are the higher is the gain in efficiency from using stratified simple random sample sampling (StrSRS) instead of SRS. Because then SSW (variance within) is
+considerably small in contrast to SSB (variance between). This is called
+the  effect of stratification. 
+
+Optimal Stratfication
+
+\end{frame}
+% %survey imperfections 
+%$N_h > 2$ variance estimation is difficult 
+% $\V{\hat{\theta}}$
+
+\begin{frame}{Allocation Methods}
+For all $h = 1{,}\,\ldots{,}\,H$
+ \begin{equation*} \arraycolsep=1.4pt\def\arraystretch{2.2}
+  n_h = \left\{ \begin{array}{l r}
+        \dfrac{n}{H}  &\; \text{equal allocation} \\
+        \dfrac{N_h}{N}  n    &\; \text{proportional allocation} \\
+        \dfrac{N_h V_{h}}{\sum_{h=1}^H N_h V_{h} }  n  &\; \text{optimal allocation} 
+  \end{array}\;\right.{,}
+ \end{equation*}
+ where $\overline{c}_h$ are average cost of selecting a element from stratum $h$ and $c=\sum_{h=1}^H n_h \overline{c}_h$ are the total costs of the survey. For the cost-optimal allocation $c$ is given, not $n$.
+% 
+% Variants of proportional allocation to totals
+% proportional to y or auxiliar variable
+% %the rounding probelem
+\end{frame}
+
+
+\begin{frame}{Clustering}
+<<CluSetUp,echo=FALSE>>=
+N  <- 100
+Xs <- rep(1:10,each=10)
+Ys <- rep(1:10,time=10)
+
+sind <- list(c(1:4,11:14,21:24)
+             ,c(5:10,15:20,25:30)
+             ,c(31:35,41:45,51:55)
+             ,c(61:65,71:75,81:85,91:95)
+             ,c(36:40,46:50,56:60,66:70)
+             ,c(76:80,86:90,96:100))
+#sind <- list((1:30),c(31:35,41:45,51:55),c(61:65,71:75,81:85,91:95))
+SIND <- 1:100
+SIND[sind[[1]]] <- 1
+SIND[sind[[2]]] <- 2
+SIND[sind[[3]]] <- 3
+SIND[sind[[4]]] <- 4
+SIND[sind[[5]]] <- 5
+SIND[sind[[6]]] <- 6
+
+strata.Xs <- split(Xs,SIND)
+strata.Ys <- split(rev(Ys),SIND)
+Nh <- sapply(sind,length)
+n_I  <- 2
+@
+A Population of 100 elements is clustered into $N_{\RN{1}}=6$ cluster
+%fig.keep='all',fig.show='asis'
+\onslide*<1>{
+<<CluPlot1,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+offset <- 0.65
+plot(  x=Xs
+      ,y=Ys
+      ,pch=20
+      ,xlab=""
+      ,ylab=""
+      ,axes=FALSE
+      ,mar=c(4,4,4,10)
+      )
+rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2)
+text(x=2.5, y=6, labels = "i=2")
+
+rect(xleft=offset   , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2)
+text(x=2.5, y=10, labels = "i=1")
+
+rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2)
+text(x=5.5, y=10, labels = "i=3")
+
+
+rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2)
+text(x=9.5, y=10, labels = "i=4")
+
+
+rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2)
+text(x=6.5, y=5, labels = "i=5")
+
+text(x=9.5, y=5, labels = "i=6")
+box(lwd=3)
+
+@
+}\onslide<2>{
+and $n_{\RN{1}}=\Sexpr{n_I}$ clusters are selected from the population.
+<<CluPlot2,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+<<CluPlot1>>
+set.seed(999)
+sam.str <- sample(length(Nh),n_I)
+par(xpd=TRUE)
+if(any(sam.str==2))
+ rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2, border=2) 
+if(any(sam.str==1))
+ rect(xleft=offset  , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==3))
+ rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==4))
+ rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2,border=2)
+if(any(sam.str==5))
+ rect(xleft=3.5, ybottom = offset, xright = 7.5, ytop = 5.5,lwd=2,border=2)
+if(any(sam.str==6))
+ rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2,border=2)
+par(xpd=FALSE)
+for(i in 1:n_I) {
+  points(x=strata.Xs[[sam.str[i]]],y=strata.Ys[[sam.str[i]]],pch=15,col=2,cex=2)
+}
+
+@
+}
+\end{frame}
+
+
+\begin{frame}{Cluster Sampling}
+\begin{itemize}
+\item[]<1-> Sampling elementary units is often not feasible (e.g. persons or businesses). Maybe there is no uniform sampling frame available to select them from, or it would be costly to do, because the selected elements would scatter to much over the a certain area and travel costs of interviewers would be to high. 
+
+\item[]<2-> Thus, it is very common to select clusters, so called \emph{primary sampling units} (PSU's) that are populated by \emph{secondary sampling units} (SSU's).
+
+\item[]<3-> Cluster sampling makes it still possible to obtain unbiased estimates but it can have a big influence on the variance. 
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Example}
+Compare Variances
+
+Cluster sampling  by dnum
+Stratified Sampling  dnum
+%summary statistcs on apipop
+\end{frame}
+
+
+
+%\section{Complex Sampling Designs - Two Stage Sampling}
+
+\begin{frame}{Two Stage Sampling}
+% A Population of 100 elements is clustered into $N_{\RN{1}}=6$ clusters
+% and $n_{\RN{1}}=\Sexpr{n_I}$ clusters (PSU) are selected at the first sampling stage
+%\onslide*<1>{
+<<CluPlot1_2,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+set.seed(671)
+n_i <- 4
+sam.str <- sample(length(Nh),n_I)
+#par(xpd=TRUE)
+<<CluPlot1>>
+
+if(any(sam.str==2))
+rect(xleft=offset  , ybottom = offset, xright = 3.5,ytop = 6.5,lwd=2, border=2)
+
+if(any(sam.str==1))
+rect(xleft=offset  , ybottom = 6.5, xright = 3.5,ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==3))
+rect(xleft=3.5, ybottom = 5.5, xright = 6.5, ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==4))
+rect(xleft=6.5, ybottom = 5.5, xright = 11-offset, ytop = 11-offset,lwd=2,border=2)
+
+
+if(any(sam.str==5))
+rect(xleft=3.5, ybottom = offset, xright = 7.5, ytop = 5.5,lwd=2,border=2)
+
+
+if(any(sam.str==6))
+rect(xleft=7.5, ybottom = offset, xright = 11-offset, ytop = 5.5,lwd=2,border=2)
+#par(xpd=FALSE)
+@
+
+% }\onslide<2>{
+% and $n_{i}=4$ elements are selected from each sampled cluster.
+% <<CluPlot2.2,echo=FALSE,fig.width=12,out.width='.85\\linewidth'>>=
+% <<CluPlot1.2>>
+% for(i in sam.str) {
+%       s_i <- sample(length(strata.Xs[[i]]), n_i)
+%       points(x=strata.Xs[[i]][s_i],y=strata.Ys[[i]][s_i],pch=15,col=2,cex=2)
+% }
+% @
+% }
+% 
+% 
+
+
+
+\end{frame}
+
+
+\begin{frame}{Two Stage Sampling}
+ \begin{description}
+ \item[First  stage] A sample $\mathfrc{s}_{\RN{1}}$ of PSU's is drawn from $\mathcal{U}_{\RN{1}}$ according to some sampling design $p_{\RN{1}}(.)$
+ \item[Second stage] For every $i \in \mathfrc{s}_{\RN{1}}$ a sample $\mathfrc{s}_i$ of SSU's is selected from $\mathcal{U}_i$ according to some design $p_i(.|\mathfrc{s}_{\RN{1}})$
+ \end{description}
+ The resulting sample of SSU's is denote $\mathfrc{s}= \bigcup_{i \in \mathfrc{s}_{\RN{1}}} \mathfrc{s}_i $.
+ In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus, the inclusion probability of a element $k \in \mathcal{U}_i$ is
+$$\pi_k=\pi_{\RN{1}i}\pi_{k|i}\;,$$
+where $\pi_{\RN{1}i}$ is the probability of selecting the $i$-th PSU and $\pi_{k|i}$  the probability of selecting
+the $k$-th SSU in the $i$-th PSU.
+\end{frame}
+
+
+\begin{frame}{Sample Size Determination}
+Samples Size are planned with a specific estimator in mind
+
+Complex Problem for Multivariate Surveys
+
+the minimum sample size under a certain precision requirements
+
+The variance or MSE of an estimator
+
+
+\end{frame}
 
 \begin{frame}
 

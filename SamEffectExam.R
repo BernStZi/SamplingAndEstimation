@@ -4,8 +4,8 @@ library(sampling)
 
 
 select.apiTwoStage <- 
-  function(n_I, n_c){
-    apipop_mss <- apipop
+  function(n_I, n_c, pop){
+    apipop_mss <- pop
     h_c  <- table(apipop_mss$cnum)/nrow(apipop_mss)*n_I
     
     
@@ -42,6 +42,23 @@ select.apiTwoStage <-
     
   }
 
+
+
+select.apiClu <- 
+  function(n_I){
+    
+    s.snum <- sample(as.character(apipop_mss$dnum), n_I)
+        
+    apipop_mss$fpc1 <- length(unique(apipop_mss$dnum))
+    
+    apiclus         <- apipop_mss[apipop_mss$dnum %in% as.numeric(s.snum), ]
+    
+    svydesign(id=~dnum, fpc = ~fpc1, data=apiclus)
+    
+  }
+
+
+
 #design object for rotational panels
 
 #select.apiSRS
@@ -51,26 +68,60 @@ select.apiTwoStage <-
 #Two independent Samples
 set.seed(1341)
 
+tv <- mean(apipop$api00-apipop$api99)
+
+mu_Ho <- tv
+apipop_mss <- apipop
+#apipop_mss$api00 <- apipop_mss$api99+rnorm(nrow(apipop_mss),0,sd(apipop_mss$api99)^{1/2})
+
+
 OUT <- 
 sapply(1:1000,function(x){
 
-dclus_1 <- select.apiTwoStage(10,2)
-dclus_2 <- select.apiTwoStage(10,2)
+#dclus_1 <- select.apiTwoStage(20,2)
+#dclus_2 <- select.apiTwoStage(20,2)
+  
+dclus_1 <- select.apiClu(25)
+dclus_2 <- select.apiClu(25)
+ 
 
 var.delta <- SE(svymean(~api00,dclus_1))^2 + SE(svymean(~api99,dclus_2))^2
 delta     <- as.vector(svymean(~api00,dclus_2))-as.vector(svymean(~api99,dclus_1))
 
-svyConf.int <- c(delta+qnorm(1-0.975)*sqrt(var.delta),delta+qnorm(0.975)*sqrt(var.delta))
+svyConf.int <- c(delta + qnorm(1-0.975)*sqrt(var.delta),
+                 delta + qnorm(0.975)*sqrt(var.delta)
+                 )
 
-svyH0 <- !svyConf.int[1]<0&svyConf.int[2]>0
+svyH0    <- svyConf.int[1] < mu_Ho & svyConf.int[2] > mu_Ho
+#svyH0   <- !svyConf.int[1] < 0 & svyConf.int[2]>0
 
-simConf.int <- t.test(x=dclus_2$variables$api00, y = dclus_2$variables$api99, var.equal = FALSE)$conf.int
-simH0 <- !simConf.int[1]<0&simConf.int[2]>0
 
-c(svyH0,simH0)
+var.delta.sim <- 
+  var(dclus_1$variables$api00)/nrow(dclus_1$variables)*(1-nrow(dclus_1$variables)/6194) + 
+  var(dclus_2$variables$api00)/nrow(dclus_2$variables)*(1-nrow(dclus_2$variables)/6194)
+
+
+svyConf.sim <- c(delta + qnorm(1-0.975)*sqrt(var.delta.sim ),
+                 delta + qnorm(0.975)*sqrt(var.delta.sim )
+)
+
+# simConf <- t.test(x = dclus_2$variables$api00, 
+#                   y = dclus_2$variables$api99, 
+#                   var.equal = FALSE, 
+#                   mu = mu_Ho)
+
+simH0    <- svyConf.sim[1] < mu_Ho & svyConf.sim[2] > mu_Ho
+
+#simH0    <- simConf$p.value < 0.05
+
+c(svyH0, simH0, delta)
+
+
 })
 
 
+
+#other way arround with stratification...
 
 #does the confidence 
 

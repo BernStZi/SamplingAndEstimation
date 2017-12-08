@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  5 DEC 2017 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  6 DEC 2017 18:21
 entering extended mode
 **slides.tex
 (slides.tex
@@ -788,11 +788,8 @@ Package: babel 2015/08/03 3.9m The Babel package
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf"
-Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngermanb.ldf"
-Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
+Language: english 2012/08/20 v3.3p English support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2015/08/03 3.9m Babel common definitions
@@ -800,10 +797,10 @@ File: babel.def 2015/08/03 3.9m Babel common definitions
 \U@D=\dimen259
 LaTeX Info: Redefining \textlatin on input line 1431.
 )
-\l@naustrian = a dialect from \language\l@ngerman 
-\l@nswissgerman = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 88.
-)))
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks45
@@ -1054,6 +1051,407 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count163
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\textpos\textpos.sty"
+Package: textpos 2014/01/03 v1.7j
+
+Package: textpos 2014/01/03 1.7j, absolute positioning of text on the page
+\TP@textbox=\box58
+\TPHorizModule=\dimen260
+\TPVertModule=\dimen261
+\TP@margin=\dimen262
+\TP@absmargin=\dimen263
+Grid set 16 x 16 = 22.7622pt x 17.07166pt
+\TPboxrulesize=\dimen264
+\TP@tbargs=\toks47
+\TP@prevdepth=\dimen265
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\units\nicefrac.sty"
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip58
+\L@UnitsRaiseTextstyle=\skip59
+\L@UnitsRaiseScriptstyle=\skip60
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathabx\mathabx.sty"
+Package: mathabx 2003/07/29 v0.0 Non-standard LaTeX package mathabx
+\symmatha=\mathgroup6
+\symmathb=\mathgroup7
+\symmathx=\mathgroup8
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\mathabx\mathabx.dcl"
+LaTeX Font Info:    Redeclaring math symbol \cdotp on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \times on input line 33.
+LaTeX Font Info:    Redeclaring math symbol \div on input line 34.
+LaTeX Font Info:    Redeclaring math symbol \cdot on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \circ on input line 36.
+LaTeX Font Info:    Redeclaring math symbol \ast on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \pm on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \mp on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \ltimes on input line 43.
+LaTeX Font Info:    Redeclaring math symbol \rtimes on input line 44.
+LaTeX Font Info:    Redeclaring math symbol \diamond on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \bullet on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \star on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \amalg on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \dotplus on input line 58.
+LaTeX Font Info:    Redeclaring math symbol \square on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \divideontimes on input line 71.
+LaTeX Font Info:    Redeclaring math symbol \bigstar on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \equiv on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \sim on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \approx on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \simeq on input line 86.
+LaTeX Font Info:    Redeclaring math symbol \asymp on input line 89.
+LaTeX Font Info:    Redeclaring math symbol \nsim on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \ncong on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \risingdotseq on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \fallingdotseq on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \circeq on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \eqcirc on input line 126.
+LaTeX Font Info:    Redeclaring math symbol \triangleq on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \neg on input line 134.
+LaTeX Font Info:    Redeclaring math symbol \ll on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \gg on input line 137.
+LaTeX Font Info:    Redeclaring math symbol \vdash on input line 139.
+LaTeX Font Info:    Redeclaring math symbol \dashv on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \nvdash on input line 141.
+LaTeX Font Info:    Redeclaring math symbol \vDash on input line 143.
+LaTeX Font Info:    Redeclaring math symbol \nvDash on input line 145.
+LaTeX Font Info:    Redeclaring math symbol \Vdash on input line 147.
+LaTeX Font Info:    Redeclaring math symbol \nVdash on input line 149.
+LaTeX Font Info:    Redeclaring math symbol \flat on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \natural on input line 159.
+LaTeX Font Info:    Redeclaring math symbol \sharp on input line 160.
+LaTeX Font Info:    Redeclaring math symbol \infty on input line 161.
+LaTeX Font Info:    Redeclaring math symbol \propto on input line 162.
+LaTeX Font Info:    Redeclaring math symbol \dagger on input line 163.
+LaTeX Font Info:    Redeclaring math symbol \ddagger on input line 164.
+LaTeX Font Info:    Redeclaring math symbol \between on input line 170.
+LaTeX Font Info:    Redeclaring math symbol \smile on input line 171.
+LaTeX Font Info:    Redeclaring math symbol \frown on input line 172.
+LaTeX Font Info:    Redeclaring math symbol \leftthreetimes on input line 174.
+LaTeX Font Info:    Redeclaring math symbol \rightthreetimes on input line 175.
+
+LaTeX Font Info:    Redeclaring math symbol \pitchfork on input line 176.
+LaTeX Font Info:    Redeclaring math symbol \nVDash on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Vvdash on input line 184.
+LaTeX Font Info:    Redeclaring math symbol \therefore on input line 189.
+LaTeX Font Info:    Redeclaring math symbol \because on input line 190.
+LaTeX Font Info:    Redeclaring math symbol \measuredangle on input line 202.
+LaTeX Font Info:    Redeclaring math symbol \sphericalangle on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \setminus on input line 218.
+LaTeX Font Info:    Redeclaring math symbol \mid on input line 222.
+LaTeX Font Info:    Redeclaring math symbol \forall on input line 279.
+LaTeX Font Info:    Redeclaring math symbol \complement on input line 280.
+LaTeX Font Info:    Redeclaring math symbol \partial on input line 281.
+LaTeX Font Info:    Redeclaring math symbol \exists on input line 284.
+LaTeX Font Info:    Redeclaring math symbol \nexists on input line 285.
+LaTeX Font Info:    Redeclaring math symbol \Finv on input line 286.
+LaTeX Font Info:    Redeclaring math symbol \Game on input line 287.
+LaTeX Font Info:    Redeclaring math symbol \emptyset on input line 288.
+LaTeX Font Info:    Redeclaring math symbol \top on input line 290.
+LaTeX Font Info:    Redeclaring math symbol \bot on input line 291.
+LaTeX Font Info:    Redeclaring math symbol \perp on input line 292.
+LaTeX Font Info:    Redeclaring math symbol \curlywedge on input line 296.
+LaTeX Font Info:    Redeclaring math symbol \curlyvee on input line 297.
+LaTeX Font Info:    Redeclaring math symbol \in on input line 299.
+LaTeX Font Info:    Redeclaring math symbol \owns on input line 300.
+LaTeX Font Info:    Redeclaring math symbol \cap on input line 312.
+LaTeX Font Info:    Redeclaring math symbol \cup on input line 313.
+LaTeX Font Info:    Redeclaring math symbol \uplus on input line 314.
+LaTeX Font Info:    Redeclaring math symbol \sqcap on input line 315.
+LaTeX Font Info:    Redeclaring math symbol \sqcup on input line 316.
+LaTeX Font Info:    Redeclaring math symbol \wedge on input line 318.
+LaTeX Font Info:    Redeclaring math symbol \vee on input line 320.
+LaTeX Font Info:    Redeclaring math symbol \barwedge on input line 327.
+LaTeX Font Info:    Redeclaring math symbol \veebar on input line 328.
+LaTeX Font Info:    Redeclaring math symbol \doublebarwedge on input line 329.
+LaTeX Font Info:    Redeclaring math symbol \doublecap on input line 331.
+LaTeX Font Info:    Redeclaring math symbol \doublecup on input line 333.
+LaTeX Font Info:    Redeclaring math symbol \subset on input line 344.
+LaTeX Font Info:    Redeclaring math symbol \supset on input line 345.
+LaTeX Font Info:    Redeclaring math symbol \subseteq on input line 348.
+LaTeX Font Info:    Redeclaring math symbol \supseteq on input line 349.
+LaTeX Font Info:    Redeclaring math symbol \nsubseteq on input line 350.
+LaTeX Font Info:    Redeclaring math symbol \nsupseteq on input line 351.
+LaTeX Font Info:    Redeclaring math symbol \subsetneq on input line 352.
+LaTeX Font Info:    Redeclaring math symbol \supsetneq on input line 353.
+LaTeX Font Info:    Redeclaring math symbol \varsubsetneq on input line 354.
+LaTeX Font Info:    Redeclaring math symbol \varsupsetneq on input line 355.
+LaTeX Font Info:    Redeclaring math symbol \subseteqq on input line 357.
+LaTeX Font Info:    Redeclaring math symbol \supseteqq on input line 358.
+LaTeX Font Info:    Redeclaring math symbol \nsubseteqq on input line 359.
+LaTeX Font Info:    Redeclaring math symbol \nsupseteqq on input line 360.
+LaTeX Font Info:    Redeclaring math symbol \subsetneqq on input line 361.
+LaTeX Font Info:    Redeclaring math symbol \supsetneqq on input line 362.
+LaTeX Font Info:    Redeclaring math symbol \varsubsetneqq on input line 363.
+LaTeX Font Info:    Redeclaring math symbol \varsupsetneqq on input line 364.
+LaTeX Font Info:    Redeclaring math symbol \Subset on input line 366.
+LaTeX Font Info:    Redeclaring math symbol \Supset on input line 367.
+LaTeX Font Info:    Redeclaring math symbol \sqsubseteq on input line 380.
+LaTeX Font Info:    Redeclaring math symbol \sqsupseteq on input line 381.
+LaTeX Font Info:    Redeclaring math symbol \triangleleft on input line 407.
+LaTeX Font Info:    Redeclaring math symbol \vartriangleleft on input line 408.
+
+LaTeX Font Info:    Redeclaring math symbol \triangleright on input line 409.
+LaTeX Font Info:    Redeclaring math symbol \vartriangleright on input line 410
+.
+LaTeX Font Info:    Redeclaring math symbol \ntriangleleft on input line 411.
+LaTeX Font Info:    Redeclaring math symbol \ntriangleright on input line 412.
+LaTeX Font Info:    Redeclaring math symbol \trianglelefteq on input line 413.
+LaTeX Font Info:    Redeclaring math symbol \trianglerighteq on input line 414.
+
+LaTeX Font Info:    Redeclaring math symbol \ntrianglelefteq on input line 415.
+
+LaTeX Font Info:    Redeclaring math symbol \ntrianglerighteq on input line 416
+.
+LaTeX Font Info:    Redeclaring math symbol \blacktriangledown on input line 42
+7.
+LaTeX Font Info:    Redeclaring math symbol \blacktriangleleft on input line 42
+8.
+LaTeX Font Info:    Redeclaring math symbol \blacktriangleright on input line 4
+29.
+LaTeX Font Info:    Redeclaring math symbol \nless on input line 437.
+LaTeX Font Info:    Redeclaring math symbol \ngtr on input line 438.
+LaTeX Font Info:    Redeclaring math symbol \leq on input line 439.
+LaTeX Font Info:    Redeclaring math symbol \geq on input line 441.
+LaTeX Font Info:    Redeclaring math symbol \nleq on input line 443.
+LaTeX Font Info:    Redeclaring math symbol \ngeq on input line 445.
+LaTeX Font Info:    Redeclaring math symbol \lneq on input line 451.
+LaTeX Font Info:    Redeclaring math symbol \gneq on input line 452.
+LaTeX Font Info:    Redeclaring math symbol \leqq on input line 453.
+LaTeX Font Info:    Redeclaring math symbol \geqq on input line 454.
+LaTeX Font Info:    Redeclaring math symbol \nleqq on input line 455.
+LaTeX Font Info:    Redeclaring math symbol \ngeqq on input line 456.
+LaTeX Font Info:    Redeclaring math symbol \lneqq on input line 457.
+LaTeX Font Info:    Redeclaring math symbol \gneqq on input line 458.
+LaTeX Font Info:    Redeclaring math symbol \lvertneqq on input line 459.
+LaTeX Font Info:    Redeclaring math symbol \gvertneqq on input line 460.
+LaTeX Font Info:    Redeclaring math symbol \eqslantless on input line 461.
+LaTeX Font Info:    Redeclaring math symbol \eqslantgtr on input line 462.
+LaTeX Font Info:    Redeclaring math symbol \lessgtr on input line 465.
+LaTeX Font Info:    Redeclaring math symbol \gtrless on input line 466.
+LaTeX Font Info:    Redeclaring math symbol \lesseqgtr on input line 467.
+LaTeX Font Info:    Redeclaring math symbol \gtreqless on input line 468.
+LaTeX Font Info:    Redeclaring math symbol \lesseqqgtr on input line 469.
+LaTeX Font Info:    Redeclaring math symbol \gtreqqless on input line 470.
+LaTeX Font Info:    Redeclaring math symbol \lesssim on input line 472.
+LaTeX Font Info:    Redeclaring math symbol \gtrsim on input line 473.
+LaTeX Font Info:    Redeclaring math symbol \lnsim on input line 476.
+LaTeX Font Info:    Redeclaring math symbol \gnsim on input line 477.
+LaTeX Font Info:    Redeclaring math symbol \lessapprox on input line 478.
+LaTeX Font Info:    Redeclaring math symbol \gtrapprox on input line 479.
+LaTeX Font Info:    Redeclaring math symbol \lnapprox on input line 482.
+LaTeX Font Info:    Redeclaring math symbol \gnapprox on input line 483.
+LaTeX Font Info:    Redeclaring math symbol \lessdot on input line 485.
+LaTeX Font Info:    Redeclaring math symbol \gtrdot on input line 486.
+LaTeX Font Info:    Redeclaring math symbol \lll on input line 488.
+LaTeX Font Info:    Redeclaring math symbol \ggg on input line 489.
+LaTeX Font Info:    Redeclaring math symbol \prec on input line 498.
+LaTeX Font Info:    Redeclaring math symbol \succ on input line 499.
+LaTeX Font Info:    Redeclaring math symbol \nprec on input line 500.
+LaTeX Font Info:    Redeclaring math symbol \nsucc on input line 501.
+LaTeX Font Info:    Redeclaring math symbol \preccurlyeq on input line 502.
+LaTeX Font Info:    Redeclaring math symbol \succcurlyeq on input line 503.
+LaTeX Font Info:    Redeclaring math symbol \preceq on input line 506.
+LaTeX Font Info:    Redeclaring math symbol \succeq on input line 507.
+LaTeX Font Info:    Redeclaring math symbol \npreceq on input line 508.
+LaTeX Font Info:    Redeclaring math symbol \nsucceq on input line 509.
+LaTeX Font Info:    Redeclaring math symbol \curlyeqprec on input line 512.
+LaTeX Font Info:    Redeclaring math symbol \curlyeqsucc on input line 513.
+LaTeX Font Info:    Redeclaring math symbol \precsim on input line 517.
+LaTeX Font Info:    Redeclaring math symbol \succsim on input line 518.
+LaTeX Font Info:    Redeclaring math symbol \precnsim on input line 521.
+LaTeX Font Info:    Redeclaring math symbol \succnsim on input line 522.
+LaTeX Font Info:    Redeclaring math symbol \precapprox on input line 523.
+LaTeX Font Info:    Redeclaring math symbol \succapprox on input line 524.
+LaTeX Font Info:    Redeclaring math symbol \precnapprox on input line 527.
+LaTeX Font Info:    Redeclaring math symbol \succnapprox on input line 528.
+LaTeX Font Info:    Redeclaring math symbol \leftarrow on input line 540.
+LaTeX Font Info:    Redeclaring math symbol \rightarrow on input line 542.
+LaTeX Font Info:    Redeclaring math symbol \nwarrow on input line 546.
+LaTeX Font Info:    Redeclaring math symbol \nearrow on input line 547.
+LaTeX Font Info:    Redeclaring math symbol \swarrow on input line 548.
+LaTeX Font Info:    Redeclaring math symbol \searrow on input line 549.
+LaTeX Font Info:    Redeclaring math symbol \leftrightarrow on input line 550.
+LaTeX Font Info:    Redeclaring math symbol \nleftarrow on input line 552.
+LaTeX Font Info:    Redeclaring math symbol \nrightarrow on input line 553.
+LaTeX Font Info:    Redeclaring math symbol \nleftrightarrow on input line 554.
+
+LaTeX Font Info:    Redeclaring math symbol \mapstochar on input line 557.
+LaTeX Font Info:    Redeclaring math symbol \leftharpoonup on input line 560.
+LaTeX Font Info:    Redeclaring math symbol \rightharpoonup on input line 561.
+LaTeX Font Info:    Redeclaring math symbol \leftharpoondown on input line 562.
+
+LaTeX Font Info:    Redeclaring math symbol \rightharpoondown on input line 563
+.
+LaTeX Font Info:    Redeclaring math symbol \upharpoonleft on input line 564.
+LaTeX Font Info:    Redeclaring math symbol \downharpoonleft on input line 565.
+
+LaTeX Font Info:    Redeclaring math symbol \upharpoonright on input line 566.
+LaTeX Font Info:    Redeclaring math symbol \restriction on input line 567.
+LaTeX Font Info:    Redeclaring math symbol \downharpoonright on input line 568
+.
+LaTeX Font Info:    Redeclaring math symbol \leftrightharpoons on input line 56
+9.
+LaTeX Font Info:    Redeclaring math symbol \Leftarrow on input line 575.
+LaTeX Font Info:    Redeclaring math symbol \Rightarrow on input line 576.
+LaTeX Font Info:    Redeclaring math symbol \Leftrightarrow on input line 579.
+LaTeX Font Info:    Redeclaring math symbol \nLeftarrow on input line 581.
+LaTeX Font Info:    Redeclaring math symbol \nRightarrow on input line 582.
+LaTeX Font Info:    Redeclaring math symbol \nLeftrightarrow on input line 583.
+
+LaTeX Font Info:    Redeclaring math symbol \leftleftarrows on input line 593.
+LaTeX Font Info:    Redeclaring math symbol \rightrightarrows on input line 594
+.
+LaTeX Font Info:    Redeclaring math symbol \upuparrows on input line 595.
+LaTeX Font Info:    Redeclaring math symbol \downdownarrows on input line 596.
+LaTeX Font Info:    Redeclaring math symbol \leftrightarrows on input line 597.
+
+LaTeX Font Info:    Redeclaring math symbol \rightleftarrows on input line 598.
+
+LaTeX Font Info:    Redeclaring math symbol \rhook on input line 612.
+LaTeX Font Info:    Redeclaring math symbol \lhook on input line 613.
+LaTeX Font Info:    Redeclaring math symbol \diagup on input line 614.
+LaTeX Font Info:    Redeclaring math symbol \diagdown on input line 615.
+LaTeX Font Info:    Redeclaring math symbol \Lsh on input line 617.
+LaTeX Font Info:    Redeclaring math symbol \Rsh on input line 619.
+LaTeX Font Info:    Redeclaring math symbol \looparrowleft on input line 624.
+LaTeX Font Info:    Redeclaring math symbol \looparrowright on input line 626.
+LaTeX Font Info:    Redeclaring math symbol \curvearrowleft on input line 631.
+LaTeX Font Info:    Redeclaring math symbol \curvearrowright on input line 633.
+
+LaTeX Font Info:    Redeclaring math symbol \circlearrowleft on input line 641.
+
+LaTeX Font Info:    Redeclaring math symbol \circlearrowright on input line 642
+.
+LaTeX Font Info:    Redeclaring math symbol \rightsquigarrow on input line 645.
+
+LaTeX Font Info:    Redeclaring math symbol \leftrightsquigarrow on input line 
+646.
+LaTeX Font Info:    Redeclaring math symbol \oplus on input line 658.
+LaTeX Font Info:    Redeclaring math symbol \ominus on input line 659.
+LaTeX Font Info:    Redeclaring math symbol \otimes on input line 661.
+LaTeX Font Info:    Redeclaring math symbol \odot on input line 663.
+LaTeX Font Info:    Redeclaring math symbol \oslash on input line 675.
+LaTeX Font Info:    Redeclaring math symbol \boxplus on input line 683.
+LaTeX Font Info:    Redeclaring math symbol \boxminus on input line 684.
+LaTeX Font Info:    Redeclaring math symbol \boxtimes on input line 686.
+LaTeX Font Info:    Redeclaring math symbol \boxdot on input line 688.
+\mayacnter=\count164
+\mayacnta=\count165
+\mayacntb=\count166
+\mayacntc=\count167
+\mayawidth=\dimen266
+LaTeX Font Info:    Redeclaring math symbol \intop on input line 753.
+LaTeX Font Info:    Redeclaring math symbol \ointop on input line 760.
+LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 842.
+LaTeX Info: Redefining \{ on input line 846.
+LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 848.
+LaTeX Info: Redefining \} on input line 852.
+LaTeX Font Info:    Redeclaring math delimiter \langle on input line 858.
+LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 859.
+LaTeX Font Info:    Redeclaring math delimiter \vert on input line 863.
+LaTeX Font Info:    Redeclaring math delimiter \Vert on input line 865.
+LaTeX Font Info:    Redeclaring math delimiter \uparrow on input line 868.
+LaTeX Font Info:    Redeclaring math delimiter \downarrow on input line 869.
+LaTeX Font Info:    Redeclaring math delimiter \updownarrow on input line 870.
+LaTeX Font Info:    Redeclaring math delimiter \Uparrow on input line 871.
+LaTeX Font Info:    Redeclaring math delimiter \Downarrow on input line 872.
+LaTeX Font Info:    Redeclaring math delimiter \Updownarrow on input line 873.
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 880.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 881.
+LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 882.
+LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 883.
+LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 884.
+LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 885.
+LaTeX Font Info:    Redeclaring math symbol \braceld on input line 903.
+LaTeX Font Info:    Redeclaring math symbol \bracerd on input line 905.
+LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 907.
+LaTeX Font Info:    Redeclaring math symbol \braceru on input line 909.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 944.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\cases\cases.sty"
+Package: cases 2002/05/02 ver 2.5 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fundus-calligra\calligra.sty"
+Package: calligra 2012/04/10 v1.9 LaTeX package calligra
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup9
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen267
+\lightrulewidth=\dimen268
+\cmidrulewidth=\dimen269
+\belowrulesep=\dimen270
+\belowbottomsep=\dimen271
+\aboverulesep=\dimen272
+\abovetopsep=\dimen273
+\cmidrulesep=\dimen274
+\cmidrulekern=\dimen275
+\defaultaddspace=\dimen276
+\@cmidla=\count168
+\@cmidlb=\count169
+\@aboverulesep=\dimen277
+\@belowrulesep=\dimen278
+\@thisruleclass=\count170
+\@lastruleclass=\count171
+\@thisrulewidth=\dimen279
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+\bigstrutjot=\dimen280
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\dcolumn.sty"
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen281
+\extrarowheight=\dimen282
+\NC@list=\toks48
+\extratabsurround=\skip61
+\backup@length=\skip62
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everysel.sty"
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip63
+\RaggedLeftLeftskip=\skip64
+\RaggedRightLeftskip=\skip65
+\CenteringRightskip=\skip66
+\RaggedLeftRightskip=\skip67
+\RaggedRightRightskip=\skip68
+\CenteringParfillskip=\skip69
+\RaggedLeftParfillskip=\skip70
+\RaggedRightParfillskip=\skip71
+\JustifyingParfillskip=\skip72
+\CenteringParindent=\skip73
+\RaggedLeftParindent=\skip74
+\RaggedRightParindent=\skip75
+\JustifyingParindent=\skip76
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+\everycr=\toks49
+\minrowclearance=\skip77
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\bibentry.sty"
+Package: bibentry 2007/10/30 1.5 (PWD)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+Package: chngcntr 2009/09/02 v1.0a change counter resetting
+)
 (beamerthemeGesis.sty
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\iflang.sty"
 Package: iflang 2007/11/11 v1.5 Checks for the current language (HO)
@@ -1065,7 +1463,7 @@ Package iflang Warning: Mismatch between \language (patterns)
 
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count164
+\etb@tempcnta=\count172
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
@@ -1076,19 +1474,19 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
-\MT@toks=\toks47
-\MT@count=\count165
+\MT@toks=\toks50
+\MT@count=\count173
 LaTeX Info: Redefining \textls on input line 766.
-\MT@outer@kern=\dimen260
+\MT@outer@kern=\dimen283
 LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count166
+\MT@listname@count=\count174
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 915.
 LaTeX Info: Redefining \lslig on input line 915.
-\MT@outer@space=\skip58
+\MT@outer@space=\skip78
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -1099,13 +1497,13 @@ File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
 Package: tgheros 2009/09/27 v1.2 TeX Gyre Heros as default sans serif family
 )
 (beamercolorthemeGesis.sty (gesis-colordefinitions.cfg))
-\gesis@headlineborderheight=\skip59
-\gesis@headlineheight=\skip60
-\gesis@headlogoypos=\skip61
-\gesis@headlogoxpos=\skip62
-\gesis@headlogowidth=\skip63
-\gesis@titlebandheight=\skip64
-\gesis@housewidth=\skip65
+\gesis@headlineborderheight=\skip79
+\gesis@headlineheight=\skip80
+\gesis@headlogoypos=\skip81
+\gesis@headlogoxpos=\skip82
+\gesis@headlogowidth=\skip83
+\gesis@titlebandheight=\skip84
+\gesis@housewidth=\skip85
 
 <gesis-house.jpg, id=10, 721.69624pt x 592.2125pt>
 File: gesis-house.jpg Graphic file (type jpg)
@@ -1275,28 +1673,29 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )) (slides.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 144.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 144.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 75.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 144.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tex-gyre\t1qhv.fd"
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
@@ -1337,20 +1736,20 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count167
-\scratchdimen=\dimen261
-\scratchbox=\box58
-\nofMPsegments=\count168
-\nofMParguments=\count169
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count170
-\MPscratchDim=\dimen262
-\MPnumerator=\count171
-\makeMPintoPDFobject=\count172
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count175
+\scratchdimen=\dimen284
+\scratchbox=\box59
+\nofMPsegments=\count176
+\nofMParguments=\count177
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count178
+\MPscratchDim=\dimen285
+\MPnumerator=\count179
+\makeMPintoPDFobject=\count180
+\everyMPtoPDFconversion=\toks52
 ) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 75.
+\AtBeginShipoutBox=\box60
+Package hyperref Info: Link coloring OFF on input line 144.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1358,56 +1757,56 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count173
+\c@section@level=\count181
 )
-LaTeX Info: Redefining \ref on input line 75.
-LaTeX Info: Redefining \pageref on input line 75.
-LaTeX Info: Redefining \nameref on input line 75.
+LaTeX Info: Redefining \ref on input line 144.
+LaTeX Info: Redefining \pageref on input line 144.
+LaTeX Info: Redefining \nameref on input line 144.
 
 (slides.out) (slides.out)
 \@outlinefile=\write5
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 75.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 144.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 75.
-\symnumbers=\mathgroup6
-\sympureletters=\mathgroup7
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 144.
+\symnumbers=\mathgroup10
+\sympureletters=\mathgroup11
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 75.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 75.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 144.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/qhv/b/n on input line 75.
+(Font)                  OT1/cmr/bx/n --> T1/qhv/b/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/qhv/b/n on input line 75.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 75.
+(Font)                  OT1/cmr/bx/n --> T1/qhv/b/n on input line 144.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/qhv/m/n on input line 75.
+(Font)                  OT1/cmss/m/n --> T1/qhv/m/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/qhv/m/n on input line 75.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 75.
+(Font)                  OT1/cmss/bx/n --> T1/qhv/m/n on input line 144.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/qhv/m/it on input line 75.
+(Font)                  OT1/cmr/m/it --> T1/qhv/m/it on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/qhv/m/it on input line 75.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 75.
+(Font)                  OT1/cmr/bx/it --> T1/qhv/m/it on input line 144.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 75.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 75.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 144.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/qhv/m/n --> T1/qhv/b/n on input line 75.
+(Font)                  T1/qhv/m/n --> T1/qhv/b/n on input line 144.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/qhv/m/it --> T1/qhv/b/it on input line 75.
+(Font)                  T1/qhv/m/it --> T1/qhv/b/it on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 75.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/qhv/b/n --> T1/qhv/b/n on input line 75.
+(Font)                  T1/qhv/b/n --> T1/qhv/b/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/qhv/m/n --> T1/qhv/b/n on input line 75.
+(Font)                  T1/qhv/m/n --> T1/qhv/b/n on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/qhv/m/it --> T1/qhv/b/it on input line 75.
+(Font)                  T1/qhv/m/it --> T1/qhv/b/it on input line 144.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 75.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 144.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator
 -basic-dictionary\translator-basic-dictionary-English.dict"
@@ -1433,8 +1832,11 @@ Dictionary: translator-numbers-dictionary, Language: English
 -theorem-dictionary\translator-theorem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 75.
-LaTeX Info: Redefining \microtypecontext on input line 75.
+LaTeX Info: Redefining \includegraphics on input line 144.
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 144.
+LaTeX Info: Redefining \microtypecontext on input line 144.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1449,140 +1851,492 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  (slides.nav)
-<gesis-foot-logo.png, id=13, 68.6565pt x 47.961pt>
+<gesis-foot-logo.png, id=21, 68.6565pt x 47.961pt>
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 75.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 144.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
 
-<gesis-logo-de.pdf, id=15, 1127.21124pt x 198.7425pt>
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 75.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+<gesis-logo-en.pdf, id=23, 1085.05376pt x 198.7425pt>
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 144.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-house.jpg Graphic file (type jpg)
 
 <use gesis-house.jpg>
-Package pdftex.def Info: gesis-house.jpg used on input line 77.
+Package pdftex.def Info: gesis-house.jpg used on input line 146.
 (pdftex.def)             Requested size: 126.48593pt x 103.79703pt.
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 77.
-(pdftex.def)             Requested size: 163.60355pt x 28.8427pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 146.
+(pdftex.def)             Requested size: 163.60355pt x 29.96474pt.
 
-Overfull \vbox (42.43172pt too high) has occurred while \output is active []
+Overfull \vbox (43.55376pt too high) has occurred while \output is active []
 
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 77.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 146.
 (pdftex.def)             Requested size: 28.45274pt x 19.87563pt.
  [1
 
 {C:/Users/zinssn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./gesis-lo
-go-de.pdf> <./gesis-house.jpg> <./gesis-foot-logo.png>]
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 92.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+go-en.pdf> <./gesis-house.jpg> <./gesis-foot-logo.png>]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 159.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 92.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 159.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [2
 
 ]
-<example-image-A.png, id=36, 401.5pt x 301.125pt>
-File: example-image-A.png Graphic file (type png)
- <use example-image-A.png>
-Package pdftex.def Info: example-image-A.png used on input line 118.
-(pdftex.def)             Requested size: 153.64493pt x 115.23737pt.
-File: gesis-logo-de.pdf Graphic file (type pdf)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Try loading font information for U+msa on input line 185.
 
-<use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 118.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 185.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 185.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for T1+frc on input line 185.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\frcursive\t1frc.fd"
+File: t1frc.fd 2004/06/12 French Cursive font definition
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `frc' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package microtype Info: Character `@' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `%' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `*' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `+' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' has a width of 0pt 
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `AE ' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `_' is missing
+(microtype)             in font `T1/frc/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Overfull \vbox (9.83566pt too high) detected at line 185
+ []
+
+File: gesis-logo-en.pdf Graphic file (type pdf)
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 185.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 118.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 185.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [3
 
- <C:/Program Files/MiKTeX 2.9/tex/latex/mwe/example-image-A.png>]
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 122.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 198.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 122.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 198.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [4
 
 ]
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 126.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 210.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 126.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 210.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [5
 
 ]
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 132.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 210.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 132.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 210.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [6
 
 ]
-File: gesis-logo-de.pdf Graphic file (type pdf)
- <use gesis-logo-de.pdf>
-Package pdftex.def Info: gesis-logo-de.pdf used on input line 140.
-(pdftex.def)             Requested size: 65.44142pt x 11.53586pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 210.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 140.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 210.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [7
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 210.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 210.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [8
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 218.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 218.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [9
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 231.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 231.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [10
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 244.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 244.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [11
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 268.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 268.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [12
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 291.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 291.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [13
+
+]
+<figure/StratPlot1-1.pdf, id=111, 867.24pt x 505.89pt>
+File: figure/StratPlot1-1.pdf Graphic file (type pdf)
+
+<use figure/StratPlot1-1.pdf>
+Package pdftex.def Info: figure/StratPlot1-1.pdf used on input line 318.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+
+<figure/StratPlot2-1.pdf, id=112, 867.24pt x 505.89pt>
+File: figure/StratPlot2-1.pdf Graphic file (type pdf)
+
+<use figure/StratPlot2-1.pdf>
+Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 318.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+
+Overfull \vbox (166.13666pt too high) detected at line 318
+ []
+
+File: gesis-logo-en.pdf Graphic file (type pdf)
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 318.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+ <use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 318.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [14
+
+ <./figure/StratPlot1-1.pdf> <./figure/StratPlot2-1.pdf>]
+File: figure/StratPlot2-1.pdf Graphic file (type pdf)
+ <use figure/StratPlot2-1.pdf>
+Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 318.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+
+Overfull \vbox (10.38702pt too high) detected at line 318
+ []
+
+File: gesis-logo-en.pdf Graphic file (type pdf)
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 318.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+ <use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 318.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [15
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 362.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 362.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [16
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 381.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 381.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [17
+
+]
+<figure/CluPlot1-1.pdf, id=143, 867.24pt x 505.89pt>
+File: figure/CluPlot1-1.pdf Graphic file (type pdf)
+
+<use figure/CluPlot1-1.pdf>
+Package pdftex.def Info: figure/CluPlot1-1.pdf used on input line 402.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+
+<figure/CluPlot2-1.pdf, id=144, 867.24pt x 505.89pt>
+File: figure/CluPlot2-1.pdf Graphic file (type pdf)
+
+<use figure/CluPlot2-1.pdf>
+Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 402.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+
+Overfull \vbox (150.86124pt too high) detected at line 402
+ []
+
+File: gesis-logo-en.pdf Graphic file (type pdf)
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 402.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+ <use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 402.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [18
+
+ <./figure/CluPlot1-1.pdf> <./figure/CluPlot2-1.pdf>]
+File: figure/CluPlot2-1.pdf Graphic file (type pdf)
+ <use figure/CluPlot2-1.pdf>
+Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 402.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 402.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+ <use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 402.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [19
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 414.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 414.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [20
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 414.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 414.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [21
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 414.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 414.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [22
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 424.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 424.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [23
+
+]
+<figure/CluPlot1_2-1.pdf, id=186, 867.24pt x 505.89pt>
+File: figure/CluPlot1_2-1.pdf Graphic file (type pdf)
+
+<use figure/CluPlot1_2-1.pdf>
+Package pdftex.def Info: figure/CluPlot1_2-1.pdf used on input line 455.
+(pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 455.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 455.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [24
+
+ <./figure/CluPlot1_2-1.pdf>]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+
+<use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 468.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+ <use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 468.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [25
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 481.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 481.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [26
+
+]
+File: gesis-logo-en.pdf Graphic file (type pdf)
+ <use gesis-logo-en.pdf>
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 488.
+(pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
+File: gesis-foot-logo.png Graphic file (type png)
+
+<use gesis-foot-logo.png>
+Package pdftex.def Info: gesis-foot-logo.png used on input line 488.
+(pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
+ [27
 
 ]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 490.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 490.
  (slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 490.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 490.
 Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
+(rerunfilecheck)             Checksum: B08022E10352CA31BA6659C76230EA9D;109.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 490.
  ) 
 Here is how much of TeX's memory you used:
- 22662 strings out of 493636
- 432803 string characters out of 3143752
- 639923 words of memory out of 3000000
- 25513 multiletter control sequences out of 15000+200000
- 29078 words of font info for 28 fonts, out of 3000000 for 9000
+ 23766 strings out of 493636
+ 448873 string characters out of 3143752
+ 654595 words of memory out of 3000000
+ 26437 multiletter control sequences out of 15000+200000
+ 53729 words of font info for 73 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 56i,18n,60p,944b,939s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/tex-gyre/q-ec.enc}<C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/tex-gyre/qhvr.pfb>
-Output written on slides.pdf (7 pages, 128608 bytes).
+ 56i,18n,60p,944b,927s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\zinssn\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\frcursive\d
+pi480\frcr10.pk> <C:\Users\zinssn\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\publ
+ic\frcursive\dpi657\frcr10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/tex-
+gyre/q-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/mathabx-type1/matha10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/mathabx-type1/matha8.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/mathabx-type1/mathx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/tex-gyre/qhvb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+tex-gyre/qhvr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tex-gyre/qhvr
+i.pfb>
+Output written on slides.pdf (27 pages, 271596 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 5695 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 12387 words of extra memory for PDF output out of 14400 (max. 10000000)
 
