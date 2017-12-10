@@ -1,0 +1,66 @@
+\frametitle{Example Clustering}
+
+\onslide*<1>{
+Now we use for our Californian school survey cluster sampling. Both samples are selected by a (simple) cluster sample, where the clusters are the School Districts of California. 25 clusters are selected for both samples and the expected number of schools in each sample is $205$. Each cluster has the same inclusion probability, $0.0330251$ (25 divided by $757$, the number of clusters.)
+}
+\onslide*<2>{
+We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other desing information than the design weights ($\hat\sigma^2/n$).
+
+% latex table generated in R 3.4.3 by xtable 1.8-2 package
+% Sun Dec 10 19:54:51 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Est & Vest & CI.lb & CI.ub \\
+  \hline
+Design & 110.35 & 1755.376 & 28.229 & 192.463 \\
+  Naive & 110.35 & 168.378 & 84.914 & 135.779 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+}
+
+\onslide*<3>{
+We repeat the sampling 1000 times and compute the coverage rates for our confidence intervals.
+
+% latex table generated in R 3.4.3 by xtable 1.8-2 package
+% Sun Dec 10 19:29:37 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & Design & Naive \\
+  \hline
+Coverage Rate & 0.863 & 0.415 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+Because of the under estimation by the naive variance estimator the naive approach results in a severe under coverage.
+The design based approach does not under estimate the variance but their is a problem with the application of the CLT for building the confidence intervals.
+
+}
+
+\onslide*<4>{
+We repeat the simulation, but only with 100 replications and this time we sample the clusters proportional to their number of schools. Thus the inclusion probability of each cluster is $\dfrac{N_i}{N}*25$, where $N_i$ is the number of schools in the $i$-th cluster and N the total number of schools ($6194$).
+
+% latex table generated in R 3.4.3 by xtable 1.8-2 package
+% Sun Dec 10 19:40:47 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & Design & Naive \\
+  \hline
+Coverage Rate & 0.980 & 0.330 \\
+   \hline
+\end{tabular}
+\end{table}
+
+}
+
