@@ -6,8 +6,8 @@ Now we use for our Californian school survey cluster sampling. Both samples are 
 \onslide*<2>{
 We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other desing information than the design weights ($\hat\sigma^2/n$).
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Sun Dec 10 19:54:51 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Mon Dec 11 17:04:55 2017
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}

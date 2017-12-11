@@ -77,7 +77,9 @@
    \def\gobbletableofcontents#1{\origtableofcontents}
  }
 
-
+% A Section Title Slides
+\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSubsection{\frame{\subsectionpage}}
 
 
 \title{Sample Theory}
@@ -161,7 +163,7 @@ What concerns did you have while applying your analytical methods?
 
 
 
-\begin{frame}{Population, Sample, and Sampling Design}
+\begin{frame}{\alert{Finite} Population, Sample, and Sampling Design}
 
  \begin{itemize}
  \item[] 
@@ -171,15 +173,10 @@ What concerns did you have while applying your analytical methods?
  \mathfrc{s} \subset &\, \mathcal{U} \eqname{sample of size $n$} \\
  \mathcal{P}(\mathcal{U}) & \eqname{all possible subsets of $\mathcal{U}$}
  \end{align}
- \item[]
-\item[]
-The discrete probability distribution $p(.)$ over $\mathcal{P}(\mathcal{U})$ is called
-a \emph{sampling design} and  $\mathcal{G}=\{ \mathfrc{s} | \mathfrc{s} \in
-\mathcal{P}(\mathcal{U}),\, p(\mathfrc{s}) > 0 \}$ is called the support of $p(.)$ with
+ \item[] The discrete probability distribution $p(.)$ over $\mathcal{P}(\mathcal{U})$ is called a \emph{sampling design} and  $\mathcal{G}=\{ \mathfrc{s} | \mathfrc{s} \in \mathcal{P}(\mathcal{U}),\, p(\mathfrc{s}) > 0 \}$ is called the support of $p(.)$ with
 $$
-\sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) = 1
+\sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) = 1\;.
 $$
-Hence, $p: \; \mathcal{G} \mapsto (0, 1]$.
  \end{itemize}
 \end{frame}
 
@@ -191,29 +188,9 @@ Hence, $p: \; \mathcal{G} \mapsto (0, 1]$.
  \E{\hat{\theta}} & = \sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) f(\mathcal{Y}, \mathfrc{s} )   \eqname{expected value of $\hat{\theta}$} \\
  \V{\hat{\theta}}   & =  \E{\hat{\theta}^2} -  {\E{\hat{\theta}}}^2 \eqname{variance of  $\hat{\theta}$} 
 \end{align}
- $\E{.}$, $\V{.}$, and $\MSE{.}$ are always with respect to the sampling design $p()$ and
+ $\E{.}$ and $\V{.}$ are always with respect to the sampling design $p()$ and
  an estimator is said to be unbiased if
  $$ \E{\hat{\theta}} = \theta\;. $$
-\end{frame}
-
-
-\begin{frame}{Representative Sample}
-\onslide*<1-2>{What is a representative sample? \newline}
-\onslide*<2>{The popular concept of a representative sample it that the sample is a \emph{miniature} of the population.}
-
-\onslide<3-4>{However, what do we really want?}
-\onslide<4>{\newline We want to estimate a statistic of interest with a certain level of precision 
- and if the level of precision is high enough we say our estimation \emph{strategy} is representative.}
-
-
-\end{frame}
-
-\begin{frame}{Examples}
-Does this
-
-Difference of mean
-Regression
-
 \end{frame}
 
 
@@ -249,7 +226,6 @@ Design Weight
 \end{frame}
 
 
-
 \begin{frame}{Sample Mean with SRS}
   \small
   \begin{align*} 
@@ -282,46 +258,6 @@ Design Weight
  \end{frame}
 
 
-\section{Sampling Designs}
-
-\begin{frame}{Sampling Frames}
-Access to target population
-
-Address    Samples (Register that list all sampling units)
-Telelephon Samples (Not fully known but all possible entries)
-
-
-
-\end{frame}
-
-
-\begin{frame}{Sampling Methods}
-Probability based Samples
-
-Known and Accesable Sampling Frame
-Desgin should be measureable
-$\pi_{k}>0  \forall k \in \mathcal{U}$
-$\pi_{kl}>0 \forall k \neq l \in \mathcal{U}$
-
-
-
-Nonprobability based Samples
-
-Examples
-Convenience Samples
-Purposive   Samples
-Opt-in      Samples (Online) Access Panels - Addertising on webpages
-Quota       Samples
-
-The selection process is often to complex to model it
-Assumptions are made over the data itself (model-based inference)
-
-
-Probability based Samples - without any (parametric) assumptions \emph{robouts} strategie
-Nonprobability based Samples - inverificable assumptions but a gain in efficiency 
-
-\end{frame}
-
 
 \begin{frame}{Model-based Approach}
 The sample data: $\mathfrc{y}=\{y_1{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_n\}$.
@@ -353,20 +289,100 @@ All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random var
      \onslide<4>{Note that there is no finite population correction.}
 \end{frame}
 
+
+\section{Sampling Designs}
+
+
+\begin{frame}{Sampling Frames}
+
+Access to the target population is of major importance for the selection of any sample.
+This is often done with the help of a sampling frame, a register that links observational units to a identifier units. Then the units of the register can be sampled. 
+
+\onslide*<2>{
+For samples of persons popular sampling frame are:
+\begin{itemize}
+\item Address Registers 
+ \begin{itemize}
+  \item Address of buildings
+  \item Address of dwellings
+  \item Address of persons
+  \item Address for post delivery points
+ \end{itemize}
+\item Telephone number 
+\begin{itemize}
+  \item Set of possible landline numbers
+  \item Set of possible mobile numbers
+  \item Union of possible landline and mobile numbers (Multi-Frame)
+ \end{itemize}
+\end{itemize}
+}
+\onslide<3>{
+
+ ~\\
+ Ideally the sampling frame should have one and one entry only for each observational unit of the target population. In practice it is often difficult to find such a  \emph{perfect} sampling frame, i.e. without any over or under coverage. \\
+
+And Some sampling designs do not use a sampling frame at all.
+
+
+}
+\end{frame}
+
+
+\begin{frame}{Sampling Methods}
+Probability based samples - A finite set of possible samples each having a certain probability of being selected, given by the sampling design. The sampling design should be measurable, that is:
+\beign{itemize}
+\item $\pi_{k}>0  \forall k \in \mathcal{U}$
+\item $\pi_{kl}>0 \forall k \neq l \in \mathcal{U}$
+\end{itemize}
+
+
+Non-probability based samples - literally speaking the sampling method should select always the same sample if repeated. Often used for selection process that are less controlled and often to complex to be modeled. Thus Assumptions are made over the data itself (model-based inference).
+
+Convenience Samples
+Purposive   Samples
+Opt-in      Samples (Online) Access Panels - Addertising on webpages
+Quota       Samples
+
+
+Probability based Samples - without any (parametric) assumptions \emph{robouts} strategie
+Nonprobability based Samples - inverificable assumptions but a gain in efficiency 
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Representative Sample}
+\onslide*<1-2>{What is a representative sample? \newline}
+\onslide*<2>{The popular concept of a representative sample it that the sample is a \emph{miniature} of the population.}
+
+\onslide<3-4>{However, what do we really want?}
+\onslide<4>{\newline We want to estimate a statistic of interest with a certain level of precision 
+ and if the level of precision is high enough we say our estimation \emph{strategy} is representative.}
+
+
+\end{frame}
+
+
 %alter
 
-\begin{frame}{Techniques for probabilitic Sampling}
-A set of rules (algrithm)
+\begin{frame}{Sampling Algorithms}
+A sampling algorithm is a set of rules used to select a sample from a population.
 
-\emph{Simple} Random Sampling
-All samples not sample elements have the same probability of being selected.
-p(s) is a constant for all s
+Two distinctions can be made:
 
-Unequal Probability Sampling
+Alorithms for Simple Random Sampling
+All samples have the same probability of being selected.
 
-Random Routes
 
-Cite Tille
+Alorithms for Unequal Probability Sampling
+Especially if the sample size is not random
+
+
+A desiarble property is that is seqential, the  next draw only depends on the 
+
+
+ Random Routes in a design that is not measureable 
 
 \end{frame}
 
