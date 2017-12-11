@@ -1,4 +1,5 @@
-\beamer@endinputifotherversion {3.36pt}
+\beamer@endinputifotherversion {3.24pt}
 \select@language {english}
-\beamer@sectionintoc {1}{Desgin Based Inferenz}{7}{0}{1}
-\beamer@sectionintoc {2}{Sampling Designs}{19}{0}{2}
+\beamer@sectionintoc {1}{Design Based Inference}{6}{0}{1}
+\beamer@sectionintoc {2}{Sampling Designs}{27}{0}{2}
+\beamer@sectionintoc {3}{Sample Size Planning}{67}{0}{3}

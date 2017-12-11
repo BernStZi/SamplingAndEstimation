@@ -1,66 +1,57 @@
-\frametitle{Example Clustering}
+\frametitle{Example Two Stage Sampling}
 
 \onslide*<1>{
-Now we use for our Californian school survey cluster sampling. Both samples are selected by a (simple) cluster sample, where the clusters are the School Districts of California. 25 clusters are selected for both samples and the expected number of schools in each sample is $205$. Each cluster has the same inclusion probability, $0.0330251$ (25 divided by $757$, the number of clusters.)
-}
-\onslide*<2>{
-We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other desing information than the design weights ($\hat\sigma^2/n$).
+For our Californian schools would like to estimate the following model $\text{API}_{00} = \text{ell}+\text{meals}+\text{mobility}+\text{stype}$,
+where
+\begin{itemize}
+\item[ell] = English Language Learners (percent)
+\item[meals] =  Percentage of students eligible for subsidized meals,
+\item[mobility] = percentage of students for whom this is the first year at the school,
+\item[stype] = Elementary/Middle/High School
+\end{itemize}
+Now we use a two stage sample. As PSUs the counties of California are used, the SSU are the schools. 25 PSUs are selected with probablity proportional to their number of schools. Within each selected PSU 2 schools are sampled by a SRS.
+ }
+\onslide<2>{
 
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Mon Dec 11 17:04:55 2017
+% latex table generated in R 3.4.3 by xtable 1.8-2 package
+% Mon Dec 11 23:09:06 2017
 \begin{table}[ht]
 \centering
+\caption{Naive}
+\scalebox{0.6}{
 \begin{tabular}{rrrrr}
   \hline
- & Est & Vest & CI.lb & CI.ub \\
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
   \hline
-Design & 110.35 & 1755.376 & 28.229 & 192.463 \\
-  Naive & 110.35 & 168.378 & 84.914 & 135.779 \\
+(Intercept) & 853.819 & 24.221 & 35.251 & 0.000 \\
+  ell & -1.475 & 0.616 & -2.394 & 0.021 \\
+  meals & -3.217 & 0.460 & -6.999 & 0.000 \\
+  mobility & 1.173 & 1.368 & 0.858 & 0.396 \\
+  stypeH & -110.767 & 23.125 & -4.790 & 0.000 \\
+  stypeM & 7.754 & 45.369 & 0.171 & 0.865 \\
    \hline
 \end{tabular}
-\end{table}
-
-
 }
-
-\onslide*<3>{
-We repeat the sampling 1000 times and compute the coverage rates for our confidence intervals.
-
+\end{table}
 % latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Sun Dec 10 19:29:37 2017
+% Mon Dec 11 23:09:06 2017
 \begin{table}[ht]
 \centering
-\begin{tabular}{rrr}
+\caption{Design}
+\scalebox{0.6}{
+\begin{tabular}{rrrrr}
   \hline
- & Design & Naive \\
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
   \hline
-Coverage Rate & 0.863 & 0.415 \\
+(Intercept) & 853.819 & 25.084 & 34.039 & 0.000 \\
+  ell & -1.475 & 0.626 & -2.356 & 0.036 \\
+  meals & -3.217 & 0.409 & -7.866 & 0.000 \\
+  mobility & 1.173 & 1.257 & 0.933 & 0.369 \\
+  stypeH & -110.767 & 49.419 & -2.241 & 0.045 \\
+  stypeM & 7.754 & 46.304 & 0.167 & 0.870 \\
    \hline
 \end{tabular}
-\end{table}
-
-
-
-Because of the under estimation by the naive variance estimator the naive approach results in a severe under coverage.
-The design based approach does not under estimate the variance but their is a problem with the application of the CLT for building the confidence intervals.
-
 }
-
-\onslide*<4>{
-We repeat the simulation, but only with 100 replications and this time we sample the clusters proportional to their number of schools. Thus the inclusion probability of each cluster is $\dfrac{N_i}{N}*25$, where $N_i$ is the number of schools in the $i$-th cluster and N the total number of schools ($6194$).
-
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Sun Dec 10 19:40:47 2017
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrr}
-  \hline
- & Design & Naive \\
-  \hline
-Coverage Rate & 0.980 & 0.330 \\
-   \hline
-\end{tabular}
 \end{table}
 
 }
-
