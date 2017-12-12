@@ -148,9 +148,9 @@ knitr::knit_hooks$set(inline = function(x) {
 
 \begin{frame}{Motivation}
  \begin{itemize}
-    \item<1>  Did you ever work with sample data? 
-    \item<2> What kind of analysis have you done with sample data?
-    \item<3>  What concerns did you have while applying your analytically methods?
+    \item<1,4>  Did you ever work with sample data? 
+    \item<2,4> What kind of analysis have you done with sample data?
+    \item<3,4>  What concerns did you have while applying your analytically methods?
   \end{itemize}
 \end{frame}
 
@@ -437,7 +437,7 @@ All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random var
 \begin{frame}{Sampling Frames}
 
 Access to the target population is of major importance for the selection of any sample.
-This is often done with the help of a sampling frame, a register that links observational units to a identifier units. Then the units of the register can be sampled. 
+This is often done with the help of a sampling frame, a register that links observational units to identifier units.
 
 \onslide*<2>{
 For samples of persons popular sampling frame are:
@@ -462,7 +462,7 @@ For samples of persons popular sampling frame are:
  ~\\
  Ideally the sampling frame should have one and one entry only for each observational unit of the target population. In practice it is often difficult to find such a  \emph{perfect} sampling frame, i.e. without any over or under coverage. \\
 
-And Some sampling designs do not use a sampling frame at all.
+And some sampling designs do not use a sampling frame at all.
 
 
 }
@@ -477,13 +477,13 @@ Probability Samples - A finite set of possible samples each having a certain pro
 \end{itemize}
 
 \onslide<2>{
-Probability based samples do not require any (parametric) assumptions about the data to analyse them, in that respect they can be considered a robust strategies.
+Probability based samples do not require any (parametric) assumptions about the data to analyse them, in that respect they can be considered a robust strategy.
 }
 
 \end{frame}
 
 \begin{frame}{Non-Probability Based Samples}
-Non-Probability Samples - Literally speaking the sampling method should select always the same sample if repeated. Often used for selection processes that are less controlled and often to complex to be modeled. 
+Non-Probability Samples - Literally speaking the sampling method should select always the same sample if repeated. The label is often used for selection processes that are less controlled and often to complex to be modelled. 
 \onslide<2->{
 Examples:
 \begin{itemize}

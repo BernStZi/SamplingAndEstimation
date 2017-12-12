@@ -174,9 +174,9 @@
 
 \begin{frame}{Motivation}
  \begin{itemize}
-    \item<1>  Did you ever work with sample data? 
-    \item<2> What kind of analysis have you done with sample data?
-    \item<3>  What concerns did you have while applying your analytically methods?
+    \item<1,4>  Did you ever work with sample data? 
+    \item<2,4> What kind of analysis have you done with sample data?
+    \item<3,4>  What concerns did you have while applying your analytically methods?
   \end{itemize}
 \end{frame}
 
@@ -439,7 +439,7 @@ All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random var
 \begin{frame}{Sampling Frames}
 
 Access to the target population is of major importance for the selection of any sample.
-This is often done with the help of a sampling frame, a register that links observational units to a identifier units. Then the units of the register can be sampled. 
+This is often done with the help of a sampling frame, a register that links observational units to identifier units.
 
 \onslide*<2>{
 For samples of persons popular sampling frame are:
@@ -464,7 +464,7 @@ For samples of persons popular sampling frame are:
  ~\\
  Ideally the sampling frame should have one and one entry only for each observational unit of the target population. In practice it is often difficult to find such a  \emph{perfect} sampling frame, i.e. without any over or under coverage. \\
 
-And Some sampling designs do not use a sampling frame at all.
+And some sampling designs do not use a sampling frame at all.
 
 
 }
@@ -479,13 +479,13 @@ Probability Samples - A finite set of possible samples each having a certain pro
 \end{itemize}
 
 \onslide<2>{
-Probability based samples do not require any (parametric) assumptions about the data to analyse them, in that respect they can be considered a robust strategies.
+Probability based samples do not require any (parametric) assumptions about the data to analyse them, in that respect they can be considered a robust strategy.
 }
 
 \end{frame}
 
 \begin{frame}{Non-Probability Based Samples}
-Non-Probability Samples - Literally speaking the sampling method should select always the same sample if repeated. Often used for selection processes that are less controlled and often to complex to be modeled. 
+Non-Probability Samples - Literally speaking the sampling method should select always the same sample if repeated. The label is often used for selection processes that are less controlled and often to complex to be modelled. 
 \onslide<2->{
 Examples:
 \begin{itemize}
@@ -635,8 +635,8 @@ We would like to estimate the difference in the mean Academic Performance Index 
 \onslide*<2>{
 We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($ \hat\sigma^2/n$).
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:05 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:17 2017
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -652,8 +652,8 @@ Design & 24.07 & 231.501 & -5.754 & 53.888 \\
 
 The stratification seems to be not very effective. So we construct 10 strata that are more homogeneous with regard to $\text{API}_{99}$ and $\text{API}_{00}$ (using \emph{k-means}) and select two new samples.
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:05 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:17 2017
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -740,8 +740,8 @@ Now we use for our Californian school survey cluster sampling. Both samples are 
 \onslide*<2>{
 We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($\hat\sigma^2/n$).
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:06 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:17 2017
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -869,8 +869,8 @@ Now we use a two stage sample. As PSUs the counties of California are used, the 
  }
 \onslide<2>{
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:06 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:18 2017
 \begin{table}[ht]
 \centering
 \caption{Naive} 
@@ -889,8 +889,8 @@ Now we use a two stage sample. As PSUs the counties of California are used, the 
 \end{tabular}
 }
 \end{table}
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:06 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:18 2017
 \begin{table}[ht]
 \centering
 \caption{Design} 

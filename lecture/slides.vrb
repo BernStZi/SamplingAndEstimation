@@ -13,8 +13,8 @@ Now we use a two stage sample. As PSUs the counties of California are used, the 
  }
 \onslide<2>{
 
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:06 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:18 2017
 \begin{table}[ht]
 \centering
 \caption{Naive}
@@ -33,8 +33,8 @@ Now we use a two stage sample. As PSUs the counties of California are used, the 
 \end{tabular}
 }
 \end{table}
-% latex table generated in R 3.4.3 by xtable 1.8-2 package
-% Mon Dec 11 23:09:06 2017
+% latex table generated in R 3.4.2 by xtable 1.8-2 package
+% Tue Dec 12 11:03:18 2017
 \begin{table}[ht]
 \centering
 \caption{Design}
