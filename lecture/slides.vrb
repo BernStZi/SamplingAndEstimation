@@ -1,57 +1,31 @@
-\frametitle{Example Two Stage Sampling}
-
-\onslide*<1>{
-For our Californian schools would like to estimate the following model $\text{API}_{00} = \text{ell}+\text{meals}+\text{mobility}+\text{stype}$,
-where
-\begin{itemize}
-\item[ell] = English Language Learners (percent)
-\item[meals] =  Percentage of students eligible for subsidized meals,
-\item[mobility] = percentage of students for whom this is the first year at the school,
-\item[stype] = Elementary/Middle/High School
-\end{itemize}
-Now we use a two stage sample. As PSUs the counties of California are used, the SSU are the schools. 25 PSUs are selected with probablity proportional to their number of schools. Within each selected PSU 2 schools are sampled by a SRS.
- }
-\onslide<2>{
-
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:18 2017
+\frametitle{Example Calibration Weights}
 \begin{table}[ht]
 \centering
-\caption{Naive}
-\scalebox{0.6}{
+\caption{Expected Values of Point and Variance Estimators}
 \begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
+ & Naive & Design & Cal.Naive & Cal.Design \\
   \hline
-(Intercept) & 853.819 & 24.221 & 35.251 & 0.000 \\
-  ell & -1.475 & 0.616 & -2.394 & 0.021 \\
-  meals & -3.217 & 0.460 & -6.999 & 0.000 \\
-  mobility & 1.173 & 1.368 & 0.858 & 0.396 \\
-  stypeH & -110.767 & 23.125 & -4.790 & 0.000 \\
-  stypeM & 7.754 & 45.369 & 0.171 & 0.865 \\
+Pest & 645.9028 & 664.7626 & 664.6393 & 664.6393 \\
+  Vest & 12.8075 & 15.0301 & 15.3799 & 5.8138 \\
    \hline
 \end{tabular}
-}
-\end{table}
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:18 2017
-\begin{table}[ht]
-\centering
-\caption{Design}
-\scalebox{0.6}{
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
-  \hline
-(Intercept) & 853.819 & 25.084 & 34.039 & 0.000 \\
-  ell & -1.475 & 0.626 & -2.356 & 0.036 \\
-  meals & -3.217 & 0.409 & -7.866 & 0.000 \\
-  mobility & 1.173 & 1.257 & 0.933 & 0.369 \\
-  stypeH & -110.767 & 49.419 & -2.241 & 0.045 \\
-  stypeM & 7.754 & 46.304 & 0.167 & 0.870 \\
-   \hline
-\end{tabular}
-}
 \end{table}
 
-}
+
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:05 2018
+\begin{table}[ht]
+\centering
+\caption{Bias and Coverage Rates}
+\begin{tabular}{rrrrr}
+  \hline
+ & Naive & Design & Cal.Naive & Cal.Design \\
+  \hline
+Bias & -0.0284 & -0.0001 & -0.0002 & -0.0002 \\
+  CR & 0.6828 & 0.9436 & 1.0000 & 0.9372 \\
+   \hline
+\end{tabular}
+\end{table}
+
+

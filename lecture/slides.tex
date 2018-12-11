@@ -1,5 +1,5 @@
 % !Mode:: "TeX:DE:UTF-8:Main"
-
+%\documentclass[handout]{beamer}
 \documentclass{beamer}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
@@ -180,58 +180,25 @@
   \end{itemize}
 \end{frame}
 
+\section{Inference}
 
-
-\section{Design Based Inference}
-
-
-
-\begin{frame}{\alert{Finite} Population, Sample, and Sampling Design}
-
- \begin{itemize}
- \item[] 
- \begin{align}
- \mathcal{Y} = & \{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \} \eqname{finite population of size $N$} \\
- \mathcal{U} = &\, \{ 1{,}2{,}\,\ldots{,}\,k{,}\,\ldots{,}\,N \} \eqname{sampling frame} \\
- \mathfrc{s} \subset &\, \mathcal{U} \eqname{sample of size $n$} \\
- \mathcal{P}(\mathcal{U}) & \eqname{all possible subsets of $\mathcal{U}$}
- \end{align}
- \item[] The discrete probability distribution $p(.)$ over $\mathcal{P}(\mathcal{U})$ is called a \emph{sampling design} and  $\mathcal{G}=\{ \mathfrc{s} | \mathfrc{s} \in \mathcal{P}(\mathcal{U}),\, p(\mathfrc{s}) > 0 \}$ is called the support of $p(.)$ with
-$$
-\sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) = 1\;.
-$$
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Estimation}
-\begin{align}
- \theta       & = f(\mathcal{Y})  \eqname{statistic of interest} \\
- \hat{\theta} & = f(\mathcal{Y}, \mathfrc{s} )  \eqname{estimator for $\theta$} \\
- \E{\hat{\theta}} & = \sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) f(\mathcal{Y}, \mathfrc{s} )   \eqname{expected value of $\hat{\theta}$} \\
- \V{\hat{\theta}}   & =  \E{\hat{\theta}^2} -  {\E{\hat{\theta}}}^2 \eqname{variance of  $\hat{\theta}$} 
-\end{align}
- $\E{.}$ and $\V{.}$ are always with respect to the sampling design $p()$ and
- an estimator is said to be unbiased if
- $$ \E{\hat{\theta}} = \theta\;. $$
-\end{frame}
 
 \begin{frame}{Law of Large Numbers (LLN)}
 Weak law of large numbers: 
 
-Suppose $ \{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \}$ is a sequence of i.i.d. random variables with mean $\mu$ and $\mu \neq \infty$ and $\mu \neq -\infty$. Then for $n \rightarrow \infty$ then we have:
+Suppose $ \{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_n \}$ is a sequence of i.i.d. random variables with mean $\mu$ and $\mu \neq \infty$ and $\mu \neq -\infty$. Then for $n \rightarrow \infty$ then we have:
 
 $$
 \bar{y} \xrightarrow{P} \mu
 $$
 
-If the LLN holds we can have unbiased estimates, as our estimates will converge in probability to their expected (true) value. That is, it assures $\E{I_k}=\pi_k$.
+If the LLN holds we can have unbiased estimates, as our estimates will converge in probability to their expected (true) value.
 \end{frame}
 
 
 \begin{frame}{LLN Demonstration}
 \onslide*<1>{
-Suppose all $y_i$ follow an exponential distribution with mean and variance equal to one. We take repeatedly a sample of size $50$. For each sample the sample mean is calculated. The mean of the sample means should converge towards the true mean of the distribution with increasing number of samples.
+Suppose all $y_k$ follow an exponential distribution with mean and variance equal to one. We take repeatedly a sample of size $50$. For each sample the sample mean is calculated. The mean of the sample means should converge towards the true mean of the distribution with increasing number of samples.
 }
 \onslide<2>{
 \begin{knitrout}
@@ -249,9 +216,9 @@ Suppose all $y_i$ follow an exponential distribution with mean and variance equa
 
 \begin{frame}{Central  Limit Theorem (CLT)}
 CLT of \emph{Lindeberg–L\'evy}: \\
-Suppose $\{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \}$ is a sequence of i.i.d. random variables with $V(y_i) < \infty\;\forall\; i=1,\,\ldots,\,N$. Then for $n \rightarrow \infty$ then we have:
+Suppose $\{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \}$ is a sequence of i.i.d. random variables with $V(y_i) = \sigma^2 < \infty\;\forall\; i=1,\,\ldots,\,N$. Then for $n \rightarrow \infty$ then we have:
 $$
-\dfrac{\bar{y}-\mu}{\sigma \sqrt {n}} \ {\xrightarrow {d}}\ N\left(0,1\right)
+ \sqrt{n} ( \bar{y}- \mu )  \ {\xrightarrow {d}}\ N\left(0, \sigma^2 \right)
 $$
 If the CLT holds, symmetric confidence intervals can be constructed with quantiles from the standard normal distribution $\Phi(z)$
 $$
@@ -267,7 +234,7 @@ $$
 
 
 \onslide*<1>{
-Suppose all $y_i$ follow an exponential distribution with mean and variance equal to one.
+Suppose all $y_k$ follow an exponential distribution with mean and variance equal to one.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
@@ -332,7 +299,43 @@ Suppose all $y_i$ follow an exponential distribution with mean and variance equa
 }
 \end{frame}
 
-\begin{frame}{Inclusion Probabilities}
+
+
+\section{Design Based Inference}
+
+
+\begin{frame}{\alert{Finite} Population, Sample, and Sampling Design}
+
+ \begin{itemize}
+ \item[] 
+ \begin{align}
+ \mathcal{Y} = & \{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_N \} \eqname{finite population of size $N$} \\
+ \mathcal{U} = &\, \{ 1{,}2{,}\,\ldots{,}\,k{,}\,\ldots{,}\,N \} \eqname{sampling frame} \\
+ \mathfrc{s} \subset &\, \mathcal{U} \eqname{sample of size $n$} \\
+ \mathcal{P}(\mathcal{U}) & \eqname{all possible subsets of $\mathcal{U}$}
+ \end{align}
+ \item[] The discrete probability distribution $p(.)$ over $\mathcal{P}(\mathcal{U})$ is called a \emph{sampling design} and  $\mathcal{G}=\{ \mathfrc{s} | \mathfrc{s} \in \mathcal{P}(\mathcal{U}),\, p(\mathfrc{s}) > 0 \}$ is called the support of $p(.)$ with
+$$
+\sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) = 1\;.
+$$
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Estimation}
+\begin{align}
+ \theta       & = f(\mathcal{Y})  \eqname{statistic of interest} \\
+ \hat{\theta} & = f(\mathcal{Y}, \mathfrc{s} )  \eqname{estimator for $\theta$} \\
+ \E{\hat{\theta}} & = \sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) f(\mathcal{Y}, \mathfrc{s} )   \eqname{expected value of $\hat{\theta}$} \\
+ \V{\hat{\theta}}   & =  \E{\hat{\theta}^2} -  {\E{\hat{\theta}}}^2 \eqname{variance of  $\hat{\theta}$} 
+\end{align}
+ $\E{.}$ and $\V{.}$ are always with respect to the sampling design $p()$ and
+ an estimator is said to be unbiased if
+ $$ \E{\hat{\theta}} = \theta\;. $$
+\end{frame}
+
+
+\begin{frame}{Inclusion Probabilities I}
 \begin{align}
  I_k   &=   \begin{cases}   1  & \text{if}\; k \in \mathfrc{s} \\
                             0  & \text{else}  
@@ -342,16 +345,17 @@ Suppose all $y_i$ follow an exponential distribution with mean and variance equa
 \sum_{k \in \mathcal{U}}\pi_k & = \E{n} \eqname{expected sample size}
 \end{align}
 
-The $I_k$ are the \emph{only} random variables in the design based frame work and they follow a theoretical distribution. E.g. a Hypergeometric distribution for SRS. 
+The $I_k$ are the \alert{only} random variables in the design based frame work and they follow a theoretical distribution, e.g. a \emph{Hypergeometric} distribution for SRS. 
 
 \end{frame}
 
-\begin{frame}{Inclusion Probabilities}
+
+\begin{frame}{Inclusion Probabilities II}
 With the inclusion probabilities design unbiased estimators can be constructed. For example an estimator for a total $\tau=\sum_{k \in \mathcal{U}} y_k$.
 \begin{align*}
  \hat\tau &= \sum_{k \in \mathfrc{s}} \dfrac{y_k}{\pi_k} & \E{\hat\tau } &= \sum_{k \in \mathcal{U}} E(I_k) \dfrac{y_k}{\pi_k} = \tau
 \end{align*}
-$\pi_k^{-1}$ is also called the \alert{design weight} of element $k$.
+$\pi_k^{-1}=d_k$ is also called the \alert{design weight} of element $k$.
 % Many estimator can be written as functions of totals, which makes it possible to have at least design consistent estimtors for them.
 
 $V(\hat\theta)=f(\mathcal{Y},\Sigma)$, with $\Sigma=(\E{I_k I_l}-\E{I_k} \E{I_l})_{k,l=1,\ldots,N}$.
@@ -394,10 +398,9 @@ For complex sampling designs $\Sigma$ can be very complex too and difficult to c
 
 
 \begin{frame}{Model-based Approach}
-The sample data: $\mathfrc{y}=\{y_1{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_n\}$.
-All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random variables, with
+The sample data: $\{ y_1{,}y_2{,}\,\ldots{,}\,y_k{,}\,\ldots{,}\,y_n \}$, a sequence of i.i.d. random variables with
 \begin{equation*}
-  y_k \sim NV(\mu, \sigma)\;{.}
+  y_k \sim N(\mu, \sigma^2) \quad k=1\,\ldots,\,n{.}
 \end{equation*}
 ~\\[-1cm]
 \begin{columns}[t]
@@ -431,111 +434,27 @@ All $y_k \in \mathfrc{y}$ are independent identical distributed (iid) random var
 \onslide*<1-2>{What is a representative sample? \newline}
 \onslide*<2>{The popular concept of a representative sample it that the sample is a \emph{miniature} of the population.}
 
-\onslide<3-4>{However, what do we actually want?}
-\onslide<4>{\newline We want to estimate a statistic of interest with a certain level of precision 
- and if the level of precision is high enough we say our estimation \emph{strategy} is representative.}
+\onslide<3->{However, what do we actually want?}
+\onslide<4->{\newline We want to estimate a statistic of interest with a certain level of precision.}
+\onslide<5->{\newline The term \emph{representativ} does not come up in survey statistics}
 \end{frame}
 
-\begin{frame}{Sampling Frames}
-
-Access to the target population is of major importance for the selection of any sample.
-This is often done with the help of a sampling frame, a register that links observational units to identifier units.
-
-\onslide*<2>{
-For samples of persons popular sampling frame are:
+\begin{frame}{Elements of a Sampling Design}
 \begin{itemize}
-\item Address Registers 
+\item<1-> Sampling Frame(s)
  \begin{itemize}
-  \item Address of buildings
-  \item Address of dwellings
-  \item Address of persons
-  \item Address for post delivery points
- \end{itemize}
-\item Telephone number 
-\begin{itemize}
-  \item Set of possible landline numbers
-  \item Set of possible mobile numbers
-  \item Union of possible landline and mobile numbers (Multi-Frame)
- \end{itemize}
-\end{itemize}
-}
-\onslide<3>{
-
- ~\\
- Ideally the sampling frame should have one and one entry only for each observational unit of the target population. In practice it is often difficult to find such a  \emph{perfect} sampling frame, i.e. without any over or under coverage. \\
-
-And some sampling designs do not use a sampling frame at all.
-
-
-}
-\end{frame}
-
-
-\begin{frame}{Probability Based Samples}
-Probability Samples - A finite set of possible samples each having a certain probability of being selected, given by the sampling design. The sampling design should be measurable, that is:
-\begin{itemize}
-\item $\pi_{k}>0 \; \forall\; k \in \mathcal{U}$
-\item $\pi_{kl}>0 \; \forall\; k \neq l \in \mathcal{U}$
-\end{itemize}
-
-\onslide<2>{
-Probability based samples do not require any (parametric) assumptions about the data to analyse them, in that respect they can be considered a robust strategy.
-}
-
-\end{frame}
-
-\begin{frame}{Non-Probability Based Samples}
-Non-Probability Samples - Literally speaking the sampling method should select always the same sample if repeated. The label is often used for selection processes that are less controlled and often to complex to be modelled. 
-\onslide<2->{
-Examples:
-\begin{itemize}
- \item Convenience Samples
- \item Purposive   Samples
- \item Opt-in      Samples 
+  \item<1-> Access to the target population is of major importance for the selection of any sample
+  \end{itemize}
+\item<2-> Sampling Algorithm 
  \begin{itemize}
-  \item (Online) Access Panels  
-  \item Invitations to a survey on webpages
+  \item<2-> A software implentation is needed
  \end{itemize}
- \item Quota       Samples
+\item<3-> Inklusion Probabilities
+ \begin{itemize}
+   \item<3-> $\pi_{k}>0   \; \forall\; k \in \mathcal{U}$
+   \item<3-> $\pi_{kl}>0  \; \forall\; k \neq l \in \mathcal{U}$
+ \end{itemize}
 \end{itemize}
-}
-\onslide<3>{
-Non-probability based samples require (often unverifiable) assumptions about the observed data to analyse it (model-based inference). They often lack a theoretical frame work that could be used to construct unbiased or consistent estimates. \\
-}
-\end{frame}
-
-
-%alter
-
-\begin{frame}{Sampling Algorithms}
-A sampling algorithm is a set of rules used to select a sample from a population. Two distinctions can be made:
-\begin{itemize}
-\item<2-> Algorithms for simple random sampling. 
-All samples have the same probability of being selected, i.e. $p(\mathfrc{s})$ is constant for all possible samples.
-\item<3-> Algorithms for unequal probability sampling. There can be difficulties with non-random samples sizes, (other constraint such as balancing on auxiliary variables) and large sampling frames.
-\end{itemize}
-
-\onslide<4>{
-A sequential sampling algorithm can be applied to a sampling frame. That is, it is not necessary to enumerate all samples in a support of sampling design to select one of them.
-}
-\end{frame}
-
-
-\begin{frame}{Systematic Sampling}
-The elements of the population are brought into a specific ordered and $V^i = \sum_{k=1}^i \pi_k$. A value $\lambda$ is selected from a uniform distribution between 0 and 1.
-~\\[-3cm]
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.95\linewidth]{figure/UP_SYS-1} 
-
-}
-
-
-
-\end{knitrout}
-~\\[-3cm]
-Systematic selection remains popular because of its simplicity. Although unbiased variance estimation is in general not possible.
 \end{frame}
 
 \begin{frame}{Stratification}
@@ -635,8 +554,8 @@ We would like to estimate the difference in the mean Academic Performance Index 
 \onslide*<2>{
 We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($ \hat\sigma^2/n$).
 
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:17 2017
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:04 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -652,8 +571,8 @@ Design & 24.07 & 231.501 & -5.754 & 53.888 \\
 
 The stratification seems to be not very effective. So we construct 10 strata that are more homogeneous with regard to $\text{API}_{99}$ and $\text{API}_{00}$ (using \emph{k-means}) and select two new samples.
 
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:17 2017
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:05 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -740,8 +659,8 @@ Now we use for our Californian school survey cluster sampling. Both samples are 
 \onslide*<2>{
 We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($\hat\sigma^2/n$).
 
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:17 2017
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:05 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -832,150 +751,271 @@ and $n_{i}=4$ elements are selected from each sampled cluster.
 
 \end{knitrout}
 }
-
-
-
-
-
 \end{frame}
 
 
-\begin{frame}{Two Stage Sampling}
- \begin{description}
- \item[First  stage] A sample $\mathfrc{s}_{\RN{1}}$ of PSU's is drawn from $\mathcal{U}_{\RN{1}}$ according to some sampling design $p_{\RN{1}}(.)$
- \item[Second stage] For every $i \in \mathfrc{s}_{\RN{1}}$ a sample $\mathfrc{s}_i$ of SSU's is selected from $\mathcal{U}_i$ according to some design $p_i(.|\mathfrc{s}_{\RN{1}})$
- \end{description}
- The resulting sample of SSU's is denote $\mathfrc{s}= \bigcup_{i \in \mathfrc{s}_{\RN{1}}} \mathfrc{s}_i $.
- In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus, the inclusion probability of a element $k \in \mathcal{U}_i$ is
-$$\pi_k=\pi_{\RN{1}i}\pi_{k|i}\;,$$
-where $\pi_{\RN{1}i}$ is the probability of selecting the $i$-th PSU and $\pi_{k|i}$  the probability of selecting
-the $k$-th SSU within the $i$-th PSU.
+\section{Calibration Weights}
+
+\begin{frame}{Calibrating Design Weights I}
+
+\onslide*<1>{The general idea is to exploit the relationship between auxiliary variables and the variable of interest to improve the efficiency of estimators.}
+\onslide*<2>{ The following problem is solved with weight calibration: \newline
+For a give design $p(.)$ and a sample $\mathfrc{s}$ weights $w_k$ for all $k \in  \mathfrc{s}$ have to be found that minimize
+ $$\sum_{k \in  \mathfrc{s} } G_k(w_k,d_k,c_k)\;,$$
+subject to constraints
+ $$
+ \sum_{k \in \mathfrc{s} } w_k \mathbf{x}_k = \sum_{k \in \mathcal{U} } \mathbf{x}_k = \boldsymbol{\tau}_x
+ $$
+where $\mathbf{x}_k=(x_{k1},\,x_{k2},\,\ldots,\,x_{kQ})^\top$ is a vector of $q$ auxiliary variables for element $k$. $G_k$ is a measure of distance between $w_k$ and $d_k$ and $c_k$ is a factor that can be freely chosen for additional flexibility.
+}
 \end{frame}
 
 
-
-\begin{frame}[fragile]{Example Two Stage Sampling}
-
-\onslide*<1>{
-For our Californian schools would like to estimate the following model $\text{API}_{00} = \text{ell}+\text{meals}+\text{mobility}+\text{stype}$,
-where
+\begin{frame}{Calibrating Design Weights II}
+\onslide<1->{
+The calibrated weight of element $k$ $w_k$ can be described as $w_k = d_k g_k$, where $g_k$ is the adjustment made to the design weight $d_k$.
+The goal is the keep $g_k$ as close to one as possible, because the design weights 
+have the desirable property to enable unbiased estimation.
+}
+\onslide<2->{
+Common methods to compute calibration weights are:
+}
 \begin{itemize}
-\item[ell] = English Language Learners (percent)
-\item[meals] =  Percentage of students eligible for subsidized meals,
-\item[mobility] = percentage of students for whom this is the first year at the school,
-\item[stype] = Elementary/Middle/High School
+\item<3-> Post-stratification
+\item<4-> Raking
+\item<5-> General linear Calibration
 \end{itemize}
-Now we use a two stage sample. As PSUs the counties of California are used, the SSU are the schools. 25 PSUs are selected with probablity proportional to their number of schools. Within each selected PSU 2 schools are sampled by a SRS.
- }
-\onslide<2>{
+\onslide<6->{
+$$
+g_k = 1 + \left(\Big(\sum_{k \in \mathcal{U} } \mathbf{x}_k - \sum_{k \in \mathfrc{s} } d_k \mathbf{x}_k\Big)^\top \Big(\sum_{k \in \mathfrc{s} } d_k c_k \mathbf{x}_k (\mathbf{x}_k)^\top \Big)^{-1}\right)^\top c_k \mathbf{x}_k
+$$
+}
+\end{frame}
 
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:18 2017
+
+
+
+
+\begin{frame}{Example Calibration Weights}
+Again we sample Californian schools from the API data set.
+
+\begin{itemize}
+\item Design: We take a sample schools 100 with $\pi_k$'s proportional to their size (i.e. number of students enrolled) and use stratification by school type (i.e. Elementary, Middle, or High School).
+\item Calibration: As an auxiliary variable for calibration we use a classification of schools based of their $\text{API}_{99}$ and $\text{API}_{00}$ values (using \emph{k-means}).
+\item Estimation: We are interested in estimating the mean value of $\text{API}_{00}$
+\item Simulation: We repeat the sampling process $2500$ times to assess the bias of point estimates and the coverage rate of confidence intervals (CR)
+\end{itemize}
+\end{frame}
+
+ 
+\begin{frame}[fragile]{Example Calibration Weights}
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:05 2018
 \begin{table}[ht]
 \centering
-\caption{Naive} 
-\scalebox{0.6}{
+\caption{Expected Values of Point and Variance Estimators} 
 \begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+ & Naive & Design & Cal.Naive & Cal.Design \\ 
   \hline
-(Intercept) & 853.819 & 24.221 & 35.251 & 0.000 \\ 
-  ell & -1.475 & 0.616 & -2.394 & 0.021 \\ 
-  meals & -3.217 & 0.460 & -6.999 & 0.000 \\ 
-  mobility & 1.173 & 1.368 & 0.858 & 0.396 \\ 
-  stypeH & -110.767 & 23.125 & -4.790 & 0.000 \\ 
-  stypeM & 7.754 & 45.369 & 0.171 & 0.865 \\ 
+Pest & 645.9028 & 664.7626 & 664.6393 & 664.6393 \\ 
+  Vest & 12.8075 & 15.0301 & 15.3799 & 5.8138 \\ 
    \hline
 \end{tabular}
-}
 \end{table}
-% latex table generated in R 3.4.2 by xtable 1.8-2 package
-% Tue Dec 12 11:03:18 2017
+
+
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Tue Dec 11 10:34:05 2018
 \begin{table}[ht]
 \centering
-\caption{Design} 
-\scalebox{0.6}{
+\caption{Bias and Coverage Rates} 
 \begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+ & Naive & Design & Cal.Naive & Cal.Design \\ 
   \hline
-(Intercept) & 853.819 & 25.084 & 34.039 & 0.000 \\ 
-  ell & -1.475 & 0.626 & -2.356 & 0.036 \\ 
-  meals & -3.217 & 0.409 & -7.866 & 0.000 \\ 
-  mobility & 1.173 & 1.257 & 0.933 & 0.369 \\ 
-  stypeH & -110.767 & 49.419 & -2.241 & 0.045 \\ 
-  stypeM & 7.754 & 46.304 & 0.167 & 0.870 \\ 
+Bias & -0.0284 & -0.0001 & -0.0002 & -0.0002 \\ 
+  CR & 0.6828 & 0.9436 & 1.0000 & 0.9372 \\ 
    \hline
 \end{tabular}
-}
 \end{table}
 
-}
+
 \end{frame}
 
 
-\section{Sample Size Planning}
+% 
+% 
+% % 
+% % 
+% \begin{frame}{Two Stage Sampling}
+%  \begin{description}
+%  \item[First  stage] A sample $\mathfrc{s}_{\RN{1}}$ of PSU's is drawn from $\mathcal{U}_{\RN{1}}$ according to some sampling design $p_{\RN{1}}(.)$
+%  \item[Second stage] For every $i \in \mathfrc{s}_{\RN{1}}$ a sample $\mathfrc{s}_i$ of SSU's is selected from $\mathcal{U}_i$ according to some design $p_i(.|\mathfrc{s}_{\RN{1}})$
+%  \end{description}
+%  The resulting sample of SSU's is denote $\mathfrc{s}= \bigcup_{i \in \mathfrc{s}_{\RN{1}}} \mathfrc{s}_i $.
+%  In general, samples $\mathfrc{s}_i$ are selected independently of each other, thus, the inclusion probability of a element $k \in \mathcal{U}_i$ is
+% $$\pi_k=\pi_{\RN{1}i}\pi_{k|i}\;,$$
+% where $\pi_{\RN{1}i}$ is the probability of selecting the $i$-th PSU and $\pi_{k|i}$  the probability of selecting
+% the $k$-th SSU within the $i$-th PSU.
+% \end{frame}
+% 
+% 
+% 
+% \begin{frame}[fragile]{Example Two Stage Sampling}
+% <<TwoStageExam, echo=FALSE, cache=FASLE, results='hide', warning=FALSE, message=FALSE, cache=TRUE>>=
+% set.seed(2251)
+% data(api)
+% 
+% select.apiTwoStage <- 
+%   function(n_I, n_c){
+%     dat <- apipop
+%     h_c  <- table(dat$cnum)/nrow(dat)*n_I
+%     
+%     
+%     p_c  <- h_c%%1
+%     d_c  <- h_c%/%1
+%     s_c  <- UPmaxentropy(p_c)
+%     
+%     n_i  <- (s_c+d_c)*n_c
+%     
+%     s.snum <- unlist(
+%       mapply(function(x,y) sample(as.character(x), y), 
+%              tapply(dat$snum,dat$cnum,identity)[names(n_i)],
+%              n_i
+%       )
+%     )
+%     
+%     h_ci  <- h_c[as.character(dat$cnum)]
+%     n_i.m <- rep(n_c,length(h_ci))
+%     
+%     n_i.m[h_ci>1] <- h_ci[h_ci>1]*n_c
+%     
+%     p_ci         <- h_ci
+%     p_ci[h_ci>1] <- 1
+%     
+%     dat$fpc2 <- n_i.m[dat$cnum]/table(dat$cnum)[as.character(dat$cnum)]
+%     dat$fpc1 <- p_ci[as.character(dat$cnum)]
+%     
+%     
+%     apiclus3 <- dat[dat$snum%in%as.numeric(s.snum),]
+%     
+%     svydesign(id=~cnum+snum, fpc = ~fpc1 + fpc2, data=apiclus3, pps = "brewer")
+%     
+%     
+%     
+%   }
+% 
+% dmultstag_1 <- select.apiTwoStage(25,2)
+% 
+% sum.lm.naive <- summary(lm(api00~ell+meals+mobility+stype, 
+%                            data = dmultstag_1$variables, 
+%                            weights = weights(dmultstag_1)))
+% 
+% sum.lm.svy   <- summary(svyglm(api00~ell+meals+mobility+stype, 
+%                                design=dmultstag_1))
+% 
+% @
+% \onslide*<1>{
+% For our Californian schools would like to estimate the following model $\text{API}_{00} = \text{ell}+\text{meals}+\text{mobility}+\text{stype}$,
+% where
+% \begin{itemize}
+% \item[ell] = English Language Learners (percent)
+% \item[meals] =  Percentage of students eligible for subsidized meals,
+% \item[mobility] = percentage of students for whom this is the first year at the school,
+% \item[stype] = Elementary/Middle/High School
+% \end{itemize}
+% Now we use a two stage sample. As PSUs the counties of California are used, the SSU are the schools. 25 PSUs are selected with probablity proportional to their number of schools. Within each selected PSU 2 schools are sampled by a SRS.
+%  }
+% \onslide<2>{
+% 
+% <<TwoStageRes,  echo=FALSE, cache=FALSE, results='asis'>>=
+% tab.naive<-xtable(sum.lm.naive,digits = c(0,3,3,3,3),caption = "Naive")
+% tab.svy  <- xtable(sum.lm.svy,digits = c(0,3,3,3,3),caption = "Design")
+% 
+% print(tab.naive, scalebox=0.6,caption.placement='top')
+% print(tab.svy, scalebox=0.6,caption.placement='top')
+% @
+% }
+% \end{frame}
+% 
 
-\begin{frame}{Selecting a Sample Size}
-\onslide*<1>{
-The sample size can be set to achieve a desired level of precision in terms of the variance 
-$\V{\hat{\theta}}$ or the variation coefficient $\text{CV}(\hat{\theta})  = \frac{\sqrt{\text{V}(\hat{\theta})}}{\hat{\theta}}$. \newline
-Set $\text{CV}(\overline{y}) = \text{CV}_0$ as a precision requirement (representative!).
-\begin{align}
-n & = \dfrac{ V^2  \mu^{-2}}{\text{CV}_0^2 +  V^2  N^{-1} \mu^{-2}} \eqname{SRS} 
- \end{align}
-}
-\onslide*<2>{
-There are many ways to optimize the sampling design with
-respect to one particular goal, i.e. the estimation of a specific
-statistic. However, it becomes difficult to optimize a design and at
-the same time retain a balance for a maximum of possible
-applications, which is a problem when planning a multipurpose
-survey that has a multitude of variables and covers different
-topics. Thus simple design, such as SRS or stratified SRS, are
-justifiable, as these designs are robust towards any possible
-analysis of the sample data.
-}
+% \section{Sample Size Planning}
+% 
+% \begin{frame}{Selecting a Sample Size}
+% \onslide*<1>{
+% The sample size can be set to achieve a desired level of precision in terms of the variance 
+% $\V{\hat{\theta}}$ or the variation coefficient $\text{CV}(\hat{\theta})  = \frac{\sqrt{\text{V}(\hat{\theta})}}{\hat{\theta}}$. \newline
+% Set $\text{CV}(\overline{y}) = \text{CV}_0$ as a precision requirement (representative!).
+% \begin{align}
+% n & = \dfrac{ V^2  \mu^{-2}}{\text{CV}_0^2 +  V^2  N^{-1} \mu^{-2}} \eqname{SRS} 
+%  \end{align}
+% }
+% \onslide*<2>{
+% There are many ways to optimize the sampling design with
+% respect to one particular goal, i.e. the estimation of a specific
+% statistic. However, it becomes difficult to optimize a design and at
+% the same time retain a balance for a maximum of possible
+% applications, which is a problem when planning a multipurpose
+% survey that has a multitude of variables and covers different
+% topics. Thus simple design, such as SRS or stratified SRS, are
+% justifiable, as these designs are robust towards any possible
+% analysis of the sample data.
+% }
+% \end{frame}
+% 
+% \begin{frame}{Sample Size for Proportions}
+% \onslide*<1,3>{If the variable of interest is binary we have $\V{\overline{y}}_{\text{SRS}} = \dfrac{\mu(1-\mu) }{n} \dfrac{N-n}{N-1}$ and $\text{CV}^2(\overline{y})_\text{SRS}=\left( \dfrac{1}{n} - \dfrac{1}{N}\right) \dfrac{N}{N-1} \dfrac{(1-\mu)}{\mu}$. However $ \lim_{\mu \to 0} \text{CV}^2(\overline{y})_\text{SRS} = \infty\;$, thus for rare observation to meet a CV target the sample size can become very large.
+% }
+% \onslide*<2>{
+% <<SamSizeSRSprobs,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth',message=FALSE,warning=FALSE,fig.cap="Sample Sizes to Achieve CV's of 0.05 and 0.01 for N=50000">>=
+%  CV_01 <- 0.05
+%  CV_02 <- 0.01
+%  p <- seq(0.001, 0.999, length.out = 100)
+%  N <- 50000
+% 
+%  n_01 <- nProp(CV0 = CV_01,pU = p,N = N)
+%  n_02 <- nProp(CV0 = CV_02,pU = p,N = N)
+%  
+%  plot(x=p ,y=n_01,type="l",lwd=3,ylab="n",panel.first = grid(lwd=3),cex.lab=2, cex.axis=2,ylim=c(range(n_02)),xlab=expression(mu) )
+%  lines(x=p,y=n_02,lwd=3, type="l", lty=2)
+%  legend(0.7, max(n_02), c("CV=0.05","CV=0.01"), cex=2, lty=1:2,lwd=2)
+% @
+% }
+% \onslide*<3>{The target for $\V{\overline{y}}_{\text{SRS}}$ can be set to achieve a CI's with a maximal length of $2\epsilon$.
+% % \begin{align*}
+% % \epsilon \geq & z_{1-\alpha/2} \sqrt{ \dfrac{\mu(1-\mu) }{n} \dfrac{N-n}{N-1} } &
+% % n \geq & \dfrac{ z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }{\epsilon^2  + \frac{1}{N}  z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }
+% % \end{align*}
+% }
+% \onslide*<4>{
+%  <<SamSizeSRSprobs2,echo=FALSE,fig.width=12,fig.height=8,out.width='.85\\linewidth',message=FALSE,warning=FALSE,fig.cap="Sample Sizes to Achieve Absolute Errors of 0.05 and 0.01 for N=50000">>=
+%  e_01 <- 0.05
+%  e_02 <- 0.01
+%  p <- seq(0.001, 0.999, length.out = 100)
+%  N <- 50000
+%  z <- qnorm(1-0.05/2)
+%  n_01 <- (N/(N-1)*z^2*p*(1-p))/(e_01^2+z^2*p*(1-p)/(N-1))
+%  n_02 <- (N/(N-1)*z^2*p*(1-p))/(e_02^2+z^2*p*(1-p)/(N-1))
+%  
+%  plot(x=p ,y=n_02,type="l",lwd=3,ylab="n",panel.first = grid(lwd=3),cex.lab=2, cex.axis=2,lty=2,xlab=expression(mu) )
+%  lines(x=p,y=n_01,lwd=3, type="l", lty=1)
+%  legend(0.75, max(n_02), c(expression(epsilon~"=0.05"),expression(epsilon~"=0.01")), cex=2, lty=1:2,lwd=2)
+% @
+% }
+% \end{frame}
+
+\begin{frame}\frametitle{Lessons Learned}
+\begin{itemize}
+\item<1-> \alert{The sampling design matters!} 
+ \begin{itemize}
+  \item<2-> Especially for variance estimation and thus for hypothesis testing
+ \end{itemize}
+\item<3-> Using design weights is \alert{not equivalent} to considering the sampling design
+\item<4-> Calibration weights can \alert{reduce} the variance of estimators
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Sample Size for Proportions}
-\onslide*<1,3>{If the variable of interest is binary we have $\V{\overline{y}}_{\text{SRS}} = \dfrac{\mu(1-\mu) }{n} \dfrac{N-n}{N-1}$ and $\text{CV}^2(\overline{y})_\text{SRS}=\left( \dfrac{1}{n} - \dfrac{1}{N}\right) \dfrac{N}{N-1} \dfrac{(1-\mu)}{\mu}$. However $ \lim_{\mu \to 0} \text{CV}^2(\overline{y})_\text{SRS} = \infty\;$, thus for rare observation to meet a CV target the sample size can become very large.
-}
-\onslide*<2>{
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=.85\linewidth]{figure/SamSizeSRSprobs-1} 
-
-}
-
-\caption[Sample Sizes to Achieve CV's of 0.05 and 0.01 for N=50000]{Sample Sizes to Achieve CV's of 0.05 and 0.01 for N=50000}\label{fig:SamSizeSRSprobs}
-\end{figure}
-
-
-\end{knitrout}
-}
-\onslide*<3>{The target for $\V{\overline{y}}_{\text{SRS}}$ can be set to achieve a CI's with a maximal length of $2\epsilon$.
-% \begin{align*}
-% \epsilon \geq & z_{1-\alpha/2} \sqrt{ \dfrac{\mu(1-\mu) }{n} \dfrac{N-n}{N-1} } &
-% n \geq & \dfrac{ z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }{\epsilon^2  + \frac{1}{N}  z_{1-\alpha/2}^2 \frac{N}{N-1} \mu(1-\mu) }
-% \end{align*}
-}
-\onslide*<4>{
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=.85\linewidth]{figure/SamSizeSRSprobs2-1} 
-
-}
-
-\caption[Sample Sizes to Achieve Absolute Errors of 0.05 and 0.01 for N=50000]{Sample Sizes to Achieve Absolute Errors of 0.05 and 0.01 for N=50000}\label{fig:SamSizeSRSprobs2}
-\end{figure}
-
-
-\end{knitrout}
-}
-\end{frame}
 
 \begin{frame}[allowframebreaks]\frametitle{Literature}    
 %\scriptsize
