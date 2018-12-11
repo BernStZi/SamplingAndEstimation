@@ -161,9 +161,10 @@
   \frametitle{Content}
   
   \begin{itemize}
+  \item Inference
   \item Design Based Inference
   \item Sampling Designs
-  \item Sample Size Planning
+  \item Calibration Weights
   \end{itemize}
 
 
@@ -174,9 +175,9 @@
 
 \begin{frame}{Motivation}
  \begin{itemize}
-    \item<1,4>  Did you ever work with sample data? 
+    \item<1,4> Did you ever work with sample data? 
     \item<2,4> What kind of analysis have you done with sample data?
-    \item<3,4>  What concerns did you have while applying your analytically methods?
+    \item<3,4> What concerns did you have while applying your analytically methods?
   \end{itemize}
 \end{frame}
 
@@ -329,7 +330,7 @@ $$
  \E{\hat{\theta}} & = \sum_{\mathfrc{s} \in \mathcal{G}} p(\mathfrc{s}) f(\mathcal{Y}, \mathfrc{s} )   \eqname{expected value of $\hat{\theta}$} \\
  \V{\hat{\theta}}   & =  \E{\hat{\theta}^2} -  {\E{\hat{\theta}}}^2 \eqname{variance of  $\hat{\theta}$} 
 \end{align}
- $\E{.}$ and $\V{.}$ are always with respect to the sampling design $p()$ and
+ $\E{.}$ and $\V{.}$ are always with respect to the sampling design $p(.)$ and
  an estimator is said to be unbiased if
  $$ \E{\hat{\theta}} = \theta\;. $$
 \end{frame}
@@ -552,10 +553,10 @@ Proportional allocation can also be done with respect to another variable, e.g. 
 We would like to estimate the difference in the mean Academic Performance Index (API) of all Californian schools between year 1999 and 2000 ($32.8$). To do that we select from all Californian schools two samples. One sample in 1999 and one in 2000. Both samples are selected by a  stratified (simple random) sample, where the Counties of California are used as the strata. The samples size for both samples is 205. From each County at least 2 schools are selected. The rest of the sampled size is allocated proportionally to the number of schools in the strata. The inclusion probability of a school in a particular stratum is the number of schools selected from that stratum divided by the total number of schools in that stratum. 
 }
 \onslide*<2>{
-We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($ \hat\sigma^2/n$).
+We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights.
 
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Tue Dec 11 10:34:04 2018
+% Tue Dec 11 11:57:29 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -572,7 +573,7 @@ Design & 24.07 & 231.501 & -5.754 & 53.888 \\
 The stratification seems to be not very effective. So we construct 10 strata that are more homogeneous with regard to $\text{API}_{99}$ and $\text{API}_{00}$ (using \emph{k-means}) and select two new samples.
 
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Tue Dec 11 10:34:05 2018
+% Tue Dec 11 11:57:29 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -657,10 +658,10 @@ and $n_{\RN{1}}=2$ clusters are selected from the population.
 Now we use for our Californian school survey cluster sampling. Both samples are selected by a (simple) cluster sample, where the clusters are the School Districts of California. 25 clusters are selected for both samples and the expected number of schools in each sample is $205$. Each cluster has the same inclusion probability, $0.0330251$ (25 divided by $757$, the number of clusters). 
 }
 \onslide*<2>{
-We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights ($\hat\sigma^2/n$).
+We use two estimator for variance estimation. One is design unbiased and the other is a naive estimator that uses no other design information than the design weights.
 
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Tue Dec 11 10:34:05 2018
+% Tue Dec 11 11:57:29 2018
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -810,7 +811,7 @@ Again we sample Californian schools from the API data set.
  
 \begin{frame}[fragile]{Example Calibration Weights}
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Tue Dec 11 10:34:05 2018
+% Tue Dec 11 11:57:30 2018
 \begin{table}[ht]
 \centering
 \caption{Expected Values of Point and Variance Estimators} 
@@ -826,7 +827,7 @@ Pest & 645.9028 & 664.7626 & 664.6393 & 664.6393 \\
 
 
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Tue Dec 11 10:34:05 2018
+% Tue Dec 11 11:57:30 2018
 \begin{table}[ht]
 \centering
 \caption{Bias and Coverage Rates} 

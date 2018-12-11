@@ -132,9 +132,10 @@ knitr::knit_hooks$set(inline = function(x) {
   \frametitle{Content}
   
   \begin{itemize}
+  \item Inference
   \item Design Based Inference
   \item Sampling Designs
-  \item Sample Size Planning
+  \item Calibration Weights
   \end{itemize}
 
 

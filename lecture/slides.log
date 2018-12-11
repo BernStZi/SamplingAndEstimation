@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  11 DEC 2018 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.11.10)  11 DEC 2018 11:57
 entering extended mode
 **slides.tex
 (slides.tex
@@ -2139,7 +2139,7 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 158.
 
 {C:/Users/zinssn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./gesis-lo
 go-en.pdf> <./gesis-house.jpg> <./gesis-foot-logo.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 172.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 173.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -2152,7 +2152,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for U+msa on input line 172.
+LaTeX Font Info:    Try loading font information for U+msa on input line 173.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -2160,7 +2160,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 172.
+LaTeX Font Info:    Try loading font information for U+msb on input line 173.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2168,7 +2168,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 172.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 173.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -2176,83 +2176,83 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 172.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 173.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 172.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 173.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [2
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 181.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 182.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 181.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 182.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [3
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 181.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 182.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 181.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 182.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [4
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 181.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 182.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 181.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 182.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [5
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 181.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 182.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 181.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 182.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [6
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 183.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 184.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 183.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 184.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [7
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 196.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 197.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 196.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 197.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [8
 
@@ -2260,19 +2260,19 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 196.
 File: figure/LLN-1.pdf Graphic file (type pdf)
 
 <use figure/LLN-1.pdf>
-Package pdftex.def Info: figure/LLN-1.pdf used on input line 215.
+Package pdftex.def Info: figure/LLN-1.pdf used on input line 216.
 (pdftex.def)             Requested size: 245.83282pt x 175.59639pt.
 
-Overfull \vbox (59.14546pt too high) detected at line 215
+Overfull \vbox (59.14546pt too high) detected at line 216
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 215.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 216.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 215.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 216.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [9
 
@@ -2280,15 +2280,15 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 215.
 File: figure/LLN-1.pdf Graphic file (type pdf)
 
 <use figure/LLN-1.pdf>
-Package pdftex.def Info: figure/LLN-1.pdf used on input line 215.
+Package pdftex.def Info: figure/LLN-1.pdf used on input line 216.
 (pdftex.def)             Requested size: 245.83282pt x 175.59639pt.
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 215.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 216.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 215.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 216.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
 
 [10
@@ -2296,11 +2296,11 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 215.
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 229.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 230.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 229.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 230.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [11
 
@@ -2308,16 +2308,16 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 229.
 <figure/CLT_1-1.pdf, id=114, 505.89pt x 505.89pt>
 File: figure/CLT_1-1.pdf Graphic file (type pdf)
  <use figure/CLT_1-1.pdf>
-Package pdftex.def Info: figure/CLT_1-1.pdf used on input line 300.
+Package pdftex.def Info: figure/CLT_1-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 307.29561pt x 142.26576pt.
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 300.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 301.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 301.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [12
 
@@ -2325,19 +2325,19 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
 <figure/CLT_2-1.pdf, id=126, 505.89pt x 505.89pt>
 File: figure/CLT_2-1.pdf Graphic file (type pdf)
  <use figure/CLT_2-1.pdf>
-Package pdftex.def Info: figure/CLT_2-1.pdf used on input line 300.
+Package pdftex.def Info: figure/CLT_2-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 307.29561pt x 192.05493pt.
 
-Overfull \vbox (5.21689pt too high) detected at line 300
+Overfull \vbox (5.21689pt too high) detected at line 301
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 300.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 301.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 301.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [13
 
@@ -2345,19 +2345,19 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
 <figure/CLT_3-1.pdf, id=139, 505.89pt x 505.89pt>
 File: figure/CLT_3-1.pdf Graphic file (type pdf)
  <use figure/CLT_3-1.pdf>
-Package pdftex.def Info: figure/CLT_3-1.pdf used on input line 300.
+Package pdftex.def Info: figure/CLT_3-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 307.29561pt x 192.05493pt.
 
-Overfull \vbox (5.21689pt too high) detected at line 300
+Overfull \vbox (5.21689pt too high) detected at line 301
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 300.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 301.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 301.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [14
 
@@ -2365,19 +2365,19 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
 <figure/CLT_4-1.pdf, id=151, 505.89pt x 505.89pt>
 File: figure/CLT_4-1.pdf Graphic file (type pdf)
  <use figure/CLT_4-1.pdf>
-Package pdftex.def Info: figure/CLT_4-1.pdf used on input line 300.
+Package pdftex.def Info: figure/CLT_4-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 307.29561pt x 192.05493pt.
 
-Overfull \vbox (5.21689pt too high) detected at line 300
+Overfull \vbox (5.21689pt too high) detected at line 301
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 300.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 301.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 301.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [15
 
@@ -2385,19 +2385,19 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
 <figure/CLT_5-1.pdf, id=163, 505.89pt x 505.89pt>
 File: figure/CLT_5-1.pdf Graphic file (type pdf)
  <use figure/CLT_5-1.pdf>
-Package pdftex.def Info: figure/CLT_5-1.pdf used on input line 300.
+Package pdftex.def Info: figure/CLT_5-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 307.29561pt x 192.05493pt.
 
-Overfull \vbox (5.21689pt too high) detected at line 300
+Overfull \vbox (5.21689pt too high) detected at line 301
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 300.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 301.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 301.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [16
 
@@ -2405,16 +2405,16 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 300.
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 304.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 305.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 304.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 305.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [17
 
 ]
-LaTeX Font Info:    Try loading font information for T1+frc on input line 322.
+LaTeX Font Info:    Try loading font information for T1+frc on input line 323.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\frcursive\t1frc.fd"
 File: t1frc.fd 2004/06/12 French Cursive font definition
@@ -2445,52 +2445,52 @@ Package microtype Info: Character `_' is missing
 (microtype)             in font `T1/frc/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \vbox (1.26198pt too high) detected at line 322
+Overfull \vbox (1.26198pt too high) detected at line 323
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 322.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 323.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 322.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 323.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [18
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 335.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 336.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 335.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 336.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [19
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 350.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 351.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 350.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 351.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [20
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 364.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 365.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 364.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 365.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [21
 
@@ -2517,203 +2517,203 @@ Package microtype Info: Character `_' is missing
 (microtype)             in font `T1/frc/m/n/10'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (31.69296pt too wide) in paragraph at lines 396--396
+Overfull \hbox (31.69296pt too wide) in paragraph at lines 397--397
 []  
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 396.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 397.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 396.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 397.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [22
 
 ]
-Overfull \hbox (31.69296pt too wide) in paragraph at lines 396--396
+Overfull \hbox (31.69296pt too wide) in paragraph at lines 397--397
 []  
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 396.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 397.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 396.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 397.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [23
 
 ]
-Overfull \hbox (31.69296pt too wide) in paragraph at lines 396--396
+Overfull \hbox (31.69296pt too wide) in paragraph at lines 397--397
 []  
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 396.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 397.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 396.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 397.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [24
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 427.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 428.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 427.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 428.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [25
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 427.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 428.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 427.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 428.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [26
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 427.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 428.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 427.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 428.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [27
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 427.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 428.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 427.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 428.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [28
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 430.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 431.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 430.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 431.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [29
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 440.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 441.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 440.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 441.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [30
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 440.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 441.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 440.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 441.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [31
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 440.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 441.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 440.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 441.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [32
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 440.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 441.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 440.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 441.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [33
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 440.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 441.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 440.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 441.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [34
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 458.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 459.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 458.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 459.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [35
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 458.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 459.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 458.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 459.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [36
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 458.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 459.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 458.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 459.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [37
 
@@ -2722,95 +2722,95 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 458.
 File: figure/StratPlot1-1.pdf Graphic file (type pdf)
 
 <use figure/StratPlot1-1.pdf>
-Package pdftex.def Info: figure/StratPlot1-1.pdf used on input line 494.
+Package pdftex.def Info: figure/StratPlot1-1.pdf used on input line 495.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
 <figure/StratPlot2-1.pdf, id=296, 867.24pt x 505.89pt>
 File: figure/StratPlot2-1.pdf Graphic file (type pdf)
 
 <use figure/StratPlot2-1.pdf>
-Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 494.
+Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 495.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
-Overfull \vbox (166.13666pt too high) detected at line 494
+Overfull \vbox (166.13666pt too high) detected at line 495
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 494.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 495.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 494.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 495.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [38
 
  <./figure/StratPlot1-1.pdf> <./figure/StratPlot2-1.pdf>]
 File: figure/StratPlot2-1.pdf Graphic file (type pdf)
  <use figure/StratPlot2-1.pdf>
-Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 494.
+Package pdftex.def Info: figure/StratPlot2-1.pdf used on input line 495.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
-Overfull \vbox (10.38702pt too high) detected at line 494
+Overfull \vbox (10.38702pt too high) detected at line 495
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 494.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 495.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 494.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 495.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [39
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 530.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 531.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 530.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 531.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [40
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 547.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 548.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 547.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 548.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [41
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 608.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 609.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 608.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 609.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [42
 
 ] (slides.vrb)
-Overfull \vbox (4.38878pt too high) detected at line 608
+Overfull \vbox (4.03905pt too high) detected at line 609
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 608.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 609.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 608.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 609.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [43
 
@@ -2818,11 +2818,11 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 608.
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 608.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 609.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 608.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 609.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [44
 
@@ -2831,138 +2831,138 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 608.
 File: figure/CluPlot1-1.pdf Graphic file (type pdf)
 
 <use figure/CluPlot1-1.pdf>
-Package pdftex.def Info: figure/CluPlot1-1.pdf used on input line 638.
+Package pdftex.def Info: figure/CluPlot1-1.pdf used on input line 639.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
 <figure/CluPlot2-1.pdf, id=344, 867.24pt x 505.89pt>
 File: figure/CluPlot2-1.pdf Graphic file (type pdf)
 
 <use figure/CluPlot2-1.pdf>
-Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 638.
+Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 639.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
-Overfull \vbox (150.86124pt too high) detected at line 638
+Overfull \vbox (150.86124pt too high) detected at line 639
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 638.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 639.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 638.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 639.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [45
 
  <./figure/CluPlot1-1.pdf> <./figure/CluPlot2-1.pdf>]
 File: figure/CluPlot2-1.pdf Graphic file (type pdf)
  <use figure/CluPlot2-1.pdf>
-Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 638.
+Package pdftex.def Info: figure/CluPlot2-1.pdf used on input line 639.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 638.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 639.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 638.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 639.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [46
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 650.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 651.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 650.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 651.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [47
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 650.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 651.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 650.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 651.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [48
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 650.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 651.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 650.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 651.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [49
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 650.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 651.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 650.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 651.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [50
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 720.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 721.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 720.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 721.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [51
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 720.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 721.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 720.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 721.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [52
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 720.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 721.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 720.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 721.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [53
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 720.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 721.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 720.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 721.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [54
 
@@ -2971,248 +2971,248 @@ Package pdftex.def Info: gesis-foot-logo.png used on input line 720.
 File: figure/CluPlot1_2-1.pdf Graphic file (type pdf)
 
 <use figure/CluPlot1_2-1.pdf>
-Package pdftex.def Info: figure/CluPlot1_2-1.pdf used on input line 754.
+Package pdftex.def Info: figure/CluPlot1_2-1.pdf used on input line 755.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
 <figure/CluPlot2_2-1.pdf, id=407, 867.24pt x 505.89pt>
 File: figure/CluPlot2_2-1.pdf Graphic file (type pdf)
 
 <use figure/CluPlot2_2-1.pdf>
-Package pdftex.def Info: figure/CluPlot2_2-1.pdf used on input line 754.
+Package pdftex.def Info: figure/CluPlot2_2-1.pdf used on input line 755.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 
-Overfull \vbox (134.87415pt too high) detected at line 754
+Overfull \vbox (134.87415pt too high) detected at line 755
  []
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 754.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 755.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 754.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 755.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [55
 
  <./figure/CluPlot1_2-1.pdf> <./figure/CluPlot2_2-1.pdf>]
 File: figure/CluPlot2_2-1.pdf Graphic file (type pdf)
  <use figure/CluPlot2_2-1.pdf>
-Package pdftex.def Info: figure/CluPlot2_2-1.pdf used on input line 754.
+Package pdftex.def Info: figure/CluPlot2_2-1.pdf used on input line 755.
 (pdftex.def)             Requested size: 261.19826pt x 152.36255pt.
 File: gesis-logo-en.pdf Graphic file (type pdf)
 
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 754.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 755.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 754.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 755.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [56
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 757.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 758.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 757.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 758.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [57
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 771.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 772.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 771.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 772.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [58
 
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
-(Font)              using `OT1/cmss/m/n' instead on input line 771.
+(Font)              using `OT1/cmss/m/n' instead on input line 772.
 
 File: gesis-logo-en.pdf Graphic file (type pdf)
 <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 771.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 772.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 771.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 772.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [59
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [60
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [61
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [62
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [63
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [64
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 793.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 794.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 793.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 794.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [65
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 808.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 809.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 808.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 809.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [66
 
 ] (slides.vrb)
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 844.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 845.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 844.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 845.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [67
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1017.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1018.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1017.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1018.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [68
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1017.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1018.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1017.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1018.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [69
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1017.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1018.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1017.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1018.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [70
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1017.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1018.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1017.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1018.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [71
 
 ]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1044.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1045.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
 
 <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1044.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1045.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
  [72
 
  <C:/Program Files/MiKTeX 2.9/tex/latex/beamer/base/art/beamericonbook.pdf>]
 File: gesis-logo-en.pdf Graphic file (type pdf)
  <use gesis-logo-en.pdf>
-Package pdftex.def Info: gesis-logo-en.pdf used on input line 1044.
+Package pdftex.def Info: gesis-logo-en.pdf used on input line 1045.
 (pdftex.def)             Requested size: 65.44142pt x 11.98468pt.
 File: gesis-foot-logo.png Graphic file (type png)
  <use gesis-foot-logo.png>
-Package pdftex.def Info: gesis-foot-logo.png used on input line 1044.
+Package pdftex.def Info: gesis-foot-logo.png used on input line 1045.
 (pdftex.def)             Requested size: 14.22636pt x 9.93744pt.
 Package atenddvi Info: Last page = 73.
 
@@ -3223,11 +3223,11 @@ Package atenddvi Info: Last page = 73.
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1047.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 1047.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1048.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 1048.
  (slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1047.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1047.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1048.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1048.
 
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 35D6049D789ABEAE1D27699D333F2EA2;210.
@@ -3235,7 +3235,7 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1047.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1048.
  ) 
 Here is how much of TeX's memory you used:
  32568 strings out of 493636
@@ -3264,7 +3264,7 @@ ype1/mathx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tex-gyre/qhvb.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on slides.pdf (73 pages, 2822596 bytes).
+Output written on slides.pdf (73 pages, 2822315 bytes).
 PDF statistics:
  629 PDF objects out of 1000 (max. 8388607)
  155 named destinations out of 1000 (max. 500000)
